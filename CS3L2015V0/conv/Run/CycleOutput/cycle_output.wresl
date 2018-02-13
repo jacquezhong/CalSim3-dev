@@ -666,111 +666,111 @@ define[local] ndd_31_c8{alias ndd_31dv[DELTA] kind 'FLOW-DELIVERY' units 'CFS'}
 /* Outputs for spreadsheet analyzing controlling factors */
 !PRESETUP cycle variables
 
-define[local] D_BKR004_NBA009_NAPAPRE  {alias D_BKR004_NBA009_NAPA[GW_INITIAL]     KIND 'FLOW-DELIVERY' UNITS 'CFS'}
-define[local] C_SAC240PRE  {alias C_SAC240[GW_INITIAL]      kind 'FLOW-CHANNEL'  units 'CFS'}
-define[local] C_OMR014PRE  {alias C_OMR014[GW_INITIAL]      kind 'FLOW-CHANNEL'  units 'CFS'}
+define[local] D_BKR004_NBA009_NAPAPRE  {alias D_BKR004_NBA009_NAPA[PRESETUP]     KIND 'FLOW-DELIVERY' UNITS 'CFS'}
+define[local] C_SAC240PRE  {alias C_SAC240[PRESETUP]      kind 'FLOW-CHANNEL'  units 'CFS'}
+define[local] C_OMR014PRE  {alias C_OMR014[PRESETUP]      kind 'FLOW-CHANNEL'  units 'CFS'}
 
-define[local] D419PRE     {alias D419[GW_INITIAL]    KIND 'debug' UNITS 'CFS'}
-define[local] D419_swpPRE     {alias D419_swp[GW_INITIAL]    KIND 'debug' UNITS 'CFS'}
-define[local] D418PRE         {alias D418[GW_INITIAL]        KIND 'debug' UNITS 'CFS'}
-define[local] D419_exp1PRE    {alias D419_exp1[GW_INITIAL]   KIND 'debug' UNITS 'CFS'}
-define[local] D419_exp2PRE    {alias D419_exp2[GW_INITIAL]   KIND 'debug' UNITS 'CFS'}
-define[local] D418_exp1PRE    {alias D418_exp1[GW_INITIAL]   KIND 'debug' UNITS 'CFS'}
-define[local] D418_exp2PRE    {alias D418_exp2[GW_INITIAL]   KIND 'debug' UNITS 'CFS'}
-define[local] C_SAC000_ADD_swpPRE     {alias C_SAC000_ADD_swp[GW_INITIAL]    KIND 'debug' UNITS 'CFS'}
-define[local] C_SAC000_ADD_cvpPRE     {alias C_SAC000_ADD_cvp[GW_INITIAL]    KIND 'debug' UNITS 'CFS'}
-define[local] D409PRE         {alias D409[GW_INITIAL]        KIND 'debug' units 'cfs'}
-define[local] eiexpctrlPRE       {alias eiexpctrl[GW_INITIAL]      KIND 'debug' units 'cfs'}
-define[local] aprmayexpctrlPRE       {alias aprmayexpctrl[GW_INITIAL]      KIND 'debug' units 'cfs'}
-define[local] aprmaybanksctrlPRE       {alias aprmaybanksctrl[GW_INITIAL]      KIND 'debug' units 'cfs'}
-define[local] aprmaytracyctrlPRE       {alias aprmaytracyctrl[GW_INITIAL]      KIND 'debug' units 'cfs'}
+define[local] D419PRE     {alias D419[PRESETUP]    KIND 'debug' UNITS 'CFS'}
+define[local] D419_swpPRE     {alias D419_swp[PRESETUP]    KIND 'debug' UNITS 'CFS'}
+define[local] D418PRE         {alias D418[PRESETUP]        KIND 'debug' UNITS 'CFS'}
+define[local] D419_exp1PRE    {alias D419_exp1[PRESETUP]   KIND 'debug' UNITS 'CFS'}
+define[local] D419_exp2PRE    {alias D419_exp2[PRESETUP]   KIND 'debug' UNITS 'CFS'}
+define[local] D418_exp1PRE    {alias D418_exp1[PRESETUP]   KIND 'debug' UNITS 'CFS'}
+define[local] D418_exp2PRE    {alias D418_exp2[PRESETUP]   KIND 'debug' UNITS 'CFS'}
+define[local] C_SAC000_ADD_swpPRE     {alias C_SAC000_ADD_swp[PRESETUP]    KIND 'debug' UNITS 'CFS'}
+define[local] C_SAC000_ADD_cvpPRE     {alias C_SAC000_ADD_cvp[PRESETUP]    KIND 'debug' UNITS 'CFS'}
+define[local] D409PRE         {alias D409[PRESETUP]        KIND 'debug' units 'cfs'}
+define[local] eiexpctrlPRE       {alias eiexpctrl[PRESETUP]      KIND 'debug' units 'cfs'}
+define[local] aprmayexpctrlPRE       {alias aprmayexpctrl[PRESETUP]      KIND 'debug' units 'cfs'}
+define[local] aprmaybanksctrlPRE       {alias aprmaybanksctrl[PRESETUP]      KIND 'debug' units 'cfs'}
+define[local] aprmaytracyctrlPRE       {alias aprmaytracyctrl[PRESETUP]      KIND 'debug' units 'cfs'}
 
-define[local] C_KSWCK_mPRE   {alias C_KSWCK_m[GW_INITIAL]  KIND 'debug' UNITS 'CFS'}
-define[local] C_NTOMA_mPRE  {alias C_NTOMA_m[GW_INITIAL] KIND 'debug' UNITS 'CFS'}
-define[local] C_WKYTN_mPRE   {alias C_WKYTN_m[GW_INITIAL]  KIND 'debug' UNITS 'CFS'}
-define[local] C_FTR059PRE     {alias C_FTR059[GW_INITIAL]    KIND 'debug' UNITS 'CFS'}
-define[local] C_FTR059_mPRE     {alias C_FTR059_m[GW_INITIAL]    KIND 'debug' UNITS 'CFS'}
+define[local] C_KSWCK_mPRE   {alias C_KSWCK_m[PRESETUP]  KIND 'debug' UNITS 'CFS'}
+define[local] C_NTOMA_mPRE  {alias C_NTOMA_m[PRESETUP] KIND 'debug' UNITS 'CFS'}
+define[local] C_WKYTN_mPRE   {alias C_WKYTN_m[PRESETUP]  KIND 'debug' UNITS 'CFS'}
+define[local] C_FTR059PRE     {alias C_FTR059[PRESETUP]    KIND 'debug' UNITS 'CFS'}
+define[local] C_FTR059_mPRE     {alias C_FTR059_m[PRESETUP]    KIND 'debug' UNITS 'CFS'}
 
-define[local] Inflow_PRE {alias Inflow[GW_INITIAL] kind 'debug' units 'cfs'}
+define[local] Inflow_PRE {alias Inflow[PRESETUP] kind 'debug' units 'cfs'}
 
-define[local] SWPDS_PRE       {alias SWPDS[GW_INITIAL]     KIND 'debug' UNITS 'CFS'}
-define[local] SHADS_PRE       {alias SHADS[GW_INITIAL]     KIND 'debug' UNITS 'CFS'}
-define[local] FOLDS_PRE       {alias FOLDS[GW_INITIAL]     KIND 'debug' UNITS 'CFS'}
-define[local] WHSSW_PRE       {alias WHSSW[GW_INITIAL]     KIND 'debug' UNITS 'CFS'}
-define[local] IBU_PRE         {alias IBU[GW_INITIAL]       KIND 'debug' UNITS 'CFS'}
-define[local] UWFE_PRE        {alias UWFE[GW_INITIAL]      KIND 'debug' UNITS 'CFS'}
-define[local] UNUSED_FS_PRE   {alias UNUSED_FS[GW_INITIAL] KIND 'debug' UNITS 'CFS'}
-define[local] UNUSED_SS_PRE   {alias UNUSED_SS[GW_INITIAL] KIND 'debug' UNITS 'CFS'}
+define[local] SWPDS_PRE       {alias SWPDS[PRESETUP]     KIND 'debug' UNITS 'CFS'}
+define[local] SHADS_PRE       {alias SHADS[PRESETUP]     KIND 'debug' UNITS 'CFS'}
+define[local] FOLDS_PRE       {alias FOLDS[PRESETUP]     KIND 'debug' UNITS 'CFS'}
+define[local] WHSSW_PRE       {alias WHSSW[PRESETUP]     KIND 'debug' UNITS 'CFS'}
+define[local] IBU_PRE         {alias IBU[PRESETUP]       KIND 'debug' UNITS 'CFS'}
+define[local] UWFE_PRE        {alias UWFE[PRESETUP]      KIND 'debug' UNITS 'CFS'}
+define[local] UNUSED_FS_PRE   {alias UNUSED_FS[PRESETUP] KIND 'debug' UNITS 'CFS'}
+define[local] UNUSED_SS_PRE   {alias UNUSED_SS[PRESETUP] KIND 'debug' UNITS 'CFS'}
                                                                                                             
-define[local] exp_est_SWP_PRE        {alias exp_est_SWP[GW_INITIAL] kind 'debug' units 'cfs'}
-define[local] exp_est_CVP_PRE        {alias exp_est_CVP[GW_INITIAL] kind 'debug' units 'cfs'}
+define[local] exp_est_SWP_PRE        {alias exp_est_SWP[PRESETUP] kind 'debug' units 'cfs'}
+define[local] exp_est_CVP_PRE        {alias exp_est_CVP[PRESETUP] kind 'debug' units 'cfs'}
 
-define[local] RSReqSacDVPRE {alias RSReqSacDV[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] JPReqSacDVPRE {alias JPReqSacDV[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] EMReqSacDVPRE {alias EMReqSacDV[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] COReqSacDVPRE {alias COReqSacDV[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] AnnSacReqDVPRE {alias AnnSacReqDV[GW_INITIAL] kind 'debug' units 'CFS'}
+define[local] RSReqSacDVPRE {alias RSReqSacDV[PRESETUP] kind 'debug' units 'CFS'}
+define[local] JPReqSacDVPRE {alias JPReqSacDV[PRESETUP] kind 'debug' units 'CFS'}
+define[local] EMReqSacDVPRE {alias EMReqSacDV[PRESETUP] kind 'debug' units 'CFS'}
+define[local] COReqSacDVPRE {alias COReqSacDV[PRESETUP] kind 'debug' units 'CFS'}
+define[local] AnnSacReqDVPRE {alias AnnSacReqDV[PRESETUP] kind 'debug' units 'CFS'}
 
-define[local] C_SAC041_MIFPRE {alias C_SAC041_MIF[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] C_SAC041_ADDPRE {alias C_SAC041_ADD[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] C_SAC041_ANNPRE {alias C_SAC041_ANN[GW_INITIAL] kind 'debug' units 'CFS'}
+define[local] C_SAC041_MIFPRE {alias C_SAC041_MIF[PRESETUP] kind 'debug' units 'CFS'}
+define[local] C_SAC041_ADDPRE {alias C_SAC041_ADD[PRESETUP] kind 'debug' units 'CFS'}
+define[local] C_SAC041_ANNPRE {alias C_SAC041_ANN[PRESETUP] kind 'debug' units 'CFS'}
 
-define[local] C_AMR004_MIFPRE {alias C_AMR004_MIF[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] C_AMR004_ADDPRE {alias C_AMR004_ADD[GW_INITIAL] kind 'debug' units 'CFS'}
+define[local] C_AMR004_MIFPRE {alias C_AMR004_MIF[PRESETUP] kind 'debug' units 'CFS'}
+define[local] C_AMR004_ADDPRE {alias C_AMR004_ADD[PRESETUP] kind 'debug' units 'CFS'}
 
-define[local] C_KSWCK_MIFPRE {alias C_KSWCK_MIF[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] C_KSWCK_ADDPRE {alias C_KSWCK_ADD[GW_INITIAL] kind 'debug' units 'CFS'}
+define[local] C_KSWCK_MIFPRE {alias C_KSWCK_MIF[PRESETUP] kind 'debug' units 'CFS'}
+define[local] C_KSWCK_ADDPRE {alias C_KSWCK_ADD[PRESETUP] kind 'debug' units 'CFS'}
 
-define[local] C_NTOMA_MIFPRE {alias C_NTOMA_MIF[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] C_NTOMA_ADDPRE {alias C_NTOMA_ADD[GW_INITIAL] kind 'debug' units 'CFS'}
+define[local] C_NTOMA_MIFPRE {alias C_NTOMA_MIF[PRESETUP] kind 'debug' units 'CFS'}
+define[local] C_NTOMA_ADDPRE {alias C_NTOMA_ADD[PRESETUP] kind 'debug' units 'CFS'}
 
-define[local] C_FTR068_MIFPRE {alias C_FTR068_MIF[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] C_FTR068_ADDPRE {alias C_FTR068_ADD[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] D_FTR068_THRMFPRE {alias D_FTR068_THRMF[GW_INITIAL] kind 'debug' units 'CFS'}
+define[local] C_FTR068_MIFPRE {alias C_FTR068_MIF[PRESETUP] kind 'debug' units 'CFS'}
+define[local] C_FTR068_ADDPRE {alias C_FTR068_ADD[PRESETUP] kind 'debug' units 'CFS'}
+define[local] D_FTR068_THRMFPRE {alias D_FTR068_THRMF[PRESETUP] kind 'debug' units 'CFS'}
 
-define[local] C_SAC240_MIFPRE {alias C_SAC240_MIF[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] C_SAC240_ADDPRE {alias C_SAC240_ADD[GW_INITIAL] kind 'debug' units 'CFS'}
+define[local] C_SAC240_MIFPRE {alias C_SAC240_MIF[PRESETUP] kind 'debug' units 'CFS'}
+define[local] C_SAC240_ADDPRE {alias C_SAC240_ADD[PRESETUP] kind 'debug' units 'CFS'}
 
-define[local] C_SAC017_MIFPRE {alias C_SAC017_MIF[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] C_SAC017_ADDPRE {alias C_SAC017_ADD[GW_INITIAL] kind 'debug' units 'CFS'}
+define[local] C_SAC017_MIFPRE {alias C_SAC017_MIF[PRESETUP] kind 'debug' units 'CFS'}
+define[local] C_SAC017_ADDPRE {alias C_SAC017_ADD[PRESETUP] kind 'debug' units 'CFS'}
 
-define[local] C_FTR059_MIFPRE {alias C_FTR059_MIF[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] C_FTR059_ADDPRE {alias C_FTR059_ADD[GW_INITIAL] kind 'debug' units 'CFS'}
+define[local] C_FTR059_MIFPRE {alias C_FTR059_MIF[PRESETUP] kind 'debug' units 'CFS'}
+define[local] C_FTR059_ADDPRE {alias C_FTR059_ADD[PRESETUP] kind 'debug' units 'CFS'}
 
-define[local] C_SAC097_MIFPRE {alias C_SAC097_MIF[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] C_SAC097_ADDPRE {alias C_SAC097_ADD[GW_INITIAL] kind 'debug' units 'CFS'}
+define[local] C_SAC097_MIFPRE {alias C_SAC097_MIF[PRESETUP] kind 'debug' units 'CFS'}
+define[local] C_SAC097_ADDPRE {alias C_SAC097_ADD[PRESETUP] kind 'debug' units 'CFS'}
 
-define[local] C_WKYTN_MIFPRE {alias C_WKYTN_MIF[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] C_WKYTN_ADDPRE {alias C_WKYTN_ADD[GW_INITIAL] kind 'debug' units 'CFS'}
+define[local] C_WKYTN_MIFPRE {alias C_WKYTN_MIF[PRESETUP] kind 'debug' units 'CFS'}
+define[local] C_WKYTN_ADDPRE {alias C_WKYTN_ADD[PRESETUP] kind 'debug' units 'CFS'}
 
-define[local] C_CSL005_MIFPRE {alias C_CSL005_MIF[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] C_CSL005_ADDPRE {alias C_CSL005_ADD[GW_INITIAL] kind 'debug' units 'CFS'}
+define[local] C_CSL005_MIFPRE {alias C_CSL005_MIF[PRESETUP] kind 'debug' units 'CFS'}
+define[local] C_CSL005_ADDPRE {alias C_CSL005_ADD[PRESETUP] kind 'debug' units 'CFS'}
 
-define[local] C_FTR003_MIFPRE {alias C_FTR003_MIF[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] C_FTR003_ADDPRE {alias C_FTR003_ADD[GW_INITIAL] kind 'debug' units 'CFS'}
+define[local] C_FTR003_MIFPRE {alias C_FTR003_MIF[PRESETUP] kind 'debug' units 'CFS'}
+define[local] C_FTR003_ADDPRE {alias C_FTR003_ADD[PRESETUP] kind 'debug' units 'CFS'}
 
-define[local] S_SHSTAPRE {alias S_SHSTA[GW_INITIAL] kind 'debug' units 'TAF'}
-define[local] S_FOLSMPRE {alias S_FOLSM[GW_INITIAL] kind 'debug' units 'TAF'}
-define[local] S_TRNTYPRE {alias S_TRNTY[GW_INITIAL] kind 'debug' units 'TAF'}
-define[local] S_OROVLPRE {alias S_OROVL[GW_INITIAL] kind 'debug' units 'TAF'}
-define[local] S11PRE {alias S11[GW_INITIAL] kind 'debug' units 'TAF'}
-define[local] S12PRE {alias S12[GW_INITIAL] kind 'debug' units 'TAF'}
+define[local] S_SHSTAPRE {alias S_SHSTA[PRESETUP] kind 'debug' units 'TAF'}
+define[local] S_FOLSMPRE {alias S_FOLSM[PRESETUP] kind 'debug' units 'TAF'}
+define[local] S_TRNTYPRE {alias S_TRNTY[PRESETUP] kind 'debug' units 'TAF'}
+define[local] S_OROVLPRE {alias S_OROVL[PRESETUP] kind 'debug' units 'TAF'}
+define[local] S11PRE {alias S11[PRESETUP] kind 'debug' units 'TAF'}
+define[local] S12PRE {alias S12[PRESETUP] kind 'debug' units 'TAF'}
 
-define[local] CVPRULECVPRE {alias CVPRULECV[GW_INITIAL] kind 'debug' units 'TAF'}
-define[local] SWPRULECVPRE {alias SWPRULECV[GW_INITIAL] kind 'debug' units 'TAF'}
+define[local] CVPRULECVPRE {alias CVPRULECV[PRESETUP] kind 'debug' units 'TAF'}
+define[local] SWPRULECVPRE {alias SWPRULECV[PRESETUP] kind 'debug' units 'TAF'}
 
-define[local] C_SAC000_ADDPRE {alias C_SAC000_ADD[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] C_SAC000_MINPRE {alias C_SAC000_MIN[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] C_SAC000_ADD_ANNPRE {alias C_SAC000_ADD_ANN[GW_INITIAL] kind 'debug' units 'CFS'}
-define[local] MRDO_FINALPRE {alias MRDO_FINALDV[GW_INITIAL] kind 'debug' units 'CFS'}
+define[local] C_SAC000_ADDPRE {alias C_SAC000_ADD[PRESETUP] kind 'debug' units 'CFS'}
+define[local] C_SAC000_MINPRE {alias C_SAC000_MIN[PRESETUP] kind 'debug' units 'CFS'}
+define[local] C_SAC000_ADD_ANNPRE {alias C_SAC000_ADD_ANN[PRESETUP] kind 'debug' units 'CFS'}
+define[local] MRDO_FINALPRE {alias MRDO_FINALDV[PRESETUP] kind 'debug' units 'CFS'}
 
-define[local] exp_est_totalPRE {alias exp_est_total[GW_INITIAL] kind 'debug' units 'cfs'}
+define[local] exp_est_totalPRE {alias exp_est_total[PRESETUP] kind 'debug' units 'cfs'}
 
-define[local] S_SHSTALEVEL3DVPRE {alias S_SHSTALEVEL3DV[GW_INITIAL] kind 'debug' units 'TAF'}
-define[local] S_FOLSMLEVEL3DVPRE {alias S_FOLSMLEVEL3DV[GW_INITIAL] kind 'debug' units 'TAF'}
-define[local] S_TRNTYLEVEL3DVPRE {alias S_TRNTYLEVEL3DV[GW_INITIAL] kind 'debug' units 'TAF'}
-define[local] S_OROVLLEVEL3DVPRE {alias S_OROVLLEVEL3DV[GW_INITIAL] kind 'debug' units 'TAF'}
-define[local] S_OROVLLEVEL4DVPRE {alias S_OROVLLEVEL4DV[GW_INITIAL] kind 'debug' units 'TAF'}
+define[local] S_SHSTALEVEL3DVPRE {alias S_SHSTALEVEL3DV[PRESETUP] kind 'debug' units 'TAF'}
+define[local] S_FOLSMLEVEL3DVPRE {alias S_FOLSMLEVEL3DV[PRESETUP] kind 'debug' units 'TAF'}
+define[local] S_TRNTYLEVEL3DVPRE {alias S_TRNTYLEVEL3DV[PRESETUP] kind 'debug' units 'TAF'}
+define[local] S_OROVLLEVEL3DVPRE {alias S_OROVLLEVEL3DV[PRESETUP] kind 'debug' units 'TAF'}
+define[local] S_OROVLLEVEL4DVPRE {alias S_OROVLLEVEL4DV[PRESETUP] kind 'debug' units 'TAF'}
 
 !SETUP Cycle Results
 define[local] D_BKR004_NBA009_NAPASET  {alias D_BKR004_NBA009_NAPA[SETUP]     KIND 'FLOW-DELIVERY' UNITS 'CFS'}

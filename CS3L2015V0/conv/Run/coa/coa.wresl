@@ -218,7 +218,7 @@ goal setUNUSED_SS { D418_EXP2 + D419_cvpded_Exp2 /*+ D168B_EXP2*/ + D408_DS_EXP2
 !costs of another project aggressively pressing against the EI constraint in the remaining cycles.
 define EI_control_on {
 	case EI_control {
-		condition	C_SAC000_ADD_swp[GW_INITIAL] + C_SAC000_ADD_cvp[GW_INITIAL] > 0.1 .and. eiexpctrl[GW_INITIAL] - ExportActualTD[GW_INITIAL] < 0.01 .and. MRDO_final < C_SAC000_ADD[GW_INITIAL] + C_SAC000_MIN[GW_INITIAL] + 0.1
+		condition	C_SAC000_ADD_swp[PRESETUP] + C_SAC000_ADD_cvp[PRESETUP] > 0.1 .and. eiexpctrl[PRESETUP] - ExportActualTD[PRESETUP] < 0.01 .and. MRDO_final < C_SAC000_ADD[PRESETUP] + C_SAC000_MIN[PRESETUP] + 0.1
 		value		1.
 	}
 	case otherwise {
@@ -231,7 +231,7 @@ goal EI_split_swp {
     lhs     D419_EXP1_TD
      case ei_control {
      condition  EI_control_on > 0.5
-     rhs        0.5*EiExpCtrl[GW_INITIAL] + ExpRatio*C_FTR059_m - ExpRatio*C_FTR059_m[GW_INITIAL]
+     rhs        0.5*EiExpCtrl[PRESETUP] + ExpRatio*C_FTR059_m - ExpRatio*C_FTR059_m[PRESETUP]
      lhs>rhs    penalty 1285
      lhs<rhs    penalty 0
 }}
@@ -240,8 +240,8 @@ goal EI_split_cvp {
     lhs     D418_EXP1_TD + D419_CVPDEDEX1TD
       case ei_control {
      condition  EI_control_on > 0.5
-     rhs        0.5*EiExpCtrl[GW_INITIAL] + ExpRatio*C_WKYTN_m + ExpRatio*C_KSWCK_m + ExpRatio*C_NTOMA_m 
-                              - ExpRatio*C_WKYTN_m[GW_INITIAL] - ExpRatio*C_KSWCK_m[GW_INITIAL] - ExpRatio*C_NTOMA_m[GW_INITIAL]
+     rhs        0.5*EiExpCtrl[PRESETUP] + ExpRatio*C_WKYTN_m + ExpRatio*C_KSWCK_m + ExpRatio*C_NTOMA_m 
+                              - ExpRatio*C_WKYTN_m[PRESETUP] - ExpRatio*C_KSWCK_m[PRESETUP] - ExpRatio*C_NTOMA_m[PRESETUP]
      lhs>rhs    penalty 1285
      lhs<rhs    penalty 0
 }}
@@ -249,8 +249,8 @@ goal EI_split_cvp {
 goal No_EI_split_swp1 {
     lhs     D419_SWP
     case no_ei_control {
-    condition	EI_control_on < 0.5  .and. MRDO_final < C_SAC000_ADD[GW_INITIAL] + C_SAC000_MIN[GW_INITIAL] + 0.1
-    rhs        D419_SWP[GW_INITIAL]
+    condition	EI_control_on < 0.5  .and. MRDO_final < C_SAC000_ADD[PRESETUP] + C_SAC000_MIN[PRESETUP] + 0.1
+    rhs        D419_SWP[PRESETUP]
     lhs>rhs    penalty 0
     lhs<rhs	penalty 1290
 }}
@@ -258,8 +258,8 @@ goal No_EI_split_swp1 {
 goal No_EI_split_swp2 {
     lhs     C_SAC000_ADD_swp
     case no_ei_control {
-    condition	EI_control_on < 0.5 .and. S12[GW_INITIAL] > swprulecv[GW_INITIAL] + 0.01
-    rhs        C_SAC000_ADD_swp[GW_INITIAL]
+    condition	EI_control_on < 0.5 .and. S12[PRESETUP] > swprulecv[PRESETUP] + 0.01
+    rhs        C_SAC000_ADD_swp[PRESETUP]
     lhs<rhs    penalty 0
     lhs>rhs    penalty 1290
 }}
@@ -267,8 +267,8 @@ goal No_EI_split_swp2 {
 goal No_EI_split_cvp1 {
     lhs     D418_CVP
     case no_ei_control {
-    condition	EI_control_on < 0.5 .and. MRDO_final < C_SAC000_ADD[GW_INITIAL] + C_SAC000_MIN[GW_INITIAL] + 0.1
-    rhs        D418_CVP[GW_INITIAL]
+    condition	EI_control_on < 0.5 .and. MRDO_final < C_SAC000_ADD[PRESETUP] + C_SAC000_MIN[PRESETUP] + 0.1
+    rhs        D418_CVP[PRESETUP]
     lhs>rhs    penalty 0
     lhs<rhs	penalty 1290
 }}
@@ -276,8 +276,8 @@ goal No_EI_split_cvp1 {
 goal No_EI_split_cvp2 {
     lhs     C_SAC000_ADD_cvp
     case no_ei_control {
-    condition	EI_control_on < 0.5 .and. S11[GW_INITIAL] > cvprulecv[GW_INITIAL] + 0.01
-    rhs        C_SAC000_ADD_cvp[GW_INITIAL]
+    condition	EI_control_on < 0.5 .and. S11[PRESETUP] > cvprulecv[PRESETUP] + 0.01
+    rhs        C_SAC000_ADD_cvp[PRESETUP]
     lhs<rhs    penalty 0
     lhs>rhs    penalty 1290
 }}
@@ -286,7 +286,7 @@ goal No_EI_split_cvp2 {
 goal AprMay_split_swp {
     lhs     D419_EXP1_TD
      case AprMay {
-     condition range(month,apr,may) .and. C_SAC000_ADD_swp[GW_INITIAL] + C_SAC000_ADD_cvp[GW_INITIAL] > 0.1 .and. aprmayexpctrl[GW_INITIAL] - ExportActualTD[GW_INITIAL] < 0.01
+     condition range(month,apr,may) .and. C_SAC000_ADD_swp[PRESETUP] + C_SAC000_ADD_cvp[PRESETUP] > 0.1 .and. aprmayexpctrl[PRESETUP] - ExportActualTD[PRESETUP] < 0.01
      rhs        0.5*AprMayExpCtrl
      lhs>rhs    penalty 1285
      lhs<rhs        penalty 0
@@ -296,7 +296,7 @@ goal AprMay_split_swp {
 goal AprMay_split_cvp {
     lhs     D418_EXP1_TD + D419_CVPDEDEX1TD
      case AprMay {
-     condition range(month,apr,may) .and. C_SAC000_ADD_swp[GW_INITIAL] + C_SAC000_ADD_cvp[GW_INITIAL] > 0.1 .and. aprmayexpctrl[GW_INITIAL] - ExportActualTD[GW_INITIAL] < 0.01
+     condition range(month,apr,may) .and. C_SAC000_ADD_swp[PRESETUP] + C_SAC000_ADD_cvp[PRESETUP] > 0.1 .and. aprmayexpctrl[PRESETUP] - ExportActualTD[PRESETUP] < 0.01
      rhs        0.5*AprMayExpCtrl
      lhs>rhs    penalty 1285
      lhs<rhs        penalty 0
