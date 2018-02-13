@@ -1,0 +1,856 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+File Name: arcs-inflows.wresl
+CalSim 3.0 System File
+
+Purpose:
+Define inflow arcs and rainfall-runoff arcs
+
+Naming takes the following form:
+I_{DESTINATION NODE} 	- boundary inflow from rim watershed
+SR_{WBA} 			- aggregated precipitation runoff from specific WBA 
+
+*/
+/*
+define STRM_0 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_2 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_13 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_20 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_22 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_26 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_27 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_38 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_39 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_42 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_43 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_44 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_45 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_46 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_47 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_48 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_49 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_50 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_51 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_52 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_55 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_58 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_64 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_65 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_66 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_67 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_73 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_74 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_89 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_90 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_91 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_94 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_102 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_103 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_106 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_107 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_108 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_111 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_113 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_117 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_119 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_129 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_131 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_132 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_133 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_136 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_138 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_144 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_153 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_155 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_156 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_157 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_158 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_170 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_174 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_183 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_189 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_193 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_202 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_203 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_206 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_207 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_208 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_209 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_213 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_215 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_216 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_231 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_234 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_249 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_251 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_261 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_271 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_273 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_287 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_290 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_291 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_318 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_319 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_320 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_321 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_324 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_325 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_326 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_327 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_333 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_334 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_335 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_342 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_344 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_345 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_346 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_347 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_352 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_354 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_358 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_365 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_368 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_381 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_391 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_401 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_411 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_418 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_421 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_423 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_424 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_429 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_431 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_434 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_440 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_441 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_442 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_446 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_447 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+define STRM_448 {timeseries kind 'BUSTRM-INFLOW' units 'AF'}
+*/
+!!!!!
+!  Boundary Unit Inflows
+!!!!!
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! SURFACE RUNOFF FROM WBAs !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define SR_02 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_03 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_04 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_05 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_06 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_07N {timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_07S {timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_08N {timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_08S {timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_09 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_10 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_11 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_12 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_13 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_14 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_15N {timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_15S {timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_16 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_17N {timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_17S {timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_18 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_19 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_20 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_21 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_22 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_23 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_24 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_25 	{timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_26N {timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_26S {timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define SR_71  {timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+
+define SR_02_CWD003 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_02_KSWCK 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_02_SAC257 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_02_SAC271 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_03_COW003 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_03_KSWCK 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_03_SAC265 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_03_SAC277 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_04_SAC207 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_04_SAC217 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_05_SAC196 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_05_SAC201 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_05_SAC217 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_06_CBD049 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_06_SAC185 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_07N_CBD049 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_07N_SAC185 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_07S_CBD028 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_07S_CBD038 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_07S_YBP034 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_08N_CBD049 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_08N_SAC185 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_08N_SAC154 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_08S_CBD028 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_08S_CBD038 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_08S_RFS8S 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_08S_SAC146 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_09_BSL001 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_09_BTC017 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_09_SAC141 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_09_SAC185 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_10_BSL001 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_10_BTC017 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_10_SAC196 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_11_BSL001 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_11_BTC017 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_11_DWRPS1 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_11_FTR059 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_12_HON004 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_13_RFS13 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_14_HON004 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_14_JCK002 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_14_YUB011 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_15N_FTR029 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_15N_JCK002 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_15N_HON004 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_15S_FTR012 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_15S_BRR004 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_16_DWRPS1 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_17N_BSL001 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_17S_SSL001 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_18_RFS18 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_19_RD1500 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_20_CCH017 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_20_CCH032 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_20_PTH021 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_20_PTH024 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_20_YBP023 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_21_YBP023 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_22_SAC066 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_22_CRC002 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_23_ABN000 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_23_BRR004 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_23_BRR011 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_23_CRC002 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_23_CCK007 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_24_ABN000 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_24_ABN010 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_24_BRR004 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_24_BRR011 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_24_CCK022 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_24_CRC002 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_24_EMD007 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_24_CCK007 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_25_CSL005 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_25_PTH021 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_25_PTH024 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_26N_AMR004 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_26N_CRC002 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_26N_EMD001 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_26N_EMD007 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_26N_NTOMA 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_26S_AMR007 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_26S_MOK014 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_26S_NTOMA 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_26S_SAC048 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+
+define SR_61_SJR053 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_61_SJR043 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_60N_SJR038 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_60S_SJR038 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_60N_SJR028 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_60S_SJR028 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+define SR_60N_SJR022 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+
+define SR_71_OMR039 	{std kind 'SURFACE-RUNOFF' units 'CFS'}
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! BOUNDARY INFLOWS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!! American River !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_FOLSM 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_LKVLY 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_NFA054 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_NFA022 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_MFA023 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_MFA001 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_SFA030 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Antelope Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_ANT011 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Battle Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_BTL006 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Bear Creek North !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_BCN010 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'} 
+
+!!! Bear River !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_WLF013 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'} 
+define I_RLLNS 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_CMBIE 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_CMPFW 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_DHC001 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_BRR023 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Big Chico Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_BCC014 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Butte Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_BTC060 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Cache Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_CLRLK 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_INDVL 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_BRC003 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_CCH053 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Clear Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_CLR025 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_CLR011 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Cow Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_COW014 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Cottonwood Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_SCW008 	{timeseries kind 'INFLOW' units 'TAF' convert'CFS'}
+define I_CWD018 	{timeseries kind 'INFLOW' units 'TAF' convert'CFS'}
+
+!!! Deer Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_DRC012 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Elder Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_ELD027 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! French Dry Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_MERLC 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Feather River !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_SFF011 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_SFF008 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_NFF027 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_MFF019 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_RVPHB	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_WBF030 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_WBF015 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_WBF006 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_LGRSV 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_OROVL 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_LST007 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Honcut Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_HON021 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Little Chico Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_LCC038 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Little Dry Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_LDC029 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Los Vaqueros Reservoir !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_LOSVQ	 	{std kind 'INFLOW' units 'CFS'} !defined by CalSim-II: I422 + I422_ppt_cfs
+!define I_LOSVQ	 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Marsh Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_MSH015 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'} ! Inflow to Delta
+
+!!! Mill Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_MLC006 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Mokelumne River !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_MOK019A 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_MOK019B 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Paynes Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_PYN001 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Putah Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_BRYSA 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Sacramento River !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_SHSTA 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_MNS000 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Stony Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_EPARK 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_SGRGE 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_BLKBT 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Thomes Creek !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_THM028 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Trinity River !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_TRNTY 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+define I_LWSTN 	{timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}
+
+!!! Yolo Bypass !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!! Yuba River     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define I_NBLDB  {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'} ! Inflow to New Bullards Bar Reservoir
+define I_ENGLB  {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'} ! Inflow to Englebright Reservoir
+define I_SLT009 {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'} ! Slate Creek
+define I_OGN005 {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'} ! Oregon Creek
+define I_NFY029 {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'} ! North Fork Yuba River
+define I_MFY013 {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'} ! Middle Fork Yuba River
+define I_SFY007 {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'} ! South Fork Yuba River
+define I_DER001 {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'} ! Deer Creek
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! CLOSURE TERMS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!test1
+define CTNEG {value 88888}
+define CT_BendBridge_SV  {timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'}
+define CT_ButteCity_SV  {timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'}
+define CT_WilkinsSl_SV  {timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'}
+define CT_Verona_SV  {timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'}
+define CT_Freeport_SV  {timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'}
+define CT_Colusa_SV  {timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'}
+define CT_Woodland_SV  {timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'}
+define CT_SacSlough_SV  {timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'}
+define CT_Smartville_SV  {timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'}
+define CT_Wheatland_SV  {timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'}
+define CT_Nicolaus_SV  {timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'}
+define CT_FairOaks_SV  {timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'}
+define CT_Yolo_SV  {timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'}
+define CT_Davis_SV  {timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'}
+define CT_Oroville_SV  {timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'}
+
+define CT_BendBridge  {lower unbounded upper unbounded kind 'CLOSURE-TERM' units 'CFS'}
+define CT_ButteCity  {lower unbounded upper unbounded kind 'CLOSURE-TERM' units 'CFS'}
+define CT_WilkinsSl  {lower unbounded upper unbounded kind 'CLOSURE-TERM' units 'CFS'}
+define CT_Verona  {lower unbounded upper unbounded kind 'CLOSURE-TERM' units 'CFS'}
+define CT_Freeport  {lower unbounded upper unbounded kind 'CLOSURE-TERM' units 'CFS'}
+define CT_Colusa  {lower unbounded upper unbounded kind 'CLOSURE-TERM' units 'CFS'}
+define CT_Woodland  {lower unbounded upper unbounded kind 'CLOSURE-TERM' units 'CFS'}
+define CT_SacSlough  {lower unbounded upper unbounded kind 'CLOSURE-TERM' units 'CFS'}
+define CT_Smartville  {lower unbounded upper unbounded kind 'CLOSURE-TERM' units 'CFS'}
+define CT_Wheatland  {lower unbounded upper unbounded kind 'CLOSURE-TERM' units 'CFS'}
+define CT_Nicolaus  {lower unbounded upper unbounded kind 'CLOSURE-TERM' units 'CFS'}
+define CT_FairOaks  {lower unbounded upper unbounded kind 'CLOSURE-TERM' units 'CFS'}
+define CT_Yolo  {lower unbounded upper unbounded kind 'CLOSURE-TERM' units 'CFS'}
+define CT_Davis  {lower unbounded upper unbounded kind 'CLOSURE-TERM' units 'CFS'}
+define CT_Oroville  {lower unbounded upper unbounded kind 'CLOSURE-TERM' units 'CFS'}
+
+goal setNegativeCT_BendBridge {
+	lhs CT_BendBridge
+	case negative {
+		condition CT_BendBridge_SV < 0
+			rhs CT_BendBridge_SV
+				lhs>rhs penalty CTNEG
+				lhs<rhs constrain
+	}
+}
+goal setNonpositiveCT_BendBridge {
+	lhs CT_BendBridge
+	case negative {
+		condition CT_BendBridge_SV < 0
+			rhs 0
+				lhs>rhs constrain
+				lhs<rhs  penalty 0
+	}
+}
+goal setPostiveCT_BendBridge {
+	lhs CT_BendBridge
+	case postive {
+		condition CT_BendBridge_SV >= 0
+			rhs CT_BendBridge_SV
+	}
+}
+goal setNegativeCT_ButteCity {
+	lhs CT_ButteCity
+	case negative {
+		condition CT_ButteCity_SV < 0
+			rhs CT_ButteCity_SV
+				lhs>rhs penalty CTNEG
+				lhs<rhs constrain
+	}
+}
+goal setNonpositiveCT_ButteCity {
+	lhs CT_ButteCity
+	case negative {
+		condition CT_ButteCity_SV < 0
+			rhs 0
+				lhs>rhs constrain
+				lhs<rhs  penalty 0
+	}
+}
+goal setPostiveCT_ButteCity {
+	lhs CT_ButteCity
+	case postive {
+		condition CT_ButteCity_SV >= 0
+			rhs CT_ButteCity_SV
+	}
+}
+goal setNegativeCT_WilkinsSl {
+	lhs CT_WilkinsSl
+	case negative {
+		condition CT_WilkinsSl_SV < 0
+			rhs CT_WilkinsSl_SV
+				lhs>rhs penalty CTNEG
+				lhs<rhs constrain
+	}
+}
+goal setNonpositiveCT_WilkinsSl {
+	lhs CT_WilkinsSl
+	case negative {
+		condition CT_WilkinsSl_SV < 0
+			rhs 0
+				lhs>rhs constrain
+				lhs<rhs  penalty 0
+	}
+}
+goal setPostiveCT_WilkinsSl {
+	lhs CT_WilkinsSl
+	case postive {
+		condition CT_WilkinsSl_SV >= 0
+			rhs CT_WilkinsSl_SV
+	}
+}
+goal setNegativeCT_Verona {
+	lhs CT_Verona
+	case negative {
+		condition CT_Verona_SV < 0
+			rhs CT_Verona_SV
+				lhs>rhs penalty CTNEG
+				lhs<rhs constrain
+	}
+}
+goal setNonpositiveCT_Verona {
+	lhs CT_Verona
+	case negative {
+		condition CT_Verona_SV < 0
+			rhs 0
+				lhs>rhs constrain
+				lhs<rhs  penalty 0
+	}
+}
+goal setPostiveCT_Verona {
+	lhs CT_Verona
+	case postive {
+		condition CT_Verona_SV >= 0
+			rhs CT_Verona_SV
+	}
+}
+goal setNegativeCT_Freeport {
+	lhs CT_Freeport
+	case negative {
+		condition CT_Freeport_SV < 0
+			rhs CT_Freeport_SV
+				lhs>rhs penalty CTNEG
+				lhs<rhs constrain
+	}
+}
+goal setNonpositiveCT_Freeport {
+	lhs CT_Freeport
+	case negative {
+		condition CT_Freeport_SV < 0
+			rhs 0
+				lhs>rhs constrain
+				lhs<rhs  penalty 0
+	}
+}
+goal setPostiveCT_Freeport {
+	lhs CT_Freeport
+	case postive {
+		condition CT_Freeport_SV >= 0
+			rhs CT_Freeport_SV
+	}
+}
+goal setNegativeCT_Colusa {
+	lhs CT_Colusa
+	case negative {
+		condition CT_Colusa_SV < 0
+			rhs CT_Colusa_SV
+				lhs>rhs penalty CTNEG
+				lhs<rhs constrain
+	}
+}
+goal setNonpositiveCT_Colusa {
+	lhs CT_Colusa
+	case negative {
+		condition CT_Colusa_SV < 0
+			rhs 0
+				lhs>rhs constrain
+				lhs<rhs  penalty 0
+	}
+}
+goal setPostiveCT_Colusa {
+	lhs CT_Colusa
+	case postive {
+		condition CT_Colusa_SV >= 0
+			rhs CT_Colusa_SV
+	}
+}
+goal setNegativeCT_Woodland {
+	lhs CT_Woodland
+	case negative {
+		condition CT_Woodland_SV < 0
+			rhs CT_Woodland_SV
+				lhs>rhs penalty CTNEG
+				lhs<rhs constrain
+	}
+}
+goal setNonpositiveCT_Woodland {
+	lhs CT_Woodland
+	case negative {
+		condition CT_Woodland_SV < 0
+			rhs 0
+				lhs>rhs constrain
+				lhs<rhs  penalty 0
+	}
+}
+goal setPostiveCT_Woodland {
+	lhs CT_Woodland
+	case postive {
+		condition CT_Woodland_SV >= 0
+			rhs CT_Woodland_SV
+	}
+}
+goal setNegativeCT_SacSlough {
+	lhs CT_SacSlough
+	case negative {
+		condition CT_SacSlough_SV < 0
+			rhs CT_SacSlough_SV
+				lhs>rhs penalty CTNEG
+				lhs<rhs constrain
+	}
+}
+goal setNonpositiveCT_SacSlough {
+	lhs CT_SacSlough
+	case negative {
+		condition CT_SacSlough_SV < 0
+			rhs 0
+				lhs>rhs constrain
+				lhs<rhs  penalty 0
+	}
+}
+goal setPostiveCT_SacSlough {
+	lhs CT_SacSlough
+	case postive {
+		condition CT_SacSlough_SV >= 0
+			rhs CT_SacSlough_SV
+	}
+}
+goal setNegativeCT_Smartville {
+	lhs CT_Smartville
+	case negative {
+		condition CT_Smartville_SV < 0
+			rhs CT_Smartville_SV
+				lhs>rhs penalty CTNEG
+				lhs<rhs constrain
+	}
+}
+goal setNonpositiveCT_Smartville {
+	lhs CT_Smartville
+	case negative {
+		condition CT_Smartville_SV < 0
+			rhs 0
+				lhs>rhs constrain
+				lhs<rhs  penalty 0
+	}
+}
+goal setPostiveCT_Smartville {
+	lhs CT_Smartville
+	case postive {
+		condition CT_Smartville_SV >= 0
+			rhs CT_Smartville_SV
+	}
+}
+goal setNegativeCT_Wheatland {
+	lhs CT_Wheatland
+	case negative {
+		condition CT_Wheatland_SV < 0
+			rhs CT_Wheatland_SV
+				lhs>rhs penalty CTNEG
+				lhs<rhs constrain
+	}
+}
+goal setNonpositiveCT_Wheatland {
+	lhs CT_Wheatland
+	case negative {
+		condition CT_Wheatland_SV < 0
+			rhs 0
+				lhs>rhs constrain
+				lhs<rhs  penalty 0
+	}
+}
+goal setPostiveCT_Wheatland {
+	lhs CT_Wheatland
+	case postive {
+		condition CT_Wheatland_SV >= 0
+			rhs CT_Wheatland_SV
+	}
+}
+goal setNegativeCT_Nicolaus {
+	lhs CT_Nicolaus
+	case negative {
+		condition CT_Nicolaus_SV < 0
+			rhs CT_Nicolaus_SV
+				lhs>rhs penalty CTNEG
+				lhs<rhs constrain
+	}
+}
+goal setNonpositiveCT_Nicolaus {
+	lhs CT_Nicolaus
+	case negative {
+		condition CT_Nicolaus_SV < 0
+			rhs 0
+				lhs>rhs constrain
+				lhs<rhs  penalty 0
+	}
+}
+goal setPostiveCT_Nicolaus {
+	lhs CT_Nicolaus
+	case postive {
+		condition CT_Nicolaus_SV >= 0
+			rhs CT_Nicolaus_SV
+	}
+}
+goal setNegativeCT_FairOaks {
+	lhs CT_FairOaks
+	case negative {
+		condition CT_FairOaks_SV < 0
+			rhs CT_FairOaks_SV
+				lhs>rhs penalty CTNEG
+				lhs<rhs constrain
+	}
+}
+goal setNonpositiveCT_FairOaks {
+	lhs CT_FairOaks
+	case negative {
+		condition CT_FairOaks_SV < 0
+			rhs 0
+				lhs>rhs constrain
+				lhs<rhs  penalty 0
+	}
+}
+goal setPostiveCT_FairOaks {
+	lhs CT_FairOaks
+	case postive {
+		condition CT_FairOaks_SV >= 0
+			rhs CT_FairOaks_SV
+	}
+}
+goal setNegativeCT_Yolo {
+	lhs CT_Yolo
+	case negative {
+		condition CT_Yolo_SV < 0
+			rhs CT_Yolo_SV
+				lhs>rhs penalty CTNEG
+				lhs<rhs constrain
+	}
+}
+goal setNonpositiveCT_Yolo {
+	lhs CT_Yolo
+	case negative {
+		condition CT_Yolo_SV < 0
+			rhs 0
+				lhs>rhs constrain
+				lhs<rhs  penalty 0
+	}
+}
+goal setPostiveCT_Yolo {
+	lhs CT_Yolo
+	case postive {
+		condition CT_Yolo_SV >= 0
+			rhs CT_Yolo_SV
+	}
+}
+goal setNegativeCT_Davis {
+	lhs CT_Davis
+	case negative {
+		condition CT_Davis_SV < 0
+			rhs CT_Davis_SV
+				lhs>rhs penalty CTNEG
+				lhs<rhs constrain
+	}
+}
+goal setNonpositiveCT_Davis {
+	lhs CT_Davis
+	case negative {
+		condition CT_Davis_SV < 0
+			rhs 0
+				lhs>rhs constrain
+				lhs<rhs  penalty 0
+	}
+}
+goal setPostiveCT_Davis {
+	lhs CT_Davis
+	case postive {
+		condition CT_Davis_SV >= 0
+			rhs CT_Davis_SV
+	}
+}
+goal setNegativeCT_Oroville {
+	lhs CT_Oroville
+	case negative {
+		condition CT_Oroville_SV < 0
+			rhs CT_Oroville_SV
+				lhs>rhs penalty CTNEG
+				lhs<rhs constrain
+	}
+}
+goal setNonpositiveCT_Oroville {
+	lhs CT_Oroville
+	case negative {
+		condition CT_Oroville_SV < 0
+			rhs 0
+				lhs>rhs constrain
+				lhs<rhs  penalty 0
+	}
+}
+goal setPostiveCT_Oroville {
+	lhs CT_Oroville
+	case postive {
+		condition CT_Oroville_SV >= 0
+			rhs CT_Oroville_SV
+	}
+}
+
+/*
+define CT_BendBridge 	{timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'} ! Applied at SAC257
+define CT_ButteCity 	{timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'} ! Applied at SAC169
+define CT_WilkinsSl	{timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'} ! Applied at SAC120
+define CT_Verona 	{timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'} ! Applied at SAC083
+define CT_Freeport 	{timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'} ! Applied at SAC049
+define CT_Colusa 	{timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'} ! Applied at CBD000
+define CT_Woodland 	{timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'} ! Applied at CSL005
+define CT_SacSlough 	{timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'} ! Applied at SSL001
+define CT_Smartville 	{timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'} ! Applied at ENGLB
+define CT_Wheatland 	{timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'} ! Applied at CMPFW
+define CT_Nicolaus 	{timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'} ! Applied at FTR008
+define CT_FairOaks 	{timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'} ! Applied at AMR022
+define CT_Yolo 		{timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'} ! Applied at CCH012
+define CT_Davis 	{timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'} ! Applied at PTH007
+define CT_Oroville 	{timeseries kind 'CLOSURE-TERM' units 'TAF' convert 'CFS'} ! Applied at OROVL
+*/!test1 end
+
+!!! Delta !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define DA_OMR_OMR027	{timeseries kind 'DELTA-ACCRETION' units 'TAF' convert 'CFS'}
+define DA_MOK_MOK004	{timeseries kind 'DELTA-ACCRETION' units 'TAF' convert 'CFS'}
+define DA_SJRE_SJR026 	{timeseries kind 'DELTA-ACCRETION' units 'TAF' convert 'CFS'}
+define DA_SJRW_SJR013 	{timeseries kind 'DELTA-ACCRETION' units 'TAF' convert 'CFS'}
+define DA_SACS_SAC017 	{timeseries kind 'DELTA-ACCRETION' units 'TAF' convert 'CFS'}
+define DA_SACN_SAC041 	{timeseries kind 'DELTA-ACCRETION' units 'TAF' convert 'CFS'}
+define DA_SACW_SAC000 	{timeseries kind 'DELTA-ACCRETION' units 'TAF' convert 'CFS'}
+
+
+

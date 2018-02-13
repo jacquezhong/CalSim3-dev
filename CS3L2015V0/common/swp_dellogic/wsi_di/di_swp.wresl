@@ -1,0 +1,49 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+! di_swp
+
+! Demand Index (DI) is the sum of SWP-SOD Annual Delivery and System Carryover and is estimated from the WSI versus DI Curve.
+define DI_SWP_dv {std kind 'demand-index' units 'taf'}
+define DI_SWP {
+    case JantoMay {
+        condition  month >= JAN .and. month <= MAY
+        select     di
+        from       wsi_di_swp
+        given      wsi=wsi_swp
+        use        linear }
+    case Oct {
+        condition  month == OCT
+        value       0. }
+    case other {
+        condition   always
+        value       DI_SWP_dv(-1) }
+}
+goal set_DI_SWP_dv {DI_SWP_dv = DI_SWP}
+
+define DI_SWP_io {
+    case JantoMay {
+        condition  month >= JAN .and. month <= MAY
+        select     di
+        from       wsi_di_swp
+        given      wsi=wsi_swp_io
+        use        linear }
+  case other {
+    condition   always
+    value       0.0 }
+}
+
+define DI_SWP_io_ {alias DI_SWP_io kind 'demand-index' units 'taf'}  

@@ -1,0 +1,42 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+! Tuol_FERC_min.wresl
+
+! Edward Chang
+! USBR Contractor
+! 12/02/1999
+! This code calculates the FERC minimum flows on the Tuolumne River
+
+
+/*
+The FERC minimum flows are read as timeseries inputs based on pre-processed
+hydrology. According to documentation, to ensure a minimum through
+throughout the Tuolumne River, it is necessary to impose this requirement on
+reaches C540, C542, and C544. However, in this code the requirement is not
+imposed on C542 and C544.  Why?????????????
+*/
+
+/*
+Revised by: T. Crawford, USBR, 03/07/03
+Purpose: Review and comment code
+*/
+
+!############################################################################
+!Cycle 1 (FERC Minimum flows)
+
+! Tuolumne River minimum channel flow (for reach C540)
+goal setC540cycle1 { C540_mif < FERCBASE }

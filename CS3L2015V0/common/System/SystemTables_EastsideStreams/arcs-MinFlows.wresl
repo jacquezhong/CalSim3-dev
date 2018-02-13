@@ -1,0 +1,77 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+File Name: arcs-minflows.wresl
+CalSim 3.0 System File
+
+Purpose:
+
+Naming takes the following form:
+
+
+*/
+
+!==============================
+! Calaveras River below New Hogan Dam
+!==============================
+
+!==============================
+! Cosumnes Watershed
+!==============================
+
+! Camp Creek below diversion dam
+define C_CMP012_MIF {std kind 'FLOW-MIN-INSTREAM' units 'CFS'}
+define C_CMP012_EXC {std kind 'FLOW-EXCESS-INSTREAM' units 'CFS'}
+define minflow_C_CMP012 {value 2.} !cfs
+
+! Sly Creek below Jenkinson dam
+define C_JNKSN_MIF {std kind 'FLOW-MIN-INSTREAM' units 'CFS'}
+define C_JNKSN_EXC {std kind 'FLOW-EXCESS-INSTREAM' units 'CFS'}
+define minflow_C_JNKSN {value 1.} !cfs
+
+!==============================
+! North Fork Mokelumne River 
+!==============================
+
+! North Fork Mokelumne River below Electra Diversion Dam
+define C_NFM006_MIF {std kind 'FLOW-MIN-INSTREAM' units 'CFS'}
+define C_NFM006_EXC {std kind 'FLOW-EXCESS-INSTREAM' units 'CFS'}
+
+! Flow through Electra Powerhouse
+define C_TBAUD_MIF  {std kind 'FLOW' units 'CFS'}
+define C_TBAUD_EXC  {std kind 'FLOW' units 'CFS'}
+
+! Combined flow below Electra Diversion Dam and through Electra Powerhouse
+define LodiDecree      {std kind 'FLOW' units 'CFS'}
+define LodiDecree_MIF  {std kind 'FLOW' units 'CFS'}
+define LodiDecree_EXC  {std kind 'FLOW' units 'CFS'}
+
+!==============================
+! Lower Mokelumne River 
+!==============================
+
+! Mokelumne River below Camanche Reservoir
+define C_CMCHE_MIF {std kind 'FLOW-MIN-INSTREAM' units 'CFS'}
+define C_CMCHE_EXC {std kind 'FLOW-EXCESS-INSTREAM' units 'CFS'}
+
+! Mokelumne River below RiverMile 50
+define C_MOK050_MIF {std kind 'FLOW-MIN-INSTREAM' units 'CFS'}
+define C_MOK050_EXC {std kind 'FLOW-EXCESS-INSTREAM' units 'CFS'}
+
+! Mokelumne River below RiverMile 35
+define C_MOK035_MIF {std kind 'FLOW-MIN-INSTREAM' units 'CFS'}
+define C_MOK035_EXC {std kind 'FLOW-EXCESS-INSTREAM' units 'CFS'}

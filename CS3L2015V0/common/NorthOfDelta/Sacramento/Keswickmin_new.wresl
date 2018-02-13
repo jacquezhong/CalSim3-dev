@@ -1,0 +1,78 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+!Idy Lui 08/28/2017 ***********************************************************************************************
+!Contacted Derek Hilts for this logic. To replace C5MIF__z3, which was from CSII (TS upto 2003, model discontinued) 
+!The logic that was in PROSIM and in the old 7 step CALSIM runs tried to mimic what had been done in the past in the real world
+!
+!Oct's, Nov's, Dec's Preliminary Keswick MIFs are based on Shasta carryover storage level (CVPIA Modified Nov 20, 1997)
+!Jan's, Feb's, Mar's, Apr's Preliminary Keswick_MIFs are based on Beginning-of-Month (BOM) Shasta storage level (CVPIA Modified Nov 20, 1997)
+!May's, Jun's, Jul's, Aug's,Sep's Preliminary Keswick_MIFs are based on BOM + forecasted inflows to Shasta for the remainder of the water year. (Temperature control)
+!Oct-Dec: Trigger = Shasta carryover storage   --- in TAF
+!Jan-Apr: Trigger = end of last month storage  --- in TAF
+!May-Jul: Trigger = end of last month storage+forcasted inflows to Shasta   --- in TAF
+!
+!stability criteria to avoid redd dewatering
+!C_KSWCK(-1)<5500 cfs
+!Nov's and Jan's-Apr's, Keswick_MIF=Max(Preliminary Keswick_MIF, 75%*C_KSWCK(-1)  
+!Dec's, Keswick_MIF=Max(Preliminary Keswick_MIF, 90%*C_KSWCK(-1)
+!Other months, No stability criteria
+!C_KSWCK(-1)>5500 cfs, No stability criteria
+!**********************************************************************************************************************************************************
+
+define KSWCK_trigger {
+       case oct_dec {
+               condition    month >= OCT .and. month <= DEC
+               value        S_SHSTA(prevSEP) }
+       case jan_apr {
+               condition    month >= JAN .and. month <= APR
+               value        S_SHSTA(-1) }
+       case may_sep {
+               condition    always
+               value        S_SHSTA(-1) + frcst_sac } 
+       }
+
+define preliminary_c_KSWCKmin {
+        select minflow
+        from   KeswickMinFlow
+        given  trigger=KSWCK_trigger
+		use    linear                            
+        where  month=month}
+
+define keswick_min_pre {alias preliminary_c_KSWCKmin kind 'FLOW' units 'CFS'} 
+		
+define effective_c_KSWCKmin {
+		case firstmonth {
+			condition wateryear==beginWaterYear .and. month == OCT
+			value preliminary_c_KSWCKmin}
+		case stability_crit_nov {
+			condition C_KSWCK(-1) <= 5500. .and. month == NOV
+			value max(preliminary_c_KSWCKmin, 0.75*C_KSWCK(-1))}
+		case stability_crit_dec {
+			condition C_KSWCK(-1) <= 5500. .and. month == DEC
+			value max(preliminary_c_KSWCKmin, 0.90*C_KSWCK(-1))}
+		case stability_crit_janapr {
+			condition C_KSWCK(-1) <= 5500. .and. month >= JAN .and. month <=APR
+			value max(preliminary_c_KSWCKmin, 0.75*C_KSWCK(-1))}		
+        case stability_crit_none {
+		condition always
+                value preliminary_c_KSWCKmin}
+		}
+
+define keswick_min {alias effective_c_KSWCKmin kind 'FLOW' units 'CFS'}  
+
+goal meetc_KSWCKmin {c_KSWCK_MIF < effective_c_KSWCKmin} 
+

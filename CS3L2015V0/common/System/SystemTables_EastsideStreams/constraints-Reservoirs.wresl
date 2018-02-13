@@ -1,0 +1,134 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+Constraints-Reservoirs.wresl
+*/
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! New Hogan Reservoir, Calavera River      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!goal S_NHGANZone1 {S_NHGAN_1 < S_NHGANlevel1}
+!goal S_NHGANZone2 {S_NHGAN_2 < S_NHGANlevel2-S_NHGANlevel1}
+!goal S_NHGANZone3 {S_NHGAN_3 < S_NHGANlevel3-S_NHGANlevel2}
+!goal S_NHGANZone4 {S_NHGAN_4 < S_NHGANlevel4-S_NHGANlevel3}
+!goal S_NHGANZone5 {S_NHGAN_5 < S_NHGANlevel5-S_NHGANlevel4}
+!goal storage_NHGAN {S_NHGAN=S_NHGAN_1+S_NHGAN_2+S_NHGAN_3+S_NHGAN_4+S_NHGAN_5}
+!goal area_NHGAN {A_NHGAN=A_NHGANlast+1000*coefev_NHGAN*S_NHGAN-1000*coefev_NHGAN*S_NHGAN(-1)}
+!goal evap_NHGAN {E_NHGAN*cfs_af=(EvapRate_NHGAN/24)*A_NHGANlast+(EvapRate_NHGAN/24)*A_NHGAN}
+!goal maxrelease_NHGAN {C_NHGAN<relcap_NHGAN}
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Lower Bear Reservoir, Upper Mokelumne Watershed     !!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                              
+goal S_LBEARZone1   {S_LBEAR_1 < S_LBEARlevel1}                                                                        
+goal S_LBEARZone2   {S_LBEAR_2 < S_LBEARlevel2-S_LBEARlevel1}                                                              
+goal S_LBEARZone3   {S_LBEAR_3 < S_LBEARlevel3-S_LBEARlevel2}                                                              
+goal S_LBEARZone4   {S_LBEAR_4 < S_LBEARlevel4-S_LBEARlevel3}                                                              
+goal S_LBEARZone5   {S_LBEAR_5 < S_LBEARlevel5-S_LBEARlevel4}                                                              
+goal storage_LBEAR  {S_LBEAR=S_LBEAR_1+S_LBEAR_2+S_LBEAR_3+S_LBEAR_4+S_LBEAR_5}                                                       
+                      
+goal area_LBEAR     {A_LBEAR=0.}!A_LBEARlast+1000*coefev_LBEAR*S_LBEAR-1000*coefev_LBEAR*S_LBEAR(-1)}                                        
+goal setevap_LBEAR  {E_LBEAR*cfs_af=0.}!(evaprate_LBEAR/24)*A_LBEARlast+(evaprate_LBEAR/24)*A_LBEAR}                                         
+goal maxrelease_LBEAR   {C_LBEAR<relcap_LBEAR} 
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Salt Springs Reservoir - Upper Mokelumne Watershed     !!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                                        
+goal S_SLTSPZone1   {S_SLTSP_1 < S_SLTSPlevel1}                                                                        
+goal S_SLTSPZone2   {S_SLTSP_2 < S_SLTSPlevel2-S_SLTSPlevel1}                                                              
+goal S_SLTSPZone3   {S_SLTSP_3 < S_SLTSPlevel3-S_SLTSPlevel2}                                                              
+goal S_SLTSPZone4   {S_SLTSP_4 < S_SLTSPlevel4-S_SLTSPlevel3}                                                              
+goal S_SLTSPZone5   {S_SLTSP_5 < S_SLTSPlevel5-S_SLTSPlevel4}                                                              
+goal storage_SLTSP  {S_SLTSP=S_SLTSP_1+S_SLTSP_2+S_SLTSP_3+S_SLTSP_4+S_SLTSP_5}                                                       
+         
+goal area_SLTSP     {A_SLTSP=0.}!A_SLTSPlast+1000*coefev_SLTSP*S_SLTSP-1000*coefev_SLTSP*S_SLTSP(-1)}                                        
+goal setevap_SLTSP  {E_SLTSP*cfs_af=0.}!(evaprate_SLTSP/24)*A_SLTSPlast+(evaprate_SLTSP/24)*A_SLTSP}                                         
+goal maxrelease_SLTSP   {C_SLTSP<relcap_SLTSP} 
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Pardee Reservoir, Mokelumne River       !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                                                
+goal S_PARDEZone1   {S_PARDE_1 < S_PARDElevel1}                                                                                                                          
+goal S_PARDEZone2   {S_PARDE_2 < S_PARDElevel2-S_PARDElevel1}                                                                                                                  
+goal S_PARDEZone3   {S_PARDE_3 < S_PARDElevel3-S_PARDElevel2}                                                                                                            
+goal S_PARDEZone4   {S_PARDE_4 < max(0.,S_PARDElevel4-S_PARDElevel3)}                                                                                                                   
+goal S_PARDEZone5   {S_PARDE_5 < S_PARDElevel5-S_PARDElevel4}                                                                                                       
+goal storage_PARDE  {S_PARDE=S_PARDE_1+S_PARDE_2+S_PARDE_3+S_PARDE_4+S_PARDE_5}                                                                                   
+goal area_PARDE         {A_PARDE=A_PARDElast+1000*coefev_PARDE*S_PARDE-1000*coefev_PARDE*S_PARDE(-1)}                                        
+goal setevap_PARDE      {E_PARDE*cfs_af=(evaprate_PARDE/24)*A_PARDElast+(evaprate_PARDE/24)*A_PARDE}                                         
+goal maxrelease_PARDE {C_PARDE<relcap_PARDE}                                                                         
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Camanche Reservoir, Mokelumne River     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal S_CMCHEZone1       {S_CMCHE_1 < S_CMCHElevel1}                                                
+goal S_CMCHEZone2       {S_CMCHE_2 < S_CMCHElevel2-S_CMCHElevel1}                                                                                                                   
+goal S_CMCHEZone3       {S_CMCHE_3 < S_CMCHElevel3-S_CMCHElevel2}                                                      
+goal S_CMCHEZone5       {S_CMCHE_5 < S_CMCHElevel5-S_CMCHElevel4}                                         
+goal storage_CMCHE      {S_CMCHE=S_CMCHE_1+S_CMCHE_2+S_CMCHE_3+S_CMCHE_4+S_CMCHE_5}  
+              
+goal area_CMCHE     {A_CMCHE=A_CMCHElast+1000*coefev_CMCHE*S_CMCHE-1000*coefev_CMCHE*S_CMCHE(-1)}                                        
+goal setevap_CMCHE  {E_CMCHE*cfs_af=(evaprate_CMCHE/24)*A_CMCHElast+(evaprate_CMCHE/24)*A_CMCHE}                                         
+
+goal maxrelease_CMCHE   {C_CMCHE<relcap_CMCHE} 
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Jenkinson Lake, Upper Cosumnes Watershed     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal S_JNKSNZone1   {S_JNKSN_1 < S_JNKSNlevel1}                                                                        
+goal S_JNKSNZone2   {S_JNKSN_2 < S_JNKSNlevel2-S_JNKSNlevel1}                                                              
+goal S_JNKSNZone3   {S_JNKSN_3 < S_JNKSNlevel3-S_JNKSNlevel2}                                                              
+goal S_JNKSNZone4   {S_JNKSN_4 < S_JNKSNlevel4-S_JNKSNlevel3}                                                              
+goal S_JNKSNZone5   {S_JNKSN_5 < S_JNKSNlevel5-S_JNKSNlevel4} 
+
+goal storage_JNKSN  {S_JNKSN=S_JNKSN_1+S_JNKSN_2+S_JNKSN_3+S_JNKSN_4+S_JNKSN_5} 
+
+goal area_JNKSN         {A_JNKSN=A_JNKSNlast+1000*coefev_JNKSN*S_JNKSN-1000*coefev_JNKSN*S_JNKSN(-1)}                                        
+goal setevap_JNKSN      {E_JNKSN*cfs_af=(evaprate_JNKSN/24)*A_JNKSNlast+(evaprate_JNKSN/24)*A_JNKSN}                                         
+goal maxrelease_JNKSN   {C_JNKSN<relcap_JNKSN} 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Lake Amador, Jackson Creek Watershed     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal S_AMADRZone1   {S_AMADR_1 < S_AMADRlevel1}                                                                        
+goal S_AMADRZone2   {S_AMADR_2 < S_AMADRlevel2-S_AMADRlevel1}                                                              
+goal S_AMADRZone3   {S_AMADR_3 < S_AMADRlevel3-S_AMADRlevel2}                                                              
+goal S_AMADRZone4   {S_AMADR_4 < S_AMADRlevel4-S_AMADRlevel3}                                                              
+goal S_AMADRZone5   {S_AMADR_5 < S_AMADRlevel5-S_AMADRlevel4} 
+
+goal storage_AMADR  {S_AMADR=S_AMADR_1+S_AMADR_2+S_AMADR_3+S_AMADR_4+S_AMADR_5} 
+
+!goal area_AMADR         {A_AMADR=A_AMADRlast+1000*coefev_AMADR*S_AMADR-1000*coefev_AMADR*S_AMADR(-1)}                                        
+!goal setevap_AMADR      {E_AMADR*cfs_af=(evaprate_AMADR/24)*A_AMADRlast+(evaprate_AMADR/24)*A_AMADR}                                         
+!goal maxrelease_AMADR   {C_AMADR<relcap_AMADR} 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! EBMUD Terminal reservoirs                !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/*
+goal S_EBTMLZone1   {S_EBTML_1 < S_EBTMLlevel1}                                   
+goal S_EBTMLZone2   {S_EBTML_2 < S_EBTMLlevel2-S_EBTMLlevel1}                     
+goal S_EBTMLZone3   {S_EBTML_3 < S_EBTMLlevel3-S_EBTMLlevel2}                     
+goal S_EBTMLZone4   {S_EBTML_4 < S_EBTMLlevel4-S_EBTMLlevel3}                     
+goal S_EBTMLZone5   {S_EBTML_5 < S_EBTMLlevel5-S_EBTMLlevel4} 
+
+goal storage_EBTML  {S_EBTML=S_EBTML_1+S_EBTML_2+S_EBTML_3+S_EBTML_4+S_EBTML_5} 
+*/

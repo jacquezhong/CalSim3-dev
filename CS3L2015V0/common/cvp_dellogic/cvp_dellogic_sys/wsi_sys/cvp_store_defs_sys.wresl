@@ -1,0 +1,31 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+!Draft WRESL statements for CVP delivery logic
+!CVPDEL_DEFS    (defining decision variables for cvp delivery logic)
+!Edward Chang
+!4/27/99    10:00am
+
+!This code defines decision variables in cycle 1, which will be set in cycle 6 and 
+!accessed next month's cycle 1
+!*************************************************************************************************************
+
+!Sum of CVP storages
+define WSI_CVP_Storage { std kind 'storage' units 'TAF' }
+
+!CVP San Luis storage to be set in cycle 6
+define CVP_SL { std kind 'storage' units 'TAF' }
+

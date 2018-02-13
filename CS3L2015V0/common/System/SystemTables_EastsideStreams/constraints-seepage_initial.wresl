@@ -1,0 +1,303 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+File Name: constraints-seepage_initial.wresl
+CalSim 3.0 System File
+
+Purpose:
+
+Naming takes the following form:
+
+The sign of GetSeep is with respect to groundwater; i.e.
+
+  positive seepage (GetSeep) = loosing stream
+  negative seepage (GetSeep) = gaining stream
+
+When multiplied by -1, it reflects stream's perspective.  
+
+*/
+
+
+!*********************************************************************
+!*********************************************************************
+!***  Conversion factor from CFS to CF/MONTH
+!*********************************************************************
+!*********************************************************************
+define  cfs_cfm  {value daysin * 86400.0}
+define  cfs_cfmp {case first{
+                     condition wateryear == bgnWY .and. month == Oct
+                          value daysin * 86400.0}
+                  case other{
+                     condition always
+                          value  daysindv(-1) * 86400.0 }}
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Cosumnes River     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!        
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!        
+goal setSG188_CSM033_29   {
+	lhs SG188_CSM033_29 
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG188_CSM033_29 (-1)}}
+		
+goal setSG189_CSM026_29   {
+	lhs SG189_CSM026_29 
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG189_CSM026_29 (-1)}}
+		
+goal setSG190_CSM021_29  {
+	lhs SG190_CSM021_29
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG190_CSM021_29(-1)}}
+		
+goal setSG191_CSM016_29  {
+	lhs SG191_CSM016_29
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG191_CSM016_29(-1)}}
+		
+goal setSG192_CSM011_29  {
+	lhs SG192_CSM011_29
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG192_CSM011_29(-1)}}
+
+goal setSG193_CSM005_29  {
+	lhs SG193_CSM005_29
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG193_CSM005_29(-1)}}
+		
+goal setSG194_CSM005_29  {
+	lhs SG194_CSM005_29
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG194_CSM005_29(-1)}}		
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Antelope Creek      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal setSG233_ANT010_40  {
+	lhs SG233_ANT010_40
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG233_ANT010_40(-1)}}
+		
+goal setSG234_ANT010_40 {
+	lhs SG234_ANT010_40
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG234_ANT010_40(-1)}}		
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Dry Creek     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal setSG182_DSC035_28  {
+	lhs SG182_DSC035_28
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG182_DSC035_28(-1)}}
+
+goal setSG182_DSC028_28  {
+	lhs SG182_DSC028_28
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG182_DSC028_28(-1)}}
+
+goal setSG184_DSC023_28  {
+	lhs SG184_DSC023_28
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG184_DSC023_28(-1)}}
+		
+goal setSG185_DSC016_28  {
+	lhs SG185_DSC016_28
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG185_DSC016_28(-1)}}		
+
+goal setSG186_DSC008_28   {
+	lhs SG186_DSC008_28 
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG186_DSC008_28 (-1)}}
+
+goal setSG187_DSC008_28  {
+	lhs SG187_DSC008_28
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG187_DSC008_28(-1)}}
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Mokelumne River        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal setSG175_CMCHE_27  {
+	lhs SG175_CMCHE_27
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG175_CMCHE_27(-1)}}
+
+goal setSG176_MOK055_27  {
+	lhs SG176_MOK055_27
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG176_MOK055_27(-1)}}
+
+goal setSG177_MOK050_27  {
+	lhs SG177_MOK050_27
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG177_MOK050_27(-1)}}
+
+goal setSG178_MOK044_27  {
+	lhs SG178_MOK044_27
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG178_MOK044_27(-1)}}
+
+goal setSG179_MOK035_27  {
+	lhs SG179_MOK035_27
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG179_MOK035_27(-1)}}
+
+goal setSG288_BTC018_52  {
+	lhs SG288_BTC018_52
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG288_BTC018_52(-1)}}
+
+goal setSG180_MOK028_27  {
+	lhs SG180_MOK028_27
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG180_MOK028_27(-1)}}
+
+goal setSG181_MOK022_27  {
+	lhs SG181_MOK022_27
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG181_MOK022_27(-1)}}
+
+goal setSG195_MOK022_27  {
+	lhs SG195_MOK022_27
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG195_MOK022_27(-1)}}
+
+goal setSG196_MOK019_30  {
+	lhs SG196_MOK019_30
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG196_MOK019_30(-1)}}
+
+goal setSG197_MOK014_30  {
+	lhs SG197_MOK014_30
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG197_MOK014_30(-1)}}
+		
+goal setSG198_MOK004_30  {
+	lhs SG198_MOK004_30
+	case first {
+		condition wateryear == bgnWY .and. month == Oct
+		rhs 0.}
+	case other {
+		condition always
+		rhs SG198_MOK004_30(-1)}}
+		

@@ -1,0 +1,73 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+CALSIM 3.0 SYSTEM FILE
+ARCS-INFLOWS.WRESL
+
+NAMING TAKES THE FOLLOWING FORMS:
+
+I_{DESTINATION NODE}    - boundary inflow
+SR_{WBA}        	- aggregated precipitation runoff from specific WBA 
+
+*/
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! BOUNDARY INFLOWS   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!! Mokelumne/Cosumnes River
+define I_JNKSN          {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}!Jenkinson Lake inflow
+define I_CMP012         {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}!Camp Creek at Camp Creek Tunnel diversion dam
+define I_CMP001         {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}!Camp Creek at mouth
+define I_CSM035         {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}!Cosumnes River
+define I_DSC035         {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}!Dry Creek
+define I_DEE023         {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}!Deer Creek
+define I_AMADR          {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}!Jackson Creek
+define I_CMCHE          {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}!Local inflow to  Camanche Reservoir
+define I_PARDE          {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}!Local inflow to Pardee Reservoir
+define I_MOK079         {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}!Flow at Mokelumne Hill
+define I_NFM006         {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}!Local inflow to North Fork Mokelumne at Tiger Creek Reservoir/Electa Diversion Dam
+define I_SFM006         {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}!Boundary inflow to South Fork Mokelumne
+define I_MFM010         {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}!Boundary inflow to Middle Fork Mokelumne
+define I_SLTSP          {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}!Inflow to Salt Springs Reservoir
+define I_LBEAR          {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'}!Inflow to Lower Bear Reservoir
+
+!!! Calaveras River
+!define I_NHGAN          {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'} !NEW HOGAN RESERVOIR
+!define I_CLV026         {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'} !LOCAL INFLOW TO CALAVERAS RIVER
+
+!!! Littlejohns Creek
+!define I_LJC022         {timeseries kind 'INFLOW' units 'TAF' convert 'CFS'} !INFLOW TO FARMINGTON FLOOD CONTROL BASIN
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! SURFACE RUNOFF FROM WBAs   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!define  SR_60S        {timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+define  SR_60N        {timeseries kind 'SURFACE-RUNOFF' units 'TAF' convert 'CFS'}
+
+define  SR_60N_MOK019 {std kind 'SURFACE-RUNOFF' units 'CFS'}
+define  SR_60N_MOK035 {std kind 'SURFACE-RUNOFF' units 'CFS'}
+define  SR_60N_SJR022 {std kind 'SURFACE-RUNOFF' units 'CFS'}
+define  SR_60N_SJR028 {std kind 'SURFACE-RUNOFF' units 'CFS'}
+define  SR_60N_SJR038 {std kind 'SURFACE-RUNOFF' units 'CFS'}
+!define  SR_60S_FCS007 {std kind 'SURFACE-RUNOFF' units 'CFS'}
+!define  SR_60S_SJR028 {std kind 'SURFACE-RUNOFF' units 'CFS'}
+!define  SR_60S_SJR038 {std kind 'SURFACE-RUNOFF' units 'CFS'}
+!define  SR_60S_SJR043 {std kind 'SURFACE-RUNOFF' units 'CFS'}           
+!define  SR_61_FCS007  {std kind 'SURFACE-RUNOFF' units 'CFS'} 

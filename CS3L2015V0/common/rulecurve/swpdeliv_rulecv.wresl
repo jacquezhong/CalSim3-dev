@@ -1,0 +1,34 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+!WRESL for distributing deliveries for use with SWP Rule Curve determination
+!SWPDELIV_RULECV
+
+define swpdem_may {select demand from swp_3pattern_SLRule given percent=swp_demprofile use linear where month=MAY}
+define swpdemfinal_may {value swp_perdel * swpdem_may}
+
+define swpdem_jun {select demand from swp_3pattern_SLRule given percent=swp_demprofile use linear where month=jun}
+define swpdemfinal_jun {value swp_perdel * swpdem_jun}
+
+define swpdem_jul {select demand from swp_3pattern_SLRule given percent=swp_demprofile use linear where month=jul}
+define swpdemfinal_jul {value swp_perdel * swpdem_jul}
+
+define swpdem_aug {select demand from swp_3pattern_SLRule given percent=swp_demprofile use linear where month=aug}
+define swpdemfinal_aug {value swp_perdel * swpdem_aug}
+
+define swpdem_sep {select demand from swp_3pattern_SLRule given percent=swp_demprofile use linear where month=sep}
+define swpdemfinal_sep {value swp_perdel * swpdem_sep}
+

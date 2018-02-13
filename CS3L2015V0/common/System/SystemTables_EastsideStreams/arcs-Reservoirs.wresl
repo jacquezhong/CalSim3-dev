@@ -1,0 +1,298 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+Arcs-Reservoirs.wresl
+*/
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! New Hogan Reservoir      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!define S_NHGANlevel1 {value 17.5}
+!define S_NHGAN_1 {std kind 'STORAGE-ZONE' units 'TAF'}
+!define S_NHGANlevel2 {select target from res_level where res_num=92,level=2,month=month}
+!define S_NHGAN_2 {std kind 'STORAGE-ZONE' units 'TAF'}
+!define S_NHGANlevel3 {value 150}
+!define S_NHGAN_3 {std kind 'STORAGE-ZONE' units 'TAF'}
+!define S_NHGANlevel4 {timeseries kind 'STORAGE-LEVEL' units 'TAF'}
+!define S_NHGAN_4 {std kind 'STORAGE-ZONE' units 'TAF'}
+!define S_NHGANlevel5 {value 317}
+!define S_NHGAN_5 {std kind 'STORAGE-ZONE' units 'TAF'}
+!define S_NHGAN {std kind 'STORAGE' units 'TAF'} !New Hogan Reservoir
+!define E_NHGAN {lower unbounded kind 'EVAPORATION' units 'CFS'}
+!define A_NHGAN {std kind 'SURFACE-AREA' units 'ACRES'}
+!define EvapRate_NHGAN {timeseries kind 'EVAPORATION-RATE' units 'IN'}
+!define A_NHGANlast {select area from res_info given storage=1000*S_NHGAN(-1) use linear where res_num=92}
+!define A_NHGANforward {select area from res_info given storage=1050*S_NHGAN(-1) use linear where res_num=92}
+!define A_NHGANback {select area from res_info given storage=950*S_NHGAN(-1) use linear where res_num=92}
+!define coefev_NHGAN {value (A_NHGANforward - A_NHGANback)/(100*max(0.01,S_NHGAN(-1)))}
+!define relcap_NHGAN {select discharge from res_info given storage=1000*S_NHGAN(-1) use linear where res_num=92}
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Lower Bear Reservoir, Upper Mokelumne Watershed     !!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/*
+The Lodi decree establihes two sets of levels for combined storage in Lower Bear and Salt Springs reservoirs
+
+Level4:
+	June 112,000
+	July  94,000
+	Aug   76,000
+	Sept  58,000
+	Oct   40,000
+	Nov   30,000
+	Dec   20,000
+	Jan   10,000
+
+Level3:
+	Sept  30,000
+	Oct   18,000
+	Nov   18,000
+	Dec   15,000
+	Jan   10,000
+
+*/	
+define S_LBEARlevel1    {value  2.1}! dead pool
+define S_LBEARlevel5    {value 52.0}! full capacity
+
+define S_LBEARlevel2 {
+    case Sep {condition month == SEP value 30. * 37/206} !ratio of drainage areas and inflows for two reservoirs
+    case Oct {condition month == OCT value 18. * 37/206}
+    case Nov {condition month == NOV value 18. * 37/206}
+    case Dec {condition month == DEC value 15. * 37/206}
+    case otherwise {condition always value max(S_LBEARlevel1,10.*37/206)}}
+    
+define S_LBEARlevel3 {
+    case Jun {condition month == SEP value 112. * 37/206}
+    case Jul {condition month == OCT value 94. * 37/206}
+    case Aug {condition month == NOV value 76. * 37/206}
+    case Sep {condition month == SEP value 58. * 37/206}
+    case Oct {condition month == OCT value 40. * 37/206}
+    case Nov {condition month == NOV value 30. * 37/206}
+    case Dec {condition month == DEC value 20. * 37/206}
+    case otherwise {condition always value max(S_LBEARlevel1,10.*37/206)}}
+    
+define S_LBEARlevel4 {
+    case Oct       {condition month == OCT value 52.0} !No mandatory flood control space
+    case NovMar    {condition month >= NOV .and. month <= MAR value 42.8} !Capacity reduced due to removal of flashboards
+    case otherwise {condition always value 52.0}}
+    
+
+define S_LBEAR_1    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_LBEAR_2    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_LBEAR_3    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_LBEAR_4    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_LBEAR_5    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_LBEAR      {std kind 'STORAGE'      units 'TAF'}   
+define F_LBEAR      {std kind 'FLOW-SPILL-NON-RECOV' units 'CFS'}                                                 
+define E_LBEAR      {lower unbounded kind 'EVAPORATION' units 'CFS'}                                              
+define A_LBEAR      {std kind 'SURFACE-AREA' units 'ACRES'}                                                       
+define evaprate_LBEAR    {value 0.}                                          
+!define A_LBEARlast      {select area from res_info given storage=1000*S_LBEAR(-1) use linear where res_num=91}        
+!define A_LBEARforward   {select area from res_info given storage=1050*S_LBEAR(-1) use linear where res_num=91}     
+!define A_LBEARback      {select area from res_info given storage=950*S_LBEAR(-1) use linear where res_num=91}         
+!define coefev_LBEAR     {value (A_LBEARforward - A_LBEARback)/(100*max(0.01,S_LBEAR(-1)))} 
+define relcap_LBEAR      {value 99999.}!select discharge from res_info given storage=1000*S_LBEAR(-1) use linear where res_num=91}  
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Salt Springs Reservoir - Upper Mokelumne Watershed     !!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+                                                   
+define S_SLTSPlevel1    {value   5.0}! dead pool  
+define S_SLTSPlevel5    {value 141.9}! full capacity 
+
+define S_SLTSPlevel2 {
+    case Sep {condition month == SEP value 30. * 169/206} !ratio of drainage areas and inflows for two reservoirs
+    case Oct {condition month == OCT value 18. * 169/206}
+    case Nov {condition month == NOV value 18. * 169/206}
+    case Dec {condition month == DEC value 15. * 169/206}
+    case otherwise {condition always value 10. * 169/206}}
+    
+define S_SLTSPlevel3 {
+    case Jun {condition month == SEP value 112. * 169/206}
+    case Jul {condition month == OCT value 94. * 169/206}
+    case Aug {condition month == NOV value 76. * 169/206}
+    case Sep {condition month == SEP value 58. * 169/206}
+    case Oct {condition month == OCT value 40. * 169/206}
+    case Nov {condition month == NOV value 30. * 169/206}
+    case Dec {condition month == DEC value 20. * 169/206}
+    case otherwise {condition always value 10. * 169/206}} 
+    
+define S_SLTSPlevel4 {
+    case Oct       {condition month == OCT value 141.9} !No mandatory flood control space
+    case NovMar    {condition month >= NOV .and. month <= MAR value 131.4} !Capacity reduced due to removal of flashboards
+    case otherwise {condition always value 141.9}}
+
+define S_SLTSP_1    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_SLTSP_2    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_SLTSP_3    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_SLTSP_4    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_SLTSP_5    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_SLTSP      {std kind 'STORAGE' units 'TAF'} 
+
+define F_SLTSP      {std kind 'FLOW-SPILL-NON-RECOV' units 'CFS'}                                                 
+define E_SLTSP      {lower unbounded kind 'EVAPORATION' units 'CFS'}                                              
+define A_SLTSP      {std kind 'SURFACE-AREA' units 'ACRES'}                                                       
+define evaprate_SLTSP   {value 0.}                                          
+!define A_SLTSPlast  {select area from res_info given storage=1000*S_SLTSP(-1) use linear where res_num=91}        
+!define A_SLTSPforward   {select area from res_info given storage=1050*S_SLTSP(-1) use linear where res_num=91}     
+!define A_SLTSPback  {select area from res_info given storage=950*S_SLTSP(-1) use linear where res_num=91}         
+!define coefev_SLTSP     {value (A_SLTSPforward - A_SLTSPback)/(100*max(0.01,S_SLTSP(-1)))} 
+define relcap_SLTSP     {value 9999.}!select discharge from res_info given storage=1000*S_SLTSP(-1) use linear where res_num=91}  
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Pardee Reservoir, Mokelumne River       !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define S_PARDElevel1    {value 16} 
+define S_PARDElevel2    {value 16}
+define S_PARDElevel3    {value 198}   
+define S_PARDElevel4    {value 198}
+define S_PARDElevel5    {value 198}
+
+define S_PARDE_1        {std kind 'STORAGE-ZONE' units 'TAF'}                                                                                                                                         
+define S_PARDE_2        {std kind 'STORAGE-ZONE' units 'TAF'}                                                                                                                  
+define S_PARDE_3        {std kind 'STORAGE-ZONE' units 'TAF'}                                                                                                                  
+define S_PARDE_4        {std kind 'STORAGE-ZONE' units 'TAF'}                                                                                                                  
+define S_PARDE_5        {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+                                                            
+define S_PARDE          {std kind 'STORAGE' units 'TAF'} !Pardee Reservoir                                            
+                                                      
+define F_PARDE      	{std kind 'FLOW-SPILL-NON-RECOV' units 'CFS'}                                                 
+define E_PARDE      	{lower unbounded kind 'EVAPORATION' units 'CFS'}                                              
+define A_PARDE      	{std kind 'SURFACE-AREA' units 'ACRES'} 
+
+define evaprate_PARDE   {timeseries kind 'EVAPORATION-RATE' units 'IN'}  
+
+define A_PARDElast  	{select area from res_info given storage=1000*S_PARDE(-1) use linear where res_num=90}        
+define A_PARDEforward 	{select area from res_info given storage=1050*S_PARDE(-1) use linear where res_num=90}     
+define A_PARDEback  	{select area from res_info given storage=950*S_PARDE(-1) use linear where res_num=90}         
+define coefev_PARDE     {value (A_PARDEforward - A_PARDEback)/(100*max(0.01,S_PARDE(-1)))} 
+
+define relcap_PARDE     {select discharge from res_info given storage=1000*S_PARDE(-1) use linear where res_num=90}  
+      
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Camanche Reservoir, Mokelumne River     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define S_CMCHElevel2rel {select target from res_level where res_num=91,level=2,month=month}
+
+define S_CMCHElevel1    {value 4.025} 
+define S_CMCHElevel2    {value S_CMCHElevel2rel + S_CMCHElevel1}
+define S_CMCHElevel3    {value 417.12}  
+define S_CMCHElevel4    {value 417.12}  
+define S_CMCHElevel5    {value 417.12}  
+
+define S_CMCHE_1        {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_CMCHE_2        {std kind 'STORAGE-ZONE' units 'TAF'}  
+define S_CMCHE_3        {std kind 'STORAGE-ZONE' units 'TAF'} 
+define S_CMCHE_4        {std kind 'STORAGE-ZONE' units 'TAF'} 
+define S_CMCHE_5        {std kind 'STORAGE-ZONE' units 'TAF'}
+
+define S_CMCHE          {std kind 'STORAGE' units 'TAF'} !Camanche Reservoir                                          
+
+define F_CMCHE      	{std kind 'FLOW-SPILL-NON-RECOV' units 'CFS'}                                                 
+define E_CMCHE      	{lower unbounded kind 'EVAPORATION' units 'CFS'}                                              
+define A_CMCHE      	{std kind 'SURFACE-AREA' units 'ACRES'}  
+
+define evaprate_CMCHE   {timeseries kind 'EVAPORATION-RATE' units 'IN'}    
+
+define A_CMCHElast  	{select area from res_info given storage=1000*S_CMCHE(-1) use linear where res_num=91}        
+define A_CMCHEforward   {select area from res_info given storage=1050*S_CMCHE(-1) use linear where res_num=91}     
+define A_CMCHEback  	{select area from res_info given storage=950*S_CMCHE(-1) use linear where res_num=91}         
+define coefev_CMCHE     {value (A_CMCHEforward - A_CMCHEback)/(100*max(0.01,S_CMCHE(-1)))}                                   
+                                       
+define relcap_CMCHE     {select discharge from res_info given storage=1000*S_CMCHE(-1) use linear where res_num=91}  
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! EBMUD Terminal Reservoirs     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                                                    
+
+define S_EBTMLlevel1    {value 1.0} 
+define S_EBTMLlevel2    {value 1.0}
+define S_EBTMLlevel3    {value 1.0}  
+define S_EBTMLlevel4    {select target from EastsideStreams_res_level where res_num=1,level=4,month=month} 
+define S_EBTMLlevel5    {value 154.3}  
+
+
+define S_EBTML_1        {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_EBTML_2        {std kind 'STORAGE-ZONE' units 'TAF'}  
+define S_EBTML_3        {std kind 'STORAGE-ZONE' units 'TAF'} 
+define S_EBTML_4        {std kind 'STORAGE-ZONE' units 'TAF'} 
+define S_EBTML_5        {std kind 'STORAGE-ZONE' units 'TAF'}
+define S_EBTML          {std kind 'STORAGE' units 'TAF'}
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Jenkinson Lake, Upper Cosumnes Watershed     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+define S_JNKSNlevel5     {value 41.0} ! full capacity                                                    
+define S_JNKSNlevel1     {value  0.0}  ! dead pool
+define S_JNKSNlevel4     {value 41.0} ! Top of conservation - assume no flood control requied                                        
+define S_JNKSNlevel3     {value 41.0}                                                                    
+define S_JNKSNlevel2     {value  0.0}                                                                              
+
+define S_JNKSN_1    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_JNKSN_2    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_JNKSN_3    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_JNKSN_4    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_JNKSN_5    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_JNKSN      {std kind 'STORAGE' units 'TAF'}
+
+define F_JNKSN      {std kind 'FLOW-SPILL-NON-RECOV' units 'CFS'}                                                 
+define E_JNKSN      {lower unbounded kind 'EVAPORATION' units 'CFS'}                                              
+define A_JNKSN      {std kind 'SURFACE-AREA' units 'ACRES'}
+
+define evaprate_JNKSN   {timeseries kind 'EVAPORATION-RATE' units 'IN'}                                        
+
+define A_JNKSNlast     {select area from res_info given storage=1000*S_JNKSN(-1) use linear where res_num=94}        
+define A_JNKSNforward  {select area from res_info given storage=1050*S_JNKSN(-1) use linear where res_num=94}     
+define A_JNKSNback     {select area from res_info given storage= 950*S_JNKSN(-1) use linear where res_num=94}         
+define coefev_JNKSN    {value (A_JNKSNforward - A_JNKSNback)/(100*max(0.01,S_JNKSN(-1)))}                                   
+                        
+define relcap_JNKSN     {select discharge from res_info given storage=1000*S_JNKSN(-1) use linear where res_num=92}  
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Lake Amador, Jackson Creek Watershed     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define S_AMADRlevel1     {value  0.0} ! dead pool
+define S_AMADRlevel2     {value  0.0}                                                                              
+define S_AMADRlevel3     {value 22.0}                                                                    
+define S_AMADRlevel4     {value 22.0} ! Top of conservation - assume no flood control requied                                        
+define S_AMADRlevel5     {value 22.0} ! full capacity                                                    
+
+define S_AMADR_1    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_AMADR_2    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_AMADR_3    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_AMADR_4    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_AMADR_5    {std kind 'STORAGE-ZONE' units 'TAF'}                                                       
+define S_AMADR      {std kind 'STORAGE' units 'TAF'}
+
+                                                 
+!define E_AMADR      {lower unbounded kind 'EVAPORATION' units 'CFS'}                                              
+!define A_AMADR      {std kind 'SURFACE-AREA' units 'ACRES'}
+
+!define evaprate_AMADR   {timeseries kind 'EVAPORATION-RATE' units 'IN'}
+
+!define A_AMADRlast     {select area from res_info given storage=1000*S_AMADR(-1) use linear where res_num=94}        
+!define A_AMADRforward  {select area from res_info given storage=1050*S_AMADR(-1) use linear where res_num=94}     
+!define A_AMADRback     {select area from res_info given storage= 950*S_AMADR(-1) use linear where res_num=94}         
+!define coefev_AMADR    {value (A_AMADRforward - A_AMADRback)/(100*max(0.01,S_AMADR(-1)))}                                   
+                                       
+!define relcap_AMADR     {select discharge from res_info given storage=1000*S_AMADR(-1) use linear where res_num=92}  
+define F_AMADR      {std kind 'FLOW-SPILL-NON-RECOV' units 'CFS'}
+

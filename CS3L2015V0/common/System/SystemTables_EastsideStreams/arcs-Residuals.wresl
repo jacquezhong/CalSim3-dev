@@ -1,0 +1,127 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+
+!define RsdPos_CLV044   {std kind 'Residual' units 'CFS'}
+!define RsdPos_CLV043   {std kind 'Residual' units 'CFS'}
+!define RsdPos_CLV037   {std kind 'Residual' units 'CFS'}
+!define RsdPos_CLV035   {std kind 'Residual' units 'CFS'}
+!define RsdPos_CLV028   {std kind 'Residual' units 'CFS'}
+!define RsdPos_CLV026   {std kind 'Residual' units 'CFS'}
+!define RsdPos_CLV023   {std kind 'Residual' units 'CFS'}
+!define RsdPos_CLV016   {std kind 'Residual' units 'CFS'}
+!define RsdPos_CLV010   {std kind 'Residual' units 'CFS'}
+!define RsdPos_CLV009   {std kind 'Residual' units 'CFS'}
+!define RsdPos_CLV006   {std kind 'Residual' units 'CFS'}
+!define RsdPos_CLV004   {std kind 'Residual' units 'CFS'}
+
+!define RsdPos_WTPWDH   {std kind 'Residual' units 'CFS'}
+
+
+!define RsdNeg_NHGAN    {std kind 'Residual' units 'CFS'}
+!define RsdNeg_LJC022    {std kind 'Residual' units 'CFS'}
+
+!define RsdNeg_CLV044   {std kind 'Residual' units 'CFS'}
+!define RsdNeg_CLV043   {std kind 'Residual' units 'CFS'}
+!define RsdNeg_CLV037   {std kind 'Residual' units 'CFS'}
+!define RsdNeg_CLV035   {std kind 'Residual' units 'CFS'}
+!define RsdNeg_CLV028   {std kind 'Residual' units 'CFS'}
+!define RsdNeg_CLV026   {std kind 'Residual' units 'CFS'}
+!define RsdNeg_CLV023   {std kind 'Residual' units 'CFS'}
+!define RsdNeg_CLV016   {std kind 'Residual' units 'CFS'}
+!define RsdNeg_CLV010   {std kind 'Residual' units 'CFS'}
+!define RsdNeg_CLV009   {std kind 'Residual' units 'CFS'}
+!define RsdNeg_CLV006   {std kind 'Residual' units 'CFS'}
+!define RsdNeg_CLV004   {std kind 'Residual' units 'CFS'}
+
+
+
+define	RsdPos_60N_NA1	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_60N_NA2	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_60N_NA3	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_60N_NA4	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_60N_NA5	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_60N_NU1	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_60N_NU2	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_60N_NU3	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_60N_PU	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_EBMUD	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_AMADR	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_CSM035	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_CSM033	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_CSM026	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_CSM021	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_CSM016	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_CSM011	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_CSM005	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_DSC035	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_DSC028	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_DSC026	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_DSC023	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_DSC016	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_DSC012	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_DSC008	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_PARDE	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_CMCHE	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_MOK057	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_MOK055	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_MOK050	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_MOK044	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_MOK035	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_MOK034	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_MOK028	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_MOK022	{std	kind	'Residual'	units	'CFS'}
+define	RsdPos_MOK019	{std	kind	'Residual'	units	'CFS'}
+
+define	RsdNeg_60N_NA1	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_60N_NA2	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_60N_NA3	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_60N_NA4	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_60N_NA5	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_60N_NU1	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_60N_NU2	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_60N_NU3	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_60N_PU	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_EBMUD	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_AMADR	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_CSM035	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_CSM033	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_CSM026	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_CSM021	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_CSM016	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_CSM011	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_CSM005	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_DSC035	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_DSC028	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_DSC026	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_DSC023	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_DSC016	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_DSC012	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_DSC008	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_PARDE	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_CMCHE	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_MOK057	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_MOK055	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_MOK050	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_MOK044	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_MOK035	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_MOK034	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_MOK028	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_MOK022	{std	kind	'Residual'	units	'CFS'}
+define	RsdNeg_MOK019	{std	kind	'Residual'	units	'CFS'}
+
+
+!define RsdNeg_WTPWDH   {std kind 'Residual' units 'CFS'}

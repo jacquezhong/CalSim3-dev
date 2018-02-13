@@ -1,0 +1,152 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+! The Water Supply Index (WSI) for the SWP is the sum of the beginning of months storages
+! (BOM) for Lake Oroville (S_OROVL) and SWP-San Luis Reservoir (S12) and the Forecast of Runoff
+! for the Feather River.
+
+! Forecast of Runoff for SWP is defined as: Feather River component of the Sacramento
+! River Index (SRI) - Sum of Oroville Lake Inflows (I_OROVL) since 1-OCT.
+
+! Forecast of Feather River Runoff into Lake Oroville for REMAINDER of WATER YEAR
+define frcst_fea {
+       case Janfore {
+           condition  month == JAN
+           select     JAN
+           from       feather_runoff_forecast
+           where      wateryear=wateryear }
+       case Febfore {
+           condition  month == FEB
+           select     FEB
+           from       feather_runoff_forecast
+           where      wateryear=wateryear }
+       case MARfore {
+           condition  month == MAR
+           select     MAR
+           from       feather_runoff_forecast
+           where      wateryear=wateryear }
+       case APRfore {
+           condition  month == APR
+           select     APR
+           from       feather_runoff_forecast
+           where      wateryear=wateryear }
+       case MAYfore {
+           condition  month == MAY
+           select     MAY
+           from       feather_runoff_forecast
+           where      wateryear=wateryear }
+
+       case JuntoJan {
+           condition  always
+           value      0  }
+       }
+
+! Water Supply Index for State Water Project - and accounting for effects of EWA
+! (see more detailed comments in cvpdel_goals_s.wresl)
+
+define co_final_dv {std kind 'carryover' units 'taf'}
+define co_available_dv {std kind 'carryover' units 'taf'}
+
+define S12effective {case Jan {
+                       condition month == JAN
+                       value max(S12(-1) - co_final_dv(-1), 0.0)}
+                     case FebtoMar {
+                       condition month >= FEB .and. month <= MAR
+                       value max(S12(-1) - co_available_dv(-1), 0.0)}
+                     case Rest {
+                       condition always
+                       value S12(-1)}}
+
+define WSI_SWP {
+    case JantoApr {
+        condition  month >= JAN .and. month <= APR
+        value      S_OROVL(-1) - S_OROVL_WTS(-1) + S12effective  /*- swp_co_1*/ +
+                   frcst_fea  }     ! Previous month storage plus forecast inflow
+    case May {
+        condition  month == MAY
+        value      S_OROVL(-1) - S_OROVL_WTS(-1) + S12(-1) +
+                   min(perdel_cvpag_s*100.,37.5)*SWPShastaSwitch  /*- swp_co_1*/ +
+                   frcst_fea  }     ! Previous month storage plus forecast inflow
+  case other {
+    condition   always
+    value       0.0 }
+}
+
+define WSI_SWP_dv {alias WSI_SWP kind 'water-supply-index' units 'taf'}
+
+define WSI_SWP_io {
+    case JantoApr {
+        condition  month >= JAN .and. month <= APR
+        value      S_OROVL(-1) - S_OROVL_WTS(-1) + S12effective  /*- swp_co_1*/ +
+                   frcst_fea + min(SIO_SWP(-1),max_return_swp2)  }     ! Previous month storage plus forecast inflow
+    case May {
+        condition  month == MAY
+        value      S_OROVL(-1) - S_OROVL_WTS(-1) + S12(-1) +
+                   min(perdel_cvpag_s*100.,37.5)*SWPShastaSwitch /*- swp_co_1*/ +
+                   frcst_fea + min(SIO_SWP(-1),max_return_swp2)  }     ! Previous month storage plus forecast inflow
+  case other {
+    condition   always
+    value       0.0 }
+}
+
+define WSI_SWP_io_ {alias WSI_SWP_io kind 'water-supply-index' units 'taf'}
+
+! Do another version of WSI that includes NODOS SWP component contribution
+
+! have found that this is a reasonable limit on how much water can be drawn from NODOS based on new pipeline release capacity only
+define lmtWSIS31_conv {value 500.*upperC17603/1500.}
+
+! don't rely on S31 if can't access the supply because of release limits
+define lmtWSIS31_DryCap {
+    case ShastaColdOffRamp {
+         condition  S_TRNTY(-1) + S_SHSTA(-1) /*+ S44(-1)*/ < ColdStorTarg
+         value lmtWSIS31_conv}                          ! only release pipe in driest conditions
+    case CritCondOffRamp {
+         condition wyt_NODOS + prev_wyt_SAC >= 8
+         value lmtWSIS31_conv}
+    case otherwise {
+         condition  always
+         value 99999.0 }
+}
+
+/*
+! use NODOS to top off SWP Storage first (scale use of Sites according to Oroville condition)
+define lmtWSIS31_OroStr {
+    case Low {
+         condition  S_OROVL(-1) < 2000. .or. wyt_SAC >= 5.
+         value 200.}
+    case Medium {
+         condition  S_OROVL(-1) < 2500. .or. wyt_SAC >= 4.
+         value 400.}
+    case otherwise {
+         condition  always
+         value 99999.0 }
+}
+
+define lmtWSIforS31 {value min(lmtWSIS31_OroStr,lmtWSIS31_drycap)}
+*/
+define lmtWSIforS31 {value lmtWSIS31_drycap}
+
+define WSI_SWP_NDS {
+    case JantoMay {
+        condition  month >= JAN .and. month <= MAY
+        value      WSI_SWP + min(S31(-1),lmtWSIforS31)}
+    case other {
+        condition  always
+        value      0.0 }
+}
+
+define WSI_SWP_NDS_dv {alias WSI_SWP_NDS kind 'water-supply-index' units 'taf'}

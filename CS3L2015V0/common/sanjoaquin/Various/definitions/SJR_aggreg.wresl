@@ -1,0 +1,54 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+! SJR_agreg.wresl
+! Edward Chang
+! 6/05/2000
+! Joint Model
+! The following code assigns a group of arcs (not within one arc) a variable for book-keeping
+! Revised by C. Hsu, 4/3/03, USBR, for review and documentation project
+!############################################################################################
+
+! Define VAMP release state variable, units = cfs
+define VAMP_release {std kind 'FLOW-RELEASE' units 'cfs'}
+! Sum of VAMP release requirement for April and May
+goal setVAMP_release { VAMP_release = C10VAMP_M + C20VAMP + C81VAMP + C81_STAN_VAMP + C607BVAMP }
+
+/*
+Define VAMP release state variables for use in cycle 6
+*/
+! Instantaneous VAMP release to be set in cycle 6 from Stanislaus
+define DPStanVamprel {std kind 'FLOW-RELEASE' units 'cfs'}
+! Instantaneous VAMP release to be set in cycle 6 from Don Pedro
+define DPVamprelease {std kind 'FLOW-RELEASE' units 'cfs'}
+! Instantaneous VAMP release to be set in cycle 6 from Lake McClure
+define MCVamprelease {std kind 'FLOW-RELEASE' units 'cfs'}
+! Instantaneous VAMP release to be set in cycle 6 form New Melones
+define NMVamprelease {std kind 'FLOW-RELEASE' units 'cfs'}
+! Instantaneous VAMP release to be set in cycle 6 from DMC
+define DMCVamprelease {std kind 'FLOW-RELEASE' units 'cfs'}
+
+/*
+VAMP add-water requirement to be set in cycle 5
+*/
+! Define VAMP add-water for April from DMC
+define ExchangeaddApr {std kind 'add-requirement_VAMP' units 'TAF'}
+! Define VAMP add-water for April from OID
+define OIDaddApr {std kind 'add-requirement_VAMP' units 'TAF'}
+! Define VAMP add-water for April from Merced ID
+define MercedIDaddApr {std kind 'add-requirement_VAMP' units 'TAF'}
+! Define VAMP add-water for April from MID/TID
+define MIDTIDaddApr {std kind 'add-requirement_VAMP' units 'TAF'}

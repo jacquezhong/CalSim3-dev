@@ -1,0 +1,135 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+File Name: arcs-GWpumping.wresl
+CalSim 3.0 System File
+
+Purpose:
+Define arcs associated with delivery of water from groundwater pumping
+
+
+Naming takes the following form:
+
+GP_{Demand Unit} - Total Groundwater Pumping
+GPmin_{Demand Unit} - Minimum Groundwater Pumping
+*/
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! WBA 60N                  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! 60N_NA1 Jackson Valley ID
+define  GP_60N_NA1      {std kind 'GW-PUMPING'            units 'CFS'}         
+define  GPmin_60N_NA1   {value 0.0}!select minfraction from AgMinMaxgw where id = 1}       
+define  GPmax_60N_NA1   {value 1.0}!select maxfraction from AgMinMaxgw where id = 1}
+
+
+! 60N_NA2 Omochumne-Hartnell WD, Galt ID, Clay WD
+define  GP_60N_NA2      {std kind 'GW-PUMPING'            units 'CFS'}       
+define  GPmin_60N_NA2   {value 0.0}!select minfraction from AgMinMaxgw where id = 1}       
+define  GPmax_60N_NA2   {value 1.0}!select maxfraction from AgMinMaxgw where id = 1}
+
+
+! 60N_NA3 North San Joaquin WCD
+define  GP_60N_NA3      {std kind 'GW-PUMPING'            units 'CFS'}        
+define  GPmin_60N_NA3   {value 0.0}!select minfraction from AgMinMaxgw where id = 1}       
+define  GPmax_60N_NA3   {value 1.0}!select maxfraction from AgMinMaxgw where id = 1}
+
+
+! 60N_NA4 Woodbridge ID
+define  GP_60N_NA4      {std kind 'GW-PUMPING'            units 'CFS'}        
+define  GPmin_60N_NA4   {value 0.56}!select minfraction from AgMinMaxgw where id = 1}       
+define  GPmax_60N_NA4   {value 1.0}!select maxfraction from AgMinMaxgw where id = 1}
+
+
+! 60N_NA5 Mokelumne River riparian diversions Camanche Dam to Interstate 5
+define  GP_60N_NA5      {std kind 'GW-PUMPING'            units 'CFS'}         
+define  GPmin_60N_NA5   {value 0.0}!select minfraction from AgMinMaxgw where id = 1}       
+define  GPmax_60N_NA5   {value 1.0}!select maxfraction from AgMinMaxgw where id = 1}
+
+
+! 60N_NU1 City of Galt, Lodi, and small communities
+define  GP_60N_NU1      {std kind 'GW-PUMPING' units 'CFS'}         
+define  GPmin_60N_NU1   {value 0.0}!select minfraction from AgMinMaxgw where id = 1}       
+define  GPmax_60N_NU1   {value 1.0}!select maxfraction from AgMinMaxgw where id = 1}
+
+
+! 60N_NU2 Rancho Murieta
+define  GP_60N_NU2      {std kind 'GW-PUMPING' units 'CFS'}        
+define  GPmin_60N_NU2   {value 0.0}!select minfraction from AgMinMaxgw where id = 1}       
+define  GPmax_60N_NU2   {value 1.0}!select maxfraction from AgMinMaxgw where id = 1}
+
+
+! 60N_PU SMUD - Rancho Seco Power Plant
+define  GP_60N_PU       {std kind 'GW-PUMPING' units 'CFS'}       
+define  GPmin_60N_PU   {value 0.0}!select minfraction from AgMinMaxgw where id = 1}       
+define  GPmax_60N_PU   {value 1.0}!select maxfraction from AgMinMaxgw where id = 1}
+
+
+! East Bay MUD      
+define  GP_EBMUD    {std kind 'GW-PUMPING' units 'CFS'}         
+define  GPmin_EBMUD {value 0.0}!select minfraction from AgMinMaxgw where id = 1}       
+define  GPmax_EBMUD {value 1.0}!select maxfraction from AgMinMaxgw where id = 1}
+
+
+! All demand units
+define GP_WBATotal_60N    {std kind 'GW-PUMPING' units 'CFS'}
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! WBA 60S     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!60S_PA1 Stockton East WD
+!define  GP_60S_PA1      {std kind 'GW-PUMPING'            units 'CFS'}         
+!define  GPmin_60S_PA1   {value 0.0}!select minfraction from AgMinMaxgw where id = 1}       
+!define  GPmax_60S_PA1   {value 1.0}!select maxfraction from AgMinMaxgw where id = 1}
+
+
+! 60S_PA2 Central San Joaquin WCD
+!define  GP_60S_PA2       {std kind 'GW-PUMPING'            units 'CFS'}         
+!define  GPmin_60S_PA2  	 {select minfraction from AgMinMaxgw where id = 75} 
+!define  GPmax_60S_PA2 	 {select maxfraction from AgMinMaxgw where id = 75}
+
+
+!60S_NA1 no surface water deliveries
+!define  GP_60S_NA1      {std kind 'GW-PUMPING'            units 'CFS'}         
+!define  GPmin_60S_NA1   {value 0.0}!select minfraction from AgMinMaxgw where id = 1}       
+!define  GPmax_60S_NA1   {value 1.0}!select maxfraction from AgMinMaxgw where id = 1}
+
+
+!60S_NA2 no surface water deliveries
+!define  GP_60S_NA2      {std kind 'GW-PUMPING'            units 'CFS'}         
+!define  GPmin_60S_NA2   {value 0.0}!select minfraction from AgMinMaxgw where id = 1}       
+!define  GPmax_60S_NA2   {value 1.0}!select maxfraction from AgMinMaxgw where id = 1}
+
+
+! 60S_NU1 City of Stockton
+!define  GP_60S_NU1      {std kind 'GW-PUMPING' units 'CFS'}         
+!define  GPmin_60S_NU1   {value 0.0}!select minfraction from AgMinMaxgw where id = 1}       
+!define  GPmax_60S_NU1   {value 1.0}!select maxfraction from AgMinMaxgw where id = 1}
+
+
+! 60S_NU2 Small communities
+!define  GP_60S_NU2      {std kind 'GW-PUMPING' units 'CFS'}         
+!define  GPmin_60S_NU2   {value 0.0}!select minfraction from AgMinMaxgw where id = 1}       
+!define  GPmax_60S_NU2   {value 1.0}!select maxfraction from AgMinMaxgw where id = 1}
+
+
+! All demand units
+!define GP_WBATotal_60S    {std kind 'GW-PUMPING' units 'CFS'}

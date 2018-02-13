@@ -1,0 +1,36 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+! This file sets the adjustments to minimum instream flows bsaed on daily variations of unregulated flow to better match system representation with USRDOM.
+
+!BEND BRIDGE
+
+
+!RED BLUFF
+define ts_adj_rb {timeseries kind 'FLOW' units 'CFS'} !Max adjustment specified as timeseries
+define flow_adj_rb {alias ts_adj_rb kind 'FLOW' units 'CFS'}
+goal set_da_adj_rb {C_SAC240_MIF_DAILY < ts_adj_rb}
+
+!HAMILTON CITY
+define ts_adj_hc {timeseries kind 'FLOW' units 'CFS'} !Max adjustment specified as timeseries
+define flow_adj_hc {alias ts_adj_hc kind 'FLOW' units 'CFS'}
+goal set_da_adj_hc {C_SAC201_MIF_DAILY < ts_adj_hc}
+
+
+!WILKINS SLOUGH (applied at Navigational Control Point)
+define ts_adj_wlk {timeseries kind 'FLOW' units 'CFS'} !Max adjustment specified as timeseries
+define flow_adj_wlk {alias ts_adj_wlk kind 'FLOW' units 'CFS'}
+goal set_da_adj_wlk {C_SAC097_MIF_DAILY < ts_adj_wlk}

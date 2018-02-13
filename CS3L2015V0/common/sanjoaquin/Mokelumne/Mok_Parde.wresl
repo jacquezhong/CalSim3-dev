@@ -1,0 +1,53 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+! Mok_PARDEE.wresl
+
+!******************************************************************************
+! Pardee Reservoir Operations
+!******************************************************************************
+
+/*
+- Primary water supply objective is to store water for delivery through the Mokelumne Aqueduct to EBMUD.
+
+- Secondary objective to maintain elevation for gravity flow through aqueduct to minimiz pumping costs.
+
+- Maximize power production by operating at or above 550 feet (also accounts for anility to make deliveries to Jackson Valley WD.
+
+- Maintain stratification in Camanche Reservoirs
+*/
+
+!******************************************************************************
+! Avoid Stratification May through October
+!******************************************************************************
+define C_PARDE_THRML {lower unbounded upper unbounded kind 'FLOW' units 'CFS' }
+define C_PARDE_OTHER {std kind 'FLOW' units 'CFS' }
+
+goal setC_PARDE {C_PARDE = C_PARDE_THRML + C_PARDE_OTHER}
+
+define MOK_PrevStratDeficit {lower unbounded upper unbounded kind 'FLOW' units 'TAF' }
+define PrevStratDeficit {
+    case FirstWY   {condition wateryear == BgnWY .and. month==OCT value 0.}
+    case NovMay    {condition month >= NOV value 0.}
+    case JunOct    {condition month == MAY value 0.}
+    case otherwise {condition always value MOK_PrevStratDeficit(-1)
+    			+ 1.38*C_CMCHE(-1)*cfs_taf - (1.55/6)*S_CMCHE(prevApr) + 173.960/6 - C_PARDE(-1)*cfs_taf}}
+
+goal setPrevStratDeficit {MOK_PrevStratDeficit = PrevStratDeficit}
+
+goal setThrmlStrat1 {C_PARDE_THRML*cfs_taf < 1.38*C_CMCHE*cfs_taf - (1.55/6)*S_CMCHE(prevApr) + 173.960/6 + PrevStratDeficit}
+goal setThrmlStrat2 {C_PARDE_THRML*cfs_taf < max(0,S_PARDE(-1) - 100 - EBMUD_PerDel * UD_EBMUD)}
+

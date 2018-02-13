@@ -1,0 +1,143 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+
+
+Objective obj_SYS_MOK = {
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!CALSIM-III WEIGHTS for Consumnes-Mokelumne Sub-Model
+!Original Formulation: C. Olson (MWH) December 2007
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!====================================================
+!Instream Flow Requirement Weights
+!====================================================
+
+[C_TBAUD_MIF,60000],
+[C_NFM006_MIF,61000],
+[C_NFM006_EXC,-500],
+[C_MOK050_MIF,50000],
+[C_MOK035_MIF,50000],
+[C_CMCHE_MIF,50000],
+[C_MOK050_EXC,-500],
+[C_MOK035_EXC,-500],
+[C_CMCHE_EXC,-500],
+
+
+!====================================================
+!Diversion Weights
+!====================================================
+
+!***********WBA 60N ***************
+
+[D_PARDE_AMADR,    30000],! Need to check weights on storage in Lake Amador
+[D_AMADR_60N_NA1,  30000],
+[D_PARDE_MAQ001,   30000],
+[D_NFM010_AMADR,   50000],
+[D_TBAUD_AMADR,    50000],
+[D_SFM006_MHILL,   50000],
+[D_MFM010_WSPNT,   50000],
+[D_MOK050_60N_NA5, 40000], !Riparian diverters rights senior to EBMUD
+[D_MOK039_60N_NA5, 40000], !Riparian diverters rights senior to EBMUD
+[D_MOK033_60N_NA5, 40000], !Riparian diverters rights senior to EBMUD
+[D_MOK050_60N_NA3, 20000], !North San Joaquin WCD rights junior to EBMUD
+[D_MOK035_60N_NA4, 40000], !Woodbridge ID rights senior to EBMUD
+[D_MOK035_60N_NU1, 40000], !Woodbridge ID rights senior to EBMUD - sale to City of Lodi
+[D_MOK035_WTPDWS,  40000], !Woodbridge ID rights senior to EBMUD - sale to City of Stockton
+[D_CSM033_60N_NU2, 40000], 
+[D_JNKSN_ELDID,    40000], ! El Dorado M&I
+[D_CMP012_JNKSN,      -1], ! Camp Creek Tunnel
+[D_EBTML_EBMUD,     5000], ! EBMUD
+
+!***********WBA 60S***************
+![D_CLV043_WTPJYL,     40000],   !
+![D_CLV037_CACWD,      40000],   ! D506C
+![D_SJR028_WTPDWS,     55000],   ! DWSP for COSMA
+![D_CLV026_WTPWDH,     10000],   ! to 60S_NU1 (D506B)
+![D_CLV026_60S_PA1,    29900],   !Main SEWD Ag source
+![D_LJC010_60S_PA2,    40000],   !40000Central San Joaquin WCD
+![D_LJC022_60S_PA1,    29800],   !Stan to SEWD AG. Most SEWD AG water comes from Calaveras, but distribution uncertain.
+![D_LJC022_WTPWDHa,    40000],   !to 60S_NU1 - SEWD MI delivery
+![D_LJC022_WTPWDHb,    50000],   ! to 60S_NU1 - Sale of OID water to Stockton East WD (no more sales)
+![D_STS059_UFC000,     39800],  !39800 to 60S_PA2 (D520A)  !no weight for diversions not connecting to DUs 
+
+!====================================================
+!Storage/Reservoir Weights
+!====================================================
+
+[F_PARDE,-10000000], 
+[F_CMCHE,-10000000], 
+[F_LBEAR,-10000000], 
+[F_SLTSP,-10000000],  
+![F_JNKSN,-10000000], 
+
+[S_PARDE_1,2000000*taf_cfs],  
+[S_PARDE_2,29000*taf_cfs],    
+[S_PARDE_3,6500*taf_cfs],     
+[S_PARDE_4,6400*taf_cfs],     
+[S_PARDE_5,-1000000*taf_cfs], 
+
+[S_CMCHE_1,2000000*taf_cfs],  
+[S_CMCHE_2,35000*taf_cfs],    
+[S_CMCHE_3,6000*taf_cfs],     
+[S_CMCHE_4,5900*taf_cfs],     
+[S_CMCHE_5,-1000000*taf_cfs],
+
+[S_SLTSP_1,2000000*taf_cfs],  
+[S_SLTSP_2,65000*taf_cfs],    
+[S_SLTSP_3,55000*taf_cfs],     
+[S_SLTSP_4,45000*taf_cfs],     
+[S_SLTSP_5,-1000000*taf_cfs],
+
+[S_LBEAR_1,2000000*taf_cfs],  
+[S_LBEAR_2,65000*taf_cfs],    
+[S_LBEAR_3,55000*taf_cfs],     
+[S_LBEAR_4,45000*taf_cfs],     
+[S_LBEAR_5,-1000000*taf_cfs]
+
+[S_JNKSN_1,2000000*taf_cfs],  
+[S_JNKSN_2,28500*taf_cfs],    
+[S_JNKSN_3,6000*taf_cfs],     
+[S_JNKSN_4,5900*taf_cfs],     
+[S_JNKSN_5,-1000000*taf_cfs]
+
+[S_AMADR_1,2000000*taf_cfs],  
+[S_AMADR_2,28500*taf_cfs],    
+[S_AMADR_3,6000*taf_cfs],     
+[S_AMADR_4,5900*taf_cfs],     
+[S_AMADR_5,-1000000*taf_cfs],
+
+/*
+[S_EBTML_1,7000*taf_cfs],  
+[S_EBTML_2,7000*taf_cfs],    
+[S_EBTML_3,7000*taf_cfs],     
+[S_EBTML_4,7000*taf_cfs],     
+[S_EBTML_5,-1000000*taf_cfs],
+*/
+[S_EBTML,7000*taf_cfs],
+
+
+!====================================================
+!Other Weights
+!====================================================
+[PGEResBalance,-500*taf_cfs],
+[C_PARDE_THRML, 6600]
+
+} 
+
+
+
+

@@ -1,0 +1,33 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+!Draft WRESL statements for CVP delivery logic
+!CVPDEL_GOALS   (setting decision variables for cvp delivery logic)
+!Edward Chang
+!4/27/99    10:00am
+                                            
+!define S_SHSTA_ERPadj    {value min(max(ERPStorReserve-S32(-1),0.),S_SHSTA(-1) -100.)}  !has value if S32 running lower than ERPStorReserve guidance
+!define S32_ERPadj   {value min(    ERPStorReserve            ,S32(-1))}       !has value according to S32 within ERPStorReserve guidance
+!define S32_otheradj {value min(max(S32(-1)-S32_ERPadj-CVPStorReserve,0.),S32(-1)-S32_ERPadj)}  !has value if remaining storage exists above ERPStorReserve and CVPStorReserve guidance
+                                            
+                                            
+goal setWSI_CVP_Storage { WSI_CVP_Storage = S_TRNTY +
+					    S_SHSTA /*- S_SHSTA_ERPadj*/ - S_SHSTA_WTS(-1) +
+					    S_FOLSM + S11 /*+ S32 - S32_ERPadj - S32_otheradj*/ }  
+
+!CVP San Luis storage
+goal setCVP_SL { CVP_SL = S11 }
+

@@ -1,0 +1,34 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+!Draft WRESL for distributing deliveries for use with CVP Rule Curve determination
+!CVPDELIV_RULECV
+!R.Wilbur
+!9/25/00
+
+!*****************************************************************************************
+define dem_totcvps_prj  {timeseries kind 'demand-cvp-total' units 'TAF'}
+
+!cvp demands after cuts for use with determining the cvp rule curve
+define cvpdemfinal_dec { value perdel_s * dem_totcvps_prj(OCT-month+2) }
+define cvpdemfinal_nov { value perdel_s * dem_totcvps_prj(OCT-month+1) }
+define cvpdemfinal_oct { value perdel_s * dem_totcvps_prj(OCT-month+0) }
+define cvpdemfinal_may { value perdel_s * dem_totcvps_prj(OCT-month+7) }
+define cvpdemfinal_jun { value perdel_s * dem_totcvps_prj(OCT-month+8) }
+define cvpdemfinal_jul { value perdel_s * dem_totcvps_prj(OCT-month+9) }
+define cvpdemfinal_aug { value perdel_s * dem_totcvps_prj(OCT-month+10) }
+define cvpdemfinal_sep { value perdel_s * dem_totcvps_prj(OCT-month+11) }
+

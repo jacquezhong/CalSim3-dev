@@ -1,0 +1,39 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+! Mok_P137.wresl
+
+/*
+PG&E owns and operates five powerhouses in the North Fork Mokelumne River watershed:
+Salt Spring #1, Salt Springs #2,Tiger Creek, West Point, and Electra
+PG&E also operates 7 reservoirs - the principal storage reservoirs are:
+the Lower Bear River Reservoir and Salt Springs Reservoir.
+
+The FERC relicensing for Project 137, completed in 2001, established instream flow requirements
+associated with the project. Additionally, there are recreational flow requirements associated with
+rafting and canoeing at weekends and public holidays. These are currently not included in CalSim 3.0.
+*/
+
+! Implements the 2001 FERC relicensing requirements for flows on the North Fork Mokelumne River below Electra Diversion Dam
+! This helps model power operations through the Electa Powerhouse
+
+define minflow_C_NFM006 {select minElecta from Mok_Proj137Flow where month=month, wyt=round(wyt_NForkMok)}
+define MOK_NMF006minflow {alias minflow_C_NFM006 kind 'FLOW' units 'CFS'}
+!goal setminflowLodi006 {C_NFM006_MIF < max(minflow_C_NFM006,minflowLodi} ! see Mok_Lodi.wresl
+
+! Balance storage in PG&E reservoirs
+define PGEResBalance  {std kind 'STORAGE' units 'TAF'}                                          
+goal setPGEResBalance {PGEResBalance = S_SLTSP/S_SLTSPlevel4 - S_LBEAR/S_SLTSPlevel4}

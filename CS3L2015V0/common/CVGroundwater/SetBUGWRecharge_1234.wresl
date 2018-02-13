@@ -1,0 +1,1213 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+SetBUGWRecharge_1234.WRESL
+
+Recharges to groundwater nodes from small watersheds/boundary units (LC6) are input to CalSim3 GW module.
+They are passed to GW module using SetSpecifiedFlowBC() function.
+
+GW1_Nxxx indicates the recharge to the node xxx of the 1 groundwater layer.
+
+C2VSIM R374 configuration is used in which LC6 areas are not included.
+
+Z.Q. Richard Chen 7/12/2012
+*/
+
+define GW1_N2 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N3 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N6 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N8 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N10 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N13 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N14 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N16 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N18 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N19 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N20 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N24 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N25 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N26 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N27 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N30 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N31 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N32 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N33 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N34 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N35 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N39 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N40 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N41 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N42 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N48 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N49 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N50 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N51 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N57 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N62 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N69 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N70 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N71 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N74 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N75 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N76 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N80 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N89 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N90 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N97 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N103 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N107 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N110 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N114 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N115 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N116 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N117 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N118 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N119 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N120 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N121 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N122 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N123 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N148 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N149 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N150 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N151 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N152 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N158 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N159 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N163 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N164 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N169 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N174 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N178 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N180 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N181 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N182 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N183 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N185 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N194 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N195 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N196 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N197 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N198 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N199 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N201 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N209 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N210 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N211 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N212 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N213 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N214 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N215 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N217 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N218 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N219 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N226 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N227 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N228 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N231 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N234 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N235 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N236 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N237 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N238 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N243 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N244 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N245 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N247 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N248 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N249 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N250 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N251 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N252 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N256 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N257 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N258 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N259 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N263 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N264 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N265 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N270 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N271 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N272 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+
+define GW1_N273 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N274 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N286 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N287 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N288 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N297 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N298 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N299 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N300 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N301 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N308 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N309 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N310 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N311 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N312 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N313 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N321 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N322 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N323 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N341 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N342 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N343 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N344 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N345 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N346 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N352 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N353 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N354 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N355 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N356 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N357 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N367 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N368 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N369 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N377 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N382 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N387 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N388 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N390 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N391 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N392 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N393 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N396 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N402 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N403 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N409 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N423 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N427 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N444 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N445 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N456 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N457 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N458 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N467 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N468 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N469 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N471 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N472 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N481 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N482 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N483 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N484 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N485 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N487 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N501 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N507 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N509 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N510 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N518 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N530 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N535 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N536 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N537 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N538 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N542 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N554 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N555 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N556 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N573 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N574 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N577 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N578 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N580 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N581 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N582 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N583 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N586 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N587 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N588 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N589 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N591 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N599 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N600 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N601 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N602 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N603 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N604 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N607 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N608 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N609 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N610 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N611 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N612 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N613 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N614 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N624 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N625 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N626 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N627 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N628 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N629 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N630 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N631 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N632 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N639 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N640 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N641 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N643 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N646 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N647 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N648 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N658 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N659 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N669 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N670 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N679 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N680 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N689 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N690 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N691 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N710 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N711 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N712 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N713 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N714 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N721 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N722 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N723 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N724 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N725 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N726 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N727 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N733 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N734 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N735 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N742 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N743 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N744 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N745 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N746 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N747 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N748 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N758 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N759 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N760 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N761 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N762 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N763 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N764 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N765 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N766 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N767 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N779 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N780 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N781 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N782 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N783 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N793 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N794 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N795 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N796 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N804 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N805 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N806 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N809 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N810 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N811 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N812 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N813 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N814 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N815 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N816 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N817 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N827 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N828 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N835 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N836 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N837 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N838 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N839 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N840 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N841 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N842 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N845 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N846 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N847 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N848 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N849 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N850 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N851 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N852 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N853 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N854 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N855 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N856 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N857 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N861 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N862 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N863 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N864 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N866 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N867 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N868 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N881 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N882 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N883 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N884 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N885 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N887 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N888 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N889 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N890 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N891 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N898 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N899 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N900 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N901 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N902 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N903 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N904 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N905 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N906 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N916 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N917 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N918 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N919 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N920 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N921 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N922 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N924 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N925 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N926 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N927 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N928 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N929 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N930 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N931 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N932 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N933 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N934 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N935 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N936 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N937 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N938 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N939 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N940 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N944 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N945 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N946 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N947 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N948 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N952 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N953 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N954 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N955 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N956 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N960 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N961 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N962 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N963 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N964 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N974 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N975 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N976 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N977 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N978 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N980 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N988 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N989 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N990 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N991 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N992 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1003 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1004 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1005 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1006 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1007 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1008 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1009 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1010 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1011 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1017 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1018 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1019 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1034 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1035 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1036 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1037 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1046 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1049 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1050 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1051 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1052 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1053 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1059 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1060 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1061 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1062 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1067 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1069 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1078 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1079 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1080 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1081 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1082 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1083 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1086 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1091 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1093 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1097 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1101 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1102 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1103 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1104 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1110 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1111 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1112 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1113 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1124 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1134 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1135 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1136 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1138 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1150 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1151 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1152 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1153 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1157 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1158 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1159 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1165 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1170 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1172 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1173 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1174 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1179 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1180 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1181 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1182 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1184 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1185 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1186 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1187 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1188 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1190 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1191 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1192 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1193 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1194 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1195 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1200 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1201 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1205 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1206 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1207 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1208 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1209 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1210 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1211 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1212 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1213 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1214 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1215 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1216 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1222 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1226 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1227 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1228 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1229 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1230 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1231 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1232 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1239 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1240 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1241 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1242 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1243 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1244 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1245 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1246 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1247 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1248 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1253 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1254 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1255 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1256 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1257 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1262 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1263 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1264 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1265 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1266 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1267 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1268 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1269 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1277 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1278 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1279 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1280 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1281 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1282 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1292 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1293 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1294 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1295 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1305 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1316 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1318 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1319 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1320 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1321 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1329 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1330 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1336 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1337 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1338 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1339 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1340 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1341 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1343 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1344 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1345 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1349 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1350 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1351 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1354 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1355 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1356 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1357 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1358 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1359 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1360 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1361 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1362 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1365 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1366 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1367 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1368 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1369 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1370 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1371 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1374 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1375 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1376 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1377 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1378 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1380 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1381 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1382 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1383 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1384 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1385 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1386 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1387 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1388 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1389 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1390 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1391 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1392 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+define GW1_N1393 {timeseries kind 'BUGW-INFLOW' units 'AF'}
+
+
+!*********************************************************************
+!*********************************************************************
+!***  Set boundary recharge at each WBA
+!*********************************************************************
+!*********************************************************************
+!Returnsvalue of 0 if successfully executed
+define rSetGW1_N2 {value SetSpecifiedFlowBC(2,1, GW1_N2*af_cfm)} 
+define rSetGW1_N3 {value SetSpecifiedFlowBC(3,1, GW1_N3*af_cfm)}  
+define rSetGW1_N6 {value SetSpecifiedFlowBC(6,1, GW1_N6*af_cfm)} 
+define rSetGW1_N8 {value SetSpecifiedFlowBC(8,1, GW1_N8*af_cfm)} 
+define rSetGW1_N10 {value SetSpecifiedFlowBC(10,1, GW1_N10*af_cfm)} 
+define rSetGW1_N13 {value SetSpecifiedFlowBC(13,1, GW1_N13*af_cfm)} 
+define rSetGW1_N14 {value SetSpecifiedFlowBC(14,1, GW1_N14*af_cfm)} 
+define rSetGW1_N16 {value SetSpecifiedFlowBC(16,1, GW1_N16*af_cfm)} 
+define rSetGW1_N18 {value SetSpecifiedFlowBC(18,1, GW1_N18*af_cfm)} 
+define rSetGW1_N19 {value SetSpecifiedFlowBC(19,1, GW1_N19*af_cfm)} 
+define rSetGW1_N20 {value SetSpecifiedFlowBC(20,1, GW1_N20*af_cfm)} 
+define rSetGW1_N24 {value SetSpecifiedFlowBC(24,1, GW1_N24*af_cfm)} 
+define rSetGW1_N25 {value SetSpecifiedFlowBC(25,1, GW1_N25*af_cfm)} 
+define rSetGW1_N26 {value SetSpecifiedFlowBC(26,1, GW1_N26*af_cfm)} 
+define rSetGW1_N27 {value SetSpecifiedFlowBC(27,1, GW1_N27*af_cfm)} 
+define rSetGW1_N30 {value SetSpecifiedFlowBC(30,1, GW1_N30*af_cfm)} 
+define rSetGW1_N31 {value SetSpecifiedFlowBC(31,1, GW1_N31*af_cfm)} 
+define rSetGW1_N32 {value SetSpecifiedFlowBC(32,1, GW1_N32*af_cfm)} 
+define rSetGW1_N33 {value SetSpecifiedFlowBC(33,1, GW1_N33*af_cfm)} 
+define rSetGW1_N34 {value SetSpecifiedFlowBC(34,1, GW1_N34*af_cfm)} 
+define rSetGW1_N35 {value SetSpecifiedFlowBC(35,1, GW1_N35*af_cfm)} 
+define rSetGW1_N39 {value SetSpecifiedFlowBC(39,1, GW1_N39*af_cfm)} 
+define rSetGW1_N40 {value SetSpecifiedFlowBC(40,1, GW1_N40*af_cfm)} 
+define rSetGW1_N41 {value SetSpecifiedFlowBC(41,1, GW1_N41*af_cfm)} 
+define rSetGW1_N42 {value SetSpecifiedFlowBC(42,1, GW1_N42*af_cfm)} 
+define rSetGW1_N48 {value SetSpecifiedFlowBC(48,1, GW1_N48*af_cfm)} 
+define rSetGW1_N49 {value SetSpecifiedFlowBC(49,1, GW1_N49*af_cfm)} 
+define rSetGW1_N50 {value SetSpecifiedFlowBC(50,1, GW1_N50*af_cfm)} 
+define rSetGW1_N51 {value SetSpecifiedFlowBC(51,1, GW1_N51*af_cfm)} 
+define rSetGW1_N57 {value SetSpecifiedFlowBC(57,1, GW1_N57*af_cfm)} 
+define rSetGW1_N62 {value SetSpecifiedFlowBC(62,1, GW1_N62*af_cfm)} 
+define rSetGW1_N69 {value SetSpecifiedFlowBC(69,1, GW1_N69*af_cfm)} 
+define rSetGW1_N70 {value SetSpecifiedFlowBC(70,1, GW1_N70*af_cfm)} 
+define rSetGW1_N71 {value SetSpecifiedFlowBC(71,1, GW1_N71*af_cfm)} 
+define rSetGW1_N74 {value SetSpecifiedFlowBC(74,1, GW1_N74*af_cfm)} 
+define rSetGW1_N75 {value SetSpecifiedFlowBC(75,1, GW1_N75*af_cfm)} 
+define rSetGW1_N76 {value SetSpecifiedFlowBC(76,1, GW1_N76*af_cfm)} 
+define rSetGW1_N80 {value SetSpecifiedFlowBC(80,1, GW1_N80*af_cfm)} 
+define rSetGW1_N89 {value SetSpecifiedFlowBC(89,1, GW1_N89*af_cfm)} 
+define rSetGW1_N90 {value SetSpecifiedFlowBC(90,1, GW1_N90*af_cfm)} 
+define rSetGW1_N97 {value SetSpecifiedFlowBC(97,1, GW1_N97*af_cfm)} 
+define rSetGW1_N103 {value SetSpecifiedFlowBC(103,1, GW1_N103*af_cfm)} 
+define rSetGW1_N107 {value SetSpecifiedFlowBC(107,1, GW1_N107*af_cfm)} 
+define rSetGW1_N110 {value SetSpecifiedFlowBC(110,1, GW1_N110*af_cfm)} 
+define rSetGW1_N114 {value SetSpecifiedFlowBC(114,1, GW1_N114*af_cfm)} 
+define rSetGW1_N115 {value SetSpecifiedFlowBC(115,1, GW1_N115*af_cfm)} 
+define rSetGW1_N116 {value SetSpecifiedFlowBC(116,1, GW1_N116*af_cfm)} 
+define rSetGW1_N117 {value SetSpecifiedFlowBC(117,1, GW1_N117*af_cfm)} 
+define rSetGW1_N118 {value SetSpecifiedFlowBC(118,1, GW1_N118*af_cfm)} 
+define rSetGW1_N119 {value SetSpecifiedFlowBC(119,1, GW1_N119*af_cfm)} 
+define rSetGW1_N120 {value SetSpecifiedFlowBC(120,1, GW1_N120*af_cfm)} 
+define rSetGW1_N121 {value SetSpecifiedFlowBC(121,1, GW1_N121*af_cfm)} 
+define rSetGW1_N122 {value SetSpecifiedFlowBC(122,1, GW1_N122*af_cfm)} 
+define rSetGW1_N123 {value SetSpecifiedFlowBC(123,1, GW1_N123*af_cfm)} 
+define rSetGW1_N148 {value SetSpecifiedFlowBC(148,1, GW1_N148*af_cfm)} 
+define rSetGW1_N149 {value SetSpecifiedFlowBC(149,1, GW1_N149*af_cfm)} 
+define rSetGW1_N150 {value SetSpecifiedFlowBC(150,1, GW1_N150*af_cfm)} 
+define rSetGW1_N151 {value SetSpecifiedFlowBC(151,1, GW1_N151*af_cfm)} 
+define rSetGW1_N152 {value SetSpecifiedFlowBC(152,1, GW1_N152*af_cfm)} 
+define rSetGW1_N158 {value SetSpecifiedFlowBC(158,1, GW1_N158*af_cfm)} 
+define rSetGW1_N159 {value SetSpecifiedFlowBC(159,1, GW1_N159*af_cfm)} 
+define rSetGW1_N163 {value SetSpecifiedFlowBC(163,1, GW1_N163*af_cfm)} 
+define rSetGW1_N164 {value SetSpecifiedFlowBC(164,1, GW1_N164*af_cfm)} 
+define rSetGW1_N169 {value SetSpecifiedFlowBC(169,1, GW1_N169*af_cfm)} 
+define rSetGW1_N174 {value SetSpecifiedFlowBC(174,1, GW1_N174*af_cfm)} 
+define rSetGW1_N178 {value SetSpecifiedFlowBC(178,1, GW1_N178*af_cfm)} 
+define rSetGW1_N180 {value SetSpecifiedFlowBC(180,1, GW1_N180*af_cfm)} 
+define rSetGW1_N181 {value SetSpecifiedFlowBC(181,1, GW1_N181*af_cfm)} 
+define rSetGW1_N182 {value SetSpecifiedFlowBC(182,1, GW1_N182*af_cfm)} 
+define rSetGW1_N183 {value SetSpecifiedFlowBC(183,1, GW1_N183*af_cfm)} 
+define rSetGW1_N185 {value SetSpecifiedFlowBC(185,1, GW1_N185*af_cfm)} 
+define rSetGW1_N194 {value SetSpecifiedFlowBC(194,1, GW1_N194*af_cfm)} 
+define rSetGW1_N195 {value SetSpecifiedFlowBC(195,1, GW1_N195*af_cfm)} 
+define rSetGW1_N196 {value SetSpecifiedFlowBC(196,1, GW1_N196*af_cfm)} 
+define rSetGW1_N197 {value SetSpecifiedFlowBC(197,1, GW1_N197*af_cfm)} 
+define rSetGW1_N198 {value SetSpecifiedFlowBC(198,1, GW1_N198*af_cfm)} 
+define rSetGW1_N199 {value SetSpecifiedFlowBC(199,1, GW1_N199*af_cfm)} 
+define rSetGW1_N201 {value SetSpecifiedFlowBC(201,1, GW1_N201*af_cfm)} 
+define rSetGW1_N209 {value SetSpecifiedFlowBC(209,1, GW1_N209*af_cfm)} 
+define rSetGW1_N210 {value SetSpecifiedFlowBC(210,1, GW1_N210*af_cfm)} 
+define rSetGW1_N211 {value SetSpecifiedFlowBC(211,1, GW1_N211*af_cfm)} 
+define rSetGW1_N212 {value SetSpecifiedFlowBC(212,1, GW1_N212*af_cfm)} 
+define rSetGW1_N213 {value SetSpecifiedFlowBC(213,1, GW1_N213*af_cfm)} 
+define rSetGW1_N214 {value SetSpecifiedFlowBC(214,1, GW1_N214*af_cfm)} 
+define rSetGW1_N215 {value SetSpecifiedFlowBC(215,1, GW1_N215*af_cfm)} 
+define rSetGW1_N217 {value SetSpecifiedFlowBC(217,1, GW1_N217*af_cfm)} 
+define rSetGW1_N218 {value SetSpecifiedFlowBC(218,1, GW1_N218*af_cfm)} 
+define rSetGW1_N219 {value SetSpecifiedFlowBC(219,1, GW1_N219*af_cfm)} 
+define rSetGW1_N226 {value SetSpecifiedFlowBC(226,1, GW1_N226*af_cfm)} 
+define rSetGW1_N227 {value SetSpecifiedFlowBC(227,1, GW1_N227*af_cfm)} 
+define rSetGW1_N228 {value SetSpecifiedFlowBC(228,1, GW1_N228*af_cfm)} 
+define rSetGW1_N231 {value SetSpecifiedFlowBC(231,1, GW1_N231*af_cfm)} 
+define rSetGW1_N234 {value SetSpecifiedFlowBC(234,1, GW1_N234*af_cfm)} 
+define rSetGW1_N235 {value SetSpecifiedFlowBC(235,1, GW1_N235*af_cfm)} 
+define rSetGW1_N236 {value SetSpecifiedFlowBC(236,1, GW1_N236*af_cfm)} 
+define rSetGW1_N237 {value SetSpecifiedFlowBC(237,1, GW1_N237*af_cfm)} 
+define rSetGW1_N238 {value SetSpecifiedFlowBC(238,1, GW1_N238*af_cfm)} 
+define rSetGW1_N243 {value SetSpecifiedFlowBC(243,1, GW1_N243*af_cfm)} 
+define rSetGW1_N244 {value SetSpecifiedFlowBC(244,1, GW1_N244*af_cfm)} 
+define rSetGW1_N245 {value SetSpecifiedFlowBC(245,1, GW1_N245*af_cfm)} 
+define rSetGW1_N247 {value SetSpecifiedFlowBC(247,1, GW1_N247*af_cfm)} 
+define rSetGW1_N248 {value SetSpecifiedFlowBC(248,1, GW1_N248*af_cfm)} 
+define rSetGW1_N249 {value SetSpecifiedFlowBC(249,1, GW1_N249*af_cfm)} 
+define rSetGW1_N250 {value SetSpecifiedFlowBC(250,1, GW1_N250*af_cfm)} 
+define rSetGW1_N251 {value SetSpecifiedFlowBC(251,1, GW1_N251*af_cfm)} 
+define rSetGW1_N252 {value SetSpecifiedFlowBC(252,1, GW1_N252*af_cfm)} 
+define rSetGW1_N256 {value SetSpecifiedFlowBC(256,1, GW1_N256*af_cfm)} 
+define rSetGW1_N257 {value SetSpecifiedFlowBC(257,1, GW1_N257*af_cfm)} 
+define rSetGW1_N258 {value SetSpecifiedFlowBC(258,1, GW1_N258*af_cfm)} 
+define rSetGW1_N259 {value SetSpecifiedFlowBC(259,1, GW1_N259*af_cfm)} 
+define rSetGW1_N263 {value SetSpecifiedFlowBC(263,1, GW1_N263*af_cfm)} 
+define rSetGW1_N264 {value SetSpecifiedFlowBC(264,1, GW1_N264*af_cfm)} 
+define rSetGW1_N265 {value SetSpecifiedFlowBC(265,1, GW1_N265*af_cfm)} 
+define rSetGW1_N270 {value SetSpecifiedFlowBC(270,1, GW1_N270*af_cfm)} 
+define rSetGW1_N271 {value SetSpecifiedFlowBC(271,1, GW1_N271*af_cfm)} 
+define rSetGW1_N272 {value SetSpecifiedFlowBC(272,1, GW1_N272*af_cfm)} 
+
+define rSetGW1_N273 {value SetSpecifiedFlowBC(273,1, GW1_N273*af_cfm)} 
+define rSetGW1_N274 {value SetSpecifiedFlowBC(274,1, GW1_N274*af_cfm)} 
+define rSetGW1_N286 {value SetSpecifiedFlowBC(286,1, GW1_N286*af_cfm)} 
+define rSetGW1_N287 {value SetSpecifiedFlowBC(287,1, GW1_N287*af_cfm)} 
+define rSetGW1_N288 {value SetSpecifiedFlowBC(288,1, GW1_N288*af_cfm)} 
+define rSetGW1_N297 {value SetSpecifiedFlowBC(297,1, GW1_N297*af_cfm)} 
+define rSetGW1_N298 {value SetSpecifiedFlowBC(298,1, GW1_N298*af_cfm)} 
+define rSetGW1_N299 {value SetSpecifiedFlowBC(299,1, GW1_N299*af_cfm)} 
+define rSetGW1_N300 {value SetSpecifiedFlowBC(300,1, GW1_N300*af_cfm)} 
+define rSetGW1_N301 {value SetSpecifiedFlowBC(301,1, GW1_N301*af_cfm)} 
+define rSetGW1_N308 {value SetSpecifiedFlowBC(308,1, GW1_N308*af_cfm)} 
+define rSetGW1_N309 {value SetSpecifiedFlowBC(309,1, GW1_N309*af_cfm)} 
+define rSetGW1_N310 {value SetSpecifiedFlowBC(310,1, GW1_N310*af_cfm)} 
+define rSetGW1_N311 {value SetSpecifiedFlowBC(311,1, GW1_N311*af_cfm)} 
+define rSetGW1_N312 {value SetSpecifiedFlowBC(312,1, GW1_N312*af_cfm)} 
+define rSetGW1_N313 {value SetSpecifiedFlowBC(313,1, GW1_N313*af_cfm)} 
+define rSetGW1_N321 {value SetSpecifiedFlowBC(321,1, GW1_N321*af_cfm)} 
+define rSetGW1_N322 {value SetSpecifiedFlowBC(322,1, GW1_N322*af_cfm)} 
+define rSetGW1_N323 {value SetSpecifiedFlowBC(323,1, GW1_N323*af_cfm)} 
+define rSetGW1_N341 {value SetSpecifiedFlowBC(341,1, GW1_N341*af_cfm)} 
+define rSetGW1_N342 {value SetSpecifiedFlowBC(342,1, GW1_N342*af_cfm)} 
+define rSetGW1_N343 {value SetSpecifiedFlowBC(343,1, GW1_N343*af_cfm)} 
+define rSetGW1_N344 {value SetSpecifiedFlowBC(344,1, GW1_N344*af_cfm)} 
+define rSetGW1_N345 {value SetSpecifiedFlowBC(345,1, GW1_N345*af_cfm)} 
+define rSetGW1_N346 {value SetSpecifiedFlowBC(346,1, GW1_N346*af_cfm)} 
+define rSetGW1_N352 {value SetSpecifiedFlowBC(352,1, GW1_N352*af_cfm)} 
+define rSetGW1_N353 {value SetSpecifiedFlowBC(353,1, GW1_N353*af_cfm)} 
+define rSetGW1_N354 {value SetSpecifiedFlowBC(354,1, GW1_N354*af_cfm)} 
+define rSetGW1_N355 {value SetSpecifiedFlowBC(355,1, GW1_N355*af_cfm)} 
+define rSetGW1_N356 {value SetSpecifiedFlowBC(356,1, GW1_N356*af_cfm)} 
+define rSetGW1_N357 {value SetSpecifiedFlowBC(357,1, GW1_N357*af_cfm)} 
+define rSetGW1_N367 {value SetSpecifiedFlowBC(367,1, GW1_N367*af_cfm)} 
+define rSetGW1_N368 {value SetSpecifiedFlowBC(368,1, GW1_N368*af_cfm)} 
+define rSetGW1_N369 {value SetSpecifiedFlowBC(369,1, GW1_N369*af_cfm)} 
+define rSetGW1_N377 {value SetSpecifiedFlowBC(377,1, GW1_N377*af_cfm)} 
+define rSetGW1_N382 {value SetSpecifiedFlowBC(382,1, GW1_N382*af_cfm)} 
+define rSetGW1_N387 {value SetSpecifiedFlowBC(387,1, GW1_N387*af_cfm)} 
+define rSetGW1_N388 {value SetSpecifiedFlowBC(388,1, GW1_N388*af_cfm)} 
+define rSetGW1_N390 {value SetSpecifiedFlowBC(390,1, GW1_N390*af_cfm)} 
+define rSetGW1_N391 {value SetSpecifiedFlowBC(391,1, GW1_N391*af_cfm)} 
+define rSetGW1_N392 {value SetSpecifiedFlowBC(392,1, GW1_N392*af_cfm)} 
+define rSetGW1_N393 {value SetSpecifiedFlowBC(393,1, GW1_N393*af_cfm)} 
+define rSetGW1_N396 {value SetSpecifiedFlowBC(396,1, GW1_N396*af_cfm)} 
+define rSetGW1_N402 {value SetSpecifiedFlowBC(402,1, GW1_N402*af_cfm)} 
+define rSetGW1_N403 {value SetSpecifiedFlowBC(403,1, GW1_N403*af_cfm)} 
+define rSetGW1_N409 {value SetSpecifiedFlowBC(409,1, GW1_N409*af_cfm)} 
+define rSetGW1_N423 {value SetSpecifiedFlowBC(423,1, GW1_N423*af_cfm)} 
+define rSetGW1_N427 {value SetSpecifiedFlowBC(427,1, GW1_N427*af_cfm)} 
+define rSetGW1_N444 {value SetSpecifiedFlowBC(444,1, GW1_N444*af_cfm)} 
+define rSetGW1_N445 {value SetSpecifiedFlowBC(445,1, GW1_N445*af_cfm)} 
+define rSetGW1_N456 {value SetSpecifiedFlowBC(456,1, GW1_N456*af_cfm)} 
+define rSetGW1_N457 {value SetSpecifiedFlowBC(457,1, GW1_N457*af_cfm)} 
+define rSetGW1_N458 {value SetSpecifiedFlowBC(458,1, GW1_N458*af_cfm)} 
+define rSetGW1_N467 {value SetSpecifiedFlowBC(467,1, GW1_N467*af_cfm)} 
+define rSetGW1_N468 {value SetSpecifiedFlowBC(468,1, GW1_N468*af_cfm)} 
+define rSetGW1_N469 {value SetSpecifiedFlowBC(469,1, GW1_N469*af_cfm)} 
+define rSetGW1_N471 {value SetSpecifiedFlowBC(471,1, GW1_N471*af_cfm)} 
+define rSetGW1_N472 {value SetSpecifiedFlowBC(472,1, GW1_N472*af_cfm)} 
+define rSetGW1_N481 {value SetSpecifiedFlowBC(481,1, GW1_N481*af_cfm)} 
+define rSetGW1_N482 {value SetSpecifiedFlowBC(482,1, GW1_N482*af_cfm)} 
+define rSetGW1_N483 {value SetSpecifiedFlowBC(483,1, GW1_N483*af_cfm)} 
+define rSetGW1_N484 {value SetSpecifiedFlowBC(484,1, GW1_N484*af_cfm)} 
+define rSetGW1_N485 {value SetSpecifiedFlowBC(485,1, GW1_N485*af_cfm)} 
+define rSetGW1_N487 {value SetSpecifiedFlowBC(487,1, GW1_N487*af_cfm)} 
+define rSetGW1_N501 {value SetSpecifiedFlowBC(501,1, GW1_N501*af_cfm)} 
+define rSetGW1_N507 {value SetSpecifiedFlowBC(507,1, GW1_N507*af_cfm)} 
+define rSetGW1_N509 {value SetSpecifiedFlowBC(509,1, GW1_N509*af_cfm)} 
+define rSetGW1_N510 {value SetSpecifiedFlowBC(510,1, GW1_N510*af_cfm)} 
+define rSetGW1_N518 {value SetSpecifiedFlowBC(518,1, GW1_N518*af_cfm)} 
+define rSetGW1_N530 {value SetSpecifiedFlowBC(530,1, GW1_N530*af_cfm)} 
+define rSetGW1_N535 {value SetSpecifiedFlowBC(535,1, GW1_N535*af_cfm)} 
+define rSetGW1_N536 {value SetSpecifiedFlowBC(536,1, GW1_N536*af_cfm)} 
+define rSetGW1_N537 {value SetSpecifiedFlowBC(537,1, GW1_N537*af_cfm)} 
+define rSetGW1_N538 {value SetSpecifiedFlowBC(538,1, GW1_N538*af_cfm)} 
+define rSetGW1_N542 {value SetSpecifiedFlowBC(542,1, GW1_N542*af_cfm)} 
+define rSetGW1_N554 {value SetSpecifiedFlowBC(554,1, GW1_N554*af_cfm)} 
+define rSetGW1_N555 {value SetSpecifiedFlowBC(555,1, GW1_N555*af_cfm)} 
+define rSetGW1_N556 {value SetSpecifiedFlowBC(556,1, GW1_N556*af_cfm)} 
+define rSetGW1_N573 {value SetSpecifiedFlowBC(573,1, GW1_N573*af_cfm)} 
+define rSetGW1_N574 {value SetSpecifiedFlowBC(574,1, GW1_N574*af_cfm)} 
+define rSetGW1_N577 {value SetSpecifiedFlowBC(577,1, GW1_N577*af_cfm)} 
+define rSetGW1_N578 {value SetSpecifiedFlowBC(578,1, GW1_N578*af_cfm)} 
+define rSetGW1_N580 {value SetSpecifiedFlowBC(580,1, GW1_N580*af_cfm)} 
+define rSetGW1_N581 {value SetSpecifiedFlowBC(581,1, GW1_N581*af_cfm)} 
+define rSetGW1_N582 {value SetSpecifiedFlowBC(582,1, GW1_N582*af_cfm)} 
+define rSetGW1_N583 {value SetSpecifiedFlowBC(583,1, GW1_N583*af_cfm)} 
+define rSetGW1_N586 {value SetSpecifiedFlowBC(586,1, GW1_N586*af_cfm)} 
+define rSetGW1_N587 {value SetSpecifiedFlowBC(587,1, GW1_N587*af_cfm)} 
+define rSetGW1_N588 {value SetSpecifiedFlowBC(588,1, GW1_N588*af_cfm)} 
+define rSetGW1_N589 {value SetSpecifiedFlowBC(589,1, GW1_N589*af_cfm)} 
+define rSetGW1_N591 {value SetSpecifiedFlowBC(591,1, GW1_N591*af_cfm)} 
+define rSetGW1_N599 {value SetSpecifiedFlowBC(599,1, GW1_N599*af_cfm)} 
+define rSetGW1_N600 {value SetSpecifiedFlowBC(600,1, GW1_N600*af_cfm)} 
+define rSetGW1_N601 {value SetSpecifiedFlowBC(601,1, GW1_N601*af_cfm)} 
+define rSetGW1_N602 {value SetSpecifiedFlowBC(602,1, GW1_N602*af_cfm)} 
+define rSetGW1_N603 {value SetSpecifiedFlowBC(603,1, GW1_N603*af_cfm)} 
+define rSetGW1_N604 {value SetSpecifiedFlowBC(604,1, GW1_N604*af_cfm)} 
+define rSetGW1_N607 {value SetSpecifiedFlowBC(607,1, GW1_N607*af_cfm)} 
+define rSetGW1_N608 {value SetSpecifiedFlowBC(608,1, GW1_N608*af_cfm)} 
+define rSetGW1_N609 {value SetSpecifiedFlowBC(609,1, GW1_N609*af_cfm)} 
+define rSetGW1_N610 {value SetSpecifiedFlowBC(610,1, GW1_N610*af_cfm)} 
+define rSetGW1_N611 {value SetSpecifiedFlowBC(611,1, GW1_N611*af_cfm)} 
+define rSetGW1_N612 {value SetSpecifiedFlowBC(612,1, GW1_N612*af_cfm)} 
+define rSetGW1_N613 {value SetSpecifiedFlowBC(613,1, GW1_N613*af_cfm)} 
+define rSetGW1_N614 {value SetSpecifiedFlowBC(614,1, GW1_N614*af_cfm)} 
+define rSetGW1_N624 {value SetSpecifiedFlowBC(624,1, GW1_N624*af_cfm)} 
+define rSetGW1_N625 {value SetSpecifiedFlowBC(625,1, GW1_N625*af_cfm)} 
+define rSetGW1_N626 {value SetSpecifiedFlowBC(626,1, GW1_N626*af_cfm)} 
+define rSetGW1_N627 {value SetSpecifiedFlowBC(627,1, GW1_N627*af_cfm)} 
+define rSetGW1_N628 {value SetSpecifiedFlowBC(628,1, GW1_N628*af_cfm)} 
+define rSetGW1_N629 {value SetSpecifiedFlowBC(629,1, GW1_N629*af_cfm)} 
+define rSetGW1_N630 {value SetSpecifiedFlowBC(630,1, GW1_N630*af_cfm)} 
+define rSetGW1_N631 {value SetSpecifiedFlowBC(631,1, GW1_N631*af_cfm)} 
+define rSetGW1_N632 {value SetSpecifiedFlowBC(632,1, GW1_N632*af_cfm)} 
+define rSetGW1_N639 {value SetSpecifiedFlowBC(639,1, GW1_N639*af_cfm)} 
+define rSetGW1_N640 {value SetSpecifiedFlowBC(640,1, GW1_N640*af_cfm)} 
+define rSetGW1_N641 {value SetSpecifiedFlowBC(641,1, GW1_N641*af_cfm)} 
+define rSetGW1_N643 {value SetSpecifiedFlowBC(643,1, GW1_N643*af_cfm)} 
+define rSetGW1_N646 {value SetSpecifiedFlowBC(646,1, GW1_N646*af_cfm)} 
+define rSetGW1_N647 {value SetSpecifiedFlowBC(647,1, GW1_N647*af_cfm)} 
+define rSetGW1_N648 {value SetSpecifiedFlowBC(648,1, GW1_N648*af_cfm)} 
+define rSetGW1_N658 {value SetSpecifiedFlowBC(658,1, GW1_N658*af_cfm)} 
+define rSetGW1_N659 {value SetSpecifiedFlowBC(659,1, GW1_N659*af_cfm)} 
+define rSetGW1_N669 {value SetSpecifiedFlowBC(669,1, GW1_N669*af_cfm)} 
+define rSetGW1_N670 {value SetSpecifiedFlowBC(670,1, GW1_N670*af_cfm)} 
+define rSetGW1_N679 {value SetSpecifiedFlowBC(679,1, GW1_N679*af_cfm)} 
+define rSetGW1_N680 {value SetSpecifiedFlowBC(680,1, GW1_N680*af_cfm)} 
+define rSetGW1_N689 {value SetSpecifiedFlowBC(689,1, GW1_N689*af_cfm)} 
+define rSetGW1_N690 {value SetSpecifiedFlowBC(690,1, GW1_N690*af_cfm)} 
+define rSetGW1_N691 {value SetSpecifiedFlowBC(691,1, GW1_N691*af_cfm)} 
+define rSetGW1_N710 {value SetSpecifiedFlowBC(710,1, GW1_N710*af_cfm)} 
+define rSetGW1_N711 {value SetSpecifiedFlowBC(711,1, GW1_N711*af_cfm)} 
+define rSetGW1_N712 {value SetSpecifiedFlowBC(712,1, GW1_N712*af_cfm)} 
+define rSetGW1_N713 {value SetSpecifiedFlowBC(713,1, GW1_N713*af_cfm)} 
+define rSetGW1_N714 {value SetSpecifiedFlowBC(714,1, GW1_N714*af_cfm)} 
+define rSetGW1_N721 {value SetSpecifiedFlowBC(721,1, GW1_N721*af_cfm)} 
+define rSetGW1_N722 {value SetSpecifiedFlowBC(722,1, GW1_N722*af_cfm)} 
+define rSetGW1_N723 {value SetSpecifiedFlowBC(723,1, GW1_N723*af_cfm)} 
+define rSetGW1_N724 {value SetSpecifiedFlowBC(724,1, GW1_N724*af_cfm)} 
+define rSetGW1_N725 {value SetSpecifiedFlowBC(725,1, GW1_N725*af_cfm)} 
+define rSetGW1_N726 {value SetSpecifiedFlowBC(726,1, GW1_N726*af_cfm)} 
+define rSetGW1_N727 {value SetSpecifiedFlowBC(727,1, GW1_N727*af_cfm)} 
+define rSetGW1_N733 {value SetSpecifiedFlowBC(733,1, GW1_N733*af_cfm)} 
+define rSetGW1_N734 {value SetSpecifiedFlowBC(734,1, GW1_N734*af_cfm)} 
+define rSetGW1_N735 {value SetSpecifiedFlowBC(735,1, GW1_N735*af_cfm)} 
+define rSetGW1_N742 {value SetSpecifiedFlowBC(742,1, GW1_N742*af_cfm)} 
+define rSetGW1_N743 {value SetSpecifiedFlowBC(743,1, GW1_N743*af_cfm)} 
+define rSetGW1_N744 {value SetSpecifiedFlowBC(744,1, GW1_N744*af_cfm)} 
+define rSetGW1_N745 {value SetSpecifiedFlowBC(745,1, GW1_N745*af_cfm)} 
+define rSetGW1_N746 {value SetSpecifiedFlowBC(746,1, GW1_N746*af_cfm)} 
+define rSetGW1_N747 {value SetSpecifiedFlowBC(747,1, GW1_N747*af_cfm)} 
+define rSetGW1_N748 {value SetSpecifiedFlowBC(748,1, GW1_N748*af_cfm)} 
+define rSetGW1_N758 {value SetSpecifiedFlowBC(758,1, GW1_N758*af_cfm)} 
+define rSetGW1_N759 {value SetSpecifiedFlowBC(759,1, GW1_N759*af_cfm)} 
+define rSetGW1_N760 {value SetSpecifiedFlowBC(760,1, GW1_N760*af_cfm)} 
+define rSetGW1_N761 {value SetSpecifiedFlowBC(761,1, GW1_N761*af_cfm)} 
+define rSetGW1_N762 {value SetSpecifiedFlowBC(762,1, GW1_N762*af_cfm)} 
+define rSetGW1_N763 {value SetSpecifiedFlowBC(763,1, GW1_N763*af_cfm)} 
+define rSetGW1_N764 {value SetSpecifiedFlowBC(764,1, GW1_N764*af_cfm)} 
+define rSetGW1_N765 {value SetSpecifiedFlowBC(765,1, GW1_N765*af_cfm)} 
+define rSetGW1_N766 {value SetSpecifiedFlowBC(766,1, GW1_N766*af_cfm)} 
+define rSetGW1_N767 {value SetSpecifiedFlowBC(767,1, GW1_N767*af_cfm)} 
+define rSetGW1_N779 {value SetSpecifiedFlowBC(779,1, GW1_N779*af_cfm)} 
+define rSetGW1_N780 {value SetSpecifiedFlowBC(780,1, GW1_N780*af_cfm)} 
+define rSetGW1_N781 {value SetSpecifiedFlowBC(781,1, GW1_N781*af_cfm)} 
+define rSetGW1_N782 {value SetSpecifiedFlowBC(782,1, GW1_N782*af_cfm)} 
+define rSetGW1_N783 {value SetSpecifiedFlowBC(783,1, GW1_N783*af_cfm)} 
+define rSetGW1_N793 {value SetSpecifiedFlowBC(793,1, GW1_N793*af_cfm)} 
+define rSetGW1_N794 {value SetSpecifiedFlowBC(794,1, GW1_N794*af_cfm)} 
+define rSetGW1_N795 {value SetSpecifiedFlowBC(795,1, GW1_N795*af_cfm)} 
+define rSetGW1_N796 {value SetSpecifiedFlowBC(796,1, GW1_N796*af_cfm)} 
+define rSetGW1_N804 {value SetSpecifiedFlowBC(804,1, GW1_N804*af_cfm)} 
+define rSetGW1_N805 {value SetSpecifiedFlowBC(805,1, GW1_N805*af_cfm)} 
+define rSetGW1_N806 {value SetSpecifiedFlowBC(806,1, GW1_N806*af_cfm)} 
+define rSetGW1_N809 {value SetSpecifiedFlowBC(809,1, GW1_N809*af_cfm)} 
+define rSetGW1_N810 {value SetSpecifiedFlowBC(810,1, GW1_N810*af_cfm)} 
+define rSetGW1_N811 {value SetSpecifiedFlowBC(811,1, GW1_N811*af_cfm)} 
+define rSetGW1_N812 {value SetSpecifiedFlowBC(812,1, GW1_N812*af_cfm)} 
+define rSetGW1_N813 {value SetSpecifiedFlowBC(813,1, GW1_N813*af_cfm)} 
+define rSetGW1_N814 {value SetSpecifiedFlowBC(814,1, GW1_N814*af_cfm)} 
+define rSetGW1_N815 {value SetSpecifiedFlowBC(815,1, GW1_N815*af_cfm)} 
+define rSetGW1_N816 {value SetSpecifiedFlowBC(816,1, GW1_N816*af_cfm)} 
+define rSetGW1_N817 {value SetSpecifiedFlowBC(817,1, GW1_N817*af_cfm)} 
+define rSetGW1_N827 {value SetSpecifiedFlowBC(827,1, GW1_N827*af_cfm)} 
+define rSetGW1_N828 {value SetSpecifiedFlowBC(828,1, GW1_N828*af_cfm)} 
+define rSetGW1_N835 {value SetSpecifiedFlowBC(835,1, GW1_N835*af_cfm)} 
+define rSetGW1_N836 {value SetSpecifiedFlowBC(836,1, GW1_N836*af_cfm)} 
+define rSetGW1_N837 {value SetSpecifiedFlowBC(837,1, GW1_N837*af_cfm)} 
+define rSetGW1_N838 {value SetSpecifiedFlowBC(838,1, GW1_N838*af_cfm)} 
+define rSetGW1_N839 {value SetSpecifiedFlowBC(839,1, GW1_N839*af_cfm)} 
+define rSetGW1_N840 {value SetSpecifiedFlowBC(840,1, GW1_N840*af_cfm)} 
+define rSetGW1_N841 {value SetSpecifiedFlowBC(841,1, GW1_N841*af_cfm)} 
+define rSetGW1_N842 {value SetSpecifiedFlowBC(842,1, GW1_N842*af_cfm)} 
+define rSetGW1_N845 {value SetSpecifiedFlowBC(845,1, GW1_N845*af_cfm)} 
+define rSetGW1_N846 {value SetSpecifiedFlowBC(846,1, GW1_N846*af_cfm)} 
+define rSetGW1_N847 {value SetSpecifiedFlowBC(847,1, GW1_N847*af_cfm)} 
+define rSetGW1_N848 {value SetSpecifiedFlowBC(848,1, GW1_N848*af_cfm)} 
+define rSetGW1_N849 {value SetSpecifiedFlowBC(849,1, GW1_N849*af_cfm)} 
+define rSetGW1_N850 {value SetSpecifiedFlowBC(850,1, GW1_N850*af_cfm)} 
+define rSetGW1_N851 {value SetSpecifiedFlowBC(851,1, GW1_N851*af_cfm)} 
+define rSetGW1_N852 {value SetSpecifiedFlowBC(852,1, GW1_N852*af_cfm)} 
+define rSetGW1_N853 {value SetSpecifiedFlowBC(853,1, GW1_N853*af_cfm)} 
+define rSetGW1_N854 {value SetSpecifiedFlowBC(854,1, GW1_N854*af_cfm)} 
+define rSetGW1_N855 {value SetSpecifiedFlowBC(855,1, GW1_N855*af_cfm)} 
+define rSetGW1_N856 {value SetSpecifiedFlowBC(856,1, GW1_N856*af_cfm)} 
+define rSetGW1_N857 {value SetSpecifiedFlowBC(857,1, GW1_N857*af_cfm)} 
+define rSetGW1_N861 {value SetSpecifiedFlowBC(861,1, GW1_N861*af_cfm)} 
+define rSetGW1_N862 {value SetSpecifiedFlowBC(862,1, GW1_N862*af_cfm)} 
+define rSetGW1_N863 {value SetSpecifiedFlowBC(863,1, GW1_N863*af_cfm)} 
+define rSetGW1_N864 {value SetSpecifiedFlowBC(864,1, GW1_N864*af_cfm)} 
+define rSetGW1_N866 {value SetSpecifiedFlowBC(866,1, GW1_N866*af_cfm)} 
+define rSetGW1_N867 {value SetSpecifiedFlowBC(867,1, GW1_N867*af_cfm)} 
+define rSetGW1_N868 {value SetSpecifiedFlowBC(868,1, GW1_N868*af_cfm)} 
+define rSetGW1_N881 {value SetSpecifiedFlowBC(881,1, GW1_N881*af_cfm)} 
+define rSetGW1_N882 {value SetSpecifiedFlowBC(882,1, GW1_N882*af_cfm)} 
+define rSetGW1_N883 {value SetSpecifiedFlowBC(883,1, GW1_N883*af_cfm)} 
+define rSetGW1_N884 {value SetSpecifiedFlowBC(884,1, GW1_N884*af_cfm)} 
+define rSetGW1_N885 {value SetSpecifiedFlowBC(885,1, GW1_N885*af_cfm)} 
+define rSetGW1_N887 {value SetSpecifiedFlowBC(887,1, GW1_N887*af_cfm)} 
+define rSetGW1_N888 {value SetSpecifiedFlowBC(888,1, GW1_N888*af_cfm)} 
+define rSetGW1_N889 {value SetSpecifiedFlowBC(889,1, GW1_N889*af_cfm)} 
+define rSetGW1_N890 {value SetSpecifiedFlowBC(890,1, GW1_N890*af_cfm)} 
+define rSetGW1_N891 {value SetSpecifiedFlowBC(891,1, GW1_N891*af_cfm)} 
+define rSetGW1_N898 {value SetSpecifiedFlowBC(898,1, GW1_N898*af_cfm)} 
+define rSetGW1_N899 {value SetSpecifiedFlowBC(899,1, GW1_N899*af_cfm)} 
+define rSetGW1_N900 {value SetSpecifiedFlowBC(900,1, GW1_N900*af_cfm)} 
+define rSetGW1_N901 {value SetSpecifiedFlowBC(901,1, GW1_N901*af_cfm)} 
+define rSetGW1_N902 {value SetSpecifiedFlowBC(902,1, GW1_N902*af_cfm)} 
+define rSetGW1_N903 {value SetSpecifiedFlowBC(903,1, GW1_N903*af_cfm)} 
+define rSetGW1_N904 {value SetSpecifiedFlowBC(904,1, GW1_N904*af_cfm)} 
+define rSetGW1_N905 {value SetSpecifiedFlowBC(905,1, GW1_N905*af_cfm)} 
+define rSetGW1_N906 {value SetSpecifiedFlowBC(906,1, GW1_N906*af_cfm)} 
+define rSetGW1_N916 {value SetSpecifiedFlowBC(916,1, GW1_N916*af_cfm)} 
+define rSetGW1_N917 {value SetSpecifiedFlowBC(917,1, GW1_N917*af_cfm)} 
+define rSetGW1_N918 {value SetSpecifiedFlowBC(918,1, GW1_N918*af_cfm)} 
+define rSetGW1_N919 {value SetSpecifiedFlowBC(919,1, GW1_N919*af_cfm)} 
+define rSetGW1_N920 {value SetSpecifiedFlowBC(920,1, GW1_N920*af_cfm)} 
+define rSetGW1_N921 {value SetSpecifiedFlowBC(921,1, GW1_N921*af_cfm)} 
+define rSetGW1_N922 {value SetSpecifiedFlowBC(922,1, GW1_N922*af_cfm)} 
+define rSetGW1_N924 {value SetSpecifiedFlowBC(924,1, GW1_N924*af_cfm)} 
+define rSetGW1_N925 {value SetSpecifiedFlowBC(925,1, GW1_N925*af_cfm)} 
+define rSetGW1_N926 {value SetSpecifiedFlowBC(926,1, GW1_N926*af_cfm)} 
+define rSetGW1_N927 {value SetSpecifiedFlowBC(927,1, GW1_N927*af_cfm)} 
+define rSetGW1_N928 {value SetSpecifiedFlowBC(928,1, GW1_N928*af_cfm)} 
+define rSetGW1_N929 {value SetSpecifiedFlowBC(929,1, GW1_N929*af_cfm)} 
+define rSetGW1_N930 {value SetSpecifiedFlowBC(930,1, GW1_N930*af_cfm)} 
+define rSetGW1_N931 {value SetSpecifiedFlowBC(931,1, GW1_N931*af_cfm)} 
+define rSetGW1_N932 {value SetSpecifiedFlowBC(932,1, GW1_N932*af_cfm)} 
+define rSetGW1_N933 {value SetSpecifiedFlowBC(933,1, GW1_N933*af_cfm)} 
+define rSetGW1_N934 {value SetSpecifiedFlowBC(934,1, GW1_N934*af_cfm)} 
+define rSetGW1_N935 {value SetSpecifiedFlowBC(935,1, GW1_N935*af_cfm)} 
+define rSetGW1_N936 {value SetSpecifiedFlowBC(936,1, GW1_N936*af_cfm)} 
+define rSetGW1_N937 {value SetSpecifiedFlowBC(937,1, GW1_N937*af_cfm)} 
+define rSetGW1_N938 {value SetSpecifiedFlowBC(938,1, GW1_N938*af_cfm)} 
+define rSetGW1_N939 {value SetSpecifiedFlowBC(939,1, GW1_N939*af_cfm)} 
+define rSetGW1_N940 {value SetSpecifiedFlowBC(940,1, GW1_N940*af_cfm)} 
+define rSetGW1_N944 {value SetSpecifiedFlowBC(944,1, GW1_N944*af_cfm)} 
+define rSetGW1_N945 {value SetSpecifiedFlowBC(945,1, GW1_N945*af_cfm)} 
+define rSetGW1_N946 {value SetSpecifiedFlowBC(946,1, GW1_N946*af_cfm)} 
+define rSetGW1_N947 {value SetSpecifiedFlowBC(947,1, GW1_N947*af_cfm)} 
+define rSetGW1_N948 {value SetSpecifiedFlowBC(948,1, GW1_N948*af_cfm)} 
+define rSetGW1_N952 {value SetSpecifiedFlowBC(952,1, GW1_N952*af_cfm)} 
+define rSetGW1_N953 {value SetSpecifiedFlowBC(953,1, GW1_N953*af_cfm)} 
+define rSetGW1_N954 {value SetSpecifiedFlowBC(954,1, GW1_N954*af_cfm)} 
+define rSetGW1_N955 {value SetSpecifiedFlowBC(955,1, GW1_N955*af_cfm)} 
+define rSetGW1_N956 {value SetSpecifiedFlowBC(956,1, GW1_N956*af_cfm)} 
+define rSetGW1_N960 {value SetSpecifiedFlowBC(960,1, GW1_N960*af_cfm)} 
+define rSetGW1_N961 {value SetSpecifiedFlowBC(961,1, GW1_N961*af_cfm)} 
+define rSetGW1_N962 {value SetSpecifiedFlowBC(962,1, GW1_N962*af_cfm)} 
+define rSetGW1_N963 {value SetSpecifiedFlowBC(963,1, GW1_N963*af_cfm)} 
+define rSetGW1_N964 {value SetSpecifiedFlowBC(964,1, GW1_N964*af_cfm)} 
+define rSetGW1_N974 {value SetSpecifiedFlowBC(974,1, GW1_N974*af_cfm)} 
+define rSetGW1_N975 {value SetSpecifiedFlowBC(975,1, GW1_N975*af_cfm)} 
+define rSetGW1_N976 {value SetSpecifiedFlowBC(976,1, GW1_N976*af_cfm)} 
+define rSetGW1_N977 {value SetSpecifiedFlowBC(977,1, GW1_N977*af_cfm)} 
+define rSetGW1_N978 {value SetSpecifiedFlowBC(978,1, GW1_N978*af_cfm)} 
+define rSetGW1_N980 {value SetSpecifiedFlowBC(980,1, GW1_N980*af_cfm)} 
+define rSetGW1_N988 {value SetSpecifiedFlowBC(988,1, GW1_N988*af_cfm)} 
+define rSetGW1_N989 {value SetSpecifiedFlowBC(989,1, GW1_N989*af_cfm)} 
+define rSetGW1_N990 {value SetSpecifiedFlowBC(990,1, GW1_N990*af_cfm)} 
+define rSetGW1_N991 {value SetSpecifiedFlowBC(991,1, GW1_N991*af_cfm)} 
+define rSetGW1_N992 {value SetSpecifiedFlowBC(992,1, GW1_N992*af_cfm)} 
+define rSetGW1_N1003 {value SetSpecifiedFlowBC(1003,1, GW1_N1003*af_cfm)} 
+define rSetGW1_N1004 {value SetSpecifiedFlowBC(1004,1, GW1_N1004*af_cfm)} 
+define rSetGW1_N1005 {value SetSpecifiedFlowBC(1005,1, GW1_N1005*af_cfm)} 
+define rSetGW1_N1006 {value SetSpecifiedFlowBC(1006,1, GW1_N1006*af_cfm)} 
+define rSetGW1_N1007 {value SetSpecifiedFlowBC(1007,1, GW1_N1007*af_cfm)} 
+define rSetGW1_N1008 {value SetSpecifiedFlowBC(1008,1, GW1_N1008*af_cfm)} 
+define rSetGW1_N1009 {value SetSpecifiedFlowBC(1009,1, GW1_N1009*af_cfm)} 
+define rSetGW1_N1010 {value SetSpecifiedFlowBC(1010,1, GW1_N1010*af_cfm)} 
+define rSetGW1_N1011 {value SetSpecifiedFlowBC(1011,1, GW1_N1011*af_cfm)} 
+define rSetGW1_N1017 {value SetSpecifiedFlowBC(1017,1, GW1_N1017*af_cfm)} 
+define rSetGW1_N1018 {value SetSpecifiedFlowBC(1018,1, GW1_N1018*af_cfm)} 
+define rSetGW1_N1019 {value SetSpecifiedFlowBC(1019,1, GW1_N1019*af_cfm)} 
+define rSetGW1_N1034 {value SetSpecifiedFlowBC(1034,1, GW1_N1034*af_cfm)} 
+define rSetGW1_N1035 {value SetSpecifiedFlowBC(1035,1, GW1_N1035*af_cfm)} 
+define rSetGW1_N1036 {value SetSpecifiedFlowBC(1036,1, GW1_N1036*af_cfm)} 
+define rSetGW1_N1037 {value SetSpecifiedFlowBC(1037,1, GW1_N1037*af_cfm)} 
+define rSetGW1_N1046 {value SetSpecifiedFlowBC(1046,1, GW1_N1046*af_cfm)} 
+define rSetGW1_N1049 {value SetSpecifiedFlowBC(1049,1, GW1_N1049*af_cfm)} 
+define rSetGW1_N1050 {value SetSpecifiedFlowBC(1050,1, GW1_N1050*af_cfm)} 
+define rSetGW1_N1051 {value SetSpecifiedFlowBC(1051,1, GW1_N1051*af_cfm)} 
+define rSetGW1_N1052 {value SetSpecifiedFlowBC(1052,1, GW1_N1052*af_cfm)} 
+define rSetGW1_N1053 {value SetSpecifiedFlowBC(1053,1, GW1_N1053*af_cfm)} 
+define rSetGW1_N1059 {value SetSpecifiedFlowBC(1059,1, GW1_N1059*af_cfm)} 
+define rSetGW1_N1060 {value SetSpecifiedFlowBC(1060,1, GW1_N1060*af_cfm)} 
+define rSetGW1_N1061 {value SetSpecifiedFlowBC(1061,1, GW1_N1061*af_cfm)} 
+define rSetGW1_N1062 {value SetSpecifiedFlowBC(1062,1, GW1_N1062*af_cfm)} 
+define rSetGW1_N1067 {value SetSpecifiedFlowBC(1067,1, GW1_N1067*af_cfm)} 
+define rSetGW1_N1069 {value SetSpecifiedFlowBC(1069,1, GW1_N1069*af_cfm)} 
+define rSetGW1_N1078 {value SetSpecifiedFlowBC(1078,1, GW1_N1078*af_cfm)} 
+define rSetGW1_N1079 {value SetSpecifiedFlowBC(1079,1, GW1_N1079*af_cfm)} 
+define rSetGW1_N1080 {value SetSpecifiedFlowBC(1080,1, GW1_N1080*af_cfm)} 
+define rSetGW1_N1081 {value SetSpecifiedFlowBC(1081,1, GW1_N1081*af_cfm)} 
+define rSetGW1_N1082 {value SetSpecifiedFlowBC(1082,1, GW1_N1082*af_cfm)} 
+define rSetGW1_N1083 {value SetSpecifiedFlowBC(1083,1, GW1_N1083*af_cfm)} 
+define rSetGW1_N1086 {value SetSpecifiedFlowBC(1086,1, GW1_N1086*af_cfm)} 
+define rSetGW1_N1091 {value SetSpecifiedFlowBC(1091,1, GW1_N1091*af_cfm)} 
+define rSetGW1_N1093 {value SetSpecifiedFlowBC(1093,1, GW1_N1093*af_cfm)} 
+define rSetGW1_N1097 {value SetSpecifiedFlowBC(1097,1, GW1_N1097*af_cfm)} 
+define rSetGW1_N1101 {value SetSpecifiedFlowBC(1101,1, GW1_N1101*af_cfm)} 
+define rSetGW1_N1102 {value SetSpecifiedFlowBC(1102,1, GW1_N1102*af_cfm)} 
+define rSetGW1_N1103 {value SetSpecifiedFlowBC(1103,1, GW1_N1103*af_cfm)} 
+define rSetGW1_N1104 {value SetSpecifiedFlowBC(1104,1, GW1_N1104*af_cfm)} 
+define rSetGW1_N1110 {value SetSpecifiedFlowBC(1110,1, GW1_N1110*af_cfm)} 
+define rSetGW1_N1111 {value SetSpecifiedFlowBC(1111,1, GW1_N1111*af_cfm)} 
+define rSetGW1_N1112 {value SetSpecifiedFlowBC(1112,1, GW1_N1112*af_cfm)} 
+define rSetGW1_N1113 {value SetSpecifiedFlowBC(1113,1, GW1_N1113*af_cfm)} 
+define rSetGW1_N1124 {value SetSpecifiedFlowBC(1124,1, GW1_N1124*af_cfm)} 
+define rSetGW1_N1134 {value SetSpecifiedFlowBC(1134,1, GW1_N1134*af_cfm)} 
+define rSetGW1_N1135 {value SetSpecifiedFlowBC(1135,1, GW1_N1135*af_cfm)} 
+define rSetGW1_N1136 {value SetSpecifiedFlowBC(1136,1, GW1_N1136*af_cfm)} 
+define rSetGW1_N1138 {value SetSpecifiedFlowBC(1138,1, GW1_N1138*af_cfm)} 
+define rSetGW1_N1150 {value SetSpecifiedFlowBC(1150,1, GW1_N1150*af_cfm)} 
+define rSetGW1_N1151 {value SetSpecifiedFlowBC(1151,1, GW1_N1151*af_cfm)} 
+define rSetGW1_N1152 {value SetSpecifiedFlowBC(1152,1, GW1_N1152*af_cfm)} 
+define rSetGW1_N1153 {value SetSpecifiedFlowBC(1153,1, GW1_N1153*af_cfm)} 
+define rSetGW1_N1157 {value SetSpecifiedFlowBC(1157,1, GW1_N1157*af_cfm)} 
+define rSetGW1_N1158 {value SetSpecifiedFlowBC(1158,1, GW1_N1158*af_cfm)} 
+define rSetGW1_N1159 {value SetSpecifiedFlowBC(1159,1, GW1_N1159*af_cfm)} 
+define rSetGW1_N1165 {value SetSpecifiedFlowBC(1165,1, GW1_N1165*af_cfm)} 
+define rSetGW1_N1170 {value SetSpecifiedFlowBC(1170,1, GW1_N1170*af_cfm)} 
+define rSetGW1_N1172 {value SetSpecifiedFlowBC(1172,1, GW1_N1172*af_cfm)} 
+define rSetGW1_N1173 {value SetSpecifiedFlowBC(1173,1, GW1_N1173*af_cfm)} 
+define rSetGW1_N1174 {value SetSpecifiedFlowBC(1174,1, GW1_N1174*af_cfm)} 
+define rSetGW1_N1179 {value SetSpecifiedFlowBC(1179,1, GW1_N1179*af_cfm)} 
+define rSetGW1_N1180 {value SetSpecifiedFlowBC(1180,1, GW1_N1180*af_cfm)} 
+define rSetGW1_N1181 {value SetSpecifiedFlowBC(1181,1, GW1_N1181*af_cfm)} 
+define rSetGW1_N1182 {value SetSpecifiedFlowBC(1182,1, GW1_N1182*af_cfm)} 
+define rSetGW1_N1184 {value SetSpecifiedFlowBC(1184,1, GW1_N1184*af_cfm)} 
+define rSetGW1_N1185 {value SetSpecifiedFlowBC(1185,1, GW1_N1185*af_cfm)} 
+define rSetGW1_N1186 {value SetSpecifiedFlowBC(1186,1, GW1_N1186*af_cfm)} 
+define rSetGW1_N1187 {value SetSpecifiedFlowBC(1187,1, GW1_N1187*af_cfm)} 
+define rSetGW1_N1188 {value SetSpecifiedFlowBC(1188,1, GW1_N1188*af_cfm)} 
+define rSetGW1_N1190 {value SetSpecifiedFlowBC(1190,1, GW1_N1190*af_cfm)} 
+define rSetGW1_N1191 {value SetSpecifiedFlowBC(1191,1, GW1_N1191*af_cfm)} 
+define rSetGW1_N1192 {value SetSpecifiedFlowBC(1192,1, GW1_N1192*af_cfm)} 
+define rSetGW1_N1193 {value SetSpecifiedFlowBC(1193,1, GW1_N1193*af_cfm)} 
+define rSetGW1_N1194 {value SetSpecifiedFlowBC(1194,1, GW1_N1194*af_cfm)} 
+define rSetGW1_N1195 {value SetSpecifiedFlowBC(1195,1, GW1_N1195*af_cfm)} 
+define rSetGW1_N1200 {value SetSpecifiedFlowBC(1200,1, GW1_N1200*af_cfm)} 
+define rSetGW1_N1201 {value SetSpecifiedFlowBC(1201,1, GW1_N1201*af_cfm)} 
+define rSetGW1_N1205 {value SetSpecifiedFlowBC(1205,1, GW1_N1205*af_cfm)} 
+define rSetGW1_N1206 {value SetSpecifiedFlowBC(1206,1, GW1_N1206*af_cfm)} 
+define rSetGW1_N1207 {value SetSpecifiedFlowBC(1207,1, GW1_N1207*af_cfm)} 
+define rSetGW1_N1208 {value SetSpecifiedFlowBC(1208,1, GW1_N1208*af_cfm)} 
+define rSetGW1_N1209 {value SetSpecifiedFlowBC(1209,1, GW1_N1209*af_cfm)} 
+define rSetGW1_N1210 {value SetSpecifiedFlowBC(1210,1, GW1_N1210*af_cfm)} 
+define rSetGW1_N1211 {value SetSpecifiedFlowBC(1211,1, GW1_N1211*af_cfm)} 
+define rSetGW1_N1212 {value SetSpecifiedFlowBC(1212,1, GW1_N1212*af_cfm)} 
+define rSetGW1_N1213 {value SetSpecifiedFlowBC(1213,1, GW1_N1213*af_cfm)} 
+define rSetGW1_N1214 {value SetSpecifiedFlowBC(1214,1, GW1_N1214*af_cfm)} 
+define rSetGW1_N1215 {value SetSpecifiedFlowBC(1215,1, GW1_N1215*af_cfm)} 
+define rSetGW1_N1216 {value SetSpecifiedFlowBC(1216,1, GW1_N1216*af_cfm)} 
+define rSetGW1_N1222 {value SetSpecifiedFlowBC(1222,1, GW1_N1222*af_cfm)} 
+define rSetGW1_N1226 {value SetSpecifiedFlowBC(1226,1, GW1_N1226*af_cfm)} 
+define rSetGW1_N1227 {value SetSpecifiedFlowBC(1227,1, GW1_N1227*af_cfm)} 
+define rSetGW1_N1228 {value SetSpecifiedFlowBC(1228,1, GW1_N1228*af_cfm)} 
+define rSetGW1_N1229 {value SetSpecifiedFlowBC(1229,1, GW1_N1229*af_cfm)} 
+define rSetGW1_N1230 {value SetSpecifiedFlowBC(1230,1, GW1_N1230*af_cfm)} 
+define rSetGW1_N1231 {value SetSpecifiedFlowBC(1231,1, GW1_N1231*af_cfm)} 
+define rSetGW1_N1232 {value SetSpecifiedFlowBC(1232,1, GW1_N1232*af_cfm)} 
+define rSetGW1_N1239 {value SetSpecifiedFlowBC(1239,1, GW1_N1239*af_cfm)} 
+define rSetGW1_N1240 {value SetSpecifiedFlowBC(1240,1, GW1_N1240*af_cfm)} 
+define rSetGW1_N1241 {value SetSpecifiedFlowBC(1241,1, GW1_N1241*af_cfm)} 
+define rSetGW1_N1242 {value SetSpecifiedFlowBC(1242,1, GW1_N1242*af_cfm)} 
+define rSetGW1_N1243 {value SetSpecifiedFlowBC(1243,1, GW1_N1243*af_cfm)} 
+define rSetGW1_N1244 {value SetSpecifiedFlowBC(1244,1, GW1_N1244*af_cfm)} 
+define rSetGW1_N1245 {value SetSpecifiedFlowBC(1245,1, GW1_N1245*af_cfm)} 
+define rSetGW1_N1246 {value SetSpecifiedFlowBC(1246,1, GW1_N1246*af_cfm)} 
+define rSetGW1_N1247 {value SetSpecifiedFlowBC(1247,1, GW1_N1247*af_cfm)} 
+define rSetGW1_N1248 {value SetSpecifiedFlowBC(1248,1, GW1_N1248*af_cfm)} 
+define rSetGW1_N1253 {value SetSpecifiedFlowBC(1253,1, GW1_N1253*af_cfm)} 
+define rSetGW1_N1254 {value SetSpecifiedFlowBC(1254,1, GW1_N1254*af_cfm)} 
+define rSetGW1_N1255 {value SetSpecifiedFlowBC(1255,1, GW1_N1255*af_cfm)} 
+define rSetGW1_N1256 {value SetSpecifiedFlowBC(1256,1, GW1_N1256*af_cfm)} 
+define rSetGW1_N1257 {value SetSpecifiedFlowBC(1257,1, GW1_N1257*af_cfm)} 
+define rSetGW1_N1262 {value SetSpecifiedFlowBC(1262,1, GW1_N1262*af_cfm)} 
+define rSetGW1_N1263 {value SetSpecifiedFlowBC(1263,1, GW1_N1263*af_cfm)} 
+define rSetGW1_N1264 {value SetSpecifiedFlowBC(1264,1, GW1_N1264*af_cfm)} 
+define rSetGW1_N1265 {value SetSpecifiedFlowBC(1265,1, GW1_N1265*af_cfm)} 
+define rSetGW1_N1266 {value SetSpecifiedFlowBC(1266,1, GW1_N1266*af_cfm)} 
+define rSetGW1_N1267 {value SetSpecifiedFlowBC(1267,1, GW1_N1267*af_cfm)} 
+define rSetGW1_N1268 {value SetSpecifiedFlowBC(1268,1, GW1_N1268*af_cfm)} 
+define rSetGW1_N1269 {value SetSpecifiedFlowBC(1269,1, GW1_N1269*af_cfm)} 
+define rSetGW1_N1277 {value SetSpecifiedFlowBC(1277,1, GW1_N1277*af_cfm)} 
+define rSetGW1_N1278 {value SetSpecifiedFlowBC(1278,1, GW1_N1278*af_cfm)} 
+define rSetGW1_N1279 {value SetSpecifiedFlowBC(1279,1, GW1_N1279*af_cfm)} 
+define rSetGW1_N1280 {value SetSpecifiedFlowBC(1280,1, GW1_N1280*af_cfm)} 
+define rSetGW1_N1281 {value SetSpecifiedFlowBC(1281,1, GW1_N1281*af_cfm)} 
+define rSetGW1_N1282 {value SetSpecifiedFlowBC(1282,1, GW1_N1282*af_cfm)} 
+define rSetGW1_N1292 {value SetSpecifiedFlowBC(1292,1, GW1_N1292*af_cfm)} 
+define rSetGW1_N1293 {value SetSpecifiedFlowBC(1293,1, GW1_N1293*af_cfm)} 
+define rSetGW1_N1294 {value SetSpecifiedFlowBC(1294,1, GW1_N1294*af_cfm)} 
+define rSetGW1_N1295 {value SetSpecifiedFlowBC(1295,1, GW1_N1295*af_cfm)} 
+define rSetGW1_N1305 {value SetSpecifiedFlowBC(1305,1, GW1_N1305*af_cfm)} 
+define rSetGW1_N1316 {value SetSpecifiedFlowBC(1316,1, GW1_N1316*af_cfm)} 
+define rSetGW1_N1318 {value SetSpecifiedFlowBC(1318,1, GW1_N1318*af_cfm)} 
+define rSetGW1_N1319 {value SetSpecifiedFlowBC(1319,1, GW1_N1319*af_cfm)} 
+define rSetGW1_N1320 {value SetSpecifiedFlowBC(1320,1, GW1_N1320*af_cfm)} 
+define rSetGW1_N1321 {value SetSpecifiedFlowBC(1321,1, GW1_N1321*af_cfm)} 
+define rSetGW1_N1329 {value SetSpecifiedFlowBC(1329,1, GW1_N1329*af_cfm)} 
+define rSetGW1_N1330 {value SetSpecifiedFlowBC(1330,1, GW1_N1330*af_cfm)} 
+define rSetGW1_N1336 {value SetSpecifiedFlowBC(1336,1, GW1_N1336*af_cfm)} 
+define rSetGW1_N1337 {value SetSpecifiedFlowBC(1337,1, GW1_N1337*af_cfm)} 
+define rSetGW1_N1338 {value SetSpecifiedFlowBC(1338,1, GW1_N1338*af_cfm)} 
+define rSetGW1_N1339 {value SetSpecifiedFlowBC(1339,1, GW1_N1339*af_cfm)} 
+define rSetGW1_N1340 {value SetSpecifiedFlowBC(1340,1, GW1_N1340*af_cfm)} 
+define rSetGW1_N1341 {value SetSpecifiedFlowBC(1341,1, GW1_N1341*af_cfm)} 
+define rSetGW1_N1343 {value SetSpecifiedFlowBC(1343,1, GW1_N1343*af_cfm)} 
+define rSetGW1_N1344 {value SetSpecifiedFlowBC(1344,1, GW1_N1344*af_cfm)} 
+define rSetGW1_N1345 {value SetSpecifiedFlowBC(1345,1, GW1_N1345*af_cfm)} 
+define rSetGW1_N1349 {value SetSpecifiedFlowBC(1349,1, GW1_N1349*af_cfm)} 
+define rSetGW1_N1350 {value SetSpecifiedFlowBC(1350,1, GW1_N1350*af_cfm)} 
+define rSetGW1_N1351 {value SetSpecifiedFlowBC(1351,1, GW1_N1351*af_cfm)} 
+define rSetGW1_N1354 {value SetSpecifiedFlowBC(1354,1, GW1_N1354*af_cfm)} 
+define rSetGW1_N1355 {value SetSpecifiedFlowBC(1355,1, GW1_N1355*af_cfm)} 
+define rSetGW1_N1356 {value SetSpecifiedFlowBC(1356,1, GW1_N1356*af_cfm)} 
+define rSetGW1_N1357 {value SetSpecifiedFlowBC(1357,1, GW1_N1357*af_cfm)} 
+define rSetGW1_N1358 {value SetSpecifiedFlowBC(1358,1, GW1_N1358*af_cfm)} 
+define rSetGW1_N1359 {value SetSpecifiedFlowBC(1359,1, GW1_N1359*af_cfm)} 
+define rSetGW1_N1360 {value SetSpecifiedFlowBC(1360,1, GW1_N1360*af_cfm)} 
+define rSetGW1_N1361 {value SetSpecifiedFlowBC(1361,1, GW1_N1361*af_cfm)} 
+define rSetGW1_N1362 {value SetSpecifiedFlowBC(1362,1, GW1_N1362*af_cfm)} 
+define rSetGW1_N1365 {value SetSpecifiedFlowBC(1365,1, GW1_N1365*af_cfm)} 
+define rSetGW1_N1366 {value SetSpecifiedFlowBC(1366,1, GW1_N1366*af_cfm)} 
+define rSetGW1_N1367 {value SetSpecifiedFlowBC(1367,1, GW1_N1367*af_cfm)} 
+define rSetGW1_N1368 {value SetSpecifiedFlowBC(1368,1, GW1_N1368*af_cfm)} 
+define rSetGW1_N1369 {value SetSpecifiedFlowBC(1369,1, GW1_N1369*af_cfm)} 
+define rSetGW1_N1370 {value SetSpecifiedFlowBC(1370,1, GW1_N1370*af_cfm)} 
+define rSetGW1_N1371 {value SetSpecifiedFlowBC(1371,1, GW1_N1371*af_cfm)} 
+define rSetGW1_N1374 {value SetSpecifiedFlowBC(1374,1, GW1_N1374*af_cfm)} 
+define rSetGW1_N1375 {value SetSpecifiedFlowBC(1375,1, GW1_N1375*af_cfm)} 
+define rSetGW1_N1376 {value SetSpecifiedFlowBC(1376,1, GW1_N1376*af_cfm)} 
+define rSetGW1_N1377 {value SetSpecifiedFlowBC(1377,1, GW1_N1377*af_cfm)} 
+define rSetGW1_N1378 {value SetSpecifiedFlowBC(1378,1, GW1_N1378*af_cfm)} 
+define rSetGW1_N1380 {value SetSpecifiedFlowBC(1380,1, GW1_N1380*af_cfm)} 
+define rSetGW1_N1381 {value SetSpecifiedFlowBC(1381,1, GW1_N1381*af_cfm)} 
+define rSetGW1_N1382 {value SetSpecifiedFlowBC(1382,1, GW1_N1382*af_cfm)} 
+define rSetGW1_N1383 {value SetSpecifiedFlowBC(1383,1, GW1_N1383*af_cfm)} 
+define rSetGW1_N1384 {value SetSpecifiedFlowBC(1384,1, GW1_N1384*af_cfm)} 
+define rSetGW1_N1385 {value SetSpecifiedFlowBC(1385,1, GW1_N1385*af_cfm)} 
+define rSetGW1_N1386 {value SetSpecifiedFlowBC(1386,1, GW1_N1386*af_cfm)} 
+define rSetGW1_N1387 {value SetSpecifiedFlowBC(1387,1, GW1_N1387*af_cfm)} 
+define rSetGW1_N1388 {value SetSpecifiedFlowBC(1388,1, GW1_N1388*af_cfm)} 
+define rSetGW1_N1389 {value SetSpecifiedFlowBC(1389,1, GW1_N1389*af_cfm)} 
+define rSetGW1_N1390 {value SetSpecifiedFlowBC(1390,1, GW1_N1390*af_cfm)} 
+define rSetGW1_N1391 {value SetSpecifiedFlowBC(1391,1, GW1_N1391*af_cfm)} 
+define rSetGW1_N1392 {value SetSpecifiedFlowBC(1392,1, GW1_N1392*af_cfm)} 
+define rSetGW1_N1393 {value SetSpecifiedFlowBC(1393,1, GW1_N1393*af_cfm)} 
+
+

@@ -1,0 +1,19 @@
+! Monthly Distribution for demands in Mokelumne River watershed      
+! Pattern for diversions to Amador, CPUD, and CCWD from EBMUDSIM results,
+! Pattern for JVID is based on 2010-2014 reported data to SWRCB
+! Pattern for Stockton based on 2008 Purchase Agreement
+! Pattern for Lodi based on production data and delivery restriction Nov-Feb
+Mok_Demands     
+month Stockton  Lodi      AmadorCo  CPUD      CCWD	JVID
+1     0.000     0.090     0.080     0.080     0.080	0.000
+2     0.000     0.040     0.070     0.070     0.070	0.000
+3     0.000     0.040     0.070     0.070     0.070	0.000
+4     0.000     0.040     0.060     0.060     0.060	0.000
+5     0.000     0.040     0.060     0.060     0.060	0.000
+6     0.133     0.060     0.060     0.060     0.060	0.000
+7     0.134     0.070     0.070     0.070     0.070	0.140
+8     0.400     0.100     0.090     0.090     0.090	0.240
+9     0.200     0.120     0.110     0.110     0.110	0.170
+10    0.133     0.140     0.110     0.110     0.110	0.270
+11    0.000     0.140     0.120     0.120     0.120	0.180
+12    0.000     0.120     0.100     0.100     0.100	0.000

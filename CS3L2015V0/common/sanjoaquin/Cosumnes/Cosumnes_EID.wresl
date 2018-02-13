@@ -1,0 +1,120 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+! Cosumnes_EID.wresl
+
+!******************************************************************************
+! Jenkinson Lake Operations
+!******************************************************************************
+/*
+Jenkinson Lake as constructed as a portion of the USBR Central Valley Project in 1955.
+It has a maximum capacity of 41,033 ac-ft. Ownership was transferred to El Dorado ID (EID)
+in 2003, including the water rights.
+
+The average annual yield from this facility is approximately 23,000 ac-ft, though EID's
+annual water right is for 33,400 ac-ft of total beneficial use. Under normal conditions,
+Jenkinson Lake is operated to maintain 14,000 to 18,000 ac-ft of carryover storage each year.
+*/
+
+!******************************************************************************
+! Diversion through Camino Conduit
+!******************************************************************************
+
+define AnnualEID     {value 24.0} ! based on 2000-2009 deliveries (assumes not supply limited)
+define distEID       {select EID from Cosumnes_demands where month=month}
+define demandEID     {value AnnualEID * distEID}
+
+!Calculate Mar-Sep demand
+define distEIDMarSep       {select Remaining from Cosumnes_demands where month=month}
+define demandEIDMarSep    {value AnnualEID * distEIDMarSep}
+
+define EIDallocationdv {std kind 'ALLOCATION' units 'NONE'}
+
+define JNKSNForcastedInflow {   
+       case octBgnWY {  ! special case for first wateryear, Sum Oct-Sep
+            condition month == MAR
+                sum(i=0,6,1)  (I_JNKSN(i) + I_CMP012(i))*cfs_taf(i)}!ignores restrictions on Camp Creek diversions after Jun 30
+       case Otherwise {
+            condition always 
+                value 0. } }
+                
+define EIDallocation {
+    case octBgnWY {  ! special case for first wateryear
+        condition month == OCT .and. wateryear == bgnWY
+        value 1.0}
+    case Mar {
+        condition month == MAR
+        value max(0,min(1,0.50*max((S_JNKSN(-1)-4.6)/demandEIDMarSep, (JNKSNForcastedInflow + S_JNKSN(-1)- 18.0)/demandEIDMarSep)))} 
+        !Assume 16 TAF carrover storage target. 4.6 TAF is historical storage September 1977
+        !Factor of 0.50 is a calibration factor used to help match historical operations
+    case otherwise {
+        condition always
+        value EIDallocationdv(-1)}}        
+                
+goal setEIDallocationdv {EIDallocationdv = EIDallocation}
+goal set_D_JNKSN_ELDID  {D_JNKSN_ELDID < demandEID * EIDallocation * taf_cfs}
+
+!******************************************************************************
+! Diversion through Camp Creek Tunnel
+!******************************************************************************
+/*
+EID diverts water from Camp Creek via the Camp Creek Tunnel to Jenkinson Lake. This direct diversion
+was originally associated with EID's Crawford Ditch and dates to 1851. The maximum diversion rate is 12.5 cfs
+and the season of diversion is May through October (see S022682). EID reports these diversions to the
+State Water Board as part of its License Reports for licenses 11835(Application 2270) and 11836(Application 5645A).
+
+Application 2270 allows:
+ -  7 TAF/year diversion to storage from Nov 15 to June 1 from Sly Park Creek
+ - 15 TAF/year diversion to storage from Nov 15 to June 15 from Camp Creek
+ - 27.1 cfs direct diversion from Sly Park Creek from Apr 15 - Jun 15
+ - 48.3 cfs direct diversion from Camp Creek from Apr 15 - Jun 15
+ - Maximum combined direct diversion of 63.8 cfs
+  
+Application 5645A allows:
+ - 5.4 TAF/year diversion to storage from Nov 1 to June 30 from Sly Park Creek
+ - 9.4 TAF/year diversion to storage from Nov 1 to June 30 from Camp Creek
+ - 30.7 cfs direct diversion from Sly Park Creek from Nov 1 - Apr 14 and Jun 16 - Jun 30
+ - 24.2 cfs direct diversion from Camp Creek from Nov 1 - Apr 14 and Jun 16 - Jun 30
+ - Maximum combined direct diversion of 32.5 cfs
+ 
+Both Applications
+ - Maximum combined diversion to storage 36.7 TAF
+ - Maximum amount put to beneficial use shall not exceed 33.4 TAF/year
+ 
+Licensee shall at all times bypass at Sly Park Dam a minimum of 1 cubic foot per second (cfs), or the
+natural flow of Sly Park Creek, whichever is less, and at all times bypass at Camp Creek Diversion Dam a
+minimum of 2 cfs or the natural flow, whichever is less, to maintain fish life.
+ 
+Licensee, considering hydrologic conditions and water use requirements, shall estimate in April of each
+year the storage that will exist in Jenkinson Lake on the following September 30 and revise such estimate
+as often as hydrologic conditions and water use requirements warrant such revision. If such estimate or
+re-estimate exceeds 23,800 acre-feet, licensee shall so advise Department of Fish and Game.
+
+If the estimated September 30 storage exceeds 23,800 acre-feet, licensee shall release to Sly Park Creek
+up to 5 cfs, including the 1 cfs provided for above, of such excess on a constant-flow pattern during the
+period May through October or during such portion of said period as remains after revisions of the
+licensee’s estimate.
+*/
+
+define CmpCkTunnelMax {
+	Case NovJun {condition month >= NOV .and. month <= JUN
+		value 500.}
+	Case otherwise {condition always
+		value 12.5}}
+		
+goal set_D_CMP012_JNKSN {D_CMP012_JNKSN < CmpCkTunnelMax}
+
+! Weight of -1 applied to diversion to prevent diversions to Jenkinson Lake when storage is at rule curve.

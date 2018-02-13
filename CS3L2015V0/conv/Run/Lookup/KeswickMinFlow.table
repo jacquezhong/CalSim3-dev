@@ -1,0 +1,107 @@
+!Idy Lui 08/28/2017, contacted Derek Hilts for this logic. 
+!The logic that was in PROSIM and in the old 7 step CALSIM runs tried to mimic what had been done in the past in the real world
+!Oct's, Nov's, Dec's Preliminary Keswick MIFs are based on Shasta carryover storage level (CVPIA Modified Nov 20, 1997)
+!Jan's, Feb's, Mar's, Apr's Preliminary Keswick_MIFs are based on Beginning-of-Month (BOM) Shasta storage level (CVPIA Modified Nov 20, 1997)
+!May's, Jun's, Jul's, Aug's,Sep's Preliminary Keswick_MIFs are based on BOM + forecasted inflows to Shasta for the remainder of the water year. (Temperature control)
+!Oct-Dec: Trigger = Shasta carryover storage   --- in TAF
+!Jan-Apr: Trigger = end of last month storage  --- in TAF
+!May-Jul: Trigger = end of last month storage+forcasted inflows to Shasta     --- in TAF
+keswickminflow
+month   trigger         minflow
+1         0             3250
+1      2000             3250
+1      2200             3500
+1      2300             3750
+1      2400             4000
+1      2500             4250
+1      2600             4500
+1      2700             4750
+1      2800             5000
+1      9999             5000
+2         0             3250
+2      2000             3250
+2      2200             3500
+2      2300             3750
+2      2400             4000
+2      2500             4250
+2      2600             4500
+2      2700             4750
+2      2800             5000
+2      9999             5000
+3         0             3250
+3      2000             3250
+3      2200             3500
+3      2300             3750
+3      2400             4000
+3      2500             4250
+3      2600             4500
+3      2700             4750
+3      2800             5000
+3      9999             5000
+4         0             3250
+4      2200             3250
+4      2400             3500
+4      2500             3750
+4      2600             4000
+4      2700             4250
+4      2800             4500
+4      2900             4750
+4      3000             5000
+4      9999             5000
+5         0             3250
+5      2400             3250
+5      2500             3500
+5      2600             3750
+5      2700             4000
+5      2800             4250
+5      2900             4500
+5      3000             4750
+5      3200             5000
+5      9999             5000
+6         0             3250
+6      2600             3250
+6      2700             3500
+6      2800             3750
+6      2900             4000
+6      3000             4250
+6      3100             4500
+6      3200             4750
+6      3400             5000
+6      9999             5000
+7         0             3250
+7      2800             3250
+7      2900             3500
+7      3000             3750
+7      3100             4000
+7      3200             4250
+7      3300             4500
+7      3400             4750
+7      3600             5000
+7      9999             5000
+8         0               0
+8      1475             4240
+8      3000             6000
+8      6130             8500
+8      9999             8500
+9         0                0
+9      1280             3250
+9      3870             8000
+9      5610             9500
+9      9999             9500
+10        0                0
+10     1085             3250
+10     3390            10000
+10     5040            11000
+10     9999            11000
+11        0                0
+11      890             3250
+11     2780             8500
+11     4360            10500
+11     9999            10500
+12        0                0
+12      695             3250
+12     2260             6000
+12     3710             8500
+12     9999             8500
+
+

@@ -1,0 +1,115 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+CALSIM 3.0 SYSTEM FILE
+ARCS-DIVERSIONS.WRESL
+
+NAMING TAKES THE FOLLOWING FORMS:
+
+D_{ORIGIN}_{DESTINATION PREFIX} - diversions from specific location to general area
+
+Original formulation: C. Olson (MWH) December 2007
+*/
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Folsom SOuth Canal     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define D_FSC025_60N_PU  {std kind 'DIVERSION' units 'cfs'}
+define D_FSC015_60N_NA2  {std kind 'DIVERSION' units 'cfs'}
+define D_FSC027_MAQ012  {std kind 'DIVERSION' units 'CFS'}
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Calaveras River     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!define D_CLV043_WTPJYL  {std kind 'DIVERSION' units 'cfs'}
+!define D_CLV037_CACWD   {std kind 'DIVERSION' units 'cfs'}
+!define D_CLV026_WTPWDH  {std kind 'DIVERSION' units 'cfs'}
+!define D_CLV026_60S_PA1 {std kind 'DIVERSION' units 'cfs'}
+!define D_WTPWDH_60S_NU1 {std kind 'DIVERSION' units 'cfs'}
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Cosumnes River  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+/*
+The Camino Conduit, with a capacity of 125 cfs, extends 38,016 feet west from
+Sly Park Dam to the community of Camino, California, to deliver supplemental water
+to El Dorado Irrigation District for irrigation and municipal purposes. 
+
+Camp Creek Dam diverts a portion of the flow of Camp Creek through the Camp Creek Tunnel,
+a 2,845 foot long, concrete lined tunnel with a diameter of 7 feet and a capacity of 500 cfs
+into the upper part of Jenkinson Lake.
+*/
+define D_JNKSN_ELDID        {lower 0. upper 125. kind 'DIVERSION' units 'cfs'}! Camino Conduit
+define D_CMP012_JNKSN       {lower 0. upper 500. kind 'DIVERSION' units 'cfs'}! Camp Creek Tunnel
+define D_CSM033_60N_NU2     {std kind 'DIVERSION' units 'cfs'} ! Rancho Murieta CSD
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Dry Creek       !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define D_AMADR_60N_NA1      {std kind 'DIVERSION' units 'cfs'}
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Mokelumne River     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define D_PARDE_AMADR        {std kind 'DIVERSION' units 'cfs'}
+define D_PARDE_MAQ001       {std kind 'DIVERSION' units 'cfs'}
+
+define D_MOK050_60N_NA5     {std kind 'DIVERSION' units 'cfs'}  ! Non-District Riparian
+define D_MOK039_60N_NA5     {std kind 'DIVERSION' units 'cfs'}  ! Non-District Riparian
+define D_MOK033_60N_NA5     {std kind 'DIVERSION' units 'cfs'}  ! Non-District Riparian
+
+define D_MOK050_60N_NA3     {std kind 'DIVERSION' units 'cfs'}  ! Northern SanJoaquin
+
+define D_MOK035_60N_NA4     {std kind 'DIVERSION' units 'cfs'}  ! Woodbridge Dam through the WID canal, max cap 415 cfs and usually operates from March through October.
+define D_MOK035_60N_NU1     {std kind 'DIVERSION' units 'cfs'}  ! Woodbridge Provision for City of Lodi, etc
+define D_MOK035_WTPDWS      {std kind 'DIVERSION' units 'cfs'}  ! Woodbridge Provision for City of Stockton
+define D_WTPDWS_60S_NU1     {std kind 'DIVERSION' units 'cfs'}  ! City of Stockton
+
+define D_NFM010_AMADR       {std kind 'DIVERSION' units 'cfs'} !North Fork Mokelumne diversion to Amador Water Agency
+define D_NFM010_TBAUD       {std kind 'DIVERSION' units 'cfs'} !North Fork Mokelumne diversion at Tiger Creek Reservoir to Lake Tableaud
+define D_NFM006_TBAUD       {std kind 'DIVERSION' units 'cfs'} !North Fork Mokelumne diversion at Electra Diversion Dam to Lake Tableaud
+define D_TBAUD_AMADR        {lower 0 upper 30. kind 'DIVERSION' units 'cfs'} !Diversion from Lake Tableaud to Amador Water Agency. Canal capacity.
+define D_SFM006_MHILL       {std kind 'DIVERSION' units 'cfs'} !South Fork Mokelumne diversion to Calaveras Public Utility District 
+define D_MFM010_WSPNT       {std kind 'DIVERSION' units 'cfs'} !Middle Fork Mokelumne diversion to Calaveras County Water District (West Point Treatment Plant)
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Mokelumne Aqueduct     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define D_EBTML_EBMUD        {std kind 'DIVERSION' units 'cfs'}
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Little John Creek   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!define D_LJC010_60S_PA2 {std kind 'DIVERSION' units 'cfs'}
+!define D_LJC022_60S_PA1 {std kind 'DIVERSION' units 'cfs'}
+!define D_LJC022_WTPWDH  {std kind 'DIVERSION' units 'cfs'}
+!define D_LJC022_WTPWDHa {std kind 'DIVERSION' units 'cfs'}!M&I Deliveries to SEWD from Stanislaus River contracts
+!define D_LJC022_WTPWDHb {std kind 'DIVERSION' units 'cfs'}!M&I Deliveries to SEWD from sale from OID/SSJID
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! San Joaquin River below Vernalis     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define D_SJR028_WTPDWS 	{std kind 'DIVERSION' units 'CFS'}
+
+

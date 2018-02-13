@@ -1,0 +1,49 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+B2 Action 2: Reduce CVP Delta Exports (Dec-Jan)
+
+A. Munevar 10/19/2001.
+*/
+
+!define redAction2 {value ResAction2*taf_cfs}
+
+!**** Dec-Jan Export Reductions ****************
+goal b2action2_1 {
+  lhs D418_TD + D419_CVP_TD
+    case ActionOn {
+      condition    int(B2Action2On)==1
+    rhs       max(800.,D418CVPTD_B2Base + D419CVPTD_B2Base)! - redAction2)
+    lhs>rhs        constrain
+    lhs<rhs        penalty 0 }
+}
+
+!for output only:
+define b2_2_1cap {std kind 'OUTPUT' units 'CFS'}
+goal setb2_2_1 {
+  lhs b2_2_1cap
+  case ActionOn {
+    condition  int(B2Action2On)==1
+    rhs        max(800.,D418CVPTD_B2Base + D419CVPTD_B2Base)! - redAction2)
+    lhs>rhs    constrain
+    lhs<rhs    constrain}
+  case other {
+    condition  always
+    rhs        20000.
+    lhs>rhs    constrain
+    lhs<rhs    constrain}
+}

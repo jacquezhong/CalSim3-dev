@@ -1,0 +1,160 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+CALSIM 3.0 SYSTEM FILE
+ARCS-DELIVERIES.WRESL
+
+
+NAMING TAKES THE FOLLOWING FORMS:
+AW_{Demand Unit}    - Total Applied Water
+AWo_{Demand Unit}   - Applied Water for other crops
+AWr_{Demand Unit}   - Applied Water for rice
+DG_{Demand Unit}    - Total (Gross) Surface diversion
+DN_{Demand Unit}    - Net Surface Delivery, reduced by conveyance losses
+GP_{Demand Unit}    - Total Groundwater Pumping
+GPmax_{Demand Unit} - Minimum Groundwater Pumping fraction
+GPmin_{Demand Unit} - Minimum Groundwater Pumping fraction
+RP_{Demand Unit}    - Miscellanoeus riparian ET
+RU_{Demand Unit}    - Reuse of agricultural tailwater
+TW_{Demand Unit}    - Agricultural tailwater
+UD_{Demand Unit}    - Urban demand
+*/
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! WBA 60N     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Jackson Valley ID
+define  DN_60N_NA1      {std kind 'SW_DELIVERY-NET'       units 'CFS'}            
+define  DG_60N_NA1      {std kind 'SW_DELIVERY-GROSS'     units 'CFS'}
+define  RU_60N_NA1      {std kind 'REUSE'                 units 'CFS'}
+define  RP_60N_NA1      {std kind 'RIPARIAN-MISC-ET'      units 'CFS'}  
+define  TW_60N_NA1      {timeseries kind 'TAILWATER'      units 'TAF' convert 'CFS'}
+define  AW_60N_NA1      {std kind 'APPLIED-WATER'         units 'CFS'}         
+define  AWO_60N_NA1     {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+define  AWR_60N_NA1     {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+
+! Omochumne-Hartnell WD, Galt ID, Clay WD
+define  DN_60N_NA2      {std kind 'SW_DELIVERY-NET'       units 'CFS'}            
+define  DG_60N_NA2      {std kind 'SW_DELIVERY-GROSS'     units 'CFS'}
+define  RU_60N_NA2      {std kind 'REUSE'                 units 'CFS'}
+define  RP_60N_NA2      {std kind 'RIPARIAN-MISC-ET'      units 'CFS'}  
+define  TW_60N_NA2      {timeseries kind 'TAILWATER'      units 'TAF' convert 'CFS'}
+define  AW_60N_NA2      {std kind 'APPLIED-WATER'         units 'CFS'}         
+define  AWO_60N_NA2     {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+define  AWR_60N_NA2     {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+
+! North San Joaquin WCD
+define  DN_60N_NA3      {std kind 'SW_DELIVERY-NET'       units 'CFS'}            
+define  DG_60N_NA3      {std kind 'SW_DELIVERY-GROSS'     units 'CFS'}
+define  RU_60N_NA3      {std kind 'REUSE'                 units 'CFS'}
+define  RP_60N_NA3      {std kind 'RIPARIAN-MISC-ET'      units 'CFS'}  
+define  TW_60N_NA3      {timeseries kind 'TAILWATER'      units 'TAF' convert 'CFS'}
+define  AW_60N_NA3      {std kind 'APPLIED-WATER'         units 'CFS'}         
+define  AWO_60N_NA3     {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+define  AWR_60N_NA3     {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+
+! Woodbridge ID
+define  DN_60N_NA4      {std kind 'SW_DELIVERY-NET'       units 'CFS'}            
+define  DG_60N_NA4      {std kind 'SW_DELIVERY-GROSS'     units 'CFS'}
+define  RU_60N_NA4      {std kind 'REUSE'                 units 'CFS'}
+define  RP_60N_NA4      {std kind 'RIPARIAN-MISC-ET'      units 'CFS'}  
+define  TW_60N_NA4      {timeseries kind 'TAILWATER'      units 'TAF' convert 'CFS'}
+define  AW_60N_NA4      {std kind 'APPLIED-WATER'         units 'CFS'}         
+define  AWO_60N_NA4     {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+define  AWR_60N_NA4     {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+
+! Mokelumne River riparian diversions Camanche Dam to Interstate 5
+define  DN_60N_NA5      {std kind 'SW_DELIVERY-NET'       units 'CFS'}            
+define  DG_60N_NA5      {std kind 'SW_DELIVERY-GROSS'     units 'CFS'}
+define  RU_60N_NA5      {std kind 'REUSE'                 units 'CFS'}
+define  RP_60N_NA5      {std kind 'RIPARIAN-MISC-ET'      units 'CFS'}  
+define  TW_60N_NA5      {timeseries kind 'TAILWATER'      units 'TAF' convert 'CFS'}
+define  AW_60N_NA5      {std kind 'APPLIED-WATER'         units 'CFS'}         
+define  AWO_60N_NA5     {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+define  AWR_60N_NA5     {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+
+! 60N_NU1 City of Galt, Lodi, and small communities
+define  DN_60N_NU1      {std kind 'SW_DELIVERY-NET' units 'CFS'}            
+define  DG_60N_NU1      {std kind 'SW_DELIVERY-GROSS' units 'CFS'}
+define  UD_60N_NU1      {timeseries kind 'URBAN-DEMAND' units 'TAF' convert 'CFS'}
+
+! Rancho Murieta
+define  DN_60N_NU2      {std kind 'SW_DELIVERY-NET' units 'CFS'}            
+define  DG_60N_NU2      {std kind 'SW_DELIVERY-GROSS' units 'CFS'}
+define  UD_60N_NU2      {timeseries kind 'URBAN-DEMAND' units 'TAF' convert 'CFS'}
+
+! SMUD - Rancho Seco Power Plant
+define  DN_60N_PU       {std kind 'SW_DELIVERY-NET' units 'CFS'}            
+define  DG_60N_PU       {std kind 'SW_DELIVERY-GROSS' units 'CFS'}
+define  UD_60N_PU       {timeseries kind 'URBAN-DEMAND' units 'TAF' convert 'CFS'}
+
+! East Bay MUD
+define  DN_EBMUD    {std kind 'SW_DELIVERY-NET' units 'CFS'}            
+define  DG_EBMUD    {std kind 'SW_DELIVERY-GROSS' units 'CFS'}
+define  UD_EBMUD    {timeseries kind 'URBAN-DEMAND' units 'TAF' convert 'CFS'} 
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! WBA 60S     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!60S_PA1 Stockton East WD
+!define  DN_60S_PA1      {std kind 'SW_DELIVERY-NET'       units 'CFS'}            
+!define  DG_60S_PA1      {std kind 'SW_DELIVERY-GROSS'     units 'CFS'}
+!define  RU_60S_PA1      {std kind 'REUSE'                 units 'CFS'}
+!define  RP_60S_PA1      {std kind 'RIPARIAN-MISC-ET'      units 'CFS'}  
+!define  TW_60S_PA1      {timeseries kind 'TAILWATER'      units 'TAF' convert 'CFS'}
+!define  AW_60S_PA1      {std kind 'APPLIED-WATER'         units 'CFS'}         
+!define  AWO_60S_PA1     {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+!define  AWR_60S_PA1     {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+
+! 60S_PA2 Central San Joaquin WCD
+!define  DN_60S_PA2        {std kind 'SW_DELIVERY-NET'       units 'CFS'}            
+!define  DN_LJC010_60S_PA2 {std kind 'SW_DELIVERY-NET'       units 'CFS'}            
+!define  DG_60S_PA2        {std kind 'SW_DELIVERY-GROSS'     units 'CFS'}
+!define  RU_60S_PA2        {std kind 'REUSE'                 units 'CFS'}
+!define  RP_60S_PA2        {std kind 'RIPARIAN-MISC-ET'      units 'CFS'}    
+!define  TW_60S_PA2        {timeseries kind 'TAILWATER'      units 'TAF' convert 'CFS'}
+!define  AW_60S_PA2        {std kind 'APPLIED-WATER'         units 'CFS'}         
+!define  AWO_60S_PA2       {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+!define  AWR_60S_PA2       {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+
+! 60S_NA1 -- no surface deliveries (skip DN, DG)
+! define  DN_60S_NA1      {std kind 'SW_DELIVERY-NET'       units 'CFS'}            
+!! define  DG_60S_NA1      {std kind 'SW_DELIVERY-GROSS'     units 'CFS'}
+!define  RU_60S_NA1      {std kind 'REUSE'                 units 'CFS'}
+!define  RP_60S_NA1      {std kind 'RIPARIAN-MISC-ET'      units 'CFS'}  
+!define  TW_60S_NA1      {timeseries kind 'TAILWATER'      units 'TAF' convert 'CFS'}
+!define  AW_60S_NA1      {std kind 'APPLIED-WATER'         units 'CFS'}         
+!define  AWO_60S_NA1     {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+!define  AWR_60S_NA1     {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+
+! 60S_NA2 -- no surface deliveries (skip DN, DG)
+! define  DN_60S_NA2      {std kind 'SW_DELIVERY-NET'       units 'CFS'}            
+! define  DG_60S_NA2      {std kind 'SW_DELIVERY-GROSS'     units 'CFS'}
+!define  RU_60S_NA2      {std kind 'REUSE'                 units 'CFS'}
+!define  RP_60S_NA2      {std kind 'RIPARIAN-MISC-ET'      units 'CFS'}  
+!define  TW_60S_NA2      {timeseries kind 'TAILWATER'      units 'TAF' convert 'CFS'}
+!define  AW_60S_NA2      {std kind 'APPLIED-WATER'         units 'CFS'}         
+!define  AWO_60S_NA2     {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+!define  AWR_60S_NA2     {timeseries kind 'APPLIED-WATER'  units 'TAF' convert 'CFS'}
+
+! 60S_NU1
+!define  DN_60S_NU1      {std kind 'SW_DELIVERY-NET' units 'CFS'}            
+!define  DG_60S_NU1      {std kind 'SW_DELIVERY-GROSS' units 'CFS'}
+!define  UD_60S_NU1      {timeseries kind 'URBAN-DEMAND' units 'TAF' convert 'CFS'}

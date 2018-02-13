@@ -1,0 +1,90 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+!SacValleyDroughReport.wresl
+!Forecast of Sacramento Valley Accretions at Freeport
+!(Freeport + Fremont Weir + Sacramento Weir) - (Keswick [lag 4 days] + Oroville & Thermalito to Feather [lag 2 days] + Nimbus [lag 1 day])
+!WY Accretions = 2.0305*(bend-shasta WYRO) + 1.349*(folsom WYRO) + 0.0406*(last year accretions) - 3181
+!Apr-Sep Accretions = 2.561*(ben-sha AJRO) + 1.059*(fols AJRO) - 8.417*(1980) + 14327
+
+define SacAccreFreeport {alias C_SAC049 + SP_SAC083_YBP037 + SP_SAC066_YBP020 - C_KSWCK - C_FTR059 -C_NTOMA kind 'DROUGHT' units 'CFS'}
+
+define SacDeltaInflow   {alias C_SAC049 + C_CSL004A kind 'DROUGHT' units 'CFS'}
+define SacStreamGain    {alias SG_TOTAL kind 'DROUGHT' units 'CFS'}
+
+define SacGWPumping     {alias GP_WBATotal_2 +GP_WBATotal_3 +GP_WBATotal_4 +GP_WBATotal_5 +GP_WBATotal_6 +GP_WBATotal_7N +GP_WBATotal_7S 
+                              +GP_WBATotal_8N +GP_WBATotal_8S +GP_WBATotal_9 +GP_WBATotal_10 +GP_WBATotal_11 +GP_WBATotal_12 
+                              +GP_WBATotal_13 +GP_WBATotal_14 +GP_WBATotal_15N +GP_WBATotal_15S +GP_WBATotal_16 +GP_WBATotal_17N
+                              +GP_WBATotal_17S +GP_WBATotal_18 +GP_WBATotal_19 +GP_WBATotal_20 +GP_WBATotal_21 +GP_WBATotal_22 
+                              +GP_WBATotal_23 +GP_WBATotal_24 +GP_WBATotal_25 +GP_WBATotal_26N +GP_WBATotal_26S 
+                              kind 'DROUGHT' units 'CFS'}
+                              
+define SacDeepPercolation    {alias DP_WBATotal_2 +DP_WBATotal_3 +DP_WBATotal_4 +DP_WBATotal_5 +DP_WBATotal_6 +DP_WBATotal_7N +DP_WBATotal_7S 
+                              +DP_WBATotal_8N +DP_WBATotal_8S +DP_WBATotal_9 +DP_WBATotal_10 +DP_WBATotal_11 +DP_WBATotal_12 
+                              +DP_WBATotal_13 +DP_WBATotal_14 +DP_WBATotal_15N +DP_WBATotal_15S +DP_WBATotal_16 +DP_WBATotal_17N
+                              +DP_WBATotal_17S +DP_WBATotal_18 +DP_WBATotal_19 +DP_WBATotal_20 +DP_WBATotal_21 +DP_WBATotal_22 
+                              +DP_WBATotal_23 +DP_WBATotal_24 +DP_WBATotal_25 +DP_WBATotal_26N +DP_WBATotal_26S 
+                              kind 'DROUGHT' units 'CFS'}
+
+define DP_EE3      {timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE4	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE6	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE10	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE11	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE17	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE28	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE29	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE22	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE23	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE31	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE32	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE30	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE40	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE38	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE39	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE37	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE52	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE53	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE44	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE45	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE48	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE46	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE47	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE54	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE78	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE85	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE115	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE106	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE107	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE108	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE121	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE122	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE123	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE137	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE138	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+define DP_EE321	{timeseries kind 'DEEP-PERCOLATION' units 'TAF' convert 'CFS'}
+
+define SacRimDP {alias DP_EE3 +DP_EE4 +DP_EE6 +DP_EE10 +DP_EE11 +DP_EE17
+                                +DP_EE28 +DP_EE29 +DP_EE22 +DP_EE23 +DP_EE31 +DP_EE32 +DP_EE30 
+                                +DP_EE40 +DP_EE38 +DP_EE39 +DP_EE37 +DP_EE52 +DP_EE53 +DP_EE44
+                                +DP_EE45 +DP_EE48 +DP_EE46 +DP_EE47 +DP_EE54 +DP_EE78 +DP_EE85 
+                                +DP_EE115 +DP_EE106 +DP_EE107 +DP_EE108 +DP_EE121 +DP_EE122 
+                                +DP_EE123 +DP_EE137 +DP_EE138 +DP_EE321 
+                               kind 'DROUGHT' units 'CFS'}
+
+define Inflow_Shasta    {alias ShaInf kind 'DROUGHT' units 'TAF'}
+define Inflow_Folsom    {alias FolInf kind 'DROUGHT' units 'TAF'}
+define Inflow_Oroville  {alias OroInf kind 'DROUGHT' units 'TAF'}

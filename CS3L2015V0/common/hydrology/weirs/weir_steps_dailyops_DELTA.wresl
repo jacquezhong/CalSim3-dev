@@ -1,0 +1,31 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+!Definition of daily fraction to map daily pattern fromcycle 7
+include 'read_dailypattern_SacRFreeport.wresl'
+
+! flows from previous cycle
+define QsacFth_prv {value QsacFth[DELTA]}
+define Qsac166_prv {value Qsac166[DELTA]}
+
+!Daily upstream flow estimation from acycle 7 corrected monthly flow and using the daily fractions.
+!Previous cycle monthly upstream flow is corrected with the difference of previous and current estimated Fremont weir spills
+
+define Qsac166nospill{value Qsac166[DELTA]+ SP_SAC083_YBP037[DELTA]}
+
+define Qsac166nospilldv {alias Qsac166nospill kind 'debug' units 'cfs'}
+
+include 'weir_steps_dailyops.wresl'

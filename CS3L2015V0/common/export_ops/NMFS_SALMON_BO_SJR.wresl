@@ -1,0 +1,93 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+! NMFS_SALMON_BO_SJR.wresl
+!
+!Action 4.2.1
+!*********************************************************************************************
+! Phase I: Interim export restriction under Action 4.2.1
+/*
+define SJRatio_MaxExp{
+        case Flood_flow{
+                condition Vernalis > 21750.    !daily flow condition - should use an equivalent monthly for this level of peak flow
+                value 999999.
+                }
+        case High_flow{
+                condition Vernalis >= 6000.
+                value Vernalis / 4.
+                }
+!		value 999999.
+        case Interim{
+                condition always
+                value 1500.
+!		value 999999.
+                }
+       }
+*/
+!*********************************************************************************************
+! Phase II: Export restriction under Action 4.2.1
+!
+! Determine year typing as defined in the NMFS BO
+
+define SJR_indicator  {value 6. - wyt_SJR}
+define SJR_indicator1 {value 6. - wyt_SJR_prv1}
+define SJR_indicator2 {value 6. - wyt_SJR_prv2}
+
+define SJRatio_MaxExp{
+        case Flood_flow{
+                condition Vernalis > 21750.    !daily flow condition - should use an equivalent monthly for this level of peak flow
+        value 999999.
+        }
+    case mult_drought{
+        condition (SJR_indicator + SJR_indicator1 + SJR_indicator2) <= 6.  .AND. NMforecast1 <= 1000
+        value Vernalis
+!	value 999999.
+        }
+    case critical{
+        condition wyt_SJR == 5
+        value Vernalis
+!	value 999999.
+        }
+        case dry{
+        condition wyt_SJR == 4
+        value Vernalis / 2.
+!	value 999999.
+        }
+    case BelowN{
+        condition wyt_SJR == 3
+        value Vernalis / 3.
+!	value 999999.
+            }
+    case AN_Wet{
+        condition always !wyt_SJR 2 and 1
+        value Vernalis / 4.
+!	value 999999.
+        }
+       }
+
+!*********************************************************************************************
+define SJRatio_MaxExpdv {alias SJRatio_MaxExp kind 'NMFS' units 'NONE'}
+
+define NMFS_MaxExp {
+    case AprMay {
+        condition month>=APR .AND. month<=MAY
+        value SJRatio_MaxExp}
+    case otherwise{
+        condition always
+        value 999999.}
+}
+define NMFS_MaxExpdv {alias NMFS_MaxExp kind 'NMFS' units 'cfs'}
+

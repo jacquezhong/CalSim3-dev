@@ -1,0 +1,37 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+!    E. Reyes 7/13/98
+!    A. Munevar 11/13/99
+
+! This is the permit export and physical capacity for Banks.
+
+! Banks Permitted Pumping Amount
+!define BanksCapPermit {select PermitCap1 from BanksLimits where month=month}
+
+! Banks Permitted Pumping Amount 
+define BanksCapPermit1 {select PermitCap1 from BanksLimits where month=month}
+define BanksCapPermit2 {select PermitCap2 from BanksLimits where month=month}
+define ReservedCap {select ResCap from BanksLimits where month=month}
+
+define BanksCapPermit {value min(BanksCapPermit1, BanksCapPermit2 - ReservedCap) }
+
+! Banks Physical Capactiy
+define BanksCapPhys {select PhysCap from BanksLimits where month=month }
+
+! CVP dedicated capacity
+define BanksMaxAllowCVP {select CVPDedCap from BanksLimits where month=month}
+define BanksMaxCVPdv {alias BanksMaxAllowCVP kind 'flow' units 'CFS'}

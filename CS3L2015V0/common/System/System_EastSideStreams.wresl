@@ -1,0 +1,47 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+! SYSTEM_EASTSIDESTREAMS.WRESL
+! THIS FILE CONTAINS THE NAMES OF ALL INCLUDE FILES FOR THE SYSTEM DESCRIPTION
+
+
+
+/*
+These files are for the Eastside Streams: Calaveras, Cosumnes, and Mokelumne
+*/
+
+!*******ARCS*******                 
+INCLUDE 'SystemTables_EastSideStreams\arcs-Channels.wresl'
+INCLUDE 'SystemTables_EastSideStreams\arcs-Deliveries.wresl'
+INCLUDE 'SystemTables_EastSideStreams\arcs-Diversions.wresl'
+INCLUDE 'SystemTables_EastSideStreams\arcs-GWpumping.wresl' 
+INCLUDE 'SystemTables_EastSideStreams\arcs-Inflows.wresl'
+INCLUDE 'SystemTables_EastSideStreams\arcs-MinFlows.wresl'
+INCLUDE 'SystemTables_EastSideStreams\arcs-Reservoirs.wresl'
+INCLUDE 'SystemTables_EastSideStreams\arcs-Returns.wresl'
+INCLUDE 'SystemTables_EastSideStreams\arcs-Seepage.wresl'
+INCLUDE 'SystemTables_EastSideStreams\arcs-WUFactors.wresl'
+
+!****CONSTRAINTS****         
+INCLUDE 'SystemTables_EastSideStreams\constraints-Connectivity.wresl'
+INCLUDE 'SystemTables_EastSideStreams\constraints-Deliveries.wresl' 
+INCLUDE 'SystemTables_EastSideStreams\constraints-MinFlows.wresl'
+INCLUDE 'SystemTables_EastSideStreams\constraints-Reservoirs.wresl'
+INCLUDE 'SystemTables_EastSideStreams\constraints-Returns.wresl'
+INCLUDE 'SystemTables_EastSideStreams\constraints-Runoff.wresl'
+!INCLUDE 'SystemTables_EastSideStreams\constraints-Seepage-StandAlone.wresl' 
+INCLUDE 'SystemTables_EastSideStreams\constraints-WUFactors.wresl'
+INCLUDE 'SystemTables_EastSideStreams\constraints-DeepPercolation.wresl'

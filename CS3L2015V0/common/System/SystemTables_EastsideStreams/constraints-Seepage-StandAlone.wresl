@@ -1,0 +1,80 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+SEEPAGE ARCS
+
+NAMING TAKES THE FOLLOWING FORM:
+{SG_{CalSim_3 Node}_{corresponding C2VSIM River Node}
+
+positive seepage = gaining stream
+negative seepage = loosing stream
+
+When multiplied by -1, it reflects stream's perspective.  
+
+*/
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Cosumnes River  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal setSG188_CSM033_29   {SG188_CSM033_29  = 0.0}
+goal setSG189_CSM026_29   {SG189_CSM026_29  = 0.0}
+goal setSG190_CSM021_29   {SG190_CSM021_29  = 0.0}
+goal setSG191_CSM016_29   {SG191_CSM016_29  = 0.0}
+goal setSG192_CSM011_29   {SG192_CSM011_29  = 0.0}
+goal setSG193_CSM005_29   {SG193_CSM005_29  = 0.0}
+goal setSG194_CSM005_29	  {SG194_CSM005_29  = 0.0}
+     
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Dry Creek       !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal setSG182_DSC035_28   {SG182_DSC035_28  = 0.0}
+goal setSG182_DSC028_28   {SG182_DSC028_28  = 0.0}
+goal setSG184_DSC023_28   {SG184_DSC023_28  = 0.0}
+goal setSG185_DSC016_28   {SG185_DSC016_28  = 0.0}
+goal setSG186_DSC008_28   {SG186_DSC008_28  = 0.0}
+goal setSG187_DSC008_28	  {SG187_DSC008_28  = 0.0}
+     
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Mokelumne River !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/*
+EBMUD assumes seepage losses between Camanche Dam and Interstate 5 are a function of annual
+releases from Camanche Dam.
+
+Annual release < 600 TAF:    Seepage = 56 TAF/yr
+Annual release 600-1200 TAF: Seepage = 56-120 TAF/yr
+Annual release > 1,200 TAF:  Seepage = 120 TAF/yr
+*/
+
+define MokGWSeepageMin  {value 56.0/12*taf_cfs}
+define MokGWSeepageRate {value 0.1}
+define MokGWSeepageTot  {std kind 'FLOW' units 'CFS'}
+goal setMokGWSeepageTot1 {MokGWSeepageTot > MokGWSeepageMin}
+goal setMokGWSeepageTot2 {MokGWSeepageTot > MokGWSeepageRate*C_CMCHE}
+
+goal setSG175_CMCHE_27    {SG175_CMCHE_27   = 0.0}
+goal setSG176_MOK055_27   {SG176_MOK055_27  = -0.70*MokGWSeepageTot/4}
+goal setSG177_MOK050_27   {SG177_MOK050_27  = -0.70*MokGWSeepageTot/4}
+goal setSG178_MOK044_27   {SG178_MOK044_27  = -0.70*MokGWSeepageTot/4}
+goal setSG179_MOK035_27   {SG179_MOK035_27  = -0.70*MokGWSeepageTot/4}
+goal setSG180_MOK028_27   {SG180_MOK028_27  = -0.30*MokGWSeepageTot/4}
+goal setSG181_MOK022_27   {SG181_MOK022_27  = -0.30*MokGWSeepageTot/4}
+goal setSG195_MOK022_27   {SG195_MOK022_27  = -0.30*MokGWSeepageTot/4}
+goal setSG196_MOK019_30   {SG196_MOK019_30  = -0.30*MokGWSeepageTot/4}
+goal setSG197_MOK014_30   {SG197_MOK014_30  = 0.0}
+goal setSG198_MOK004_30   {SG198_MOK004_30  = 0.0}
+

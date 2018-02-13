@@ -1,0 +1,58 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+! Rich Juricich & Ajay Dev 10/19/1999
+
+! di_cvp_sys
+! Copied by Dustin Jones 11/15/1999 for use in CVP NOD
+
+! ********************************* DEFINES *******************************************
+
+/*
+Demand Index (DI) is the sum of CVP-SYS Annual Delivery and System Carryover and is 
+estimated from the WSI versus DI Curve. 
+*/
+
+define DI_CVP_sys {
+    case MarToMay {
+           condition  month >= MAR .and. month <= MAY 
+           select     di
+           from       wsi_di_cvp_sys
+           given      wsi=wsi_cvp_sys
+           use        linear }      
+                               
+    case JunToFeb { 
+           condition  always 
+           value      0 }                  
+              }
+
+define DI_CVP_sysdv {alias DI_CVP_sys kind 'demand-index' units 'taf'}  
+
+define DI_CVP_sys_IO {
+    case MarToMay {
+           condition  month >= MAR .and. month <= MAY 
+           select     di
+           from       wsi_di_cvp_sys
+           given      wsi=wsi_cvp_sys_IO
+           use        linear }      
+                               
+    case JunToFeb { 
+           condition  always 
+           value      0 }                  
+              }
+
+define DI_CVP_IO_ {alias DI_CVP_sys_IO kind 'demand-index' units 'taf'}  
+          

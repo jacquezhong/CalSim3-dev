@@ -1,0 +1,70 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+
+File Name: constraints-runoff.wresl
+CalSim 3.0 System File
+
+Purpose:
+
+Naming takes the following form:
+
+*/
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! WBA 60N                  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+define Area_60N_MOK019	{select fraction from WatershedAreaPpt where watershed =601}
+define Area_60N_MOK035  {select fraction from WatershedAreaPpt where watershed =602}
+define Area_60N_SJR022	{select fraction from WatershedAreaPpt where watershed =603}
+define Area_60N_SJR028  {select fraction from WatershedAreaPpt where watershed =604}
+define Area_60N_SJR038  {select fraction from WatershedAreaPpt where watershed =605}
+
+
+goal   Check_Area_60N   {Area_60N_MOK019
+                        +Area_60N_MOK035
+                        +Area_60N_SJR022
+                        +Area_60N_SJR028
+                        +Area_60N_SJR038 = 1.0}
+
+goal   set_SR_60N_MOK019{SR_60N_MOK019 = SR_60N*Area_60N_MOK019 }
+goal   set_SR_60N_MOK035{SR_60N_MOK035 = SR_60N*Area_60N_MOK035 }
+goal   set_SR_60N_SJR022{SR_60N_SJR022 = SR_60N*Area_60N_SJR022 }
+goal   set_SR_60N_SJR028{SR_60N_SJR028 = SR_60N*Area_60N_SJR028 }
+goal   set_SR_60N_SJR038{SR_60N_SJR038 = SR_60N*Area_60N_SJR038 }
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! WBA 60S                  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ 
+!define Area_60S_FCS007	{select fraction from WatershedAreaPpt where watershed =606}
+!define Area_60S_SJR028  {select fraction from WatershedAreaPpt where watershed =607}
+!define Area_60S_SJR038	{select fraction from WatershedAreaPpt where watershed =608}
+!define Area_60S_SJR043  {select fraction from WatershedAreaPpt where watershed =609}
+
+
+!goal   Check_Area_60S   {Area_60S_FCS007
+!                        +Area_60S_SJR028
+!                        +Area_60S_SJR038
+!                        +Area_60S_SJR043 = 1.0}
+
+!goal   set_SR_60S_FCS007{SR_60S_FCS007 = SR_60S*Area_60S_FCS007 /*+ BF_60S*Area_60S_FCS007*/}
+!goal   set_SR_60S_SJR028{SR_60S_SJR028 = SR_60S*Area_60S_SJR028 /*+ BF_60S*Area_60S_SJR028*/}
+!goal   set_SR_60S_SJR038{SR_60S_SJR038 = SR_60S*Area_60S_SJR038 /*+ BF_60S*Area_60S_SJR038*/}
+!goal   set_SR_60S_SJR043{SR_60S_SJR043 = SR_60S*Area_60S_SJR043 /*+ BF_60S*Area_60S_SJR043*/}

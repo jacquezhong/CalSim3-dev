@@ -1,0 +1,90 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+! Friant_wsf.wresl
+! Created for the Upper San Joaquin River Basin Storage Investigation Project
+! Implements Friant water supply forecast logic.
+! Revised by C. Hsu, 02/25/03, USBR, for review and documentation project
+!##############################################################################
+/*
+Determines available water supply for impending irrigation season.
+*/
+
+/*
+Sum of Friant inflow from current month (or from June if current month is after June)
+through September - perfect foresight used for water supply
+*/
+define I18_mon_thru_sep {
+    case MarthruSep {
+        condition   month >= mar .and. month <= sep
+        sum(i=0,Sep-month,1) I18(i)*cfs_taf(i) }
+    case otherwise  {
+        condition   always
+        value 0.0 } }
+
+! Sum of the average evaporation losses from Friant for current month through September
+define FREvap_sep {
+    case MarthruJun {
+        condition   month >= mar .and. month <= jun
+        select thru_sep
+        from Friant_Evap
+        where contract_month = contract_month }
+    case otherwise {
+        condition   always
+        value 0.0  } }
+
+! Minimum required San Joaquin River release from Friant
+define C18_min {
+    select inc
+    from Upper_SJR_losses
+    where contract_month = contract_month }
+! Alias variable for c18_min, save input value to DSS
+!define c18_min_chk {alias c18_min kind 'temp' units 'taf'}
+! Sum of minimum required San Joaquin River releases from current month through September
+define C18_min_sep {
+    case MarthruJun {
+        condition   month >= mar .and. month <= jun
+        select thru_sep
+        from Upper_sjr_losses
+        where contract_month = contract_month }
+    case otherwise {
+        condition   always
+        value 0.0  } }
+
+! Sum of the combined Madera and Friant-Kern canal losses from current month through September
+define FRloss_sep {
+    case MarthruJun {
+        condition   month >= mar .and. month <= jun
+        select thru_sep
+        from Friant_Canal_losses
+        where contract_month = contract_month }
+    case otherwise {
+        condition   always
+        value 0.0  } }
+
+define TREvap_sep { case zeroA18last {condition A18last <=0 value 0 } case otherwise {condition always value A17last*FREvap_sep/A18last}}
+/*
+Friant water supply forecast used to determine available supply for irrigation season
+*/
+define Fr_WS_for {
+    case MarthruJun {
+       condition  month >= mar .and. month <= jun
+           value max(0.0, I18_mon_thru_sep + SIO_FWUA(-1) - S18level1 - S17level1
+                          - FREvap_sep -TREvap_sep - FRloss_sep - SJRR_mon_sep)  }
+    case JulthruFeb {
+        condition always
+        value 0.0 } }
+

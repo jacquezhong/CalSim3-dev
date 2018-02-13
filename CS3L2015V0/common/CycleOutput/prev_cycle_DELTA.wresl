@@ -1,0 +1,25 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+! previous values
+define pr_cyc_C_SAC041 {value C_SAC041[DELTA]}
+define pr_cyc_D409 {value D409[DELTA]}
+define pr_cyc_C639 {value C639[DELTA]}
+define pr_cyc_DXC {value DXC[DELTA]}
+define pr_cyc_net_DICU {value net_DICU[DELTA]}
+define pr_cyc_sac_oth {value sac_oth[DELTA]}
+define pr_cyc_exp_oth {value exp_oth[DELTA]}
+define pr_cyc_VernWQ  {value VernWQfinal[DELTA]}

@@ -1,0 +1,42 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+! R.Wilbur 3/24/04
+/*
+
+
+*/
+
+!*************************************************************************************************************
+! MODIFIED 40-30-30 index so that values are updated in Jan.
+! Done so that days meeting RSL standard begin in Jan for the upcoming water year type.
+! Remove and change variable mod_wyt_SAC ==> wyt_SAC in all table lookups if no longer
+! meeting standard on p. 16 WQCP.
+define mod_wyt_SAC {
+    case JAN {
+         condition  month == JAN
+         select     SACindex 
+         from       wytypes 
+         where      wateryear=wateryear}
+    case rest {
+         condition  always
+         value      wyt_SAC}
+}
+
+! the D1485 water year type index for Fish and Wildlife standards, for use in ANN
+define wyt_ann {value mod_wyt_SAC}
+
+!*************************************************************************************************************

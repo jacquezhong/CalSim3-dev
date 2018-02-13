@@ -1,0 +1,151 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+ASSURE CONTINUITY IN SURFACE WATER NETWORK
+
+*/
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Calaveras River     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!goal continuityNHGAN        {I_NHGAN - C_NHGAN - E_NHGAN = S_NHGAN*taf_cfs - S_NHGAN(-1)*taf_cfs} !NEW HOGAN RESERVOIR
+!goal contiunityCLV044       {C_NHGAN - C_CLV044                    = 0.} !USGS 11308900 Calaveras River blw New Hogan Dam
+!goal continuityCLV043       {C_CLV044 - D_CLV043_WTPJYL - C_CLV043 = 0.} 
+!goal continuityCLV037       {C_CLV043 - D_CLV037_CACWD  - C_CLV037 = 0.} !USGS 11309500 Calaveras R at Jenny Lind
+!goal continuityCLV035       {C_CLV037 + SG_CLV035_564   - C_CLV035 = 0.} 
+!goal continuityCLV028       {C_CLV035 + SG_CLV028_563   - C_CLV028 = 0.} 
+!goal continuityCLV026       {C_CLV028 + I_CLV026        - D_CLV026_WTPWDH  - C_CLV026 = 0.} 
+!goal continuityCLV023       {C_CLV026 + SG_CLV023_562   - D_CLV026_60S_PA1 - C_CLV023 = 0.} 
+!goal continuityCLV016       {C_CLV023 + SG_CLV016_561   - C_CLV016 = 0.} 
+!goal continuityCLV010       {C_CLV016 + SG_CLV010_560   - C_CLV010 = 0.} 
+!goal continuityCLV009       {C_CLV010 - C_CLV009                   = 0.} !USGS 11310900 Calaveras River nr Stockton
+!goal continuityCLV006       {C_CLV009 + C_SDC001        - C_CLV006 = 0.} 
+!goal continuityCLV004       {C_CLV006 + SG_CLV004_559   - C_CLV004 = 0.} 
+!goal continuitySTWWTP       {R_60S_NU1_STWWTP - R_STWWTP_SJR042    = 0.} 
+!goal continuityWTPWDH       {D_CLV026_WTPWDH + D_LJC022_WTPWDH - D_WTPWDH_60S_NU1 = 0.} 
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Cosumnes River  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal continuityJNKSN        {I_JNKSN + D_CMP012_JNKSN  - D_JNKSN_ELDID - E_JNKSN - C_JNKSN = S_JNKSN*taf_cfs - S_JNKSN(-1)*taf_cfs}! Jenkinson Lake
+goal continuityCMP012       {I_CMP012 - D_CMP012_JNKSN - C_CMP012 = 0.}! Camp Creek Tunnel diversion dam
+goal continuityCMP005       {C_CMP012 + C_JNKSN - C_CMP005 = 0.}! Confluence of Sly Park Creek and Camp Creek
+goal continuityCMP001       {I_CMP001 + C_CMP005 - C_CMP001 = 0.}! USGS 11333000 Camp Creek near Somerset
+goal continuityNFC020       {C_CMP001 - C_NFC020 = 0.}! Confluence of Camp Creek and North Fork Cosumnes River
+goal continuityCSM051       {C_NFC020 - C_CSM051 = 0.}! Confluence of North Fork and Middle and South Forks Cosumnes River
+
+goal continuityCSM035       {I_CSM035 + C_CSM051      - C_CSM035 = 0.}! DWR B1-1150 Cosumnes R at Michigan Bar
+goal continuityCSM033       {C_CSM035 + SG188_CSM033_29 - D_CSM033_60N_NU2 - C_CSM033 = 0.}!
+goal continuityCSM026       {C_CSM033 + SG189_CSM026_29 - C_CSM026 = 0.}!
+goal continuityCSM021       {C_CSM026 + SG190_CSM021_29 - C_CSM021 = 0.}!
+goal continuityCSM016       {C_CSM021 + SG191_CSM016_29 - C_CSM016 = 0.}!
+goal continuityCSM011       {C_CSM016 + SG192_CSM011_29 + C_DEE020 - C_CSM011 = 0.}!USGS 11336000 Cosumnes R. Nr McConnell
+goal continuityCSM005       {C_CSM011 + SG193_CSM005_29 + SG194_CSM005_29 + R_60N_NA2_CSM005 - C_CSM005 = 0.}!
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Deer Creek (Eastside Streams - trib to Cosumnes River       !!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal continuityDEE023       {I_DEE023 - C_DEE023 = 0.}
+goal continuityDEE020       {C_DEE023 + /* R_EDWWTP_DEE020 */ - C_DEE020 = 0.}
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Dry and Sutter Creeks - Eastside trib to Mokelumne       !!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal continuityDSC035       {I_DSC035 + SG182_DSC035_28 - C_DSC035               = 0.}!
+goal continuityDSC028       {C_DSC035 + SG182_DSC028_28 - C_DSC028               = 0.}!
+goal continuityDSC026       {C_DSC028 + C_AMADR + R_60N_NA1_DSC026 - C_DSC026  = 0.}!
+goal continuityDSC023       {C_DSC026 + SG184_DSC023_28 - C_DSC023              = 0.}!USGS 11328000 DSC Creek nr Lone
+goal continuityDSC016       {C_DSC023 + SG185_DSC016_28 - C_DSC016                               = 0.}!
+goal continuityDSC012       {C_DSC016 - C_DSC012               = 0.}!USGS 1139500 DSC Creek nr Galt
+goal continuityDSC008       {C_DSC012 + SG186_DSC008_28 + SG187_DSC008_28 - C_DSC008               = 0.}!
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! French Camp Slough !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!goal continuityFCS007       {C_LJC010 + SR_61_FCS007 + SR_60S_FCS007 + R_60S_PA2_FCS007 - C_FCS007 = 0.}
+!goal continuityFCS006       {C_FCS007 - C_FCS006 = 0.}
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Jackson Creek       !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal continuityAMADR        {I_AMADR + D_PARDE_AMADR - D_AMADR_60N_NA1 - C_AMADR  = S_AMADR*taf_cfs - S_AMADR(-1)*taf_cfs }!Evaporation not yet implemented
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Little John Creek   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!goal continuityUFC000       {D_STS059_UFC000 + SG_UFC000_599 - C_UFC000 = 0.} 
+!goal continuityLJC022       {I_LJC022 + C_UFC000 - D_LJC022_WTPWDH  - D_LJC022_60S_PA1 - C_LJC022 = 0.} !Farmington Reservoir
+!goal continuityLJC010       {C_LJC022 - D_LJC010_60S_PA2 - C_LJC010 = 0.} 
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Mokelumne River  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal continuityPARDE        {C_MOK079 + I_PARDE - D_PARDE_AMADR - D_PARDE_MAQ001 - C_PARDE - E_PARDE = S_PARDE*taf_cfs - S_PARDE(-1)*taf_cfs }!
+goal continuityCMCHE        {I_CMCHE + SG175_CMCHE_27  + C_PARDE - C_CMCHE - E_CMCHE = S_CMCHE*taf_cfs - S_CMCHE(-1)*taf_cfs }!
+goal continuityMOK057       {C_CMCHE - C_MOK057 = 0.}!USGS 11323500 Mokelumne R. blw Camanche Dam
+goal continuityMOK055       {C_MOK057 + SG176_MOK055_27 - C_MOK055 = 0.}!
+goal continuityMOK050       {C_MOK055 + SG177_MOK050_27 - D_MOK050_60N_NA3 - D_MOK050_60N_NA5 - C_MOK050 = 0.}!Riparian diversions, North San Joaquin WCD diversion
+goal continuityMOK044       {C_MOK050 + SG178_MOK044_27 - C_MOK044 = 0.}!
+goal continuityMOK039       {C_MOK044 - D_MOK039_60N_NA5 - C_MOK039 = 0.}!Riparian diversions
+goal continuityMOK035       {C_MOK039 + SG179_MOK035_27 + SR_60N_MOK035 - D_MOK035_60N_NA4 - D_MOK035_60N_NU1 - D_MOK035_WTPDWS - C_MOK035 = 0.}!Woodbridge Diversion Dam
+goal continuityMOK034       {C_MOK035 - C_MOK034 = 0.}!USGS 11322500 Mokelumne R. at Woodbridge
+goal continuityMOK033       {C_MOK034 - D_MOK033_60N_NA5 - C_MOK033 = 0.}!Riparian diversions
+goal continuityMOK028       {C_MOK033 + SG180_MOK028_27 + C_DSC008 - C_MOK028 = 0.}!
+goal continuityMOK022       {C_MOK028 + SG181_MOK022_27 + SG195_MOK022_27 - C_MOK022 = 0.}!
+goal continuityMOK019       {C_MOK022 + R_26S_NA_MOK019 + SG196_MOK019_30 + SR_60N_MOK019 + C_CSM005 - C_MOK019 = 0.}!
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Mokelumne Aqueduct   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal continuityMAQ001  {D_PARDE_MAQ001 - C_MAQ001             = 0.}! Diversion from Pardee
+goal continuityMAQ012  {C_MAQ001 + D_FSC027_MAQ012 - C_MAQ012 = 0.}! Inflow from Folsom South Canal
+goal continuityMAQ057  {C_MAQ012 - D_MAQ057_LVP007 - C_MAQ057 = 0.}! Connections to East Bay terminal reservoirs and Los Vaqueros Pipeline
+goal continuityEBTML   {C_MAQ057 - D_EBTML_EBMUD              = S_EBTML*taf_cfs - S_EBTML(-1)*taf_cfs }!
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Stockton Diverting Canal    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!goal continuitySDC001       {R_60S_PA1_SDC001 - C_SDC001 = 0.} 
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Upper Mokelumne  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal continuityLBEAR        {I_LBEAR - C_LBEAR - E_LBEAR = S_LBEAR*taf_cfs - S_LBEAR(-1)*taf_cfs }!
+goal continuitySLTSP        {I_SLTSP - C_SLTSP - E_SLTSP = S_SLTSP*taf_cfs - S_SLTSP(-1)*taf_cfs }!
+goal continuityNFM029       {C_SLTSP - C_NFM029 = 0.}
+goal continuityNFM024       {C_LBEAR + C_NFM029 - C_NFM024 = 0.}
+goal continuityNFM010       {C_NFM024 - D_NFM010_AMADR - D_NFM010_TBAUD - C_NFM010 = 0.}
+goal continuityNFM006       {C_NFM010 + I_NFM006 - D_NFM006_TBAUD - C_NFM006 = 0.}
+goal continuityTBAUD        {D_NFM010_TBAUD + D_NFM006_TBAUD - D_TBAUD_AMADR - C_TBAUD = 0.}
+goal continuitySFM006       {I_SFM006 - D_SFM006_MHILL - C_SFM006 = 0.}
+goal continuitySFM003       {C_SFM006 - C_SFM003 = 0.}
+goal continuityMFM010       {I_MFM010 - D_MFM010_WSPNT - C_MFM010 = 0.}
+goal continuityMFM006       {C_MFM010 - C_MFM006 = 0.}
+goal continuityMFM001       {C_MFM006 + C_SFM003 - C_MFM001 = 0.}
+goal continuityMOK088       {C_NFM006 + C_MFM001 - C_MOK088 = 0.}
+goal continuityMOK082       {C_MOK088 + C_TBAUD - C_MOK082 = 0.}
+goal continuityMOK079       {C_MOK082 + I_MOK079 - C_MOK079 = 0.}

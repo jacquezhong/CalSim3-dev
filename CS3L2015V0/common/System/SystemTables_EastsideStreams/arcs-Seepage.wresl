@@ -1,0 +1,84 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+CALSIM 3.0 SYSTEM FILE
+ARCS-SEEPAGE.WRESL
+
+
+NAMING TAKES THE FOLLOWING FORM:
+SG_{CalSim_3 Node}_{corresponding C2VSIM Groundwater Node}
+
+positive seepage = gaining stream
+negative seepage = loosing stream
+
+*/
+!define SG_XXXXXX_XXX   {lower unbounded upper unbounded kind 'CHANNEL-SEEPAGE' units 'CFS'}!C2VSIM Element Node    C2VSIM River Node
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Calaveras River     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!define SG_CLV035_564    {lower unbounded upper unbounded kind 'CHANNEL-SEEPAGE' units 'CFS'}!564    161
+!define SG_CLV028_563    {lower unbounded upper unbounded kind 'CHANNEL-SEEPAGE' units 'CFS'}!563    162
+!define SG_CLV023_562    {lower unbounded upper unbounded kind 'CHANNEL-SEEPAGE' units 'CFS'}!562    163
+!define SG_CLV016_561    {lower unbounded upper unbounded kind 'CHANNEL-SEEPAGE' units 'CFS'}!561    164
+!define SG_CLV010_560    {lower unbounded upper unbounded kind 'CHANNEL-SEEPAGE' units 'CFS'}!560    165
+!define SG_CLV004_559    {lower unbounded upper unbounded kind 'CHANNEL-SEEPAGE' units 'CFS'}!559    166
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Cosumnes River  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define SG188_CSM033_29    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!443  188
+define SG189_CSM026_29    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!426  189
+define SG190_CSM021_29    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!425  190
+define SG191_CSM016_29    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!439  191
+define SG192_CSM011_29    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!454  192 
+define SG193_CSM005_29    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!466  193 
+define SG194_CSM005_29	  {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Dry Creek       !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    C2VSIM    C2VSIM
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    Element Node  River Node
+define SG182_DSC035_28    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!506  182
+define SG182_DSC028_28    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!505  183
+define SG184_DSC023_28    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!499  184
+define SG185_DSC016_28    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!498  185
+define SG186_DSC008_28    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!480  186
+define SG187_DSC008_28	  {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Mokelumne River !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    C2VSIM    C2VSIM
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    Element Node  River Node
+define SG175_CMCHE_27     {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!516  175
+define SG176_MOK055_27    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!515  176
+define SG177_MOK050_27    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!514  177
+define SG178_MOK044_27    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!513  178
+define SG179_MOK035_27    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!512  179
+define SG180_MOK028_27    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!497  180
+define SG181_MOK022_27    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!
+define SG195_MOK022_27    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!
+define SG196_MOK019_30    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!478  196
+define SG197_MOK014_30    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!494  197
+define SG198_MOK004_30    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!495  198
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Upper Farmington Canal  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!define SG_UFC000_599    {lower unbounded upper unbounded kind 'CHANNEL-SEEPAGE' units 'CFS'}
+!define D_UFC000_UFCLOS  {std kind 'SEEPAGE' units 'CFS'}
+!goal set1D_UFC000_UFCLOS {D_UFC000_UFCLOS = -SG_UFC000_599}
+!goal set2D_UFC000_UFCLOS {D_UFC000_UFCLOS = 0.1*D_STS059_UFC000}

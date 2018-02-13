@@ -1,0 +1,75 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+! Mok_Pwr.wresl
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!North Fork Mokelumne River!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+/*
+Maximize power production by minimizing risk of spills
+*/
+
+! Calculate forecasted inflow based on perfect foresight thru June
+define NFMRunoffJune {
+    case OctJun {
+        condition month >= FEB .and. month <= JUN
+        sum(i=0,jun-month,1) I_SLTSP(i)*cfs_taf(i)+I_LBEAR(i)*cfs_taf(i)+I_NFM006(i)*cfs_taf(i)}
+    case otherwise {
+        condition always
+        value 0.}
+} 
+
+define Mok_NFMRunoffJune {alias NFMRunoffJune kind 'FLOW' units 'TAF'}
+
+! Estimate minimum flows from Feb thru June in TAF
+define MinFlowRqmnt {select febjunmin from Mok_Proj137Flow where month=month, wyt=round(wyt_NForkMok)}
+define Mok_MinFlowRqmnt {alias MinFlowRqmnt kind 'FLOW' units 'TAF'}
+
+define SpillForecast {
+    case FebJun {condition month >= FEB .and. month <= JUN
+        value max(0,NFMRunoffJune + S_LBEAR(-1) + S_SLTSP(-1) - 52.0 - 141.9 - MinFlowRqmnt )}
+    case otherwise {condition always value 0.}}
+
+define Mok_SpillForecast {alias SpillForecast kind 'FLOW' units 'TAF'}
+
+define CurrentWS {value S_LBEAR(-1)+S_SLTSP(-1)+I_SLTSP*cfs_taf+I_LBEAR*cfs_taf+I_NFM006*cfs_taf-S_SLTSPlevel2-S_LBEARlevel2}
+define WaterForPower {value max(0.,CurrentWS-minflow_C_NFM006*cfs_taf)}
+define Mok_WaterForPower {alias WaterForPower*taf_cfs kind 'FLOW' units 'TAF'}
+
+define MinPower1 { !Power generation to avoid spills
+    case FebJun {condition month >= FEB .and. month <= JUN
+        value min(1130*cfs_taf,SpillForecast/(Jul-month))}
+    case otherwise {condition always value 0.}}
+    
+define Mok_MinPower1 {alias MinPower1*taf_cfs kind 'FLOW' units 'CFS'}
+
+define MinPower2 { !Minimum power generation target
+    case Oct {condition month == OCT value 200*cfs_taf}
+    case Nov {condition month == NOV value 200*cfs_taf}
+    case Dec {condition month == DEC value 200*cfs_taf}
+    case Jan {condition month == JAN value 200*cfs_taf}
+    case Feb {condition month == FEB value 200*cfs_taf}
+    case Mar {condition month == MAR value 200*cfs_taf}
+    case Apr {condition month == APR value 200*cfs_taf}
+    case May {condition month == MAY value 200*cfs_taf}
+    case Jun {condition month == JUN value 200*cfs_taf}
+    case Jul {condition month == JUL value 200*cfs_taf}
+    case Aug {condition month == AUG value 200*cfs_taf}
+    case otherwise {condition always value 200*cfs_taf}}
+
+goal setMinPower {C_TBAUD > min(WaterForPower*taf_cfs,max(MinPower1*taf_cfs, MinPower2*taf_cfs))}

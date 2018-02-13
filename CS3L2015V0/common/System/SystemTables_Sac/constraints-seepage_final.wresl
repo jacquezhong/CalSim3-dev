@@ -1,0 +1,1076 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+File Name: constraints-seepage_final.wresl
+CalSim 3.0 System File
+
+Purpose:
+
+Naming takes the following form:
+
+positive seepage = gaining stream
+negative seepage = loosing stream
+
+*/
+!!!! American River !!!!!!!!!!!
+define svSG374_FOLSM_66 {value SG374_FOLSM_66[setup]}
+define svSG375_NTOMA_66 {value SG375_NTOMA_66[setup]}
+define svSG376_AMR020_66 {value SG376_AMR020_66[setup]}
+define svSG377_AMR015_66 {value SG377_AMR015_66[setup]}
+define svSG378_AMR009_66 {value SG378_AMR009_66[setup]}
+define svSG379_AMR004_66 {value SG379_AMR004_66[setup]}
+define svSG380_AMR004_66 {value SG380_AMR004_66[setup]}
+
+define SG374_FOLSM_66_DLL {alias SG374_FOLSM_66_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG375_NTOMA_66_DLL {alias SG375_NTOMA_66_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG376_AMR020_66_DLL {alias SG376_AMR020_66_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG377_AMR015_66_DLL {alias SG377_AMR015_66_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG378_AMR009_66_DLL {alias SG378_AMR009_66_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG379_AMR004_66_DLL {alias SG379_AMR004_66_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG380_AMR004_66_DLL {alias SG380_AMR004_66_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG374_FOLSM_66 {lhs SG374_FOLSM_66 case negative {condition svSG374_FOLSM_66 < 0 rhs svSG374_FOLSM_66 lhs>rhs penalty SGPHIGH}}
+goal setNegSG375_NTOMA_66 {lhs SG375_NTOMA_66 case negative {condition svSG375_NTOMA_66 < 0 rhs svSG375_NTOMA_66 lhs>rhs penalty SGPHIGH}}
+goal setNegSG376_AMR020_66 {lhs SG376_AMR020_66 case negative {condition svSG376_AMR020_66 < 0 rhs svSG376_AMR020_66 lhs>rhs penalty SGPHIGH}}
+goal setNegSG377_AMR015_66 {lhs SG377_AMR015_66 case negative {condition svSG377_AMR015_66 < 0 rhs svSG377_AMR015_66 lhs>rhs penalty SGPHIGH}}
+goal setNegSG378_AMR009_66 {lhs SG378_AMR009_66 case negative {condition svSG378_AMR009_66 < 0 rhs svSG378_AMR009_66 lhs>rhs penalty SGPHIGH}}
+goal setNegSG379_AMR004_66 {lhs SG379_AMR004_66 case negative {condition svSG379_AMR004_66 < 0 rhs svSG379_AMR004_66 lhs>rhs penalty SGPHIGH}}
+goal setNegSG380_AMR004_66 {lhs SG380_AMR004_66 case negative {condition svSG380_AMR004_66 < 0 rhs svSG380_AMR004_66 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG374_FOLSM_66 {lhs SG374_FOLSM_66 case negative {condition svSG374_FOLSM_66 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG374_FOLSM_66 }}
+goal setPosSG375_NTOMA_66 {lhs SG375_NTOMA_66 case negative {condition svSG375_NTOMA_66 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG375_NTOMA_66 }}
+goal setPosSG376_AMR020_66 {lhs SG376_AMR020_66 case negative {condition svSG376_AMR020_66 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG376_AMR020_66 }}
+goal setPosSG377_AMR015_66 {lhs SG377_AMR015_66 case negative {condition svSG377_AMR015_66 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG377_AMR015_66 }}
+goal setPosSG378_AMR009_66 {lhs SG378_AMR009_66 case negative {condition svSG378_AMR009_66 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG378_AMR009_66 }}
+goal setPosSG379_AMR004_66 {lhs SG379_AMR004_66 case negative {condition svSG379_AMR004_66 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG379_AMR004_66 }}
+goal setPosSG380_AMR004_66 {lhs SG380_AMR004_66 case negative {condition svSG380_AMR004_66 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG380_AMR004_66 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Antelope Creek !!!!!!!!!!!
+define svSG233_ANT010_40 {value SG233_ANT010_40[setup]}
+define svSG234_ANT010_40 {value SG234_ANT010_40[setup]}
+
+define SG233_ANT010_40_DLL {alias SG233_ANT010_40_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG234_ANT010_40_DLL {alias SG234_ANT010_40_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG233_ANT010_40 {lhs SG233_ANT010_40 case negative {condition svSG233_ANT010_40 < 0 rhs svSG233_ANT010_40 lhs>rhs penalty SGPHIGH}}
+goal setNegSG234_ANT010_40 {lhs SG234_ANT010_40 case negative {condition svSG234_ANT010_40 < 0 rhs svSG234_ANT010_40 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG233_ANT010_40 {lhs SG233_ANT010_40 case negative {condition svSG233_ANT010_40 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG233_ANT010_40 }}
+goal setPosSG234_ANT010_40 {lhs SG234_ANT010_40 case negative {condition svSG234_ANT010_40 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG234_ANT010_40 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Battle Creek !!!!!!!!!!!
+define svSG220_BTL006_36 {value SG220_BTL006_36[setup]}
+define svSG221_BTL006_36 {value SG221_BTL006_36[setup]}
+
+define SG220_BTL006_36_DLL {alias SG220_BTL006_36_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG221_BTL006_36_DLL {alias SG221_BTL006_36_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG220_BTL006_36 {lhs SG220_BTL006_36 case negative {condition svSG220_BTL006_36 < 0 rhs svSG220_BTL006_36 lhs>rhs penalty SGPHIGH}}
+goal setNegSG221_BTL006_36 {lhs SG221_BTL006_36 case negative {condition svSG221_BTL006_36 < 0 rhs svSG221_BTL006_36 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG220_BTL006_36 {lhs SG220_BTL006_36 case negative {condition svSG220_BTL006_36 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG220_BTL006_36 }}
+goal setPosSG221_BTL006_36 {lhs SG221_BTL006_36 case negative {condition svSG221_BTL006_36 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG221_BTL006_36 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Bear River !!!!!!!!!!!
+define svSG357_CMPFW_62 {value SG357_CMPFW_62[setup]}
+define svSG358_BRR017_62 {value SG358_BRR017_62[setup]}
+define svSG359_BRR011_62 {value SG359_BRR011_62[setup]}
+define svSG360_BRR004_62 {value SG360_BRR004_62[setup]}
+define svSG361_BRR004_62 {value SG361_BRR004_62[setup]}
+
+define SG357_CMPFW_62_DLL {alias SG357_CMPFW_62_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG358_BRR017_62_DLL {alias SG358_BRR017_62_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG359_BRR011_62_DLL {alias SG359_BRR011_62_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG360_BRR004_62_DLL {alias SG360_BRR004_62_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG361_BRR004_62_DLL {alias SG361_BRR004_62_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG357_CMPFW_62 {lhs SG357_CMPFW_62 case negative {condition svSG357_CMPFW_62 < 0 rhs svSG357_CMPFW_62 lhs>rhs penalty SGPHIGH}}
+goal setNegSG358_BRR017_62 {lhs SG358_BRR017_62 case negative {condition svSG358_BRR017_62 < 0 rhs svSG358_BRR017_62 lhs>rhs penalty SGPHIGH}}
+goal setNegSG359_BRR011_62 {lhs SG359_BRR011_62 case negative {condition svSG359_BRR011_62 < 0 rhs svSG359_BRR011_62 lhs>rhs penalty SGPHIGH}}
+goal setNegSG360_BRR004_62 {lhs SG360_BRR004_62 case negative {condition svSG360_BRR004_62 < 0 rhs svSG360_BRR004_62 lhs>rhs penalty SGPHIGH}}
+goal setNegSG361_BRR004_62 {lhs SG361_BRR004_62 case negative {condition svSG361_BRR004_62 < 0 rhs svSG361_BRR004_62 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG357_CMPFW_62 {lhs SG357_CMPFW_62 case negative {condition svSG357_CMPFW_62 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG357_CMPFW_62 }}
+goal setPosSG358_BRR017_62 {lhs SG358_BRR017_62 case negative {condition svSG358_BRR017_62 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG358_BRR017_62 }}
+goal setPosSG359_BRR011_62 {lhs SG359_BRR011_62 case negative {condition svSG359_BRR011_62 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG359_BRR011_62 }}
+goal setPosSG360_BRR004_62 {lhs SG360_BRR004_62 case negative {condition svSG360_BRR004_62 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG360_BRR004_62 }}
+goal setPosSG361_BRR004_62 {lhs SG361_BRR004_62 case negative {condition svSG361_BRR004_62 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG361_BRR004_62 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Big Chico Creek !!!!!!!!!!!
+define svSG269_BCC012_50 {value SG269_BCC012_50[setup]}
+define svSG270_BCC006_50 {value SG270_BCC006_50[setup]}
+define svSG271_BCC004_50 {value SG271_BCC004_50[setup]}
+define svSG272_BCC004_50 {value SG272_BCC004_50[setup]}
+
+define SG269_BCC012_50_DLL {alias SG269_BCC012_50_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG270_BCC006_50_DLL {alias SG270_BCC006_50_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG271_BCC004_50_DLL {alias SG271_BCC004_50_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG272_BCC004_50_DLL {alias SG272_BCC004_50_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG269_BCC012_50 {lhs SG269_BCC012_50 case negative {condition svSG269_BCC012_50 < 0 rhs svSG269_BCC012_50 lhs>rhs penalty SGPHIGH}}
+goal setNegSG270_BCC006_50 {lhs SG270_BCC006_50 case negative {condition svSG270_BCC006_50 < 0 rhs svSG270_BCC006_50 lhs>rhs penalty SGPHIGH}}
+goal setNegSG271_BCC004_50 {lhs SG271_BCC004_50 case negative {condition svSG271_BCC004_50 < 0 rhs svSG271_BCC004_50 lhs>rhs penalty SGPHIGH}}
+goal setNegSG272_BCC004_50 {lhs SG272_BCC004_50 case negative {condition svSG272_BCC004_50 < 0 rhs svSG272_BCC004_50 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG269_BCC012_50 {lhs SG269_BCC012_50 case negative {condition svSG269_BCC012_50 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG269_BCC012_50 }}
+goal setPosSG270_BCC006_50 {lhs SG270_BCC006_50 case negative {condition svSG270_BCC006_50 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG270_BCC006_50 }}
+goal setPosSG271_BCC004_50 {lhs SG271_BCC004_50 case negative {condition svSG271_BCC004_50 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG271_BCC004_50 }}
+goal setPosSG272_BCC004_50 {lhs SG272_BCC004_50 case negative {condition svSG272_BCC004_50 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG272_BCC004_50 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Butte Creek / Little Chico Creek / Edgar Slough / Butte Slough !!!!!!!!!!!
+define svSG283_BTC043_52 {value SG283_BTC043_52[setup]}
+define svSG284_BTC036_52 {value SG284_BTC036_52[setup]}
+define svSG285_BTC032_52 {value SG285_BTC032_52[setup]}
+define svSG286_BTC029_52 {value SG286_BTC029_52[setup]}
+define svSG287_BTC024_52 {value SG287_BTC024_52[setup]}
+define svSG288_BTC018_52 {value SG288_BTC018_52[setup]}
+define svSG289_BTC015_52 {value SG289_BTC015_52[setup]}
+define svSG290_BTC007_52 {value SG290_BTC007_52[setup]}
+define svSG291_BTC003_52 {value SG291_BTC003_52[setup]}
+define svSG292_BSL001_52 {value SG292_BSL001_52[setup]}
+
+define SG283_BTC043_52_DLL {alias SG283_BTC043_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG284_BTC036_52_DLL {alias SG284_BTC036_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG285_BTC032_52_DLL {alias SG285_BTC032_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG286_BTC029_52_DLL {alias SG286_BTC029_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG287_BTC024_52_DLL {alias SG287_BTC024_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG288_BTC018_52_DLL {alias SG288_BTC018_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG289_BTC015_52_DLL {alias SG289_BTC015_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG290_BTC007_52_DLL {alias SG290_BTC007_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG291_BTC003_52_DLL {alias SG291_BTC003_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG292_BSL001_52_DLL {alias SG292_BSL001_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG283_BTC043_52 {lhs SG283_BTC043_52 case negative {condition svSG283_BTC043_52 < 0 rhs svSG283_BTC043_52 lhs>rhs penalty SGPHIGH}}
+goal setNegSG284_BTC036_52 {lhs SG284_BTC036_52 case negative {condition svSG284_BTC036_52 < 0 rhs svSG284_BTC036_52 lhs>rhs penalty SGPHIGH}}
+goal setNegSG285_BTC032_52 {lhs SG285_BTC032_52 case negative {condition svSG285_BTC032_52 < 0 rhs svSG285_BTC032_52 lhs>rhs penalty SGPHIGH}}
+goal setNegSG286_BTC029_52 {lhs SG286_BTC029_52 case negative {condition svSG286_BTC029_52 < 0 rhs svSG286_BTC029_52 lhs>rhs penalty SGPHIGH}}
+goal setNegSG287_BTC024_52 {lhs SG287_BTC024_52 case negative {condition svSG287_BTC024_52 < 0 rhs svSG287_BTC024_52 lhs>rhs penalty SGPHIGH}}
+goal setNegSG288_BTC018_52 {lhs SG288_BTC018_52 case negative {condition svSG288_BTC018_52 < 0 rhs svSG288_BTC018_52 lhs>rhs penalty SGPHIGH}}
+goal setNegSG289_BTC015_52 {lhs SG289_BTC015_52 case negative {condition svSG289_BTC015_52 < 0 rhs svSG289_BTC015_52 lhs>rhs penalty SGPHIGH}}
+goal setNegSG290_BTC007_52 {lhs SG290_BTC007_52 case negative {condition svSG290_BTC007_52 < 0 rhs svSG290_BTC007_52 lhs>rhs penalty SGPHIGH}}
+goal setNegSG291_BTC003_52 {lhs SG291_BTC003_52 case negative {condition svSG291_BTC003_52 < 0 rhs svSG291_BTC003_52 lhs>rhs penalty SGPHIGH}}
+goal setNegSG292_BSL001_52 {lhs SG292_BSL001_52 case negative {condition svSG292_BSL001_52 < 0 rhs svSG292_BSL001_52 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG283_BTC043_52 {lhs SG283_BTC043_52 case negative {condition svSG283_BTC043_52 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG283_BTC043_52 }}
+goal setPosSG284_BTC036_52 {lhs SG284_BTC036_52 case negative {condition svSG284_BTC036_52 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG284_BTC036_52 }}
+goal setPosSG285_BTC032_52 {lhs SG285_BTC032_52 case negative {condition svSG285_BTC032_52 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG285_BTC032_52 }}
+goal setPosSG286_BTC029_52 {lhs SG286_BTC029_52 case negative {condition svSG286_BTC029_52 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG286_BTC029_52 }}
+goal setPosSG287_BTC024_52 {lhs SG287_BTC024_52 case negative {condition svSG287_BTC024_52 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG287_BTC024_52 }}
+goal setPosSG288_BTC018_52 {lhs SG288_BTC018_52 case negative {condition svSG288_BTC018_52 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG288_BTC018_52 }}
+goal setPosSG289_BTC015_52 {lhs SG289_BTC015_52 case negative {condition svSG289_BTC015_52 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG289_BTC015_52 }}
+goal setPosSG290_BTC007_52 {lhs SG290_BTC007_52 case negative {condition svSG290_BTC007_52 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG290_BTC007_52 }}
+goal setPosSG291_BTC003_52 {lhs SG291_BTC003_52 case negative {condition svSG291_BTC003_52 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG291_BTC003_52 }}
+goal setPosSG292_BSL001_52 {lhs SG292_BSL001_52 case negative {condition svSG292_BSL001_52 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG292_BSL001_52 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Cache Creek !!!!!!!!!!!
+define svSG390_CCH030_68 {value SG390_CCH030_68[setup]}
+define svSG391_CCH023_68 {value SG391_CCH023_68[setup]}
+define svSG392_CCH017_68 {value SG392_CCH017_68[setup]}
+define svSG393_CCH012_68 {value SG393_CCH012_68[setup]}
+define svSG394_CCH006_68 {value SG394_CCH006_68[setup]}
+define svSG395_CCH003_68 {value SG395_CCH003_68[setup]}
+
+define SG390_CCH030_68_DLL {alias SG390_CCH030_68_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG391_CCH023_68_DLL {alias SG391_CCH023_68_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG392_CCH017_68_DLL {alias SG392_CCH017_68_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG393_CCH012_68_DLL {alias SG393_CCH012_68_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG394_CCH006_68_DLL {alias SG394_CCH006_68_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG395_CCH003_68_DLL {alias SG395_CCH003_68_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG390_CCH030_68 {lhs SG390_CCH030_68 case negative {condition svSG390_CCH030_68 < 0 rhs svSG390_CCH030_68 lhs>rhs penalty SGPHIGH}}
+goal setNegSG391_CCH023_68 {lhs SG391_CCH023_68 case negative {condition svSG391_CCH023_68 < 0 rhs svSG391_CCH023_68 lhs>rhs penalty SGPHIGH}}
+goal setNegSG392_CCH017_68 {lhs SG392_CCH017_68 case negative {condition svSG392_CCH017_68 < 0 rhs svSG392_CCH017_68 lhs>rhs penalty SGPHIGH}}
+goal setNegSG393_CCH012_68 {lhs SG393_CCH012_68 case negative {condition svSG393_CCH012_68 < 0 rhs svSG393_CCH012_68 lhs>rhs penalty SGPHIGH}}
+goal setNegSG394_CCH006_68 {lhs SG394_CCH006_68 case negative {condition svSG394_CCH006_68 < 0 rhs svSG394_CCH006_68 lhs>rhs penalty SGPHIGH}}
+goal setNegSG395_CCH003_68 {lhs SG395_CCH003_68 case negative {condition svSG395_CCH003_68 < 0 rhs svSG395_CCH003_68 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG390_CCH030_68 {lhs SG390_CCH030_68 case negative {condition svSG390_CCH030_68 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG390_CCH030_68 }}
+goal setPosSG391_CCH023_68 {lhs SG391_CCH023_68 case negative {condition svSG391_CCH023_68 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG391_CCH023_68 }}
+goal setPosSG392_CCH017_68 {lhs SG392_CCH017_68 case negative {condition svSG392_CCH017_68 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG392_CCH017_68 }}
+goal setPosSG393_CCH012_68 {lhs SG393_CCH012_68 case negative {condition svSG393_CCH012_68 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG393_CCH012_68 }}
+goal setPosSG394_CCH006_68 {lhs SG394_CCH006_68 case negative {condition svSG394_CCH006_68 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG394_CCH006_68 }}
+goal setPosSG395_CCH003_68 {lhs SG395_CCH003_68 case negative {condition svSG395_CCH003_68 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG395_CCH003_68 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Colusa Basin Drain !!!!!!!!!!!
+define svSG318_CBD049_55 {value SG318_CBD049_55[setup]}
+define svSG319_CBD044_55 {value SG319_CBD044_55[setup]}
+define svSG320_CBD041_55 {value SG320_CBD041_55[setup]}
+define svSG321_CBD037_55 {value SG321_CBD037_55[setup]}
+define svSG322_CBD031_55 {value SG322_CBD031_55[setup]}
+define svSG323_CBD031_56 {value SG323_CBD031_56[setup]}
+define svSG324_CBD028_56 {value SG324_CBD028_56[setup]}
+define svSG325_CBD023_56 {value SG325_CBD023_56[setup]}
+define svSG326_CBD018_56 {value SG326_CBD018_56[setup]}
+define svSG327_CBD012_56 {value SG327_CBD012_56[setup]}
+define svSG328_CBD005_56 {value SG328_CBD005_56[setup]}
+define svSG329_CBD000_56 {value SG329_CBD000_56[setup]}
+
+define SG318_CBD049_55_DLL {alias SG318_CBD049_55_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG319_CBD044_55_DLL {alias SG319_CBD044_55_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG320_CBD041_55_DLL {alias SG320_CBD041_55_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG321_CBD037_55_DLL {alias SG321_CBD037_55_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG322_CBD031_55_DLL {alias SG322_CBD031_55_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG323_CBD031_56_DLL {alias SG323_CBD031_56_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG324_CBD028_56_DLL {alias SG324_CBD028_56_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG325_CBD023_56_DLL {alias SG325_CBD023_56_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG326_CBD018_56_DLL {alias SG326_CBD018_56_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG327_CBD012_56_DLL {alias SG327_CBD012_56_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG328_CBD005_56_DLL {alias SG328_CBD005_56_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG329_CBD000_56_DLL {alias SG329_CBD000_56_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG318_CBD049_55 {lhs SG318_CBD049_55 case negative {condition svSG318_CBD049_55 < 0 rhs svSG318_CBD049_55 lhs>rhs penalty SGPHIGH}}
+goal setNegSG319_CBD044_55 {lhs SG319_CBD044_55 case negative {condition svSG319_CBD044_55 < 0 rhs svSG319_CBD044_55 lhs>rhs penalty SGPHIGH}}
+goal setNegSG320_CBD041_55 {lhs SG320_CBD041_55 case negative {condition svSG320_CBD041_55 < 0 rhs svSG320_CBD041_55 lhs>rhs penalty SGPHIGH}}
+goal setNegSG321_CBD037_55 {lhs SG321_CBD037_55 case negative {condition svSG321_CBD037_55 < 0 rhs svSG321_CBD037_55 lhs>rhs penalty SGPHIGH}}
+goal setNegSG322_CBD031_55 {lhs SG322_CBD031_55 case negative {condition svSG322_CBD031_55 < 0 rhs svSG322_CBD031_55 lhs>rhs penalty SGPHIGH}}
+goal setNegSG323_CBD031_56 {lhs SG323_CBD031_56 case negative {condition svSG323_CBD031_56 < 0 rhs svSG323_CBD031_56 lhs>rhs penalty SGPHIGH}}
+goal setNegSG324_CBD028_56 {lhs SG324_CBD028_56 case negative {condition svSG324_CBD028_56 < 0 rhs svSG324_CBD028_56 lhs>rhs penalty SGPHIGH}}
+goal setNegSG325_CBD023_56 {lhs SG325_CBD023_56 case negative {condition svSG325_CBD023_56 < 0 rhs svSG325_CBD023_56 lhs>rhs penalty SGPHIGH}}
+goal setNegSG326_CBD018_56 {lhs SG326_CBD018_56 case negative {condition svSG326_CBD018_56 < 0 rhs svSG326_CBD018_56 lhs>rhs penalty SGPHIGH}}
+goal setNegSG327_CBD012_56 {lhs SG327_CBD012_56 case negative {condition svSG327_CBD012_56 < 0 rhs svSG327_CBD012_56 lhs>rhs penalty SGPHIGH}}
+goal setNegSG328_CBD005_56 {lhs SG328_CBD005_56 case negative {condition svSG328_CBD005_56 < 0 rhs svSG328_CBD005_56 lhs>rhs penalty SGPHIGH}}
+goal setNegSG329_CBD000_56 {lhs SG329_CBD000_56 case negative {condition svSG329_CBD000_56 < 0 rhs svSG329_CBD000_56 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG318_CBD049_55 {lhs SG318_CBD049_55 case negative {condition svSG318_CBD049_55 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG318_CBD049_55 }}
+goal setPosSG319_CBD044_55 {lhs SG319_CBD044_55 case negative {condition svSG319_CBD044_55 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG319_CBD044_55 }}
+goal setPosSG320_CBD041_55 {lhs SG320_CBD041_55 case negative {condition svSG320_CBD041_55 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG320_CBD041_55 }}
+goal setPosSG321_CBD037_55 {lhs SG321_CBD037_55 case negative {condition svSG321_CBD037_55 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG321_CBD037_55 }}
+goal setPosSG322_CBD031_55 {lhs SG322_CBD031_55 case negative {condition svSG322_CBD031_55 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG322_CBD031_55 }}
+goal setPosSG323_CBD031_56 {lhs SG323_CBD031_56 case negative {condition svSG323_CBD031_56 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG323_CBD031_56 }}
+goal setPosSG324_CBD028_56 {lhs SG324_CBD028_56 case negative {condition svSG324_CBD028_56 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG324_CBD028_56 }}
+goal setPosSG325_CBD023_56 {lhs SG325_CBD023_56 case negative {condition svSG325_CBD023_56 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG325_CBD023_56 }}
+goal setPosSG326_CBD018_56 {lhs SG326_CBD018_56 case negative {condition svSG326_CBD018_56 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG326_CBD018_56 }}
+goal setPosSG327_CBD012_56 {lhs SG327_CBD012_56 case negative {condition svSG327_CBD012_56 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG327_CBD012_56 }}
+goal setPosSG328_CBD005_56 {lhs SG328_CBD005_56 case negative {condition svSG328_CBD005_56 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG328_CBD005_56 }}
+goal setPosSG329_CBD000_56 {lhs SG329_CBD000_56 case negative {condition svSG329_CBD000_56 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG329_CBD000_56 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Cottonwood Creek !!!!!!!!!!!
+define svSG218_CWD004_35 {value  SG218_CWD004_35[setup]}
+define svSG219_CWD003_35 {value  SG219_CWD003_35[setup]}
+
+define SG218_CWD004_35_DLL {alias  SG218_CWD004_35_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG219_CWD003_35_DLL {alias  SG219_CWD003_35_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG218_CWD004_35 {lhs  SG218_CWD004_35 case negative {condition svSG218_CWD004_35 < 0 rhs svSG218_CWD004_35 lhs>rhs penalty SGPHIGH}}
+goal setNegSG219_CWD003_35 {lhs  SG219_CWD003_35 case negative {condition svSG219_CWD003_35 < 0 rhs svSG219_CWD003_35 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG218_CWD004_35 {lhs  SG218_CWD004_35 case negative {condition svSG218_CWD004_35 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG218_CWD004_35 }}
+goal setPosSG219_CWD003_35 {lhs  SG219_CWD003_35 case negative {condition svSG219_CWD003_35 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG219_CWD003_35 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Cow Creek !!!!!!!!!!!
+define svSG211_COW014_33 {value  SG211_COW014_33[setup]}
+define svSG212_COW007_33 {value  SG212_COW007_33[setup]}
+define svSG213_COW003_33 {value  SG213_COW003_33[setup]}
+define svSG214_COW003_33 {value  SG214_COW003_33[setup]}
+
+define  SG211_COW014_33_DLL {alias  SG211_COW014_33_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define  SG212_COW007_33_DLL {alias  SG212_COW007_33_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define  SG213_COW003_33_DLL {alias  SG213_COW003_33_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define  SG214_COW003_33_DLL {alias  SG214_COW003_33_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG211_COW014_33 {lhs  SG211_COW014_33 case negative {condition svSG211_COW014_33 < 0 rhs svSG211_COW014_33 lhs>rhs penalty SGPHIGH}}
+goal setNegSG212_COW007_33 {lhs  SG212_COW007_33 case negative {condition svSG212_COW007_33 < 0 rhs svSG212_COW007_33 lhs>rhs penalty SGPHIGH}}
+goal setNegSG213_COW003_33 {lhs  SG213_COW003_33 case negative {condition svSG213_COW003_33 < 0 rhs svSG213_COW003_33 lhs>rhs penalty SGPHIGH}}
+goal setNegSG214_COW003_33 {lhs  SG214_COW003_33 case negative {condition svSG214_COW003_33 < 0 rhs svSG214_COW003_33 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG211_COW014_33 {lhs  SG211_COW014_33 case negative {condition svSG211_COW014_33 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG211_COW014_33 }}
+goal setPosSG212_COW007_33 {lhs  SG212_COW007_33 case negative {condition svSG212_COW007_33 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG212_COW007_33 }}
+goal setPosSG213_COW003_33 {lhs  SG213_COW003_33 case negative {condition svSG213_COW003_33 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG213_COW003_33 }}
+goal setPosSG214_COW003_33 {lhs  SG214_COW003_33 case negative {condition svSG214_COW003_33 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG214_COW003_33 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Deer Creek !!!!!!!!!!!
+define svSG256_DRC010_47 {value SG256_DRC010_47[setup]}
+define svSG257_DRC005_47 {value SG257_DRC005_47[setup]}
+define svSG258_DRC005_47 {value SG258_DRC005_47[setup]}
+
+define SG256_DRC010_47_DLL {alias SG256_DRC010_47_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG257_DRC005_47_DLL {alias SG257_DRC005_47_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG258_DRC005_47_DLL {alias SG258_DRC005_47_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG256_DRC010_47 {lhs SG256_DRC010_47 case negative {condition svSG256_DRC010_47 < 0 rhs svSG256_DRC010_47 lhs>rhs penalty SGPHIGH}}
+goal setNegSG257_DRC005_47 {lhs SG257_DRC005_47 case negative {condition svSG257_DRC005_47 < 0 rhs svSG257_DRC005_47 lhs>rhs penalty SGPHIGH}}
+goal setNegSG258_DRC005_47 {lhs SG258_DRC005_47 case negative {condition svSG258_DRC005_47 < 0 rhs svSG258_DRC005_47 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG256_DRC010_47 {lhs SG256_DRC010_47 case negative {condition svSG256_DRC010_47 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG256_DRC010_47 }}
+goal setPosSG257_DRC005_47 {lhs SG257_DRC005_47 case negative {condition svSG257_DRC005_47 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG257_DRC005_47 }}
+goal setPosSG258_DRC005_47 {lhs SG258_DRC005_47 case negative {condition svSG258_DRC005_47 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG258_DRC005_47 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Elder Creek !!!!!!!!!!!
+define svSG237_ELD027_42 {value SG237_ELD027_42[setup]}
+define svSG238_ELD022_42 {value SG238_ELD022_42[setup]}
+define svSG239_ELD017_42 {value SG239_ELD017_42[setup]}
+define svSG240_ELD012_42 {value SG240_ELD012_42[setup]}
+define svSG241_ELD005_42 {value SG241_ELD005_42[setup]}
+define svSG242_ELD005_42 {value SG242_ELD005_42[setup]}
+
+define SG237_ELD027_42_DLL {alias SG237_ELD027_42_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG238_ELD022_42_DLL {alias SG238_ELD022_42_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG239_ELD017_42_DLL {alias SG239_ELD017_42_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG240_ELD012_42_DLL {alias SG240_ELD012_42_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG241_ELD005_42_DLL {alias SG241_ELD005_42_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG242_ELD005_42_DLL {alias SG242_ELD005_42_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG237_ELD027_42 {lhs SG237_ELD027_42 case negative {condition svSG237_ELD027_42 < 0 rhs svSG237_ELD027_42 lhs>rhs penalty SGPHIGH}}
+goal setNegSG238_ELD022_42 {lhs SG238_ELD022_42 case negative {condition svSG238_ELD022_42 < 0 rhs svSG238_ELD022_42 lhs>rhs penalty SGPHIGH}}
+goal setNegSG239_ELD017_42 {lhs SG239_ELD017_42 case negative {condition svSG239_ELD017_42 < 0 rhs svSG239_ELD017_42 lhs>rhs penalty SGPHIGH}}
+goal setNegSG240_ELD012_42 {lhs SG240_ELD012_42 case negative {condition svSG240_ELD012_42 < 0 rhs svSG240_ELD012_42 lhs>rhs penalty SGPHIGH}}
+goal setNegSG241_ELD005_42 {lhs SG241_ELD005_42 case negative {condition svSG241_ELD005_42 < 0 rhs svSG241_ELD005_42 lhs>rhs penalty SGPHIGH}}
+goal setNegSG242_ELD005_42 {lhs SG242_ELD005_42 case negative {condition svSG242_ELD005_42 < 0 rhs svSG242_ELD005_42 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG237_ELD027_42 {lhs SG237_ELD027_42 case negative {condition svSG237_ELD027_42 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG237_ELD027_42 }}
+goal setPosSG238_ELD022_42 {lhs SG238_ELD022_42 case negative {condition svSG238_ELD022_42 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG238_ELD022_42 }}
+goal setPosSG239_ELD017_42 {lhs SG239_ELD017_42 case negative {condition svSG239_ELD017_42 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG239_ELD017_42 }}
+goal setPosSG240_ELD012_42 {lhs SG240_ELD012_42 case negative {condition svSG240_ELD012_42 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG240_ELD012_42 }}
+goal setPosSG241_ELD005_42 {lhs SG241_ELD005_42 case negative {condition svSG241_ELD005_42 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG241_ELD005_42 }}
+goal setPosSG242_ELD005_42 {lhs SG242_ELD005_42 case negative {condition svSG242_ELD005_42 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG242_ELD005_42 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Feather River !!!!!!!!!!!
+define svSG341_FTR068_59 {value SG341_FTR068_59[setup]}
+define svSG342_FTR063_59 {value SG342_FTR063_59[setup]}
+define svSG343_FTR059_59 {value SG343_FTR059_59[setup]}
+define svSG344_FTR053_59 {value SG344_FTR053_59[setup]}
+define svSG345_FTR048_59 {value SG345_FTR048_59[setup]}
+define svSG346_FTR045_59 {value SG346_FTR045_59[setup]}
+define svSG347_FTR036_59 {value SG347_FTR036_59[setup]}
+define svSG348_FTR029_59 {value SG348_FTR029_59[setup]}
+define svSG352_FTR029_61 {value SG352_FTR029_61[setup]}
+define svSG353_FTR025_61 {value SG353_FTR025_61[setup]}
+define svSG354_FTR021_61 {value SG354_FTR021_61[setup]}
+define svSG355_FTR016_61 {value SG355_FTR016_61[setup]}
+define svSG356_FTR012_61 {value SG356_FTR012_61[setup]}
+define svSG362_FTR012_63 {value SG362_FTR012_63[setup]}
+define svSG363_FTR008_63 {value SG363_FTR008_63[setup]}
+define svSG364_FTR008_64 {value SG364_FTR008_64[setup]}
+define svSG365_FTR003_64 {value SG365_FTR003_64[setup]}
+define svSG366_FTR003_64 {value SG366_FTR003_64[setup]}
+
+define SG341_FTR068_59_DLL {alias SG341_FTR068_59_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG342_FTR063_59_DLL {alias SG342_FTR063_59_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG343_FTR059_59_DLL {alias SG343_FTR059_59_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG344_FTR053_59_DLL {alias SG344_FTR053_59_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG345_FTR048_59_DLL {alias SG345_FTR048_59_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG346_FTR045_59_DLL {alias SG346_FTR045_59_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG347_FTR036_59_DLL {alias SG347_FTR036_59_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG348_FTR029_59_DLL {alias SG348_FTR029_59_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG352_FTR029_61_DLL {alias SG352_FTR029_61_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG353_FTR025_61_DLL {alias SG353_FTR025_61_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG354_FTR021_61_DLL {alias SG354_FTR021_61_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG355_FTR016_61_DLL {alias SG355_FTR016_61_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG356_FTR012_61_DLL {alias SG356_FTR012_61_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG362_FTR012_63_DLL {alias SG362_FTR012_63_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG363_FTR008_63_DLL {alias SG363_FTR008_63_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG364_FTR008_64_DLL {alias SG364_FTR008_64_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG365_FTR003_64_DLL {alias SG365_FTR003_64_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG366_FTR003_64_DLL {alias SG366_FTR003_64_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG341_FTR068_59 {lhs SG341_FTR068_59 case negative {condition svSG341_FTR068_59 < 0 rhs svSG341_FTR068_59 lhs>rhs penalty SGPHIGH}}
+goal setNegSG342_FTR063_59 {lhs SG342_FTR063_59 case negative {condition svSG342_FTR063_59 < 0 rhs svSG342_FTR063_59 lhs>rhs penalty SGPHIGH}}
+goal setNegSG343_FTR059_59 {lhs SG343_FTR059_59 case negative {condition svSG343_FTR059_59 < 0 rhs svSG343_FTR059_59 lhs>rhs penalty SGPHIGH}}
+goal setNegSG344_FTR053_59 {lhs SG344_FTR053_59 case negative {condition svSG344_FTR053_59 < 0 rhs svSG344_FTR053_59 lhs>rhs penalty SGPHIGH}}
+goal setNegSG345_FTR048_59 {lhs SG345_FTR048_59 case negative {condition svSG345_FTR048_59 < 0 rhs svSG345_FTR048_59 lhs>rhs penalty SGPHIGH}}
+goal setNegSG346_FTR045_59 {lhs SG346_FTR045_59 case negative {condition svSG346_FTR045_59 < 0 rhs svSG346_FTR045_59 lhs>rhs penalty SGPHIGH}}
+goal setNegSG347_FTR036_59 {lhs SG347_FTR036_59 case negative {condition svSG347_FTR036_59 < 0 rhs svSG347_FTR036_59 lhs>rhs penalty SGPHIGH}}
+goal setNegSG348_FTR029_59 {lhs SG348_FTR029_59 case negative {condition svSG348_FTR029_59 < 0 rhs svSG348_FTR029_59 lhs>rhs penalty SGPHIGH}}
+goal setNegSG352_FTR029_61 {lhs SG352_FTR029_61 case negative {condition svSG352_FTR029_61 < 0 rhs svSG352_FTR029_61 lhs>rhs penalty SGPHIGH}}
+goal setNegSG353_FTR025_61 {lhs SG353_FTR025_61 case negative {condition svSG353_FTR025_61 < 0 rhs svSG353_FTR025_61 lhs>rhs penalty SGPHIGH}}
+goal setNegSG354_FTR021_61 {lhs SG354_FTR021_61 case negative {condition svSG354_FTR021_61 < 0 rhs svSG354_FTR021_61 lhs>rhs penalty SGPHIGH}}
+goal setNegSG355_FTR016_61 {lhs SG355_FTR016_61 case negative {condition svSG355_FTR016_61 < 0 rhs svSG355_FTR016_61 lhs>rhs penalty SGPHIGH}}
+goal setNegSG356_FTR012_61 {lhs SG356_FTR012_61 case negative {condition svSG356_FTR012_61 < 0 rhs svSG356_FTR012_61 lhs>rhs penalty SGPHIGH}}
+goal setNegSG362_FTR012_63 {lhs SG362_FTR012_63 case negative {condition svSG362_FTR012_63 < 0 rhs svSG362_FTR012_63 lhs>rhs penalty SGPHIGH}}
+goal setNegSG363_FTR008_63 {lhs SG363_FTR008_63 case negative {condition svSG363_FTR008_63 < 0 rhs svSG363_FTR008_63 lhs>rhs penalty SGPHIGH}}
+goal setNegSG364_FTR008_64 {lhs SG364_FTR008_64 case negative {condition svSG364_FTR008_64 < 0 rhs svSG364_FTR008_64 lhs>rhs penalty SGPHIGH}}
+goal setNegSG365_FTR003_64 {lhs SG365_FTR003_64 case negative {condition svSG365_FTR003_64 < 0 rhs svSG365_FTR003_64 lhs>rhs penalty SGPHIGH}}
+goal setNegSG366_FTR003_64 {lhs SG366_FTR003_64 case negative {condition svSG366_FTR003_64 < 0 rhs svSG366_FTR003_64 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG341_FTR068_59 {lhs SG341_FTR068_59 case negative {condition svSG341_FTR068_59 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG341_FTR068_59 }}
+goal setPosSG342_FTR063_59 {lhs SG342_FTR063_59 case negative {condition svSG342_FTR063_59 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG342_FTR063_59 }}
+goal setPosSG343_FTR059_59 {lhs SG343_FTR059_59 case negative {condition svSG343_FTR059_59 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG343_FTR059_59 }}
+goal setPosSG344_FTR053_59 {lhs SG344_FTR053_59 case negative {condition svSG344_FTR053_59 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG344_FTR053_59 }}
+goal setPosSG345_FTR048_59 {lhs SG345_FTR048_59 case negative {condition svSG345_FTR048_59 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG345_FTR048_59 }}
+goal setPosSG346_FTR045_59 {lhs SG346_FTR045_59 case negative {condition svSG346_FTR045_59 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG346_FTR045_59 }}
+goal setPosSG347_FTR036_59 {lhs SG347_FTR036_59 case negative {condition svSG347_FTR036_59 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG347_FTR036_59 }}
+goal setPosSG348_FTR029_59 {lhs SG348_FTR029_59 case negative {condition svSG348_FTR029_59 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG348_FTR029_59 }}
+goal setPosSG352_FTR029_61 {lhs SG352_FTR029_61 case negative {condition svSG352_FTR029_61 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG352_FTR029_61 }}
+goal setPosSG353_FTR025_61 {lhs SG353_FTR025_61 case negative {condition svSG353_FTR025_61 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG353_FTR025_61 }}
+goal setPosSG354_FTR021_61 {lhs SG354_FTR021_61 case negative {condition svSG354_FTR021_61 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG354_FTR021_61 }}
+goal setPosSG355_FTR016_61 {lhs SG355_FTR016_61 case negative {condition svSG355_FTR016_61 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG355_FTR016_61 }}
+goal setPosSG356_FTR012_61 {lhs SG356_FTR012_61 case negative {condition svSG356_FTR012_61 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG356_FTR012_61 }}
+goal setPosSG362_FTR012_63 {lhs SG362_FTR012_63 case negative {condition svSG362_FTR012_63 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG362_FTR012_63 }}
+goal setPosSG363_FTR008_63 {lhs SG363_FTR008_63 case negative {condition svSG363_FTR008_63 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG363_FTR008_63 }}
+goal setPosSG364_FTR008_64 {lhs SG364_FTR008_64 case negative {condition svSG364_FTR008_64 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG364_FTR008_64 }}
+goal setPosSG365_FTR003_64 {lhs SG365_FTR003_64 case negative {condition svSG365_FTR003_64 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG365_FTR003_64 }}
+goal setPosSG366_FTR003_64 {lhs SG366_FTR003_64 case negative {condition svSG366_FTR003_64 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG366_FTR003_64 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Mill Creek !!!!!!!!!!!
+define svSG243_MLC006_43 {value SG243_MLC006_43[setup]}
+define svSG244_MLC004_43 {value SG244_MLC004_43[setup]}
+define svSG245_MLC004_43 {value SG245_MLC004_43[setup]}
+
+define SG243_MLC006_43_DLL {alias SG243_MLC006_43_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG244_MLC004_43_DLL {alias SG244_MLC004_43_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG245_MLC004_43_DLL {alias SG245_MLC004_43_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG243_MLC006_43 {lhs SG243_MLC006_43 case negative {condition svSG243_MLC006_43 < 0 rhs svSG243_MLC006_43 lhs>rhs penalty SGPHIGH}}
+goal setNegSG244_MLC004_43 {lhs SG244_MLC004_43 case negative {condition svSG244_MLC004_43 < 0 rhs svSG244_MLC004_43 lhs>rhs penalty SGPHIGH}}
+goal setNegSG245_MLC004_43 {lhs SG245_MLC004_43 case negative {condition svSG245_MLC004_43 < 0 rhs svSG245_MLC004_43 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG243_MLC006_43 {lhs SG243_MLC006_43 case negative {condition svSG243_MLC006_43 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG243_MLC006_43 }}
+goal setPosSG244_MLC004_43 {lhs SG244_MLC004_43 case negative {condition svSG244_MLC004_43 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG244_MLC004_43 }}
+goal setPosSG245_MLC004_43 {lhs SG245_MLC004_43 case negative {condition svSG245_MLC004_43 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG245_MLC004_43 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Paynes Creek !!!!!!!!!!!
+define svSG225_PYN001_38 {value SG225_PYN001_38[setup]}
+define svSG226_PYN001_38 {value SG226_PYN001_38[setup]}
+
+define SG225_PYN001_38_DLL {alias SG225_PYN001_38_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG226_PYN001_38_DLL {alias SG226_PYN001_38_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG225_PYN001_38 {lhs SG225_PYN001_38 case negative {condition svSG225_PYN001_38 < 0 rhs svSG225_PYN001_38 lhs>rhs penalty SGPHIGH}}
+goal setNegSG226_PYN001_38 {lhs SG226_PYN001_38 case negative {condition svSG226_PYN001_38 < 0 rhs svSG226_PYN001_38 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG225_PYN001_38 {lhs SG225_PYN001_38 case negative {condition svSG225_PYN001_38 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG225_PYN001_38 }}
+goal setPosSG226_PYN001_38 {lhs SG226_PYN001_38 case negative {condition svSG226_PYN001_38 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG226_PYN001_38 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Putah Creek !!!!!!!!!!!
+define svSG400_PTH024_69 {value SG400_PTH024_69[setup]}
+define svSG401_PTH020_69 {value SG401_PTH020_69[setup]}
+define svSG402_PTH015_69 {value SG402_PTH015_69[setup]}
+define svSG403_PTH011_69 {value SG403_PTH011_69[setup]}
+define svSG404_PTH007_69 {value SG404_PTH007_69[setup]}
+define svSG405_PTH007_69 {value SG405_PTH007_69[setup]}
+
+define SG400_PTH024_69_DLL {alias SG400_PTH024_69_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG401_PTH020_69_DLL {alias SG401_PTH020_69_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG402_PTH015_69_DLL {alias SG402_PTH015_69_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG403_PTH011_69_DLL {alias SG403_PTH011_69_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG404_PTH007_69_DLL {alias SG404_PTH007_69_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG405_PTH007_69_DLL {alias SG405_PTH007_69_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG400_PTH024_69 {lhs SG400_PTH024_69 case negative {condition svSG400_PTH024_69 < 0 rhs svSG400_PTH024_69 lhs>rhs penalty SGPHIGH}}
+goal setNegSG401_PTH020_69 {lhs SG401_PTH020_69 case negative {condition svSG401_PTH020_69 < 0 rhs svSG401_PTH020_69 lhs>rhs penalty SGPHIGH}}
+goal setNegSG402_PTH015_69 {lhs SG402_PTH015_69 case negative {condition svSG402_PTH015_69 < 0 rhs svSG402_PTH015_69 lhs>rhs penalty SGPHIGH}}
+goal setNegSG403_PTH011_69 {lhs SG403_PTH011_69 case negative {condition svSG403_PTH011_69 < 0 rhs svSG403_PTH011_69 lhs>rhs penalty SGPHIGH}}
+goal setNegSG404_PTH007_69 {lhs SG404_PTH007_69 case negative {condition svSG404_PTH007_69 < 0 rhs svSG404_PTH007_69 lhs>rhs penalty SGPHIGH}}
+goal setNegSG405_PTH007_69 {lhs SG405_PTH007_69 case negative {condition svSG405_PTH007_69 < 0 rhs svSG405_PTH007_69 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG400_PTH024_69 {lhs SG400_PTH024_69 case negative {condition svSG400_PTH024_69 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG400_PTH024_69 }}
+goal setPosSG401_PTH020_69 {lhs SG401_PTH020_69 case negative {condition svSG401_PTH020_69 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG401_PTH020_69 }}
+goal setPosSG402_PTH015_69 {lhs SG402_PTH015_69 case negative {condition svSG402_PTH015_69 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG402_PTH015_69 }}
+goal setPosSG403_PTH011_69 {lhs SG403_PTH011_69 case negative {condition svSG403_PTH011_69 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG403_PTH011_69 }}
+goal setPosSG404_PTH007_69 {lhs SG404_PTH007_69 case negative {condition svSG404_PTH007_69 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG404_PTH007_69 }}
+goal setPosSG405_PTH007_69 {lhs SG405_PTH007_69 case negative {condition svSG405_PTH007_69 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG405_PTH007_69 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Sacramento River (see also Freeport) !!!!!!!!!!!
+define svSG205_SAC296_32 {value SG205_SAC296_32[setup]}
+define svSG206_SAC294_32 {value SG206_SAC294_32[setup]}
+define svSG207_SAC289_32 {value SG207_SAC289_32[setup]}
+define svSG208_SAC287_32 {value SG208_SAC287_32[setup]}
+define svSG209_SAC281_32 {value SG209_SAC281_32[setup]}
+define svSG210_SAC277_32 {value SG210_SAC277_32[setup]}
+define svSG215_SAC277_34 {value SG215_SAC277_34[setup]}
+define svSG216_SAC275_34 {value SG216_SAC275_34[setup]}
+define svSG217_SAC269_34 {value SG217_SAC269_34[setup]}
+define svSG222_SAC269_37 {value SG222_SAC269_37[setup]}
+define svSG223_SAC265_37 {value SG223_SAC265_37[setup]}
+define svSG224_SAC259_37 {value SG224_SAC259_37[setup]}
+define svSG227_SAC259_39 {value SG227_SAC259_39[setup]}
+define svSG228_SAC254_39 {value SG228_SAC254_39[setup]}
+define svSG229_SAC250_39 {value SG229_SAC250_39[setup]}
+define svSG230_SAC247_39 {value SG230_SAC247_39[setup]}
+define svSG231_SAC240_39 {value SG231_SAC240_39[setup]}
+define svSG232_SAC232_39 {value SG232_SAC232_39[setup]}
+define svSG235_SAC232_41 {value SG235_SAC232_41[setup]}
+define svSG236_SAC228_41 {value SG236_SAC228_41[setup]}
+define svSG246_SAC228_44 {value SG246_SAC228_44[setup]}
+define svSG247_SAC224_44 {value SG247_SAC224_44[setup]}
+define svSG254_SAC224_46 {value SG254_SAC224_46[setup]}
+define svSG255_SAC218_46 {value SG255_SAC218_46[setup]}
+define svSG259_SAC218_48 {value SG259_SAC218_48[setup]}
+define svSG260_SAC214_48 {value SG260_SAC214_48[setup]}
+define svSG261_SAC207_48 {value SG261_SAC207_48[setup]}
+define svSG262_SAC196_48 {value SG262_SAC196_48[setup]}
+define svSG273_SAC196_51 {value SG273_SAC196_51[setup]}
+define svSG274_SAC193_51 {value SG274_SAC193_51[setup]}
+define svSG275_SAC188_51 {value SG275_SAC188_51[setup]}
+define svSG276_SAC182_51 {value SG276_SAC182_51[setup]}
+define svSG277_SAC178_51 {value SG277_SAC178_51[setup]}
+define svSG278_SAC174_51 {value SG278_SAC174_51[setup]}
+define svSG279_SAC168_51 {value SG279_SAC168_51[setup]}
+define svSG280_SAC162_51 {value SG280_SAC162_51[setup]}
+define svSG281_SAC154_51 {value SG281_SAC154_51[setup]}
+define svSG282_SAC148_51 {value SG282_SAC148_51[setup]}
+define svSG293_SAC148_53 {value SG293_SAC148_53[setup]}
+define svSG294_SAC141_53 {value SG294_SAC141_53[setup]}
+define svSG295_SAC134_53 {value SG295_SAC134_53[setup]}
+define svSG296_SAC129_53 {value SG296_SAC129_53[setup]}
+define svSG297_SAC122_53 {value SG297_SAC122_53[setup]}
+define svSG298_SAC115_53 {value SG298_SAC115_53[setup]}
+define svSG299_SAC106_53 {value SG299_SAC106_53[setup]}
+define svSG300_SAC097_53 {value SG300_SAC097_53[setup]}
+define svSG301_SAC092_53 {value SG301_SAC092_53[setup]}
+define svSG330_SAC092_57 {value SG330_SAC092_57[setup]}
+define svSG331_SAC085_57 {value SG331_SAC085_57[setup]}
+define svSG332_SAC083_57 {value SG332_SAC083_57[setup]}
+define svSG367_SAC083_65 {value SG367_SAC083_65[setup]}
+define svSG368_SAC082_65 {value SG368_SAC082_65[setup]}
+define svSG369_SAC081_65 {value SG369_SAC081_65[setup]}
+define svSG370_SAC078_65 {value SG370_SAC078_65[setup]}
+define svSG371_SAC075_65 {value SG371_SAC075_65[setup]}
+define svSG372_SAC066_65 {value SG372_SAC066_65[setup]}
+define svSG373_SAC063_65 {value SG373_SAC063_65[setup]}
+define svSG381_SAC063_67 {value SG381_SAC063_67[setup]}
+define svSG382_SAC057_67 {value SG382_SAC057_67[setup]}
+define svSG383_SAC053_67 {value SG383_SAC053_67[setup]}
+define svSG384_SAC048_67 {value SG384_SAC048_67[setup]}
+define svSG385_SAC041_67 {value SG385_SAC041_67[setup]}
+define svSG386_SAC036_67 {value SG386_SAC036_67[setup]}
+define svSG387_SAC030_67 {value SG387_SAC030_67[setup]}
+define svSG388_SAC022_67 {value SG388_SAC022_67[setup]}
+define svSG389_SAC017_67 {value SG389_SAC017_67[setup]}
+define svSG413_SAC017_71 {value SG413_SAC017_71[setup]}
+define svSG414_SAC011_71 {value SG414_SAC011_71[setup]}
+define svSG415_SAC007_71 {value SG415_SAC007_71[setup]}
+define svSG416_SAC003_71 {value SG416_SAC003_71[setup]}
+define svSG417_SAC000_71 {value SG417_SAC000_71[setup]}
+define svSG418_SAC000_72 {value SG418_SAC000_72[setup]}
+
+define SG205_SAC296_32_DLL {alias SG205_SAC296_32_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG206_SAC294_32_DLL {alias SG206_SAC294_32_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG207_SAC289_32_DLL {alias SG207_SAC289_32_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG208_SAC287_32_DLL {alias SG208_SAC287_32_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG209_SAC281_32_DLL {alias SG209_SAC281_32_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG210_SAC277_32_DLL {alias SG210_SAC277_32_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG215_SAC277_34_DLL {alias SG215_SAC277_34_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG216_SAC275_34_DLL {alias SG216_SAC275_34_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG217_SAC269_34_DLL {alias SG217_SAC269_34_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG222_SAC269_37_DLL {alias SG222_SAC269_37_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG223_SAC265_37_DLL {alias SG223_SAC265_37_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG224_SAC259_37_DLL {alias SG224_SAC259_37_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG227_SAC259_39_DLL {alias SG227_SAC259_39_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG228_SAC254_39_DLL {alias SG228_SAC254_39_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG229_SAC250_39_DLL {alias SG229_SAC250_39_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG230_SAC247_39_DLL {alias SG230_SAC247_39_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG231_SAC240_39_DLL {alias SG231_SAC240_39_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG232_SAC232_39_DLL {alias SG232_SAC232_39_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG235_SAC232_41_DLL {alias SG235_SAC232_41_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG236_SAC228_41_DLL {alias SG236_SAC228_41_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG246_SAC228_44_DLL {alias SG246_SAC228_44_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG247_SAC224_44_DLL {alias SG247_SAC224_44_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG254_SAC224_46_DLL {alias SG254_SAC224_46_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG255_SAC218_46_DLL {alias SG255_SAC218_46_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG259_SAC218_48_DLL {alias SG259_SAC218_48_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG260_SAC214_48_DLL {alias SG260_SAC214_48_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG261_SAC207_48_DLL {alias SG261_SAC207_48_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG262_SAC196_48_DLL {alias SG262_SAC196_48_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG273_SAC196_51_DLL {alias SG273_SAC196_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG274_SAC193_51_DLL {alias SG274_SAC193_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG275_SAC188_51_DLL {alias SG275_SAC188_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG276_SAC182_51_DLL {alias SG276_SAC182_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG277_SAC178_51_DLL {alias SG277_SAC178_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG278_SAC174_51_DLL {alias SG278_SAC174_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG279_SAC168_51_DLL {alias SG279_SAC168_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG280_SAC162_51_DLL {alias SG280_SAC162_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG281_SAC154_51_DLL {alias SG281_SAC154_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG282_SAC148_51_DLL {alias SG282_SAC148_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG293_SAC148_53_DLL {alias SG293_SAC148_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG294_SAC141_53_DLL {alias SG294_SAC141_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG295_SAC134_53_DLL {alias SG295_SAC134_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG296_SAC129_53_DLL {alias SG296_SAC129_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG297_SAC122_53_DLL {alias SG297_SAC122_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG298_SAC115_53_DLL {alias SG298_SAC115_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG299_SAC106_53_DLL {alias SG299_SAC106_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG300_SAC097_53_DLL {alias SG300_SAC097_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG301_SAC092_53_DLL {alias SG301_SAC092_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG330_SAC092_57_DLL {alias SG330_SAC092_57_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG331_SAC085_57_DLL {alias SG331_SAC085_57_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG332_SAC083_57_DLL {alias SG332_SAC083_57_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG367_SAC083_65_DLL {alias SG367_SAC083_65_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG368_SAC082_65_DLL {alias SG368_SAC082_65_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG369_SAC081_65_DLL {alias SG369_SAC081_65_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG370_SAC078_65_DLL {alias SG370_SAC078_65_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG371_SAC075_65_DLL {alias SG371_SAC075_65_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG372_SAC066_65_DLL {alias SG372_SAC066_65_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG373_SAC063_65_DLL {alias SG373_SAC063_65_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG381_SAC063_67_DLL {alias SG381_SAC063_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG382_SAC057_67_DLL {alias SG382_SAC057_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG383_SAC053_67_DLL {alias SG383_SAC053_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG384_SAC048_67_DLL {alias SG384_SAC048_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG385_SAC041_67_DLL {alias SG385_SAC041_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG386_SAC036_67_DLL {alias SG386_SAC036_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG387_SAC030_67_DLL {alias SG387_SAC030_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG388_SAC022_67_DLL {alias SG388_SAC022_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG389_SAC017_67_DLL {alias SG389_SAC017_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG413_SAC017_71_DLL {alias SG413_SAC017_71_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG414_SAC011_71_DLL {alias SG414_SAC011_71_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG415_SAC007_71_DLL {alias SG415_SAC007_71_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG416_SAC003_71_DLL {alias SG416_SAC003_71_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG417_SAC000_71_DLL {alias SG417_SAC000_71_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG418_SAC000_72_DLL {alias SG418_SAC000_72_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG205_SAC296_32 {lhs SG205_SAC296_32 case negative {condition svSG205_SAC296_32 < 0 rhs svSG205_SAC296_32 lhs>rhs penalty SGPHIGH}}
+goal setNegSG206_SAC294_32 {lhs SG206_SAC294_32 case negative {condition svSG206_SAC294_32 < 0 rhs svSG206_SAC294_32 lhs>rhs penalty SGPHIGH}}
+goal setNegSG207_SAC289_32 {lhs SG207_SAC289_32 case negative {condition svSG207_SAC289_32 < 0 rhs svSG207_SAC289_32 lhs>rhs penalty SGPHIGH}}
+goal setNegSG208_SAC287_32 {lhs SG208_SAC287_32 case negative {condition svSG208_SAC287_32 < 0 rhs svSG208_SAC287_32 lhs>rhs penalty SGPHIGH}}
+goal setNegSG209_SAC281_32 {lhs SG209_SAC281_32 case negative {condition svSG209_SAC281_32 < 0 rhs svSG209_SAC281_32 lhs>rhs penalty SGPHIGH}}
+goal setNegSG210_SAC277_32 {lhs SG210_SAC277_32 case negative {condition svSG210_SAC277_32 < 0 rhs svSG210_SAC277_32 lhs>rhs penalty SGPHIGH}}
+goal setNegSG215_SAC277_34 {lhs SG215_SAC277_34 case negative {condition svSG215_SAC277_34 < 0 rhs svSG215_SAC277_34 lhs>rhs penalty SGPHIGH}}
+goal setNegSG216_SAC275_34 {lhs SG216_SAC275_34 case negative {condition svSG216_SAC275_34 < 0 rhs svSG216_SAC275_34 lhs>rhs penalty SGPHIGH}}
+goal setNegSG217_SAC269_34 {lhs SG217_SAC269_34 case negative {condition svSG217_SAC269_34 < 0 rhs svSG217_SAC269_34 lhs>rhs penalty SGPHIGH}}
+goal setNegSG222_SAC269_37 {lhs SG222_SAC269_37 case negative {condition svSG222_SAC269_37 < 0 rhs svSG222_SAC269_37 lhs>rhs penalty SGPHIGH}}
+goal setNegSG223_SAC265_37 {lhs SG223_SAC265_37 case negative {condition svSG223_SAC265_37 < 0 rhs svSG223_SAC265_37 lhs>rhs penalty SGPHIGH}}
+goal setNegSG224_SAC259_37 {lhs SG224_SAC259_37 case negative {condition svSG224_SAC259_37 < 0 rhs svSG224_SAC259_37 lhs>rhs penalty SGPHIGH}}
+goal setNegSG227_SAC259_39 {lhs SG227_SAC259_39 case negative {condition svSG227_SAC259_39 < 0 rhs svSG227_SAC259_39 lhs>rhs penalty SGPHIGH}}
+goal setNegSG228_SAC254_39 {lhs SG228_SAC254_39 case negative {condition svSG228_SAC254_39 < 0 rhs svSG228_SAC254_39 lhs>rhs penalty SGPHIGH}}
+goal setNegSG229_SAC250_39 {lhs SG229_SAC250_39 case negative {condition svSG229_SAC250_39 < 0 rhs svSG229_SAC250_39 lhs>rhs penalty SGPHIGH}}
+goal setNegSG230_SAC247_39 {lhs SG230_SAC247_39 case negative {condition svSG230_SAC247_39 < 0 rhs svSG230_SAC247_39 lhs>rhs penalty SGPHIGH}}
+goal setNegSG231_SAC240_39 {lhs SG231_SAC240_39 case negative {condition svSG231_SAC240_39 < 0 rhs svSG231_SAC240_39 lhs>rhs penalty SGPHIGH}}
+goal setNegSG232_SAC232_39 {lhs SG232_SAC232_39 case negative {condition svSG232_SAC232_39 < 0 rhs svSG232_SAC232_39 lhs>rhs penalty SGPHIGH}}
+goal setNegSG235_SAC232_41 {lhs SG235_SAC232_41 case negative {condition svSG235_SAC232_41 < 0 rhs svSG235_SAC232_41 lhs>rhs penalty SGPHIGH}}
+goal setNegSG236_SAC228_41 {lhs SG236_SAC228_41 case negative {condition svSG236_SAC228_41 < 0 rhs svSG236_SAC228_41 lhs>rhs penalty SGPHIGH}}
+goal setNegSG246_SAC228_44 {lhs SG246_SAC228_44 case negative {condition svSG246_SAC228_44 < 0 rhs svSG246_SAC228_44 lhs>rhs penalty SGPHIGH}}
+goal setNegSG247_SAC224_44 {lhs SG247_SAC224_44 case negative {condition svSG247_SAC224_44 < 0 rhs svSG247_SAC224_44 lhs>rhs penalty SGPHIGH}}
+goal setNegSG254_SAC224_46 {lhs SG254_SAC224_46 case negative {condition svSG254_SAC224_46 < 0 rhs svSG254_SAC224_46 lhs>rhs penalty SGPHIGH}}
+goal setNegSG255_SAC218_46 {lhs SG255_SAC218_46 case negative {condition svSG255_SAC218_46 < 0 rhs svSG255_SAC218_46 lhs>rhs penalty SGPHIGH}}
+goal setNegSG259_SAC218_48 {lhs SG259_SAC218_48 case negative {condition svSG259_SAC218_48 < 0 rhs svSG259_SAC218_48 lhs>rhs penalty SGPHIGH}}
+goal setNegSG260_SAC214_48 {lhs SG260_SAC214_48 case negative {condition svSG260_SAC214_48 < 0 rhs svSG260_SAC214_48 lhs>rhs penalty SGPHIGH}}
+goal setNegSG261_SAC207_48 {lhs SG261_SAC207_48 case negative {condition svSG261_SAC207_48 < 0 rhs svSG261_SAC207_48 lhs>rhs penalty SGPHIGH}}
+goal setNegSG262_SAC196_48 {lhs SG262_SAC196_48 case negative {condition svSG262_SAC196_48 < 0 rhs svSG262_SAC196_48 lhs>rhs penalty SGPHIGH}}
+goal setNegSG273_SAC196_51 {lhs SG273_SAC196_51 case negative {condition svSG273_SAC196_51 < 0 rhs svSG273_SAC196_51 lhs>rhs penalty SGPHIGH}}
+goal setNegSG274_SAC193_51 {lhs SG274_SAC193_51 case negative {condition svSG274_SAC193_51 < 0 rhs svSG274_SAC193_51 lhs>rhs penalty SGPHIGH}}
+goal setNegSG275_SAC188_51 {lhs SG275_SAC188_51 case negative {condition svSG275_SAC188_51 < 0 rhs svSG275_SAC188_51 lhs>rhs penalty SGPHIGH}}
+goal setNegSG276_SAC182_51 {lhs SG276_SAC182_51 case negative {condition svSG276_SAC182_51 < 0 rhs svSG276_SAC182_51 lhs>rhs penalty SGPHIGH}}
+goal setNegSG277_SAC178_51 {lhs SG277_SAC178_51 case negative {condition svSG277_SAC178_51 < 0 rhs svSG277_SAC178_51 lhs>rhs penalty SGPHIGH}}
+goal setNegSG278_SAC174_51 {lhs SG278_SAC174_51 case negative {condition svSG278_SAC174_51 < 0 rhs svSG278_SAC174_51 lhs>rhs penalty SGPHIGH}}
+goal setNegSG279_SAC168_51 {lhs SG279_SAC168_51 case negative {condition svSG279_SAC168_51 < 0 rhs svSG279_SAC168_51 lhs>rhs penalty SGPHIGH}}
+goal setNegSG280_SAC162_51 {lhs SG280_SAC162_51 case negative {condition svSG280_SAC162_51 < 0 rhs svSG280_SAC162_51 lhs>rhs penalty SGPHIGH}}
+goal setNegSG281_SAC154_51 {lhs SG281_SAC154_51 case negative {condition svSG281_SAC154_51 < 0 rhs svSG281_SAC154_51 lhs>rhs penalty SGPHIGH}}
+goal setNegSG282_SAC148_51 {lhs SG282_SAC148_51 case negative {condition svSG282_SAC148_51 < 0 rhs svSG282_SAC148_51 lhs>rhs penalty SGPHIGH}}
+goal setNegSG293_SAC148_53 {lhs SG293_SAC148_53 case negative {condition svSG293_SAC148_53 < 0 rhs svSG293_SAC148_53 lhs>rhs penalty SGPHIGH}}
+goal setNegSG294_SAC141_53 {lhs SG294_SAC141_53 case negative {condition svSG294_SAC141_53 < 0 rhs svSG294_SAC141_53 lhs>rhs penalty SGPHIGH}}
+goal setNegSG295_SAC134_53 {lhs SG295_SAC134_53 case negative {condition svSG295_SAC134_53 < 0 rhs svSG295_SAC134_53 lhs>rhs penalty SGPHIGH}}
+goal setNegSG296_SAC129_53 {lhs SG296_SAC129_53 case negative {condition svSG296_SAC129_53 < 0 rhs svSG296_SAC129_53 lhs>rhs penalty SGPHIGH}}
+goal setNegSG297_SAC122_53 {lhs SG297_SAC122_53 case negative {condition svSG297_SAC122_53 < 0 rhs svSG297_SAC122_53 lhs>rhs penalty SGPHIGH}}
+goal setNegSG298_SAC115_53 {lhs SG298_SAC115_53 case negative {condition svSG298_SAC115_53 < 0 rhs svSG298_SAC115_53 lhs>rhs penalty SGPHIGH}}
+goal setNegSG299_SAC106_53 {lhs SG299_SAC106_53 case negative {condition svSG299_SAC106_53 < 0 rhs svSG299_SAC106_53 lhs>rhs penalty SGPHIGH}}
+goal setNegSG300_SAC097_53 {lhs SG300_SAC097_53 case negative {condition svSG300_SAC097_53 < 0 rhs svSG300_SAC097_53 lhs>rhs penalty SGPHIGH}}
+goal setNegSG301_SAC092_53 {lhs SG301_SAC092_53 case negative {condition svSG301_SAC092_53 < 0 rhs svSG301_SAC092_53 lhs>rhs penalty SGPHIGH}}
+goal setNegSG330_SAC092_57 {lhs SG330_SAC092_57 case negative {condition svSG330_SAC092_57 < 0 rhs svSG330_SAC092_57 lhs>rhs penalty SGPHIGH}}
+goal setNegSG331_SAC085_57 {lhs SG331_SAC085_57 case negative {condition svSG331_SAC085_57 < 0 rhs svSG331_SAC085_57 lhs>rhs penalty SGPHIGH}}
+goal setNegSG332_SAC083_57 {lhs SG332_SAC083_57 case negative {condition svSG332_SAC083_57 < 0 rhs svSG332_SAC083_57 lhs>rhs penalty SGPHIGH}}
+goal setNegSG367_SAC083_65 {lhs SG367_SAC083_65 case negative {condition svSG367_SAC083_65 < 0 rhs svSG367_SAC083_65 lhs>rhs penalty SGPHIGH}}
+goal setNegSG368_SAC082_65 {lhs SG368_SAC082_65 case negative {condition svSG368_SAC082_65 < 0 rhs svSG368_SAC082_65 lhs>rhs penalty SGPHIGH}}
+goal setNegSG369_SAC081_65 {lhs SG369_SAC081_65 case negative {condition svSG369_SAC081_65 < 0 rhs svSG369_SAC081_65 lhs>rhs penalty SGPHIGH}}
+goal setNegSG370_SAC078_65 {lhs SG370_SAC078_65 case negative {condition svSG370_SAC078_65 < 0 rhs svSG370_SAC078_65 lhs>rhs penalty SGPHIGH}}
+goal setNegSG371_SAC075_65 {lhs SG371_SAC075_65 case negative {condition svSG371_SAC075_65 < 0 rhs svSG371_SAC075_65 lhs>rhs penalty SGPHIGH}}
+goal setNegSG372_SAC066_65 {lhs SG372_SAC066_65 case negative {condition svSG372_SAC066_65 < 0 rhs svSG372_SAC066_65 lhs>rhs penalty SGPHIGH}}
+goal setNegSG373_SAC063_65 {lhs SG373_SAC063_65 case negative {condition svSG373_SAC063_65 < 0 rhs svSG373_SAC063_65 lhs>rhs penalty SGPHIGH}}
+goal setNegSG381_SAC063_67 {lhs SG381_SAC063_67 case negative {condition svSG381_SAC063_67 < 0 rhs svSG381_SAC063_67 lhs>rhs penalty SGPHIGH}}
+goal setNegSG382_SAC057_67 {lhs SG382_SAC057_67 case negative {condition svSG382_SAC057_67 < 0 rhs svSG382_SAC057_67 lhs>rhs penalty SGPHIGH}}
+goal setNegSG383_SAC053_67 {lhs SG383_SAC053_67 case negative {condition svSG383_SAC053_67 < 0 rhs svSG383_SAC053_67 lhs>rhs penalty SGPHIGH}}
+goal setNegSG384_SAC048_67 {lhs SG384_SAC048_67 case negative {condition svSG384_SAC048_67 < 0 rhs svSG384_SAC048_67 lhs>rhs penalty SGPHIGH}}
+goal setNegSG385_SAC041_67 {lhs SG385_SAC041_67 case negative {condition svSG385_SAC041_67 < 0 rhs svSG385_SAC041_67 lhs>rhs penalty SGPHIGH}}
+goal setNegSG386_SAC036_67 {lhs SG386_SAC036_67 case negative {condition svSG386_SAC036_67 < 0 rhs svSG386_SAC036_67 lhs>rhs penalty SGPHIGH}}
+goal setNegSG387_SAC030_67 {lhs SG387_SAC030_67 case negative {condition svSG387_SAC030_67 < 0 rhs svSG387_SAC030_67 lhs>rhs penalty SGPHIGH}}
+goal setNegSG388_SAC022_67 {lhs SG388_SAC022_67 case negative {condition svSG388_SAC022_67 < 0 rhs svSG388_SAC022_67 lhs>rhs penalty SGPHIGH}}
+goal setNegSG389_SAC017_67 {lhs SG389_SAC017_67 case negative {condition svSG389_SAC017_67 < 0 rhs svSG389_SAC017_67 lhs>rhs penalty SGPHIGH}}
+goal setNegSG413_SAC017_71 {lhs SG413_SAC017_71 case negative {condition svSG413_SAC017_71 < 0 rhs svSG413_SAC017_71 lhs>rhs penalty SGPHIGH}}
+goal setNegSG414_SAC011_71 {lhs SG414_SAC011_71 case negative {condition svSG414_SAC011_71 < 0 rhs svSG414_SAC011_71 lhs>rhs penalty SGPHIGH}}
+goal setNegSG415_SAC007_71 {lhs SG415_SAC007_71 case negative {condition svSG415_SAC007_71 < 0 rhs svSG415_SAC007_71 lhs>rhs penalty SGPHIGH}}
+goal setNegSG416_SAC003_71 {lhs SG416_SAC003_71 case negative {condition svSG416_SAC003_71 < 0 rhs svSG416_SAC003_71 lhs>rhs penalty SGPHIGH}}
+goal setNegSG417_SAC000_71 {lhs SG417_SAC000_71 case negative {condition svSG417_SAC000_71 < 0 rhs svSG417_SAC000_71 lhs>rhs penalty SGPHIGH}}
+goal setNegSG418_SAC000_72 {lhs SG418_SAC000_72 case negative {condition svSG418_SAC000_72 < 0 rhs svSG418_SAC000_72 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG205_SAC296_32 {lhs SG205_SAC296_32 case negative {condition svSG205_SAC296_32 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG205_SAC296_32 }}
+goal setPosSG206_SAC294_32 {lhs SG206_SAC294_32 case negative {condition svSG206_SAC294_32 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG206_SAC294_32 }}
+goal setPosSG207_SAC289_32 {lhs SG207_SAC289_32 case negative {condition svSG207_SAC289_32 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG207_SAC289_32 }}
+goal setPosSG208_SAC287_32 {lhs SG208_SAC287_32 case negative {condition svSG208_SAC287_32 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG208_SAC287_32 }}
+goal setPosSG209_SAC281_32 {lhs SG209_SAC281_32 case negative {condition svSG209_SAC281_32 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG209_SAC281_32 }}
+goal setPosSG210_SAC277_32 {lhs SG210_SAC277_32 case negative {condition svSG210_SAC277_32 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG210_SAC277_32 }}
+goal setPosSG215_SAC277_34 {lhs SG215_SAC277_34 case negative {condition svSG215_SAC277_34 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG215_SAC277_34 }}
+goal setPosSG216_SAC275_34 {lhs SG216_SAC275_34 case negative {condition svSG216_SAC275_34 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG216_SAC275_34 }}
+goal setPosSG217_SAC269_34 {lhs SG217_SAC269_34 case negative {condition svSG217_SAC269_34 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG217_SAC269_34 }}
+goal setPosSG222_SAC269_37 {lhs SG222_SAC269_37 case negative {condition svSG222_SAC269_37 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG222_SAC269_37 }}
+goal setPosSG223_SAC265_37 {lhs SG223_SAC265_37 case negative {condition svSG223_SAC265_37 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG223_SAC265_37 }}
+goal setPosSG224_SAC259_37 {lhs SG224_SAC259_37 case negative {condition svSG224_SAC259_37 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG224_SAC259_37 }}
+goal setPosSG227_SAC259_39 {lhs SG227_SAC259_39 case negative {condition svSG227_SAC259_39 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG227_SAC259_39 }}
+goal setPosSG228_SAC254_39 {lhs SG228_SAC254_39 case negative {condition svSG228_SAC254_39 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG228_SAC254_39 }}
+goal setPosSG229_SAC250_39 {lhs SG229_SAC250_39 case negative {condition svSG229_SAC250_39 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG229_SAC250_39 }}
+goal setPosSG230_SAC247_39 {lhs SG230_SAC247_39 case negative {condition svSG230_SAC247_39 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG230_SAC247_39 }}
+goal setPosSG231_SAC240_39 {lhs SG231_SAC240_39 case negative {condition svSG231_SAC240_39 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG231_SAC240_39 }}
+goal setPosSG232_SAC232_39 {lhs SG232_SAC232_39 case negative {condition svSG232_SAC232_39 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG232_SAC232_39 }}
+goal setPosSG235_SAC232_41 {lhs SG235_SAC232_41 case negative {condition svSG235_SAC232_41 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG235_SAC232_41 }}
+goal setPosSG236_SAC228_41 {lhs SG236_SAC228_41 case negative {condition svSG236_SAC228_41 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG236_SAC228_41 }}
+goal setPosSG246_SAC228_44 {lhs SG246_SAC228_44 case negative {condition svSG246_SAC228_44 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG246_SAC228_44 }}
+goal setPosSG247_SAC224_44 {lhs SG247_SAC224_44 case negative {condition svSG247_SAC224_44 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG247_SAC224_44 }}
+goal setPosSG254_SAC224_46 {lhs SG254_SAC224_46 case negative {condition svSG254_SAC224_46 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG254_SAC224_46 }}
+goal setPosSG255_SAC218_46 {lhs SG255_SAC218_46 case negative {condition svSG255_SAC218_46 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG255_SAC218_46 }}
+goal setPosSG259_SAC218_48 {lhs SG259_SAC218_48 case negative {condition svSG259_SAC218_48 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG259_SAC218_48 }}
+goal setPosSG260_SAC214_48 {lhs SG260_SAC214_48 case negative {condition svSG260_SAC214_48 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG260_SAC214_48 }}
+goal setPosSG261_SAC207_48 {lhs SG261_SAC207_48 case negative {condition svSG261_SAC207_48 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG261_SAC207_48 }}
+goal setPosSG262_SAC196_48 {lhs SG262_SAC196_48 case negative {condition svSG262_SAC196_48 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG262_SAC196_48 }}
+goal setPosSG273_SAC196_51 {lhs SG273_SAC196_51 case negative {condition svSG273_SAC196_51 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG273_SAC196_51 }}
+goal setPosSG274_SAC193_51 {lhs SG274_SAC193_51 case negative {condition svSG274_SAC193_51 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG274_SAC193_51 }}
+goal setPosSG275_SAC188_51 {lhs SG275_SAC188_51 case negative {condition svSG275_SAC188_51 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG275_SAC188_51 }}
+goal setPosSG276_SAC182_51 {lhs SG276_SAC182_51 case negative {condition svSG276_SAC182_51 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG276_SAC182_51 }}
+goal setPosSG277_SAC178_51 {lhs SG277_SAC178_51 case negative {condition svSG277_SAC178_51 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG277_SAC178_51 }}
+goal setPosSG278_SAC174_51 {lhs SG278_SAC174_51 case negative {condition svSG278_SAC174_51 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG278_SAC174_51 }}
+goal setPosSG279_SAC168_51 {lhs SG279_SAC168_51 case negative {condition svSG279_SAC168_51 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG279_SAC168_51 }}
+goal setPosSG280_SAC162_51 {lhs SG280_SAC162_51 case negative {condition svSG280_SAC162_51 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG280_SAC162_51 }}
+goal setPosSG281_SAC154_51 {lhs SG281_SAC154_51 case negative {condition svSG281_SAC154_51 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG281_SAC154_51 }}
+goal setPosSG282_SAC148_51 {lhs SG282_SAC148_51 case negative {condition svSG282_SAC148_51 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG282_SAC148_51 }}
+goal setPosSG293_SAC148_53 {lhs SG293_SAC148_53 case negative {condition svSG293_SAC148_53 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG293_SAC148_53 }}
+goal setPosSG294_SAC141_53 {lhs SG294_SAC141_53 case negative {condition svSG294_SAC141_53 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG294_SAC141_53 }}
+goal setPosSG295_SAC134_53 {lhs SG295_SAC134_53 case negative {condition svSG295_SAC134_53 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG295_SAC134_53 }}
+goal setPosSG296_SAC129_53 {lhs SG296_SAC129_53 case negative {condition svSG296_SAC129_53 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG296_SAC129_53 }}
+goal setPosSG297_SAC122_53 {lhs SG297_SAC122_53 case negative {condition svSG297_SAC122_53 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG297_SAC122_53 }}
+goal setPosSG298_SAC115_53 {lhs SG298_SAC115_53 case negative {condition svSG298_SAC115_53 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG298_SAC115_53 }}
+goal setPosSG299_SAC106_53 {lhs SG299_SAC106_53 case negative {condition svSG299_SAC106_53 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG299_SAC106_53 }}
+goal setPosSG300_SAC097_53 {lhs SG300_SAC097_53 case negative {condition svSG300_SAC097_53 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG300_SAC097_53 }}
+goal setPosSG301_SAC092_53 {lhs SG301_SAC092_53 case negative {condition svSG301_SAC092_53 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG301_SAC092_53 }}
+goal setPosSG330_SAC092_57 {lhs SG330_SAC092_57 case negative {condition svSG330_SAC092_57 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG330_SAC092_57 }}
+goal setPosSG331_SAC085_57 {lhs SG331_SAC085_57 case negative {condition svSG331_SAC085_57 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG331_SAC085_57 }}
+goal setPosSG332_SAC083_57 {lhs SG332_SAC083_57 case negative {condition svSG332_SAC083_57 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG332_SAC083_57 }}
+goal setPosSG367_SAC083_65 {lhs SG367_SAC083_65 case negative {condition svSG367_SAC083_65 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG367_SAC083_65 }}
+goal setPosSG368_SAC082_65 {lhs SG368_SAC082_65 case negative {condition svSG368_SAC082_65 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG368_SAC082_65 }}
+goal setPosSG369_SAC081_65 {lhs SG369_SAC081_65 case negative {condition svSG369_SAC081_65 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG369_SAC081_65 }}
+goal setPosSG370_SAC078_65 {lhs SG370_SAC078_65 case negative {condition svSG370_SAC078_65 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG370_SAC078_65 }}
+goal setPosSG371_SAC075_65 {lhs SG371_SAC075_65 case negative {condition svSG371_SAC075_65 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG371_SAC075_65 }}
+goal setPosSG372_SAC066_65 {lhs SG372_SAC066_65 case negative {condition svSG372_SAC066_65 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG372_SAC066_65 }}
+goal setPosSG373_SAC063_65 {lhs SG373_SAC063_65 case negative {condition svSG373_SAC063_65 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG373_SAC063_65 }}
+goal setPosSG381_SAC063_67 {lhs SG381_SAC063_67 case negative {condition svSG381_SAC063_67 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG381_SAC063_67 }}
+goal setPosSG382_SAC057_67 {lhs SG382_SAC057_67 case negative {condition svSG382_SAC057_67 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG382_SAC057_67 }}
+goal setPosSG383_SAC053_67 {lhs SG383_SAC053_67 case negative {condition svSG383_SAC053_67 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG383_SAC053_67 }}
+goal setPosSG384_SAC048_67 {lhs SG384_SAC048_67 case negative {condition svSG384_SAC048_67 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG384_SAC048_67 }}
+goal setPosSG385_SAC041_67 {lhs SG385_SAC041_67 case negative {condition svSG385_SAC041_67 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG385_SAC041_67 }}
+goal setPosSG386_SAC036_67 {lhs SG386_SAC036_67 case negative {condition svSG386_SAC036_67 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG386_SAC036_67 }}
+goal setPosSG387_SAC030_67 {lhs SG387_SAC030_67 case negative {condition svSG387_SAC030_67 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG387_SAC030_67 }}
+goal setPosSG388_SAC022_67 {lhs SG388_SAC022_67 case negative {condition svSG388_SAC022_67 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG388_SAC022_67 }}
+goal setPosSG389_SAC017_67 {lhs SG389_SAC017_67 case negative {condition svSG389_SAC017_67 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG389_SAC017_67 }}
+goal setPosSG413_SAC017_71 {lhs SG413_SAC017_71 case negative {condition svSG413_SAC017_71 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG413_SAC017_71 }}
+goal setPosSG414_SAC011_71 {lhs SG414_SAC011_71 case negative {condition svSG414_SAC011_71 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG414_SAC011_71 }}
+goal setPosSG415_SAC007_71 {lhs SG415_SAC007_71 case negative {condition svSG415_SAC007_71 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG415_SAC007_71 }}
+goal setPosSG416_SAC003_71 {lhs SG416_SAC003_71 case negative {condition svSG416_SAC003_71 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG416_SAC003_71 }}
+goal setPosSG417_SAC000_71 {lhs SG417_SAC000_71 case negative {condition svSG417_SAC000_71 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG417_SAC000_71 }}
+goal setPosSG418_SAC000_72 {lhs SG418_SAC000_72 case negative {condition svSG418_SAC000_72 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG418_SAC000_72 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Stony Creek !!!!!!!!!!!
+define svSG263_STN026_49 {value SG263_STN026_49[setup]}
+define svSG264_STN021_49 {value SG264_STN021_49[setup]}
+define svSG265_STN014_49 {value SG265_STN014_49[setup]}
+define svSG266_STN009_49 {value SG266_STN009_49[setup]}
+define svSG267_STN004_49 {value SG267_STN004_49[setup]}
+define svSG268_STN004_49 {value SG268_STN004_49[setup]}
+
+define SG263_STN026_49_DLL {alias SG263_STN026_49_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG264_STN021_49_DLL {alias SG264_STN021_49_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG265_STN014_49_DLL {alias SG265_STN014_49_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG266_STN009_49_DLL {alias SG266_STN009_49_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG267_STN004_49_DLL {alias SG267_STN004_49_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG268_STN004_49_DLL {alias SG268_STN004_49_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG263_STN026_49 {lhs SG263_STN026_49 case negative {condition svSG263_STN026_49 < 0 rhs svSG263_STN026_49 lhs>rhs penalty SGPHIGH}}
+goal setNegSG264_STN021_49 {lhs SG264_STN021_49 case negative {condition svSG264_STN021_49 < 0 rhs svSG264_STN021_49 lhs>rhs penalty SGPHIGH}}
+goal setNegSG265_STN014_49 {lhs SG265_STN014_49 case negative {condition svSG265_STN014_49 < 0 rhs svSG265_STN014_49 lhs>rhs penalty SGPHIGH}}
+goal setNegSG266_STN009_49 {lhs SG266_STN009_49 case negative {condition svSG266_STN009_49 < 0 rhs svSG266_STN009_49 lhs>rhs penalty SGPHIGH}}
+goal setNegSG267_STN004_49 {lhs SG267_STN004_49 case negative {condition svSG267_STN004_49 < 0 rhs svSG267_STN004_49 lhs>rhs penalty SGPHIGH}}
+goal setNegSG268_STN004_49 {lhs SG268_STN004_49 case negative {condition svSG268_STN004_49 < 0 rhs svSG268_STN004_49 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG263_STN026_49 {lhs SG263_STN026_49 case negative {condition svSG263_STN026_49 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG263_STN026_49 }}
+goal setPosSG264_STN021_49 {lhs SG264_STN021_49 case negative {condition svSG264_STN021_49 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG264_STN021_49 }}
+goal setPosSG265_STN014_49 {lhs SG265_STN014_49 case negative {condition svSG265_STN014_49 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG265_STN014_49 }}
+goal setPosSG266_STN009_49 {lhs SG266_STN009_49 case negative {condition svSG266_STN009_49 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG266_STN009_49 }}
+goal setPosSG267_STN004_49 {lhs SG267_STN004_49 case negative {condition svSG267_STN004_49 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG267_STN004_49 }}
+goal setPosSG268_STN004_49 {lhs SG268_STN004_49 case negative {condition svSG268_STN004_49 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG268_STN004_49 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Sutter Bypass !!!!!!!!!!!
+define svSG333_BSL001_58 {value SG333_BSL001_58[setup]}
+define svSG334_SBP031_58 {value SG334_SBP031_58[setup]}
+define svSG335_SBP028_58 {value SG335_SBP028_58[setup]}
+define svSG336_SBP024_58 {value SG336_SBP024_58[setup]}
+define svSG337_SBP021_58 {value SG337_SBP021_58[setup]}
+define svSG338_SBP018_58 {value SG338_SBP018_58[setup]}
+define svSG339_SBP014_58 {value SG339_SBP014_58[setup]}
+define svSG340_SBP012_58 {value SG340_SBP012_58[setup]}
+
+define SG333_BSL001_58_DLL {alias SG333_BSL001_58_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG334_SBP031_58_DLL {alias SG334_SBP031_58_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG335_SBP028_58_DLL {alias SG335_SBP028_58_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG336_SBP024_58_DLL {alias SG336_SBP024_58_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG337_SBP021_58_DLL {alias SG337_SBP021_58_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG338_SBP018_58_DLL {alias SG338_SBP018_58_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG339_SBP014_58_DLL {alias SG339_SBP014_58_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG340_SBP012_58_DLL {alias SG340_SBP012_58_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG333_BSL001_58 {lhs SG333_BSL001_58 case negative {condition svSG333_BSL001_58 < 0 rhs svSG333_BSL001_58 lhs>rhs penalty SGPHIGH}}
+goal setNegSG334_SBP031_58 {lhs SG334_SBP031_58 case negative {condition svSG334_SBP031_58 < 0 rhs svSG334_SBP031_58 lhs>rhs penalty SGPHIGH}}
+goal setNegSG335_SBP028_58 {lhs SG335_SBP028_58 case negative {condition svSG335_SBP028_58 < 0 rhs svSG335_SBP028_58 lhs>rhs penalty SGPHIGH}}
+goal setNegSG336_SBP024_58 {lhs SG336_SBP024_58 case negative {condition svSG336_SBP024_58 < 0 rhs svSG336_SBP024_58 lhs>rhs penalty SGPHIGH}}
+goal setNegSG337_SBP021_58 {lhs SG337_SBP021_58 case negative {condition svSG337_SBP021_58 < 0 rhs svSG337_SBP021_58 lhs>rhs penalty SGPHIGH}}
+goal setNegSG338_SBP018_58 {lhs SG338_SBP018_58 case negative {condition svSG338_SBP018_58 < 0 rhs svSG338_SBP018_58 lhs>rhs penalty SGPHIGH}}
+goal setNegSG339_SBP014_58 {lhs SG339_SBP014_58 case negative {condition svSG339_SBP014_58 < 0 rhs svSG339_SBP014_58 lhs>rhs penalty SGPHIGH}}
+goal setNegSG340_SBP012_58 {lhs SG340_SBP012_58 case negative {condition svSG340_SBP012_58 < 0 rhs svSG340_SBP012_58 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG333_BSL001_58 {lhs SG333_BSL001_58 case negative {condition svSG333_BSL001_58 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG333_BSL001_58 }}
+goal setPosSG334_SBP031_58 {lhs SG334_SBP031_58 case negative {condition svSG334_SBP031_58 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG334_SBP031_58 }}
+goal setPosSG335_SBP028_58 {lhs SG335_SBP028_58 case negative {condition svSG335_SBP028_58 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG335_SBP028_58 }}
+goal setPosSG336_SBP024_58 {lhs SG336_SBP024_58 case negative {condition svSG336_SBP024_58 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG336_SBP024_58 }}
+goal setPosSG337_SBP021_58 {lhs SG337_SBP021_58 case negative {condition svSG337_SBP021_58 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG337_SBP021_58 }}
+goal setPosSG338_SBP018_58 {lhs SG338_SBP018_58 case negative {condition svSG338_SBP018_58 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG338_SBP018_58 }}
+goal setPosSG339_SBP014_58 {lhs SG339_SBP014_58 case negative {condition svSG339_SBP014_58 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG339_SBP014_58 }}
+goal setPosSG340_SBP012_58 {lhs SG340_SBP012_58 case negative {condition svSG340_SBP012_58 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG340_SBP012_58 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Thomes Creek !!!!!!!!!!!
+define svSG248_THM026_45 {value SG248_THM026_45[setup]}
+define svSG249_THM021_45 {value SG249_THM021_45[setup]}
+define svSG250_THM017_45 {value SG250_THM017_45[setup]}
+define svSG251_THM012_45 {value SG251_THM012_45[setup]}
+define svSG252_THM005_45 {value SG252_THM005_45[setup]}
+define svSG253_THM005_45 {value SG253_THM005_45[setup]}
+
+define SG248_THM026_45_DLL {alias SG248_THM026_45_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG249_THM021_45_DLL {alias SG249_THM021_45_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG250_THM017_45_DLL {alias SG250_THM017_45_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG251_THM012_45_DLL {alias SG251_THM012_45_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG252_THM005_45_DLL {alias SG252_THM005_45_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG253_THM005_45_DLL {alias SG253_THM005_45_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG248_THM026_45 {lhs SG248_THM026_45 case negative {condition svSG248_THM026_45 < 0 rhs svSG248_THM026_45 lhs>rhs penalty SGPHIGH}}
+goal setNegSG249_THM021_45 {lhs SG249_THM021_45 case negative {condition svSG249_THM021_45 < 0 rhs svSG249_THM021_45 lhs>rhs penalty SGPHIGH}}
+goal setNegSG250_THM017_45 {lhs SG250_THM017_45 case negative {condition svSG250_THM017_45 < 0 rhs svSG250_THM017_45 lhs>rhs penalty SGPHIGH}}
+goal setNegSG251_THM012_45 {lhs SG251_THM012_45 case negative {condition svSG251_THM012_45 < 0 rhs svSG251_THM012_45 lhs>rhs penalty SGPHIGH}}
+goal setNegSG252_THM005_45 {lhs SG252_THM005_45 case negative {condition svSG252_THM005_45 < 0 rhs svSG252_THM005_45 lhs>rhs penalty SGPHIGH}}
+goal setNegSG253_THM005_45 {lhs SG253_THM005_45 case negative {condition svSG253_THM005_45 < 0 rhs svSG253_THM005_45 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG248_THM026_45 {lhs SG248_THM026_45 case negative {condition svSG248_THM026_45 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG248_THM026_45 }}
+goal setPosSG249_THM021_45 {lhs SG249_THM021_45 case negative {condition svSG249_THM021_45 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG249_THM021_45 }}
+goal setPosSG250_THM017_45 {lhs SG250_THM017_45 case negative {condition svSG250_THM017_45 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG250_THM017_45 }}
+goal setPosSG251_THM012_45 {lhs SG251_THM012_45 case negative {condition svSG251_THM012_45 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG251_THM012_45 }}
+goal setPosSG252_THM005_45 {lhs SG252_THM005_45 case negative {condition svSG252_THM005_45 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG252_THM005_45 }}
+goal setPosSG253_THM005_45 {lhs SG253_THM005_45 case negative {condition svSG253_THM005_45 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG253_THM005_45 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Yolo Bypass !!!!!!!!!!!
+define svSG396_YBP032_68 {value SG396_YBP032_68[setup]}
+define svSG397_YBP026_68 {value SG397_YBP026_68[setup]}
+
+define SG396_YBP032_68_DLL {alias SG396_YBP032_68_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG397_YBP026_68_DLL {alias SG397_YBP026_68_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG396_YBP032_68 {lhs SG396_YBP032_68 case negative {condition svSG396_YBP032_68 < 0 rhs svSG396_YBP032_68 lhs>rhs penalty SGPHIGH}}
+goal setNegSG397_YBP026_68 {lhs SG397_YBP026_68 case negative {condition svSG397_YBP026_68 < 0 rhs svSG397_YBP026_68 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG396_YBP032_68 {lhs SG396_YBP032_68 case negative {condition svSG396_YBP032_68 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG396_YBP032_68 }}
+goal setPosSG397_YBP026_68 {lhs SG397_YBP026_68 case negative {condition svSG397_YBP026_68 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG397_YBP026_68 }}
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! Yuba River !!!!!!!!!!!
+define svSG349_YUB011_60 {value SG349_YUB011_60[setup]}
+define svSG350_YUB006_60 {value SG350_YUB006_60[setup]}
+define svSG351_YUB002_60 {value SG351_YUB002_60[setup]}
+
+define SG349_YUB011_60_DLL {alias SG349_YUB011_60_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG350_YUB006_60_DLL {alias SG350_YUB006_60_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG351_YUB002_60_DLL {alias SG351_YUB002_60_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+
+goal setNegSG349_YUB011_60 {lhs SG349_YUB011_60 case negative {condition svSG349_YUB011_60 < 0 rhs svSG349_YUB011_60 lhs>rhs penalty SGPHIGH}}
+goal setNegSG350_YUB006_60 {lhs SG350_YUB006_60 case negative {condition svSG350_YUB006_60 < 0 rhs svSG350_YUB006_60 lhs>rhs penalty SGPHIGH}}
+goal setNegSG351_YUB002_60 {lhs SG351_YUB002_60 case negative {condition svSG351_YUB002_60 < 0 rhs svSG351_YUB002_60 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG349_YUB011_60 {lhs SG349_YUB011_60 case negative {condition svSG349_YUB011_60 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG349_YUB011_60 }}
+goal setPosSG350_YUB006_60 {lhs SG350_YUB006_60 case negative {condition svSG350_YUB006_60 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG350_YUB006_60 }}
+goal setPosSG351_YUB002_60 {lhs SG351_YUB002_60 case negative {condition svSG351_YUB002_60 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG351_YUB002_60 }}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Calculate total seepage per river reach
+goal setSG_AMR_Total 	{SG_AMR_Total = SG374_FOLSM_66  + SG375_NTOMA_66  + SG376_AMR020_66 + SG377_AMR015_66 + SG378_AMR009_66 + SG379_AMR004_66 + SG380_AMR004_66}                                             
+goal setSG_ANT_Total 	{SG_ANT_Total = SG233_ANT010_40 + SG234_ANT010_40}     
+goal setSG_BTL_Total 	{SG_BTL_Total = SG220_BTL006_36 + SG221_BTL006_36}   
+
+goal setSG_BRR_Total 	{SG_BRR_Total = SG357_CMPFW_62  + SG358_BRR017_62 + SG359_BRR011_62 + SG360_BRR004_62 + SG361_BRR004_62}     
+
+goal setSG_BCC_Total 	{SG_BCC_Total = SG269_BCC012_50 + SG270_BCC006_50 + SG271_BCC004_50 + SG272_BCC004_50}     
+goal setSG_BTC_Total 	{SG_BTC_Total = SG283_BTC043_52 + SG284_BTC036_52 + SG285_BTC032_52 + SG286_BTC029_52 + SG287_BTC024_52 + SG288_BTC018_52 + SG289_BTC015_52 + SG290_BTC007_52 + SG291_BTC003_52 + SG292_BSL001_52}     
+goal setSG_CCH_Total 	{SG_CCH_Total = SG390_CCH030_68 + SG391_CCH023_68 + SG392_CCH017_68 + SG393_CCH012_68 + SG394_CCH006_68 + SG395_CCH003_68}     
+goal setSG_CBD_Total 	{SG_CBD_Total = SG318_CBD049_55 + SG319_CBD044_55 + SG320_CBD041_55 + SG321_CBD037_55 + SG322_CBD031_55 + SG323_CBD031_56 + SG324_CBD028_56 + SG325_CBD023_56 + SG326_CBD018_56 + SG327_CBD012_56 + SG328_CBD005_56 + SG329_CBD000_56}             
+goal setSG_CWD_Total 	{SG_CWD_Total = SG218_CWD004_35 + SG219_CWD003_35}
+
+goal setSG_COW_Total 	{SG_COW_Total = SG211_COW014_33 + SG212_COW007_33 + SG213_COW003_33 + SG214_COW003_33}     
+goal setSG_DRC_Total 	{SG_DRC_Total = SG256_DRC010_47 + SG257_DRC005_47 + SG258_DRC005_47}     
+goal setSG_ELD_Total 	{SG_ELD_Total = SG237_ELD027_42 + SG238_ELD022_42 + SG239_ELD017_42 + SG240_ELD012_42 + SG241_ELD005_42 + SG242_ELD005_42}     
+goal setSG_FTR_Total 	{SG_FTR_Total = SG341_FTR068_59 + SG342_FTR063_59 + SG343_FTR059_59 + SG344_FTR053_59 + SG345_FTR048_59 + SG346_FTR045_59 + SG347_FTR036_59 + SG348_FTR029_59 
+                                      + SG352_FTR029_61 + SG353_FTR025_61 + SG354_FTR021_61 + SG355_FTR016_61 + SG356_FTR012_61 
+                                      + SG362_FTR012_63 + SG363_FTR008_63 + SG364_FTR008_64 + SG365_FTR003_64 + SG366_FTR003_64}     
+goal setSG_MLC_Total 	{SG_MLC_Total = SG243_MLC006_43 + SG244_MLC004_43 + SG245_MLC004_43}     
+goal setSG_PYN_Total 	{SG_PYN_Total = SG225_PYN001_38 + SG226_PYN001_38}     
+goal setSG_PTH_Total 	{SG_PTH_Total = SG400_PTH024_69 + SG401_PTH020_69 + SG402_PTH015_69 + SG403_PTH011_69 + SG404_PTH007_69 + SG405_PTH007_69}   
+
+goal setSG_SAC1_Total	{SG_SAC1_Total = SG205_SAC296_32 + SG206_SAC294_32 + SG207_SAC289_32 + SG208_SAC287_32 + SG209_SAC281_32 + SG210_SAC277_32 + SG215_SAC277_34 + SG216_SAC275_34 + SG217_SAC269_34 + SG222_SAC269_37 + SG223_SAC265_37 + SG224_SAC259_37 +  SG227_SAC259_39 + SG228_SAC254_39 + SG229_SAC250_39 + SG230_SAC247_39}
+goal setSG_SAC2_Total 	{SG_SAC2_Total = SG231_SAC240_39 + SG232_SAC232_39 + SG235_SAC232_41 + SG236_SAC228_41 + SG246_SAC228_44 + SG247_SAC224_44 + SG254_SAC224_46 + SG255_SAC218_46 + SG259_SAC218_48 + SG260_SAC214_48 + SG261_SAC207_48 + SG262_SAC196_48 + SG273_SAC196_51 + SG274_SAC193_51 + SG275_SAC188_51}
+goal setSG_SAC3_Total 	{SG_SAC3_Total = SG276_SAC182_51 + SG277_SAC178_51 + SG278_SAC174_51 + SG279_SAC168_51 + SG280_SAC162_51 + SG281_SAC154_51 + SG282_SAC148_51 + SG293_SAC148_53 + SG294_SAC141_53 + SG295_SAC134_53 + SG296_SAC129_53 + SG297_SAC122_53 + SG298_SAC115_53 + SG299_SAC106_53 + SG300_SAC097_53 + SG301_SAC092_53 + SG330_SAC092_57 + SG331_SAC085_57 + SG332_SAC083_57 + SG367_SAC083_65 + SG368_SAC082_65 }
+goal setSG_SAC4_Total 	{SG_SAC4_Total = SG369_SAC081_65 + SG370_SAC078_65 + SG371_SAC075_65 + SG372_SAC066_65 + SG373_SAC063_65 + SG381_SAC063_67 + SG382_SAC057_67 + SG383_SAC053_67 }
+goal setSG_SAC5_Total 	{SG_SAC5_Total = SG384_SAC048_67 + SG385_SAC041_67 + SG386_SAC036_67 + SG387_SAC030_67 + SG388_SAC022_67 + SG389_SAC017_67 + SG413_SAC017_71 + SG414_SAC011_71 + SG415_SAC007_71 + SG416_SAC003_71 + SG417_SAC000_71 + SG418_SAC000_72}
+goal setSG_SAC_Total 	{SG_SAC_Total = SG_SAC1_Total +SG_SAC2_Total +SG_SAC3_Total +SG_SAC4_Total +SG_SAC5_Total }
+
+goal setSG_STN_Total 	{SG_STN_Total = SG263_STN026_49 + SG264_STN021_49 + SG265_STN014_49 + SG266_STN009_49 + SG267_STN004_49 + SG268_STN004_49}     
+goal setSG_SBP_Total 	{SG_SBP_Total = SG333_BSL001_58 + SG334_SBP031_58 + SG335_SBP028_58 + SG336_SBP024_58 + SG337_SBP021_58 + SG338_SBP018_58 + SG339_SBP014_58 + SG340_SBP012_58}     
+goal setSG_THM_Total 	{SG_THM_Total = SG248_THM026_45 + SG249_THM021_45 + SG250_THM017_45 + SG251_THM012_45 + SG252_THM005_45 + SG253_THM005_45}     
+goal setSG_YBP_Total 	{SG_YBP_Total = SG396_YBP032_68 + SG397_YBP026_68 }     
+goal setSG_YUB_Total 	{SG_YUB_Total = SG349_YUB011_60 + SG350_YUB006_60 + SG351_YUB002_60}
+
+! Calculate total river seepage for Sac basin
+goal setSG_Total 	{SG_Total = SG_AMR_Total + SG_ANT_Total + SG_BTL_Total + SG_BRR_Total + SG_BCC_Total + SG_BTC_Total + SG_CCH_Total + SG_CBD_Total + SG_CWD_Total + SG_COW_Total + SG_DRC_Total + SG_ELD_Total + SG_FTR_Total + SG_MLC_Total + SG_PYN_Total + SG_PTH_Total + SG_SAC_Total + SG_STN_Total + SG_SBP_Total + SG_THM_Total + SG_YBP_Total + SG_YUB_Total}
+
+!Output seepage from SETUP cycle
+goal setSG_AMR_Total1 	{SG_AMR_Total1 	= SG_AMR_Total[gw_initial]}	
+goal setSG_ANT_Total1 	{SG_ANT_Total1 	= SG_ANT_Total[gw_initial]} 	
+goal setSG_BTL_Total1 	{SG_BTL_Total1 	= SG_BTL_Total[gw_initial]} 	
+goal setSG_BRR_Total1 	{SG_BRR_Total1 	= SG_BRR_Total[gw_initial]} 	
+goal setSG_BCC_Total1 	{SG_BCC_Total1 	= SG_BCC_Total[gw_initial]} 	
+goal setSG_BTC_Total1 	{SG_BTC_Total1	= SG_BTC_Total[gw_initial]} 	
+goal setSG_CCH_Total1 	{SG_CCH_Total1 	= SG_CCH_Total[gw_initial]} 	
+goal setSG_CBD_Total1 	{SG_CBD_Total1 	= SG_CBD_Total[gw_initial]} 	
+goal setSG_CWD_Total1 {SG_CWD_Total1 	= SG_CWD_Total[gw_initial]} 	
+goal setSG_COW_Total1	{SG_COW_Total1 	= SG_COW_Total[gw_initial]} 	
+goal setSG_DRC_Total1	{SG_DRC_Total1 	= SG_DRC_Total[gw_initial]} 	
+goal setSG_ELD_Total1 	{SG_ELD_Total1 	= SG_ELD_Total[gw_initial]} 	
+goal setSG_FTR_Total1 	{SG_FTR_Total1 	= SG_FTR_Total[gw_initial]}	
+goal setSG_MLC_Total1 	{SG_MLC_Total1 	= SG_MLC_Total[gw_initial]} 	
+goal setSG_PYN_Total1 	{SG_PYN_Total1 	= SG_PYN_Total[gw_initial]} 	
+goal setSG_PTH_Total1 	{SG_PTH_Total1 	= SG_PTH_Total[gw_initial]} 	
+goal setSG_SAC1_Total1 {SG_SAC1_Total1 	= SG_SAC1_Total[gw_initial]} 	
+goal setSG_SAC2_Total1 {SG_SAC2_Total1 	= SG_SAC2_Total[gw_initial]} 	
+goal setSG_SAC3_Total1 {SG_SAC3_Total1 	= SG_SAC3_Total[gw_initial]} 	
+goal setSG_SAC4_Total1{SG_SAC4_Total1 	= SG_SAC4_Total[gw_initial]} 	
+goal setSG_SAC5_Total1{SG_SAC5_Total1 	= SG_SAC5_Total[gw_initial]} 	
+goal setSG_SAC_Total1 	{SG_SAC_Total1 	= SG_SAC_Total[gw_initial]}
+goal setSG_STN_Total1 	{SG_STN_Total1	= SG_STN_Total[gw_initial]} 	
+goal setSG_SBP_Total1 	{SG_SBP_Total1 	= SG_SBP_Total[gw_initial]} 	
+goal setSG_THM_Total1 	{SG_THM_Total1 	= SG_THM_Total[gw_initial]} 	
+goal setSG_YBP_Total1 	{SG_YBP_Total1	= SG_YBP_Total[gw_initial]} 	
+goal setSG_YUB_Total1 	{SG_YUB_Total1 	= SG_YUB_Total[gw_initial]}
+goal setSG_Total1 	{SG_Total1 = SG_AMR_Total1 + SG_ANT_Total1 + SG_BTL_Total1 + SG_BRR_Total1 + SG_BCC_Total1 + SG_BTC_Total1 + SG_CCH_Total1 + SG_CBD_Total1 + SG_CWD_Total1 + SG_COW_Total1 + SG_DRC_Total1 + SG_ELD_Total1 + SG_FTR_Total1 + SG_MLC_Total1 + SG_PYN_Total1 + SG_PTH_Total1 + SG_SAC_Total1 + SG_STN_Total1 + SG_SBP_Total1 + SG_THM_Total1 + SG_YBP_Total1 + SG_YUB_Total1}
+
+!Output seepage from GW_FIRST cycle
+goal setSG_AMR_Total2 	{SG_AMR_Total2 	= SG_AMR_Total[gw_first]}	
+goal setSG_ANT_Total2 	{SG_ANT_Total2 	= SG_ANT_Total[gw_first]} 	
+goal setSG_BTL_Total2 	{SG_BTL_Total2 	= SG_BTL_Total[gw_first]} 	
+goal setSG_BRR_Total2 	{SG_BRR_Total2 	= SG_BRR_Total[gw_first]} 	
+goal setSG_BCC_Total2 	{SG_BCC_Total2 	= SG_BCC_Total[gw_first]} 	
+goal setSG_BTC_Total2 	{SG_BTC_Total2 	= SG_BTC_Total[gw_first]} 	
+goal setSG_CCH_Total2 	{SG_CCH_Total2 	= SG_CCH_Total[gw_first]} 	
+goal setSG_CBD_Total2 	{SG_CBD_Total2 	= SG_CBD_Total[gw_first]} 	
+goal setSG_CWD_Total2 {SG_CWD_Total2 	= SG_CWD_Total[gw_first]} 	
+goal setSG_COW_Total2	{SG_COW_Total2 	= SG_COW_Total[gw_first]} 	
+goal setSG_DRC_Total2	{SG_DRC_Total2 	= SG_DRC_Total[gw_first]} 	
+goal setSG_ELD_Total2	{SG_ELD_Total2 	= SG_ELD_Total[gw_first]} 	
+goal setSG_FTR_Total2 	{SG_FTR_Total2 	= SG_FTR_Total[gw_first]}	
+goal setSG_MLC_Total2 	{SG_MLC_Total2 	= SG_MLC_Total[gw_first]} 	
+goal setSG_PYN_Total2 	{SG_PYN_Total2 	= SG_PYN_Total[gw_first]} 	
+goal setSG_PTH_Total2 	{SG_PTH_Total2 	= SG_PTH_Total[gw_first]} 	
+goal setSG_SAC1_Total2 {SG_SAC1_Total2 	= SG_SAC1_Total[gw_first]} 	
+goal setSG_SAC2_Total2 {SG_SAC2_Total2 	= SG_SAC2_Total[gw_first]} 	
+goal setSG_SAC3_Total2 {SG_SAC3_Total2 	= SG_SAC3_Total[gw_first]} 	
+goal setSG_SAC4_Total2 {SG_SAC4_Total2 	= SG_SAC4_Total[gw_first]} 	
+goal setSG_SAC5_Total2	{SG_SAC5_Total2 = SG_SAC5_Total[gw_first]} 	
+goal setSG_SAC_Total2 	{SG_SAC_Total2 	= SG_SAC_Total[gw_first]}
+goal setSG_STN_Total2 	{SG_STN_Total2 	= SG_STN_Total[gw_first]} 	
+goal setSG_SBP_Total2 	{SG_SBP_Total2 	= SG_SBP_Total[gw_first]} 	
+goal setSG_THM_Total2 	{SG_THM_Total2 	= SG_THM_Total[gw_first]} 	
+goal setSG_YBP_Total2 	{SG_YBP_Total2 	= SG_YBP_Total[gw_first]} 	
+goal setSG_YUB_Total2 	{SG_YUB_Total2 	= SG_YUB_Total[gw_first]}
+goal setSG_Total2 	{SG_Total2 = SG_AMR_Total2 + SG_ANT_Total2 + SG_BTL_Total2 + SG_BRR_Total2 + SG_BCC_Total2 + SG_BTC_Total2 + SG_CCH_Total2 + SG_CBD_Total2 + SG_CWD_Total2 + SG_COW_Total2 + SG_DRC_Total2 + SG_ELD_Total2 + SG_FTR_Total2 + SG_MLC_Total2 + SG_PYN_Total2 + SG_PTH_Total2 + SG_SAC_Total2 + SG_STN_Total2 + SG_SBP_Total2 + SG_THM_Total2 + SG_YBP_Total2 + SG_YUB_Total2}
+
+!Output seepage from GW_SECOND cycle
+goal setSG_AMR_Total3 {SG_AMR_Total3 	= SG_AMR_Total[gw_second]}	
+goal setSG_ANT_Total3 {SG_ANT_Total3 	= SG_ANT_Total[gw_second]} 	
+goal setSG_BTL_Total3 	{SG_BTL_Total3 	= SG_BTL_Total[gw_second]} 	
+goal setSG_BRR_Total3 {SG_BRR_Total3 	= SG_BRR_Total[gw_second]} 	
+goal setSG_BCC_Total3 {SG_BCC_Total3 	= SG_BCC_Total[gw_second]} 	
+goal setSG_BTC_Total3 {SG_BTC_Total3 	= SG_BTC_Total[gw_second]} 	
+goal setSG_CCH_Total3 {SG_CCH_Total3 	= SG_CCH_Total[gw_second]} 	
+goal setSG_CBD_Total3 {SG_CBD_Total3 	= SG_CBD_Total[gw_second]} 	
+goal setSG_CWD_Total3 {SG_CWD_Total3 	= SG_CWD_Total[gw_second]} 	
+goal setSG_COW_Total3{SG_COW_Total3 	= SG_COW_Total[gw_second]} 	
+goal setSG_DRC_Total3	{SG_DRC_Total3 	= SG_DRC_Total[gw_second]} 	
+goal setSG_ELD_Total3	{SG_ELD_Total3 	= SG_ELD_Total[gw_second]} 	
+goal setSG_FTR_Total3 	{SG_FTR_Total3 	= SG_FTR_Total[gw_second]}	
+goal setSG_MLC_Total3 {SG_MLC_Total3 	= SG_MLC_Total[gw_second]} 	
+goal setSG_PYN_Total3 {SG_PYN_Total3 	= SG_PYN_Total[gw_second]} 	
+goal setSG_PTH_Total3 {SG_PTH_Total3 	= SG_PTH_Total[gw_second]} 	
+goal setSG_SAC1_Total3 {SG_SAC1_Total3 	= SG_SAC1_Total[gw_second]} 	
+goal setSG_SAC2_Total3 {SG_SAC2_Total3 	= SG_SAC2_Total[gw_second]} 	
+goal setSG_SAC3_Total3 {SG_SAC3_Total3 	= SG_SAC3_Total[gw_second]} 	
+goal setSG_SAC4_Total3 {SG_SAC4_Total3 	= SG_SAC4_Total[gw_second]} 	
+goal setSG_SAC5_Total3{SG_SAC5_Total3 	= SG_SAC5_Total[gw_second]} 	
+goal setSG_SAC_Total3 {SG_SAC_Total3 	= SG_SAC_Total[gw_second]}
+goal setSG_STN_Total3 {SG_STN_Total3 	= SG_STN_Total[gw_second]} 	
+goal setSG_SBP_Total3 {SG_SBP_Total3 	= SG_SBP_Total[gw_second]} 	
+goal setSG_THM_Total3 {SG_THM_Total3 	= SG_THM_Total[gw_second]} 	
+goal setSG_YBP_Total3 {SG_YBP_Total3 	= SG_YBP_Total[gw_second]} 	
+goal setSG_YUB_Total3 {SG_YUB_Total3 	= SG_YUB_Total[gw_second]}
+goal setSG_Total3 	{SG_Total3 = SG_AMR_Total3 + SG_ANT_Total3 + SG_BTL_Total3 + SG_BRR_Total3 + SG_BCC_Total3 + SG_BTC_Total3 + SG_CCH_Total3 + SG_CBD_Total3 + SG_CWD_Total3 + SG_COW_Total3 + SG_DRC_Total3 + SG_ELD_Total3 + SG_FTR_Total3 + SG_MLC_Total3 + SG_PYN_Total3 + SG_PTH_Total3 + SG_SAC_Total3 + SG_STN_Total3 + SG_SBP_Total3 + SG_THM_Total3 + SG_YBP_Total3 + SG_YUB_Total3}
+
+!Output seepage from GW_THIRD cycle
+goal setSG_AMR_Total4 {SG_AMR_Total4 	= SG_AMR_Total[gw_third]}	
+goal setSG_ANT_Total4 {SG_ANT_Total4 	= SG_ANT_Total[gw_third]} 	
+goal setSG_BTL_Total4 	{SG_BTL_Total4 	= SG_BTL_Total[gw_third]} 	
+goal setSG_BRR_Total4 {SG_BRR_Total4 	= SG_BRR_Total[gw_third]} 	
+goal setSG_BCC_Total4 {SG_BCC_Total4 	= SG_BCC_Total[gw_third]} 	
+goal setSG_BTC_Total4 {SG_BTC_Total4 	= SG_BTC_Total[gw_third]} 	
+goal setSG_CCH_Total4 {SG_CCH_Total4 	= SG_CCH_Total[gw_third]} 	
+goal setSG_CBD_Total4 {SG_CBD_Total4 	= SG_CBD_Total[gw_third]} 	
+goal setSG_CWD_Total4 {SG_CWD_Total4 	= SG_CWD_Total[gw_third]} 	
+goal setSG_COW_Total4{SG_COW_Total4 	= SG_COW_Total[gw_third]} 	
+goal setSG_DRC_Total4	{SG_DRC_Total4 	= SG_DRC_Total[gw_third]} 	
+goal setSG_ELD_Total4	{SG_ELD_Total4 	= SG_ELD_Total[gw_third]} 	
+goal setSG_FTR_Total4 	{SG_FTR_Total4 	= SG_FTR_Total[gw_third]}	
+goal setSG_MLC_Total4 {SG_MLC_Total4 	= SG_MLC_Total[gw_third]} 	
+goal setSG_PYN_Total4 {SG_PYN_Total4 	= SG_PYN_Total[gw_third]} 	
+goal setSG_PTH_Total4 {SG_PTH_Total4 	= SG_PTH_Total[gw_third]} 	
+goal setSG_SAC1_Total4 {SG_SAC1_Total4 	= SG_SAC1_Total[gw_third]} 	
+goal setSG_SAC2_Total4 {SG_SAC2_Total4 	= SG_SAC2_Total[gw_third]} 	
+goal setSG_SAC3_Total4 {SG_SAC3_Total4 	= SG_SAC3_Total[gw_third]} 	
+goal setSG_SAC4_Total4 {SG_SAC4_Total4 	= SG_SAC4_Total[gw_third]} 	
+goal setSG_SAC5_Total4{SG_SAC5_Total4 	= SG_SAC5_Total[gw_third]} 	
+goal setSG_SAC_Total4 {SG_SAC_Total4 	= SG_SAC_Total[gw_third]}
+goal setSG_STN_Total4 {SG_STN_Total4 	= SG_STN_Total[gw_third]} 	
+goal setSG_SBP_Total4 {SG_SBP_Total4 	= SG_SBP_Total[gw_third]} 	
+goal setSG_THM_Total4 {SG_THM_Total4 	= SG_THM_Total[gw_third]} 	
+goal setSG_YBP_Total4 {SG_YBP_Total4 	= SG_YBP_Total[gw_third]} 	
+goal setSG_YUB_Total4 {SG_YUB_Total4 	= SG_YUB_Total[gw_third]}
+goal setSG_Total4 	{SG_Total4 = SG_AMR_Total4 + SG_ANT_Total4 + SG_BTL_Total4 + SG_BRR_Total4 + SG_BCC_Total4 + SG_BTC_Total4 + SG_CCH_Total4 + SG_CBD_Total4 + SG_CWD_Total4 + SG_COW_Total4 + SG_DRC_Total4 + SG_ELD_Total4 + SG_FTR_Total4 + SG_MLC_Total4 + SG_PYN_Total4 + SG_PTH_Total4 + SG_SAC_Total4 + SG_STN_Total4 + SG_SBP_Total4 + SG_THM_Total4 + SG_YBP_Total4 + SG_YUB_Total4}

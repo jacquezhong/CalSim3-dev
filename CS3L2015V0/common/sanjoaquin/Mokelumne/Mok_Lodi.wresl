@@ -1,0 +1,195 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+! Mok_Lodi.wresl
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!North Fork Mokelumne River!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+/*
+North Fork Mokelumne River flows below Electra Diversion Dam and Powerhouse have been established by
+two judgments, Calaveras Case No. 1950 and San Joaquin Cae 22415, collectively known as the Lodi Decree.
+The Lodi Decree requires that in all years, the flows measured at the Electra Diversion Dam
+(and flows through the Powerhouse) must be a minimum of:
+
+	- 200 cfs from Feb - Apr
+	- 300 cfs from May - Jul
+	- 200 cfs from Aug - Jan.
+	
+When the aggregate storage in Lower Bear and Salt Springs reservoirs exceeds 130,000 af on June 1 (Case 1950),
+or the precipitation at Salt Springs Powerhouse is equal to or greater than 30” at the end of May (Case 22415),
+the flow at the Electra Diversion Dam (plus the powerhouse) must be:
+
+	- 500 cfs from Jun - Dec
+	- 300 cfs following Jan
+
+If aggregate storage at the reservoirs is less than 130,000 af as of June 1, but
+reaches 130,000 af before July 1, then the above flows must also be released.
+
+If the aggregate storage does not reach 130,000 af, or the precipitation is less than 30 inches by the end of May, the
+flow measured at Electra Diversion must be:
+
+	- 300 cfs from Jun - Sep
+	- 200 cfs from Oct - Jan
+
+From June through January, PG&E need not reduce aggregate storage below the following limits to maintain minimum flows:
+
+	- June 112,000
+	- July  94,000
+	- Aug   76,000
+	- Sept  58,000
+	- Oct   40,000
+	- Nov   30,000
+	- Dec   20,000
+	- Jan   10,000
+
+*/
+
+!define LodiDecree  {std kind 'FLOW' units 'TAF'} !defined in arcs-minflows.wresl
+goal setLodiDecree {LodiDecree = C_NFM006 + C_TBAUD}
+
+define PGEStorage  {std kind 'STORAGE' units 'TAF'}
+goal setPGEStorage {PGEStorage = S_LBEAR + S_SLTSP}
+
+define minflowLodi_HiMayStorage {
+    case FirstYear {condition wateryear == BgnWY .and. month <= JUN value 0.}
+    case Jun {
+        condition PGEStorage(-1) > 130. .and. month == Jun
+        value 500.}
+    case otherwise {
+        condition always
+        value 0. }}
+        
+define minflowLodi_HiJunStorage {
+    case FirstYear {condition wateryear == BgnWY .and. month <= JUN value 0.}
+    case OctDec {
+        condition PGEStorage(prevJun) > 130. .and. month <= Dec
+        value 500.}
+    case Jan {
+        condition PGEStorage(prevJun) > 130. .and. month == Jan
+        value 300.}
+    case JunSep {
+        condition PGEStorage(prevJun) > 130. .and. month >= Jun
+        value 500.}
+    case otherwise {
+        condition always
+        value 0. }}
+        
+define minflowLodi_LoMayStorage {
+    case FirstYear {condition wateryear == BgnWY .and. month <= MAY value 0.}
+    case JunSep {
+        condition PGEStorage(prevMay) < 130. .and. month >= Jun
+        value 300.}
+    case otherwise {
+        condition always
+        value 0. }}
+        
+define minflowLodi_Base {
+    case MayJul {
+        condition month == May .or. month == Jun .or. month == Jul
+        value 200.}
+    case otherwise {
+        condition always
+        value 300. }}   
+        
+        
+define minflowLodi {value max(minflowLodi_base, minflowLodi_HiMayStorage, minflowLodi_HiJunStorage, minflowLodi_LoMayStorage)}
+
+define MOK_minflowLodi {alias minflowLodi kind 'Flow' units 'cfs'}
+goal setminflowP137  {C_NFM006_MIF < max(minflow_C_NFM006,minflowLodi-1130)}
+goal setminflowLodi  {C_TBAUD_MIF < max(0,minflowLodi-minflow_C_NFM006)}
+
+! implement the joint settlement agreement for flows on the Mokelumne River
+! below Camanche Reservoir and below Woodbridge
+
+!define minflow_C_CMCHE {select minCamanche from Mok_JSAFlow where month=month, wyt=wyt_MokJSA}
+!define minflow_Woodbridge {select minWoodbridge from Mok_JSAFlow where month=month, wyt=wyt_MokJSA}
+
+
+!goal setCamancheMin {C_CMCHE_MIF < minflow_C_CMCHE}
+!goal setWoodbridgeMin {C_MOK035_MIF < minflow_Woodbridge}
+
+
+! Manage May-Oct flows to maintain 28 TAF hypolimnion in Camanche
+! Total C_Parde = 1.38 * Total C_CMCHE - 1.55 * S_CMCHE(prevApr)
+/*
+define MayOctJSA {
+
+define MayOctDeliv {
+
+define MayOctMokRelsDV {std kind 'ReleaseVol' units 'taf'}
+define MayOctMokRels {
+    case FirstOct {
+        condition wateryear==BeginYr .and. month==1
+        value 0.}
+    case May {
+        condition month==MAY
+        value MayOctJSA + MayOctDeliv }
+    case JunOct {
+        condition month>MAY .or. month==OCT
+        value MayOctMokRelsDV(-1) }
+    case otherwise {
+        condition always
+        value 0. }
+}
+goal setMayOctMokRelsDV {MayOctMokRelsDV = MayOctMokRels}
+
+define MayOctC_Parde {std kind 'ReleaseVol' units 'taf'}
+define MayOctC_Cmche {std kind 'ReleaseVol' units 'taf'}
+
+goal setMayOctC_PARDE {
+    lhs MayOctC_Parde 
+    case May {
+        condition month==MAY
+        rhs 1.38 * MayOctMokRels - 1.55 * S_CMCHE(prevApr) + 174000.}
+}
+
+goal setMayOctC_Cmche {
+    lhs MayOctC_Cmche
+    case May {
+        condition month==MAY
+        rhs MayOctMokRels}
+}
+
+goal distC_PARDE {
+    lhs C_PARDE
+    case May {
+        condition month==MAY
+        rhs MayOctC_Parde/6.
+        lhs<rhs penalty 10
+        lhs>rhs penalty 10}
+    case JunOct {
+        condition month>MAY .or. month==OCT
+        rhs MayOctC_Parde(prevMay)/6.
+        lhs<rhs penalty 10
+        lhs>rhs penalty 10}
+}
+
+goal distC_Cmche {
+    lhs C_CMCHE
+    case MayOct {
+        condition month==MAY
+        rhs MayOctC_CMCHE/6.
+        lhs<rhs penalty 10
+        lhs>rhs penalty 10}
+    case JunOct {
+        condition month>MAY .or. month==OCT
+        rhs MayOctC_CMCHE(prevMAY)/6.
+        lhs<rhs penalty 10
+        lhs>rhs penalty 10}
+}
+*/

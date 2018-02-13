@@ -1,0 +1,43 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+define C_KSWCK_ADD1 {std kind 'FLOW-ADDITIONAL-INSTREAM' units 'CFS'}
+define C_KSWCK_ADD2 {std kind 'FLOW-SPILL-POWER' units 'CFS'}
+goal C_KSWCK_ADD_total {C_KSWCK_ADD=C_KSWCK_ADD1+C_KSWCK_ADD2}
+
+!define FolInfEst {sum(i=0,SEP-month,1) (I_FOLSM(i)+SR_26S_NTOMA(i)+I_NFA016(i))*cfs_taf(i) } !placed in FolRuleCurv.wresl
+goal set_C_KSWCK_ADD2_penalty {
+     lhs C_KSWCK_ADD2
+    case FolsomJulNotOK {
+        condition month == jul .and. S_FOLSM(-1) + FolInfEst < 600.
+        rhs 0.
+        lhs>rhs penalty 1266 }
+    case FolsomAugNotOK {
+        condition month == aug .and. S_FOLSM(-1) + FolInfEst < 450.
+        rhs 0.
+        lhs>rhs penalty 1266 }
+    case FolsomSepNotOK {
+        condition month == sep .and. S_FOLSM(-1) + FolInfEst < 350.
+        rhs 0.
+        lhs>rhs penalty 1266 }
+    case FolsomOK {
+        condition always
+        rhs 0.
+        lhs>rhs penalty 1266 }
+}
+
+define C_KSWCK_POW {lower 0 upper 15000 kind 'FLOW-POWER' units 'CFS'}
+goal C_KSWCK_POW_total {C_KSWCK_POW=C_KSWCK_MIF+C_KSWCK_ADD1}

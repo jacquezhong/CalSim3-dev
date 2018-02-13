@@ -1,0 +1,38 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+define D910 {std kind 'FLOW-DELIVERY' units 'CFS'} !KINGS
+define D920 {std kind 'FLOW-DELIVERY' units 'CFS'} !Fifth Ave
+define D930 {std kind 'FLOW-DELIVERY' units 'CFS'} !Deer Cr.
+define D933 {std kind 'FLOW-DELIVERY' units 'CFS'} !Poso Cr.
+define D935 {std kind 'FLOW-DELIVERY' units 'CFS'} !Shafter-Wasco
+define D950 {std kind 'FLOW-DELIVERY' units 'CFS'} !Arvin-Edison
+define L910 {std kind 'FLOW-DELIVERY' units 'CFS'} !KINGS
+define L920 {std kind 'FLOW-DELIVERY' units 'CFS'} !Fifth Ave
+define L930 {std kind 'FLOW-DELIVERY' units 'CFS'} !Deer Cr.
+define L933 {std kind 'FLOW-DELIVERY' units 'CFS'} !Polo Cr.
+define L935 {std kind 'FLOW-DELIVERY' units 'CFS'} !Shafter-Wasco
+define L950 {std kind 'FLOW-DELIVERY' units 'CFS'} !Arvin-Edison
+define D931A {std kind 'FLOW-DELIVERY' units 'CFS'} !TVC diversion to FK Tule-EQ  contractors
+define D932 {std kind 'FLOW-DELIVERY' units 'CFS'} !Total diversion to FK Tule-EQ contractors
+define D936 {std kind 'FLOW-DELIVERY' units 'CFS'} !SW Canal diversion to EQ-Kern contractors
+define D937 {std kind 'FLOW-DELIVERY' units 'CFS'} !Total diversion to Fk EQ-Kern contractors
+define D931_GWR {upper 100 kind 'FLOW-DELIVERY' units 'CFS'} !Groundwater Bank Recharge
+define D933_GWP {upper 1000 kind 'FLOW-DELIVERY' units 'CFS'} !Groundwater Bank Withdrawl
+define D936_GWR {upper 100 kind 'FLOW-DELIVERY' units 'CFS'} !Groundwater Bank  Recharge
+define D938_GWP {upper 1000 kind 'FLOW-DELIVERY' units 'CFS'} !Groundwater Bank Withdrawl
+define D950_GWR {upper 100 kind 'FLOW-DELIVERY' units 'CFS'} !Groundwater Bank Recharge
+define D952_GWP {upper 1000 kind 'FLOW-DELIVERY' units 'CFS'} !Groundwater Bank Withdrawl

@@ -1,0 +1,31 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+Objective obj_SJ_IO_SYS_USJRS = {[F17,-50000000],
+[FIO,-50000000],
+[IIO,-50000000],
+[S17_1,2000000*taf_cfs],
+[S17_2,5002.1*taf_cfs],
+[s17_3,-10000000*taf_cfs],
+[S18level2,1*taf_cfs],
+[S18level3,1*taf_cfs],
+[S18level4,1*taf_cfs],
+[S17level2,1*taf_cfs],
+[D18B_SWP,0.12],
+[C18_SWP,0.11],
+[C18_CVP,0.1],
+[D18B_CVP,0.09],
+[C16_TFB,298]}

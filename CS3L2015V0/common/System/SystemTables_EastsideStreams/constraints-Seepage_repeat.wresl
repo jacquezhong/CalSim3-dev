@@ -1,0 +1,120 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+SEEPAGE ARCS - MOK
+
+NAMING TAKES THE FOLLOWING FORM:
+{SG_{CalSim_3 Node}_{corresponding C2VSIM River Node}
+
+positive seepage = gaining stream
+negative seepage = loosing stream
+
+When multiplied by -1, it reflects stream's perspective.  
+
+*/
+/*
+!*********************************************************************
+!*********************************************************************
+!***  Conversion factor from CFS to CF/MONTH
+!*********************************************************************
+!*********************************************************************
+define  cfs_cfm  {value daysin * 86400.0}
+define  cfs_cfmp {case first{
+                     condition wateryear == bgnWY .and. month == Oct
+                          value daysin * 86400.0}
+                  case other{
+                     condition always
+                          value  daysindv(-1) * 86400.0 }}
+*/
+!*********************************************************************
+!*********************************************************************
+!***  Groundwater simulation
+!*********************************************************************
+!*********************************************************************
+!INCLUDE '..\..\CVGroundwater\CVGroundwater_First.wresl'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Cosumnes River  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal setSG188_CSM033_29   {SG188_CSM033_29  = - GetSeep(188)/cfs_cfm }
+goal setSG189_CSM026_29   {SG189_CSM026_29  = - GetSeep(189)/cfs_cfm}
+goal setSG190_CSM021_29   {SG190_CSM021_29  = - GetSeep(190)/cfs_cfm}
+goal setSG191_CSM016_29   {SG191_CSM016_29  = - GetSeep(191)/cfs_cfm}
+goal setSG192_CSM011_29   {SG192_CSM011_29  = - GetSeep(192)/cfs_cfm}
+goal setSG193_CSM005_29   {SG193_CSM005_29  = - GetSeep(193)/cfs_cfm}
+goal setSG194_CSM005_29   {SG194_CSM005_29  = - GetSeep(194)/cfs_cfm}
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Dry Creek       !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal setSG182_DSC035_28   {SG182_DSC035_28  = - GetSeep(182)/cfs_cfm}
+goal setSG182_DSC028_28   {SG182_DSC028_28  = - GetSeep(182)/cfs_cfm}
+goal setSG184_DSC023_28   {SG184_DSC023_28  = - GetSeep(184)/cfs_cfm}
+goal setSG185_DSC016_28   {SG185_DSC016_28  = - GetSeep(185)/cfs_cfm}
+goal setSG186_DSC008_28   {SG186_DSC008_28  = - GetSeep(186)/cfs_cfm}
+goal setSG187_DSC008_28   {SG187_DSC008_28  = - GetSeep(187)/cfs_cfm}
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Mokelumne River !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal setSG175_CMCHE_27    {SG175_CMCHE_27 = - GetSeep(175)/cfs_cfm}
+goal setSG176_MOK055_27   {SG176_MOK055_27  = - GetSeep(176)/cfs_cfm}
+goal setSG177_MOK050_27   {SG177_MOK050_27  = - GetSeep(177)/cfs_cfm}
+goal setSG178_MOK044_27   {SG178_MOK044_27  = - GetSeep(178)/cfs_cfm}
+goal setSG179_MOK035_27   {SG179_MOK035_27  = - GetSeep(179)/cfs_cfm}
+goal setSG180_MOK028_27   {SG180_MOK028_27  = - GetSeep(180)/cfs_cfm}
+goal setSG181_MOK022_27   {SG181_MOK022_27  = - GetSeep(181)/cfs_cfm}
+goal setSG195_MOK022_27   {SG195_MOK022_27  = - GetSeep(195)/cfs_cfm}
+!goal setSG181-MOK022_27   {setSG181-MOK022_27  = - GetSeep(181)/cfs_cfm - GetSeep(187)/cfs_cfm - GetSeep(194)/cfs_cfm - GetSeep(195)/cfs_cfm}
+goal setSG196_MOK019_30   {SG196_MOK019_30  = - GetSeep(196)/cfs_cfm}
+goal setSG197_MOK014_30   {SG197_MOK014_30  = - GetSeep(197)/cfs_cfm}
+goal setSG198_MOK004_30   {SG198_MOK004_30  = - GetSeep(198)/cfs_cfm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 

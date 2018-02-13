@@ -1,0 +1,30 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+define InitGWSystem           {EXTERNAL interfacetogw_x64.dll}  !Construct and initialize the finite element groundwater model 
+define SetGP	              {EXTERNAL interfacetogw_x64.dll}  !Set the groundwater pumping at WBA level
+define SetDP                  {EXTERNAL interfacetogw_x64.dll}  !Set the deep percolation at WBA level
+define SetStrmFlow            {EXTERNAL interfacetogw_x64.dll}  !Set the stream flow at a stream node
+define SimGW 	              {EXTERNAL interfacetogw_x64.dll}  !Simulate the groundwater system
+define GetSeep                {EXTERNAL interfacetogw_x64.dll}  !Get the seepage (gw-stream interaction) at a groundwater node
+define GetGW_H                {EXTERNAL interfacetogw_x64.dll}  !Get the head at a groundwater node corresponding to a stream node
+define GetStrm_H              {EXTERNAL interfacetogw_x64.dll}  !Get the stream stage at a stream node
+define GetPumpShort           {EXTERNAL interfacetogw_x64.dll}  !Get the total pumping shortage
+define GetPercentPumpShort    {EXTERNAL interfacetogw_x64.dll}  !Get the total pumping shortage as percentage of total pumping requested by CalSim
+define GetSWShedDP            {EXTERNAL interfacetogw_x64.dll}  !Get the deep perc at small watersheds accumulated to Calsim regions
+define PrintGWResults         {EXTERNAL interfacetogw_x64.dll}  !Print results after last iteration
+define AdvanceGWState         {EXTERNAL interfacetogw_x64.dll}  !Advance system state after last iteration
+define SetSpecifiedFlowBC     {EXTERNAL interfacetogw_x64.dll}                                 

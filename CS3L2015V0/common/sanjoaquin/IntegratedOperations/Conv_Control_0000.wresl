@@ -1,0 +1,25 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+!Use these statements to turn off entire cross valley conveyance facilities.
+define switch_TVC {value 0.0} !0 off, 1 on
+define switch_SW {value 0.0}!0 off, 1 on
+define switch_CVC {value 0.0}!0 off, 1 on
+define switch_AEI {value 0.0}!0 off, 1 on
+
+define max_return_cvp {value switch_TVC*240. + switch_SW*48. + switch_CVC*104. + switch_AEI*40.}
+define max_return_swp {value switch_TVC*480. + switch_SW*96. + switch_CVC*226. + switch_AEI*72.}
+
