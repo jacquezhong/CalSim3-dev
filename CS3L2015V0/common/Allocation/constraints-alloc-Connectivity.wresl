@@ -1,0 +1,192 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+/*
+Constraints-connectivity.wresl
+CalSim 3.0 System File
+
+Purpose:
+Assure continuity in surface water network
+ */
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Feather River   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+
+!C_OROVLStor:	Collection to Oroville storage.
+!C_OROVL_SWP:	SWP water flowing out of Oroville, as C_OROVL_RL + C_OROVL_DD
+!C_OROVL_RL:	Oroville release of previously-stored water.
+!C_OROVL_DD:	SWP direct diversion at Oroville.
+!C_OROVL_NTF:	Non-SWP water
+!Need to apply negative weights so that only these conditions occur:
+!	1. C_OROVLStor > 0,		C_OROVL_RL = 0,		C_OROVL_DD >= 0
+!	2. C_OROVLStor = 0,		C_OROVL_RL >= 0,	C_OROVL_DD = 0
+goal balanceOROVL_Release	{C_OROVLStor - C_OROVL_RL - E_OROVL 		= S_OROVL * taf_cfs - S_OROVL(-1) * taf_cfs + 0. } ! Lake Oroville
+goal splitOROVL_SWP			{C_OROVL_SWP	= C_OROVL_RL + C_OROVL_DD }
+goal splitC_OROVL			{C_OROVL		= C_OROVL_NTF + C_OROVL_SWP }
+Objective obj_SWP_ORO = {
+	[C_OROVLStor,	-100]
+	[C_OROVL_SWP,	-1000]
+}
+
+!Direct diversion and diversion to storage should not occur during Term 91.
+goal limitC_OROVL_DD		{C_OROVL_DD < int_IBU_UWFE * 999999}
+
+! Kelly Ridge return is not considered as SWP release.
+goal continuityFTR072_NTF	{C_OROVL_NTF + R_MNRRH_FTR072 - C_FTR072_NTF 									= 0. }! Kelly Ridge return
+goal continuityFTR072_SWP	{C_OROVL_SWP 					- C_FTR072_SWP 									= 0. }
+goal continuityFTR068_NTF   {C_FTR072_NTF + SG341_FTR068_59_NTF - D_FTR068_THRMF_NTF - C_FTR068_NTF			= 0. }
+goal continuityFTR068_SWP   {C_FTR072_SWP + SG341_FTR068_59_SWP	- D_FTR068_THRMF_SWP - C_FTR068_SWP			= 0. }! Diversion to Thermalito Forebay.
+goal splitSG341_FTR068_59	{SG341_FTR068_59	= SG341_FTR068_59_NTF + SG341_FTR068_59_SWP }
+goal continuityFTR067_NTF   {C_FTR068_NTF - C_FTR067_NTF                                                    = 0. }! Feather River at Oroville gage.
+goal continuityFTR067_SWP   {C_FTR068_SWP - C_FTR067_SWP                                                    = 0. }
+goal continuityTHRMF_NTF    {D_FTR068_THRMF_NTF - D_THRMF_11_NU1_NTF - D_THRMF_12_NU1_NTF			- C_THRMF_NTF	= 0. } 
+goal continuityTHRMF_SWP    {D_FTR068_THRMF_SWP - D_THRMF_11_NU1_SWP - D_THRMF_12_NU1_SWP - E_THRMF - C_THRMF_SWP	= S_THRMF * taf_cfs - S_THRMF(-1) * taf_cfs + 0. } ! Thermalito Forebay
+goal splitD_THRMF_11_NU1	{D_THRMF_11_NU1 = D_THRMF_11_NU1_NTF + D_THRMF_11_NU1_SWP }
+goal splitD_THRMF_12_NU1	{D_THRMF_12_NU1 = D_THRMF_12_NU1_NTF + D_THRMF_12_NU1_SWP }
+goal continuityTHRMA_NTF    {C_THRMF_NTF - D_THRMA_WEC000_NTF - D_THRMA_RVC000_NTF - D_THRMA_JBC000_NTF			- C_THRMA_NTF	= 0. }
+goal continuityTHRMA_SWP    {C_THRMF_SWP - D_THRMA_WEC000_SWP - D_THRMA_RVC000_SWP - D_THRMA_JBC000_SWP - E_THRMA - C_THRMA_SWP	= S_THRMA * taf_cfs - S_THRMA(-1) * taf_cfs + 0. } ! Thermalito Afterbay 
+
+! Thermalito Afterbay release to Feather River. 
+goal continuityTAB000_NTF   {C_THRMA_NTF - C_TAB000_NTF                                                 	= 0. } 
+goal continuityTAB000_SWP   {C_THRMA_SWP - C_TAB000_SWP   													= 0. }
+
+goal continuityFTR063_NTF   {C_FTR067_NTF + SG342_FTR063_59_NTF + R_ORWWTP_FTR063 - C_FTR063_NTF			= 0. }  
+goal continuityFTR063_SWP   {C_FTR067_SWP + SG342_FTR063_59_SWP					 - C_FTR063_SWP 			= 0. }
+goal splitSG342_FTR063_59	{SG342_FTR063_59	= SG342_FTR063_59_NTF + SG342_FTR063_59_SWP }
+goal continuityFTR059_NTF   {C_FTR063_NTF + SG343_FTR059_59_NTF + SR_11_FTR059 + C_TAB000_NTF - D_FTR059_12_SA_NTF - C_FTR059_NTF	= 0. }
+goal continuityFTR059_SWP   {C_FTR063_SWP + SG343_FTR059_59_SWP					+ C_TAB000_SWP - D_FTR059_12_SA_SWP - C_FTR059_SWP	= 0. }  
+goal splitSG343_FTR059_59	{SG343_FTR059_59	= SG343_FTR059_59_NTF + SG343_FTR059_59_SWP }
+goal splitD_FTR059_12_SA	{D_FTR059_12_SA		= D_FTR059_12_SA_NTF + D_FTR059_12_SA_SWP }
+goal continuityFTR053_NTF   {C_FTR059_NTF + SG344_FTR053_59_NTF - C_FTR053_NTF								= 0. }
+goal continuityFTR053_SWP   {C_FTR059_SWP + SG344_FTR053_59_SWP	- C_FTR053_SWP								= 0. }
+goal splitSG344_FTR053_59	{SG344_FTR053_59	= SG344_FTR053_59_NTF + SG344_FTR053_59_SWP }
+
+! Feather near Gridley
+goal continuityFTR051_NTF   {C_FTR053_NTF - C_FTR051_NTF                                                    = 0. }
+goal continuityFTR051_SWP   {C_FTR053_SWP - C_FTR051_SWP                                                    = 0. }
+
+goal continuityFTR048_NTF   {C_FTR051_NTF + SG345_FTR048_59_NTF + R_JBC008_FTR048 - C_FTR048_NTF 			= 0. } ! Cox spill       
+goal continuityFTR048_SWP   {C_FTR051_SWP + SG345_FTR048_59_SWP					- C_FTR048_SWP 				= 0. }           
+goal splitSG345_FTR048_59	{SG345_FTR048_59	= SG345_FTR048_59_NTF + SG345_FTR048_59_SWP }
+goal continuityFTR045_NTF   {C_FTR048_NTF + SG346_FTR045_59_NTF + C_HON004 + R_12_SA_FTR045 - D_FTR045_15N_SA_NTF - C_FTR045_NTF 	= 0. }
+goal continuityFTR045_SWP   {C_FTR048_SWP + SG346_FTR045_59_SWP								- D_FTR045_15N_SA_SWP - C_FTR045_SWP 	= 0. }
+goal splitSG346_FTR045_59	{SG346_FTR045_59	= SG346_FTR045_59_NTF + SG346_FTR045_59_SWP }
+goal splitD_FTR045_15N_SA	{D_FTR045_15N_SA	= D_FTR045_15N_SA_NTF + D_FTR045_15N_SA_SWP }
+
+! Sunset Pumps   
+goal continuityFTR039_NTF   {C_FTR045_NTF - D_FTR039_SEC009_NTF - C_FTR039_NTF								= 0. }
+goal continuityFTR039_SWP   {C_FTR045_SWP - D_FTR039_SEC009_SWP - C_FTR039_SWP								= 0. }
+  
+goal continuityFTR036_NTF   {C_FTR039_NTF + SG347_FTR036_59_NTF - C_FTR036_NTF								= 0. }
+goal continuityFTR036_SWP   {C_FTR039_SWP + SG347_FTR036_59_SWP - C_FTR036_SWP 								= 0. }
+goal splitSG347_FTR036_59	{SG347_FTR036_59	= SG347_FTR036_59_NTF + SG347_FTR036_59_SWP }
+
+! City of Yuba City
+goal continuityFTR031_NTF   {C_FTR036_NTF + R_15N_SA_FTR031 + R_15N_NA1_FTR031 - D_FTR031_WTPCYC_NTF - C_FTR031_NTF	= 0. }
+goal continuityFTR031_SWP   {C_FTR036_SWP 									  - D_FTR031_WTPCYC_SWP - C_FTR031_SWP	= 0. }
+goal splitD_FTR031_WTPCYC	{D_FTR031_WTPCYC	= D_FTR031_WTPCYC_NTF + D_FTR031_WTPCYC_SWP }
+
+goal continuityFTR030_NTF   {C_FTR031_NTF + C_JCK002 - C_FTR030_NTF 										= 0. }
+goal continuityFTR030_SWP   {C_FTR031_SWP 			- C_FTR030_SWP 											= 0. }
+goal continuityFTR029_NTF   {C_FTR030_NTF + SG348_FTR029_59_NTF + SG352_FTR029_61_NTF + SR_15N_FTR029 - C_FTR029_NTF 	= 0. }
+goal continuityFTR029_SWP   {C_FTR030_SWP + SG348_FTR029_59_SWP + SG352_FTR029_61_SWP				 - C_FTR029_SWP 	= 0. }
+goal splitSG348_FTR029_59	{SG348_FTR029_59	= SG348_FTR029_59_NTF + SG348_FTR029_59_SWP }
+goal splitSG352_FTR029_61	{SG352_FTR029_61	= SG352_FTR029_61_NTF + SG352_FTR029_61_SWP }
+
+! confluence with Yuba River 
+goal continuityFTR028_NTF   {C_FTR029_NTF + C_YUB002 + R_YCWWTP_FTR028 - D_FTR028_15S_SA_NTF - C_FTR028_NTF = 0. }
+goal continuityFTR028_SWP   {C_FTR029_SWP 							  - D_FTR028_15S_SA_SWP - C_FTR028_SWP 	= 0. }
+goal splitD_FTR028_15S_SA	{D_FTR028_15S_SA	= D_FTR028_15S_SA_NTF + D_FTR028_15S_SA_SWP }
+
+goal continuityFTR025_NTF   {C_FTR028_NTF + SG353_FTR025_61_NTF + R_LCWWTP_FTR025 - C_FTR025_NTF 			= 0. }
+goal continuityFTR025_SWP   {C_FTR028_SWP + SG353_FTR025_61_SWP 				- C_FTR025_SWP 				= 0. }
+goal splitSG353_FTR025_61	{SG353_FTR025_61	= SG353_FTR025_61_NTF + SG353_FTR025_61_SWP }
+goal continuityFTR021_NTF   {C_FTR025_NTF + SG354_FTR021_61_NTF  - D_FTR021_16_PA_NTF - D_FTR021_16_SA_NTF - C_FTR021_NTF 	= 0. }
+goal continuityFTR021_SWP   {C_FTR025_SWP + SG354_FTR021_61_SWP  - D_FTR021_16_PA_SWP - D_FTR021_16_SA_SWP - C_FTR021_SWP 	= 0. }
+goal splitSG354_FTR021_61	{SG354_FTR021_61	= SG354_FTR021_61_NTF + SG354_FTR021_61_SWP }
+goal splitD_FTR021_16_PA	{D_FTR021_16_PA		= D_FTR021_16_PA_NTF + D_FTR021_16_PA_SWP } ! Feather Water District
+goal splitD_FTR021_16_SA	{D_FTR021_16_SA		= D_FTR021_16_SA_NTF + D_FTR021_16_SA_SWP } ! Plumas MWC
+goal continuityFTR018_NTF   {C_FTR021_NTF - D_FTR018_16_SA_NTF - D_FTR018_15S_SA_NTF - C_FTR018_NTF 		= 0. }
+goal continuityFTR018_SWP   {C_FTR021_SWP - D_FTR018_16_SA_SWP - D_FTR018_15S_SA_SWP - C_FTR018_SWP 		= 0. }
+goal splitD_FTR018_16_SA	{D_FTR018_16_SA		= D_FTR018_16_SA_NTF + D_FTR018_16_SA_SWP } ! Plumas MWC
+goal splitD_FTR018_15S_SA	{D_FTR018_15S_SA	= D_FTR018_15S_SA_NTF + D_FTR018_15S_SA_SWP } ! Tudor Mutual Water Company
+goal continuityFTR016_NTF   {C_FTR018_NTF + SG355_FTR016_61_NTF - C_FTR016_NTF 								= 0. }
+goal continuityFTR016_SWP   {C_FTR018_SWP + SG355_FTR016_61_SWP - C_FTR016_SWP 								= 0. }
+goal limitSG355_FTR016_61	{SG355_FTR016_61	= SG355_FTR016_61_NTF + SG355_FTR016_61_SWP }
+goal continuityFTR014_NTF   {C_FTR016_NTF + R_15S_SA_FTR014 - D_FTR014_16_SA_NTF - C_FTR014_NTF 			= 0. }
+goal continuityFTR014_SWP   {C_FTR016_SWP 				   - D_FTR014_16_SA_SWP - C_FTR014_SWP 				= 0. }
+goal splitD_FTR014_16_SA	{D_FTR014_16_SA		= D_FTR014_16_SA_NTF + D_FTR014_16_SA_SWP } ! Garden Highway Mutual Water Company
+
+! confluence with Bear River. 
+goal continuityFTR012_NTF   {C_FTR014_NTF + SG356_FTR012_61_NTF + SG362_FTR012_63_NTF + C_BRR004 + SR_15S_FTR012 - C_FTR012_NTF 	= 0. }
+goal continuityFTR012_SWP   {C_FTR014_SWP + SG356_FTR012_61_SWP + SG362_FTR012_63_SWP							 	- C_FTR012_SWP 	= 0. }
+goal splitSG356_FTR012_61	{SG356_FTR012_61	= SG356_FTR012_61_NTF + SG356_FTR012_61_SWP }
+goal splitSG362_FTR012_63	{SG362_FTR012_63	= SG362_FTR012_63_NTF + SG362_FTR012_63_SWP }
+
+! confluence with Sutter Bypass.
+goal continuityFTR008_NTF   {C_FTR012_NTF + CT_Nicolaus + SG363_FTR008_63_NTF + SG364_FTR008_64_NTF - D_FTR008_16_SA_NTF - C_FTR008_NTF 	= 0. }
+goal continuityFTR008_SWP   {C_FTR012_SWP + 			+ SG363_FTR008_63_SWP + SG364_FTR008_64_SWP - D_FTR008_16_SA_SWP - C_FTR008_SWP 	= 0. }
+goal splitSG363_FTR008_63	{SG363_FTR008_63	= SG363_FTR008_63_NTF + SG363_FTR008_63_SWP }
+goal splitSG364_FTR008_64	{SG364_FTR008_64	= SG364_FTR008_64_NTF + SG364_FTR008_64_SWP }
+goal splitD_FTR008_16_SA	{D_FTR008_16_SA		= D_FTR008_16_SA_NTF + D_FTR008_16_SA_SWP }
+
+goal continuityFTR003_NTF   {C_FTR008_NTF + SG365_FTR003_64_NTF + SG366_FTR003_64_NTF - D_FTR003_17S_SA_NTF - D_FTR003_22_SA2_NTF - C_FTR003_NTF 	= 0. }
+goal continuityFTR003_SWP   {C_FTR008_SWP + SG365_FTR003_64_SWP + SG366_FTR003_64_SWP - D_FTR003_17S_SA_SWP - D_FTR003_22_SA2_SWP - C_FTR003_SWP 	= 0. }
+goal splitSG365_FTR003_64	{SG365_FTR003_64	= SG365_FTR003_64_NTF + SG365_FTR003_64_SWP }
+goal splitSG366_FTR003_64	{SG366_FTR003_64	= SG366_FTR003_64_NTF + SG366_FTR003_64_SWP }
+goal splitD_FTR003_17S_SA	{D_FTR003_17S_SA	= D_FTR003_17S_SA_NTF + D_FTR003_17S_SA_SWP }
+goal splitD_FTR003_22_SA2	{D_FTR003_22_SA2	= D_FTR003_22_SA2_NTF + D_FTR003_22_SA2_SWP }
+
+!Sutter Extension Canal
+goal continuitySEC009_NTF   {C_JBC008_NTF + D_FTR039_SEC009_NTF - D_SEC009_11_SA4_NTF - D_SEC009_17S_PR_NTF	= 0. }
+goal continuitySEC009_SWP   {C_JBC008_SWP + D_FTR039_SEC009_SWP - D_SEC009_11_SA4_SWP - D_SEC009_17S_PR_SWP	= 0. }
+goal splitD_SEC009_11_SA4	{D_SEC009_11_SA4	= D_SEC009_11_SA4_NTF + D_SEC009_11_SA4_SWP }
+goal splitD_SEC009_17S_PR	{D_SEC009_17S_PR	= D_SEC009_17S_PR_NTF + D_SEC009_17S_PR_SWP }
+  
+goal continuityBGD000_NTF   {R_RFS11_BGD000 - D_BGD000_17N_PR_NTF - C_BGD000_NTF                            = 0. }
+goal splitD_BGD000_17N_PR	{D_BGD000_17N_PR	= D_BGD000_17N_PR_NTF }!no SWP portion. Drain water is not used anymore.
+
+! Joint Board Canal
+goal continuityJBC000_NTF   {D_THRMA_JBC000_NTF - C_JBC000_NTF                                          	= 0. }
+goal continuityJBC000_SWP   {D_THRMA_JBC000_SWP - C_JBC000_SWP                                          	= 0. }
+goal continuityJBC002_NTF   {C_JBC000_NTF - D_JBC002_RVC005_NTF - D_JBC002_17N_PR_NTF - C_JBC002_NTF		= 0. }
+goal continuityJBC002_SWP   {C_JBC000_SWP - D_JBC002_RVC005_SWP - D_JBC002_17N_PR_SWP - C_JBC002_SWP		= 0. }
+goal splitD_JBC002_17N_PR	{D_JBC002_17N_PR	= D_JBC002_17N_PR_NTF + D_JBC002_17N_PR_SWP }
+goal continuityJBC004_NTF   {C_JBC002_NTF - D_JBC004_11_SA3_NTF - C_JBC004_NTF								= 0. }
+goal continuityJBC004_SWP   {C_JBC002_SWP - D_JBC004_11_SA3_SWP - C_JBC004_SWP								= 0. }
+goal splitD_JBC004_11_SA3	{D_JBC004_11_SA3	= D_JBC004_11_SA3_NTF + D_JBC004_11_SA3_SWP	}
+goal continuityJBC008_NTF   {C_JBC004_NTF - R_JBC008_FTR048 - C_JBC008_NTF                                  = 0. }
+goal continuityJBC008_SWP   {C_JBC004_SWP 					- C_JBC008_SWP                                  = 0. }
+goal continuityWEC000_NTF   {D_THRMA_WEC000_NTF - C_WEC000_NTF                              				= 0. }
+goal continuityWEC000_SWP   {D_THRMA_WEC000_SWP - C_WEC000_SWP                             					= 0. }
+
+! Richvale Canal
+goal continuityRVC000_NTF   {D_THRMA_RVC000_NTF - C_RVC000_NTF		                   						= 0. }
+goal continuityRVC000_SWP   {D_THRMA_RVC000_SWP - C_RVC000_SWP		                   						= 0. }
+goal continuityRVC005_NTF   {C_RVC000_NTF + D_JBC002_RVC005_NTF - D_RVC005_11_SA2_NTF - D_RVC005_11_PR_NTF	= 0. }
+goal continuityRVC005_SWP   {C_RVC000_SWP + D_JBC002_RVC005_SWP - D_RVC005_11_SA2_SWP - D_RVC005_11_PR_SWP	= 0. }
+goal splitD_RVC005_11_SA2	{D_RVC005_11_SA2	= D_RVC005_11_SA2_NTF + D_RVC005_11_SA2_SWP }
+goal splitD_RVC005_11_PR	{D_RVC005_11_PR		= D_RVC005_11_PR_NTF + D_RVC005_11_PR_SWP }
+
+! Western Canal
+goal continuityWEC005_NTF   {D_THRMA_WEC000_NTF - D_WEC005_11_SA1_NTF - D_WEC005_BTC032_NTF - D_WEC005_11_PR_NTF	= 0. }
+goal continuityWEC005_SWP   {D_THRMA_WEC000_SWP - D_WEC005_11_SA1_SWP - D_WEC005_BTC032_SWP	- D_WEC005_11_PR_SWP	= 0. }
+goal splitD_WEC005_11_SA1	{D_WEC005_11_SA1 	= D_WEC005_11_SA1_NTF + D_WEC005_11_SA1_SWP }
+goal splitD_WEC005_BTC032	{D_WEC005_BTC032 	= D_WEC005_BTC032_NTF + D_WEC005_BTC032_SWP }
+goal splitD_WEC005_11_PR	{D_WEC005_11_PR		= D_WEC005_11_PR_NTF + D_WEC005_11_PR_SWP }
+                                                                                                                 
