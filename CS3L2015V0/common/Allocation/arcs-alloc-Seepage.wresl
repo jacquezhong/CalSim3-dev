@@ -1,0 +1,60 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Feather River	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define	SG341_FTR068_59_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG342_FTR063_59_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}	
+define	SG343_FTR059_59_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG344_FTR053_59_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG345_FTR048_59_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG346_FTR045_59_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG347_FTR036_59_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG348_FTR029_59_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG352_FTR029_61_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG353_FTR025_61_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG354_FTR021_61_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG355_FTR016_61_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG356_FTR012_61_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG362_FTR012_63_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG363_FTR008_63_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG364_FTR008_64_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG365_FTR003_64_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG366_FTR003_64_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+
+define	SG_FTR_Total_NTF	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+
+define	SG341_FTR068_59_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG342_FTR063_59_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}	
+define	SG343_FTR059_59_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG344_FTR053_59_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG345_FTR048_59_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG346_FTR045_59_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG347_FTR036_59_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG348_FTR029_59_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG352_FTR029_61_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG353_FTR025_61_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG354_FTR021_61_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG355_FTR016_61_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG356_FTR012_61_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG362_FTR012_63_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG363_FTR008_63_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG364_FTR008_64_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG365_FTR003_64_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG366_FTR003_64_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+
+define	SG_FTR_Total_SWP	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}

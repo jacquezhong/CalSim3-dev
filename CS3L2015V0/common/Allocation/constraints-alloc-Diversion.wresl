@@ -1,0 +1,36 @@
+! D_THRMF_11_NU1 and D_THRMF_12_NU1 are supplied by Butte County which may use SWP direct diversion or SWP release.
+! 	Oroville release usually coincides with the period that direct diversion is unavailable. 
+! Thermalito ID also holds water rights associated with Concow Reservoir.
+! 	Under an agreement with the State, the reservoir is kept full during the summer months for fishery purposes.
+! 	Water released in the fall, winter, and spring is stored in Lake Oroville and re-released in the summer to meet Thermalito ID demands.
+! 	The operation is not currently modeled. The diversion season of water right water is not constrained.
+goal limitD_THRMF_11_NU1_NTF	{D_THRMF_11_NU1_NTF < 1.0 * WRmon_THRMF_11_NU1*taf_cfs	 }
+goal limitD_THRMF_11_NU1_SWP	{D_THRMF_11_NU1_SWP < CLmon_ButteC_11_NU1*taf_cfs }
+goal limitD_THRMF_12_NU1_NTF	{D_THRMF_12_NU1_NTF = 0. }
+
+
+! Western Canal, Richvale and Joint Board first divert from natural flow.
+! If NF is unavailable in irrigation season (Western Canal: Mar - Oct, Other: Apr - Oct), SWP is responsible for meeting the need.
+! SWP water delivered to refuge via return flows of Richvale ID and Joint Board District.
+! Non-refuge project water delivered to Richvale ID and Joint Board District is subject to the limit by settlement agreement.
+
+goal limitD_WEC005_11_SA1_SWP	{lhs D_WEC005_11_SA1_SWP case Winter {condition month >= Nov .and. month <= Feb rhs 0}}
+goal limitD_WEC005_BTC032_SWP	{D_WEC005_BTC032_SWP	= 0. }
+goal limitD_WEC005_11_PR_NTF	{D_WEC005_11_PR_NTF		= 0. }
+goal limitD_RVC005_11_SA2_SWP	{lhs D_RVC005_11_SA2_SWP case Winter {condition month >= Nov .and. month <= Mar rhs 0}}
+goal limitD_JBC004_11_SA3_SWP	{lhs D_JBC004_11_SA3_SWP case Winter {condition month >= Nov .and. month <= Mar rhs 0}}
+goal limitD_SEC009_11_SA4_SWP	{lhs D_SEC009_11_SA4_SWP case Winter {condition month >= Nov .and. month <= Mar rhs 0}}
+
+
+! Yuba City’s existing surface water sources include two appropriative water rights (Permits 14045 and 18558),
+!	a contract with Yuba County WD, and Table A (SWP direct diversion or SWP release).
+goal limitD_FTR031_WTPCYC_NTF	{D_FTR031_WTPCYC_NTF < CL2mon_WTPCYC_16_PU*taf_cfs + WR1mon_WTPCYC_16_PU*taf_cfs + WR2mon_WTPCYC_16_PU*taf_cfs }
+goal limitD_FTR031_WTPCYC_SWP	{D_FTR031_WTPCYC_SWP < swp_perdel_yuba * CL1mon_WTPCYC_16_PU * taf_cfs }
+
+! D_FTR021_16_PA Feather WD is a CVP service contractor
+goal limitD_FTR021_16_PA_NTF	{D_FTR021_16_PA_NTF		< 130. } ! Permit 12094
+
+! 16_SA has no access to SWP water from FTR008.
+goal limitD_FTR008_16_SA_SWP	{D_FTR014_16_SA_SWP = 0. }
+
+D_SEC009_17S_PR_NTF

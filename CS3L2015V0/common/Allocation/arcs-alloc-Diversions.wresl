@@ -1,0 +1,85 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Feather River !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define D_OROVL_13_NU1_NTF 	{lower 0 upper 25 kind 'DIVERSION' units 'CFS'} !Estimate of current canal capacity from SFWPA.
+define D_FTR068_THRMF_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_THRMF_11_NU1_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_THRMF_12_NU1_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_THRMA_WEC000_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_THRMA_JBC000_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_THRMA_RVC000_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_WEC005_BTC032_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_WEC005_11_SA1_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_JBC002_RVC005_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_JBC004_11_SA3_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_WEC005_11_PR_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_RVC005_11_PR_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_RVC005_11_SA2_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_JBC002_17N_PR_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR059_12_SA_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR045_15N_SA_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR039_SEC009_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_SEC009_11_SA4_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_SEC009_17S_PR_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR031_WTPCYC_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR028_15S_SA_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_WTPCYC_16_PU_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR018_15S_SA_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR021_16_PA_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR021_16_SA_NTF 	{std kind 'DIVERSION' units 'CFS'}! Oswald WD
+define D_FTR018_16_SA_NTF 	{std kind 'DIVERSION' units 'CFS'}! Tudor MWC 
+define D_FTR014_16_SA_NTF 	{std kind 'DIVERSION' units 'CFS'}! Garden Highway MWC
+define D_FTR003_22_SA2_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR008_16_SA_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR003_17S_SA_NTF 	{std kind 'DIVERSION' units 'CFS'}
+
+define D_OROVL_13_NU1_SWP 	{lower 0 upper 25 kind 'DIVERSION' units 'CFS'} !Estimate of current canal capacity from SFWPA.
+define D_FTR068_THRMF_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_THRMF_11_NU1_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_THRMF_12_NU1_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_THRMA_WEC000_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_THRMA_JBC000_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_THRMA_RVC000_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_WEC005_BTC032_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_WEC005_11_SA1_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_JBC002_RVC005_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_JBC004_11_SA3_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_WEC005_11_PR_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_RVC005_11_PR_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_RVC005_11_SA2_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_JBC002_17N_PR_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR059_12_SA_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR045_15N_SA_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR039_SEC009_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_SEC009_11_SA4_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_SEC009_17S_PR_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR031_WTPCYC_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR028_15S_SA_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_WTPCYC_16_PU_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR018_15S_SA_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR021_16_PA_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR021_16_SA_SWP 	{std kind 'DIVERSION' units 'CFS'}! Oswald WD
+define D_FTR018_16_SA_SWP 	{std kind 'DIVERSION' units 'CFS'}! Tudor MWC 
+define D_FTR014_16_SA_SWP 	{std kind 'DIVERSION' units 'CFS'}! Garden Highway MWC
+define D_FTR003_22_SA2_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR008_16_SA_SWP 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR003_17S_SA_SWP 	{std kind 'DIVERSION' units 'CFS'}
+
+

@@ -1,0 +1,92 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Feather River	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!define C_FTR074	{std kind 'CHANNEL' units 'CFS'}		
+define C_OROVL_NTF	{std kind 'CHANNEL' units 'CFS'}!define C_OROVL_NCF {lower 0 upper RelCap_OROVL kind 'CHANNEL' units 'CFS'} !in constraint-FloodSpill
+define C_FTR072_NTF	{std kind 'CHANNEL' units 'CFS'}! {lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_FTR068_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_FTR067_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_THRMA_NTF	{std kind 'CHANNEL' units 'CFS'}
+define C_TAB000_NTF	{std kind 'CHANNEL' units 'CFS'}
+define C_FTR063_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR059_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_FTR053_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_FTR051_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_FTR048_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR045_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR039_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR036_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR031_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_FTR030_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_FTR029_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_FTR028_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR025_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR021_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR018_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}		
+define C_FTR016_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR014_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR012_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR008_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR003_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}	
+
+define C_JBC000_NTF	{std kind 'CHANNEL' units 'CFS'}
+define C_JBC002_NTF	{std kind 'CHANNEL' units 'CFS'}
+define C_JBC004_NTF	{std kind 'CHANNEL' units 'CFS'}
+define C_JBC008_NTF	{std kind 'CHANNEL' units 'CFS'}
+define C_THRMF_NTF	{std kind 'CHANNEL' units 'CFS'}
+define C_WEC000_NTF	{std kind 'CHANNEL' units 'CFS'}
+define C_RVC000_NTF	{std kind 'CHANNEL' units 'CFS'}
+
+define C_OROVL_SWP	{std kind 'CHANNEL' units 'CFS'}!define C_OROVL_NCF {lower 0 upper RelCap_OROVL kind 'CHANNEL' units 'CFS'} !in constraint-FloodSpill
+define C_FTR072_SWP	{std kind 'CHANNEL' units 'CFS'}! {lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_FTR068_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_FTR067_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_THRMA_SWP	{std kind 'CHANNEL' units 'CFS'}
+define C_TAB000_SWP	{std kind 'CHANNEL' units 'CFS'}
+define C_FTR063_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR059_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_FTR053_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_FTR051_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_FTR048_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR045_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR039_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR036_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR031_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_FTR030_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_FTR029_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
+define C_FTR028_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR025_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR021_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR018_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}		
+define C_FTR016_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR014_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR012_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR008_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}	
+define C_FTR003_SWP	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 320000 kind 'CHANNEL' units 'CFS'}	
+
+define C_JBC000_SWP	{std kind 'CHANNEL' units 'CFS'}
+define C_JBC002_SWP	{std kind 'CHANNEL' units 'CFS'}
+define C_JBC004_SWP	{std kind 'CHANNEL' units 'CFS'}
+define C_JBC008_SWP	{std kind 'CHANNEL' units 'CFS'}
+define C_THRMF_SWP	{std kind 'CHANNEL' units 'CFS'}
+define C_WEC000_SWP	{std kind 'CHANNEL' units 'CFS'}
+define C_RVC000_SWP	{std kind 'CHANNEL' units 'CFS'}
