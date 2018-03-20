@@ -20,7 +20,17 @@
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Feather River	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!define C_FTR074	{std kind 'CHANNEL' units 'CFS'}		
+!define C_FTR074	{std kind 'CHANNEL' units 'CFS'}	
+
+!C_OROVLStor:	Collection to Oroville storage.
+!C_OROVL_SWP:	SWP water flowing out of Oroville, as C_OROVL_RL + C_OROVL_DD
+!C_OROVL_RL:	Oroville release of previously-stored water.
+!C_OROVL_DD:	SWP direct diversion at Oroville.
+!C_OROVL_NTF:	Non-SWP water
+define C_OROVLStor	{std kind 'CHANNEL' units 'CFS'}
+define C_OROVL_RL	{std kind 'CHANNEL' units 'CFS'}
+define C_OROVL_DD	{std kind 'CHANNEL' units 'CFS'}
+	
 define C_OROVL_NTF	{std kind 'CHANNEL' units 'CFS'}!define C_OROVL_NCF {lower 0 upper RelCap_OROVL kind 'CHANNEL' units 'CFS'} !in constraint-FloodSpill
 define C_FTR072_NTF	{std kind 'CHANNEL' units 'CFS'}! {lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
 define C_FTR068_NTF	{std kind 'CHANNEL' units 'CFS'}!{lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}
