@@ -80,7 +80,7 @@ group common1 {
     define daysindv    { alias daysin kind 'DAYS'          units 'days'}
     define cfs_cfm     { value daysin * 86400.0}
     define af_cfm {value 43560}  !AF/month to ft^3/month
-    define af_cfs {value af_cfm/(86400*daysin)} !3600*24=86400        
+!    define af_cfs {value af_cfm/(86400*daysin)} !3600*24=86400        
     define cfs_cfmp    { case first{
                                   condition wateryear == BgnWY .and. month == Oct
                                   value     daysin * 86400.0}
