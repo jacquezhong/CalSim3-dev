@@ -1,0 +1,72 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+
+!Direct diversion and diversion to storage should not occur during Term 91.
+!Application 5630 and 14443
+goal limitC_OROVL_DD		{C_OROVL_DD < int_IBU_UWFE * 1400 + int_IBU_UWFE * 1360}
+goal limitC_OROVL_SI		{C_OROVL_SI < int_IBU_UWFE * 999999}
+
+
+! D_THRMF_11_NU1 and D_THRMF_12_NU1 are supplied by Butte County which may use SWP direct diversion or SWP release.
+! 	Oroville release usually coincides with the period that direct diversion is unavailable. 
+! Thermalito ID also holds water rights associated with Concow Reservoir.
+! 	Under an agreement with the State, the reservoir is kept full during the summer months for fishery purposes.
+! 	Water released in the fall, winter, and spring is stored in Lake Oroville and re-released in the summer to meet Thermalito ID demands.
+! 	The operation is not currently modeled. The diversion season of water right water is not constrained.
+goal limitD_THRMF_11_NU1_NTF	{D_THRMF_11_NU1_NTF < 1.0 * WRmon_THRMF_11_NU1*taf_cfs	 }
+goal limitD_THRMF_11_NU1_SWP	{D_THRMF_11_NU1_SWP < CLmon_ButteC_11_NU1*taf_cfs }
+goal limitD_THRMF_12_NU1_NTF	{D_THRMF_12_NU1_NTF = 0. }
+
+
+! Western Canal, Richvale and Joint Board first divert from natural flow.
+! If NF is unavailable in irrigation season (Western Canal: Mar - Oct, Other: Apr - Oct), SWP is responsible for meeting the need.
+! SWP water delivered to refuge via return flows of Richvale ID and Joint Board District.
+! Non-refuge project water delivered to Richvale ID and Joint Board District is subject to the limit by settlement agreement.
+
+goal limitD_WEC005_11_SA1_SWP	{lhs D_WEC005_11_SA1_SWP case Winter {condition month >= Nov .and. month <= Feb rhs 0}}
+goal limitD_WEC005_BTC032_SWP	{D_WEC005_BTC032_SWP	= 0. }
+goal limitD_RVC005_11_SA2_SWP	{lhs D_RVC005_11_SA2_SWP case Winter {condition month >= Nov .and. month <= Mar rhs 0}}
+goal limitD_JBC004_11_SA3_SWP	{lhs D_JBC004_11_SA3_SWP case Winter {condition month >= Nov .and. month <= Mar rhs 0}}
+goal limitD_SEC009_11_SA4_SWP	{lhs D_SEC009_11_SA4_SWP case Winter {condition month >= Nov .and. month <= Mar rhs 0}}
+goal limitD_WEC005_11_PR_NTF	{D_WEC005_11_PR_NTF		= 0. }!TODO
+goal limitD_RVC005_11_PR_NTF	{D_RVC005_11_PR_NTF		= 0. }!TODO
+goal limitD_JBC002_17N_PR_NTF	{D_JBC002_17N_PR_NTF	= 0. }!TODO
+goal limitD_SEC009_17S_PR_NTF	{D_SEC009_17S_PR_NTF	= 0. }!TODO
+
+
+
+! Yuba City's existing surface water sources include two appropriative water rights (Permits 14045 and 18558),
+!	a contract with Yuba County WD, and Table A (SWP direct diversion or SWP release).
+! goal limitD_FTR031_WTPCYC_NTF	{D_FTR031_WTPCYC_NTF < CL2mon_WTPCYC_16_PU*taf_cfs + WR1mon_WTPCYC_16_PU*taf_cfs + WR2mon_WTPCYC_16_PU*taf_cfs }
+goal limitD_FTR031_WTPCYC_YCWD	{D_FTR031_WTPCYC_YCWD < CL2mon_WTPCYC_16_PU*taf_cfs}
+goal limitD_FTR031_WTPCYC_A18025	{D_FTR031_WTPCYC_A18025 < WR2mon_WTPCYC_16_PU*taf_cfs}
+goal limitD_FTR031_WTPCYC_A25751	{D_FTR031_WTPCYC_A25751 < WR1mon_WTPCYC_16_PU*taf_cfs}
+goal limitD_FTR031_WTPCYC_SWP	{D_FTR031_WTPCYC_SWP < swp_perdel_yuba * CL1mon_WTPCYC_16_PU * taf_cfs }
+
+! D_FTR021_16_PA Feather WD is a CVP service contractor
+goal limitD_FTR021_16_PA_NTF	{D_FTR021_16_PA_NTF		< 130. } ! Permit 12094
+
+
+! Garden Highway Mutual Water Company	13.1 R	18,000		4/1 to 10/31
+! Plumas Mutual Water Company			17.5 L	14,000		1/1 to 12/31
+! Tudor Mutual Water Company			18.4 R	5,000		1/1 to 12/31
+! Oswald Water District					21.4 R	3,000		4/1 to 10/31
+goal limitD_FTR021_16_SA_SWP	{lhs D_FTR021_16_SA_SWP case Winter {condition month >= Nov .and. month <= Mar rhs 0}}
+goal limitD_FTR014_16_SA_SWP	{lhs D_FTR014_16_SA_SWP case Winter {condition month >= Nov .and. month <= Mar rhs 0}}
+! Tudor's water right only allows diversion from April to September
+goal limitD_FTR018_16_SA_NTF	{lhs D_FTR018_16_SA_NTF case Winter {condition month >= Oct .and. month <= Mar rhs 0}}
+

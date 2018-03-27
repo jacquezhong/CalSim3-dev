@@ -37,8 +37,13 @@ define D_FTR059_12_SA_NTF 	{std kind 'DIVERSION' units 'CFS'}
 define D_FTR045_15N_SA_NTF 	{std kind 'DIVERSION' units 'CFS'}
 define D_FTR039_SEC009_NTF 	{std kind 'DIVERSION' units 'CFS'}
 define D_SEC009_11_SA4_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_SEC009_11_SA4_NTF_JBC 	{std kind 'DIVERSION' units 'CFS'}
+define D_SEC009_11_SA4_NTF_SSP 	{std kind 'DIVERSION' units 'CFS'}
 define D_SEC009_17S_PR_NTF 	{std kind 'DIVERSION' units 'CFS'}
 define D_FTR031_WTPCYC_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR031_WTPCYC_YCWD 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR031_WTPCYC_A18025 	{std kind 'DIVERSION' units 'CFS'}
+define D_FTR031_WTPCYC_A25751 	{std kind 'DIVERSION' units 'CFS'}
 define D_FTR028_15S_SA_NTF 	{std kind 'DIVERSION' units 'CFS'}
 define D_WTPCYC_16_PU_NTF 	{std kind 'DIVERSION' units 'CFS'}
 define D_FTR018_15S_SA_NTF 	{std kind 'DIVERSION' units 'CFS'}

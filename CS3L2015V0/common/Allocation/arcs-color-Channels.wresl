@@ -27,7 +27,7 @@
 !C_OROVL_RL:	Oroville release of previously-stored water.
 !C_OROVL_DD:	SWP direct diversion at Oroville.
 !C_OROVL_NTF:	Non-SWP water
-define C_OROVLStor	{std kind 'CHANNEL' units 'CFS'}
+define C_OROVL_SI	{std kind 'CHANNEL' units 'CFS'}
 define C_OROVL_RL	{std kind 'CHANNEL' units 'CFS'}
 define C_OROVL_DD	{std kind 'CHANNEL' units 'CFS'}
 	

@@ -19,7 +19,7 @@
 !!! Feather River   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
 
-!C_OROVLStor:	Collection to Oroville storage.
+!C_OROVL_SI:	Collection to Oroville storage.
 !C_OROVL_SWP:	SWP water flowing out of Oroville, as C_OROVL_RL + C_OROVL_DD
 !C_OROVL_RL:	Oroville release of previously-stored water.
 !C_OROVL_DD:	SWP direct diversion at Oroville.
@@ -27,16 +27,15 @@
 !Need to apply negative weights so that only these conditions occur:
 !	1. C_OROVLStor > 0,		C_OROVL_RL = 0,		C_OROVL_DD >= 0
 !	2. C_OROVLStor = 0,		C_OROVL_RL >= 0,	C_OROVL_DD = 0
-goal balanceOROVL_Release	{C_OROVLStor - C_OROVL_RL - E_OROVL 		= S_OROVL * taf_cfs - S_OROVL(-1) * taf_cfs + 0. } ! Lake Oroville
+define int_OROVL_stor_chg {integer std kind 'INTEGER' UNITS 'NONE'}
+define OROVL_stor_chg_max {value 4000.*taf_cfs}
+goal OROVL_stor_chg {C_OROVL_RL - C_OROVL_SI = S_OROVL(-1) * taf_cfs - S_OROVL * taf_cfs - E_OROVL}
+
+goal forceC_OROVL_RL {C_OROVL_RL < int_ORO_stor_chg * ORO_stor_chg_max}                   ! if int=0, C_OROVL_RL=0, C_OROVL_SI=pos
+goal forceC_OROVL_SI {C_OROVL_SI < ORO_stor_chg_max - int_ORO_stor_chg * ORO_stor_chg_max}! if int=1, C_OROVL_RL=pos, C_OROVL_SI=0
+
 goal splitOROVL_SWP			{C_OROVL_SWP	= C_OROVL_RL + C_OROVL_DD }
 goal splitC_OROVL			{C_OROVL		= C_OROVL_NTF + C_OROVL_SWP }
-Objective obj_SWP_ORO = {
-	[C_OROVLStor,	-100]
-	[C_OROVL_SWP,	-1000]
-}
-
-!Direct diversion and diversion to storage should not occur during Term 91.
-goal limitC_OROVL_DD		{C_OROVL_DD < int_IBU_UWFE * 999999}
 
 ! Kelly Ridge return is not considered as SWP release.
 goal continuityFTR072_NTF	{C_OROVL_NTF + R_MNRRH_FTR072 - C_FTR072_NTF 									= 0. }! Kelly Ridge return
@@ -92,6 +91,7 @@ goal splitSG347_FTR036_59	{SG347_FTR036_59	= SG347_FTR036_59_NTF + SG347_FTR036_
 goal continuityFTR031_NTF   {C_FTR036_NTF + R_15N_SA_FTR031 + R_15N_NA1_FTR031 - D_FTR031_WTPCYC_NTF - C_FTR031_NTF	= 0. }
 goal continuityFTR031_SWP   {C_FTR036_SWP 									  - D_FTR031_WTPCYC_SWP - C_FTR031_SWP	= 0. }
 goal splitD_FTR031_WTPCYC	{D_FTR031_WTPCYC	= D_FTR031_WTPCYC_NTF + D_FTR031_WTPCYC_SWP }
+goal splitD_FTR031_WTPCYC_NTF	{D_FTR031_WTPCYC_NTF	= D_FTR031_WTPCYC_YCWD + D_FTR031_WTPCYC_A18025 + D_FTR031_WTPCYC_A25751 }
 
 goal continuityFTR030_NTF   {C_FTR031_NTF + C_JCK002 - C_FTR030_NTF 										= 0. }
 goal continuityFTR030_SWP   {C_FTR031_SWP 			- C_FTR030_SWP 											= 0. }
@@ -149,6 +149,9 @@ goal continuitySEC009_NTF   {C_JBC008_NTF + D_FTR039_SEC009_NTF - D_SEC009_11_SA
 goal continuitySEC009_SWP   {C_JBC008_SWP + D_FTR039_SEC009_SWP - D_SEC009_11_SA4_SWP - D_SEC009_17S_PR_SWP	= 0. }
 goal splitD_SEC009_11_SA4	{D_SEC009_11_SA4	= D_SEC009_11_SA4_NTF + D_SEC009_11_SA4_SWP }
 goal splitD_SEC009_17S_PR	{D_SEC009_17S_PR	= D_SEC009_17S_PR_NTF + D_SEC009_17S_PR_SWP }
+goal continuitySEC009_NTF_SSP	{D_FTR039_SEC009_NTF - D_SEC009_11_SA4_NTF_SSP		= 0.}
+goal continuitySEC009_NTF_JBC	{C_JBC008_NTF - D_SEC009_11_SA4_NTF_JBC - D_SEC009_17S_PR_NTF	= 0.}
+goal splitD_SEC009_11_SA4_NTF	{D_SEC009_11_SA4_NTF	= D_SEC009_11_SA4_NTF_JBC + D_SEC009_11_SA4_NTF_SSP }
   
 goal continuityBGD000_NTF   {R_RFS11_BGD000 - D_BGD000_17N_PR_NTF - C_BGD000_NTF                            = 0. }
 goal splitD_BGD000_17N_PR	{D_BGD000_17N_PR	= D_BGD000_17N_PR_NTF }!no SWP portion. Drain water is not used anymore.
