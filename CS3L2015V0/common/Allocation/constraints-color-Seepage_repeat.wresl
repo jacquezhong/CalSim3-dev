@@ -1,0 +1,48 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Feather River	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal setSG_FTR_Total_NTF  { SG_FTR_Total_NTF = SG341_FTR068_59_NTF + SG342_FTR063_59_NTF + SG343_FTR059_59_NTF 
+                              + SG344_FTR053_59_NTF + SG345_FTR048_59_NTF + SG346_FTR045_59_NTF + SG347_FTR036_59_NTF + SG348_FTR029_59_NTF 
+                              + SG352_FTR029_61_NTF + SG353_FTR025_61_NTF + SG354_FTR021_61_NTF + SG355_FTR016_61_NTF + SG356_FTR012_61_NTF 
+                              + SG362_FTR012_63_NTF + SG363_FTR008_63_NTF + SG364_FTR008_64_NTF + SG365_FTR003_64_NTF + SG366_FTR003_64_NTF} 
+
+goal setSG341_FTR068_59_SWP  { lhs SG341_FTR068_59_SWP case negative {condition SG341_FTR068_59[-1]<0 rhs C_FTR072_SWP[-1]/C_FTR072[-1] * SG341_FTR068_59} case positive {condition always rhs 0}}
+goal setSG342_FTR063_59_SWP  { lhs SG342_FTR063_59_SWP case negative {condition SG342_FTR063_59[-1]<0 rhs C_FTR067_SWP[-1]/C_FTR067[-1] * SG342_FTR063_59} case positive {condition always rhs 0}}
+goal setSG343_FTR059_59_SWP  { lhs SG343_FTR059_59_SWP case negative {condition SG343_FTR059_59[-1]<0 rhs C_FTR063_SWP[-1]/C_FTR063[-1] * SG343_FTR059_59} case positive {condition always rhs 0}}
+goal setSG344_FTR053_59_SWP  { lhs SG344_FTR053_59_SWP case negative {condition SG344_FTR053_59[-1]<0 rhs C_FTR059_SWP[-1]/C_FTR059[-1] * SG344_FTR053_59} case positive {condition always rhs 0}}
+goal setSG345_FTR048_59_SWP  { lhs SG345_FTR048_59_SWP case negative {condition SG345_FTR048_59[-1]<0 rhs C_FTR051_SWP[-1]/C_FTR051[-1] * SG345_FTR048_59} case positive {condition always rhs 0}}
+goal setSG346_FTR045_59_SWP  { lhs SG346_FTR045_59_SWP case negative {condition SG346_FTR045_59[-1]<0 rhs C_FTR048_SWP[-1]/C_FTR048[-1] * SG346_FTR045_59} case positive {condition always rhs 0}}
+goal setSG347_FTR036_59_SWP  { lhs SG347_FTR036_59_SWP case negative {condition SG347_FTR036_59[-1]<0 rhs C_FTR039_SWP[-1]/C_FTR039[-1] * SG347_FTR036_59} case positive {condition always rhs 0}}
+goal setSG348_FTR029_59_SWP  { lhs SG348_FTR029_59_SWP case negative {condition SG348_FTR029_59[-1]<0 rhs C_FTR030_SWP[-1]/C_FTR030[-1] * SG348_FTR029_59} case positive {condition always rhs 0}}
+goal setSG352_FTR029_61_SWP  { lhs SG352_FTR029_61_SWP case negative {condition SG352_FTR029_61[-1]<0 rhs C_FTR030_SWP[-1]/C_FTR030[-1] * SG352_FTR029_61} case positive {condition always rhs 0}}
+goal setSG353_FTR025_61_SWP  { lhs SG353_FTR025_61_SWP case negative {condition SG353_FTR025_61[-1]<0 rhs C_FTR028_SWP[-1]/C_FTR028[-1] * SG353_FTR025_61} case positive {condition always rhs 0}}
+goal setSG354_FTR021_61_SWP  { lhs SG354_FTR021_61_SWP case negative {condition SG354_FTR021_61[-1]<0 rhs C_FTR025_SWP[-1]/C_FTR025[-1] * SG354_FTR021_61} case positive {condition always rhs 0}}
+goal setSG355_FTR016_61_SWP  { lhs SG355_FTR016_61_SWP case negative {condition SG355_FTR016_61[-1]<0 rhs C_FTR018_SWP[-1]/C_FTR018[-1] * SG355_FTR016_61} case positive {condition always rhs 0}}
+goal setSG356_FTR012_61_SWP  { lhs SG356_FTR012_61_SWP case negative {condition SG356_FTR012_61[-1]<0 rhs C_FTR014_SWP[-1]/C_FTR014[-1] * SG356_FTR012_61} case positive {condition always rhs 0}}
+goal setSG362_FTR012_63_SWP  { lhs SG362_FTR012_63_SWP case negative {condition SG362_FTR012_63[-1]<0 rhs C_FTR014_SWP[-1]/C_FTR014[-1] * SG362_FTR012_63} case positive {condition always rhs 0}}
+goal setSG363_FTR008_63_SWP  { lhs SG363_FTR008_63_SWP case negative {condition SG363_FTR008_63[-1]<0 rhs C_FTR012_SWP[-1]/C_FTR012[-1] * SG363_FTR008_63} case positive {condition always rhs 0}}
+goal setSG364_FTR008_64_SWP  { lhs SG364_FTR008_64_SWP case negative {condition SG364_FTR008_64[-1]<0 rhs C_FTR012_SWP[-1]/C_FTR012[-1] * SG364_FTR008_64} case positive {condition always rhs 0}}
+goal setSG365_FTR003_64_SWP  { lhs SG365_FTR003_64_SWP case negative {condition SG365_FTR003_64[-1]<0 rhs C_FTR008_SWP[-1]/C_FTR008[-1] * SG365_FTR003_64} case positive {condition always rhs 0}}
+goal setSG366_FTR003_64_SWP  { lhs SG366_FTR003_64_SWP case negative {condition SG366_FTR003_64[-1]<0 rhs C_FTR008_SWP[-1]/C_FTR008[-1] * SG366_FTR003_64} case positive {condition always rhs 0}}
+
+
+goal setSG_FTR_Total_SWP  { SG_FTR_Total_SWP = SG341_FTR068_59_SWP + SG342_FTR063_59_SWP + SG343_FTR059_59_SWP 
+                              + SG344_FTR053_59_SWP + SG345_FTR048_59_SWP + SG346_FTR045_59_SWP + SG347_FTR036_59_SWP + SG348_FTR029_59_SWP 
+                              + SG352_FTR029_61_SWP + SG353_FTR025_61_SWP + SG354_FTR021_61_SWP + SG355_FTR016_61_SWP + SG356_FTR012_61_SWP 
+                              + SG362_FTR012_63_SWP + SG363_FTR008_63_SWP + SG364_FTR008_64_SWP + SG365_FTR003_64_SWP + SG366_FTR003_64_SWP} 

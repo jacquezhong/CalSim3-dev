@@ -1,0 +1,41 @@
+!***************************************************************************************************************************************
+!<license>
+!    Copyright (C) 2017, 2018 State of California, Department of Water Resources. This file is part of the CalSim 3.
+
+!    The CalSim 3 is free software: !<license>
+
+!    you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free
+!    Software Foundation, either version 3 of the License, or(at your option) any later version.
+
+!    CalSim 3 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+!    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+!    You should have received a copy of the GNU General Public License along with CalSim 3.  If not, see <http://www.gnu.org/licenses>.
+!</license>
+!****************************************************************************************************************************************
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Feather River	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+goal setSG_FTR_Total_NTF  { SG_FTR_Total_NTF = SG_FTR_Total}
+
+goal setSG341_FTR068_59_SWP  { SG341_FTR068_59_SWP = 0 }
+goal setSG342_FTR063_59_SWP  { SG342_FTR063_59_SWP = 0 }
+goal setSG343_FTR059_59_SWP  { SG343_FTR059_59_SWP = 0 }
+goal setSG344_FTR053_59_SWP  { SG344_FTR053_59_SWP = 0 }
+goal setSG345_FTR048_59_SWP  { SG345_FTR048_59_SWP = 0 }
+goal setSG346_FTR045_59_SWP  { SG346_FTR045_59_SWP = 0 }
+goal setSG347_FTR036_59_SWP  { SG347_FTR036_59_SWP = 0 }
+goal setSG348_FTR029_59_SWP  { SG348_FTR029_59_SWP = 0 }
+goal setSG352_FTR029_61_SWP  { SG352_FTR029_61_SWP = 0 }
+goal setSG353_FTR025_61_SWP  { SG353_FTR025_61_SWP = 0 }
+goal setSG354_FTR021_61_SWP  { SG354_FTR021_61_SWP = 0 }
+goal setSG355_FTR016_61_SWP  { SG355_FTR016_61_SWP = 0 }
+goal setSG356_FTR012_61_SWP  { SG356_FTR012_61_SWP = 0 }
+goal setSG362_FTR012_63_SWP  { SG362_FTR012_63_SWP = 0 }
+goal setSG363_FTR008_63_SWP  { SG363_FTR008_63_SWP = 0 }
+goal setSG364_FTR008_64_SWP  { SG364_FTR008_64_SWP = 0 }
+goal setSG365_FTR003_64_SWP  { SG365_FTR003_64_SWP = 0 }
+goal setSG366_FTR003_64_SWP  { SG366_FTR003_64_SWP = 0 }
+
+goal setSG_FTR_Total_SWP  { SG_FTR_Total_SWP = 0 }
