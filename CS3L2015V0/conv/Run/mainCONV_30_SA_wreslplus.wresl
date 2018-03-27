@@ -335,6 +335,7 @@ MODEL GW_INITIAL {      !CYCLE 6 (also functions as the PRESETUP cycle)
 !    INCLUDE[LOCAL] '..\..\common\NorthOfDelta\Sacramento\NODOS\NODOS_zeroCVPExOp.wresl' 
 
     INCLUDE[LOCAL] 'coa\coa_gw.wresl'
+    include '..\..\common\Allocation\system-color_initial.wresl'
 
     INCLUDE[LOCAL] '..\..\common\SanJoaquin\Delta\ZeroAOWater.wresl'
     INCLUDE[LOCAL] '..\..\common\SanJoaquin\Delta\COSMA_restrict_c6_c7.wresl'
@@ -471,6 +472,7 @@ MODEL GW_FIRST {      !CYCLE 7
 !    INCLUDE[local] '..\..\common\Delta\IsolatedFacility\IFDiversionCriteria.wresl'
 
     INCLUDE[LOCAL] 'coa\coa_gw.wresl'
+    include '..\..\common\Allocation\system-color_repeat.wresl'
 	
     INCLUDE[local] '..\..\common\CCWD\CCWD_OPS\CCWD_LVFILL_OMR_MW.wresl'
     INCLUDE[LOCAL] '..\..\common\CCWD\LVM_Ops2.wresl'
@@ -581,6 +583,7 @@ MODEL GW_SECOND {      !CYCLE 8
 !    INCLUDE[local] '..\..\common\Delta\IsolatedFacility\IFDiversionCriteria.wresl'
 
     INCLUDE[LOCAL] 'coa\coa_gw.wresl'
+    include '..\..\common\Allocation\system-color_repeat.wresl'
 
     INCLUDE[local] '..\..\common\CCWD\CCWD_OPS\CCWD_LVFILL_OMR_MW.wresl'
     INCLUDE[LOCAL] '..\..\common\CCWD\LVM_Ops2.wresl'
@@ -691,6 +694,7 @@ MODEL GW_THIRD {      !CYCLE 9
 !    INCLUDE[local] '..\..\common\Delta\IsolatedFacility\IFDiversionCriteria.wresl'
 
     INCLUDE[LOCAL] 'coa\coa_gw.wresl'
+    include '..\..\common\Allocation\system-color_repeat.wresl'
 
     INCLUDE[local] '..\..\common\CCWD\CCWD_OPS\CCWD_LVFILL_OMR_MW.wresl'
     INCLUDE[LOCAL] '..\..\common\CCWD\LVM_Ops2.wresl'
@@ -803,6 +807,7 @@ MODEL GW_FOURTH {      !CYCLE 10
 !    INCLUDE[local] '..\..\common\Delta\IsolatedFacility\IFDiversionCriteria.wresl'
 
     INCLUDE[LOCAL] 'coa\coa_gw.wresl'
+    include '..\..\common\Allocation\system-color_repeat.wresl'
 
     INCLUDE[local] '..\..\common\CCWD\CCWD_OPS\CCWD_LVFILL_OMR_MW.wresl'
     INCLUDE[LOCAL] '..\..\common\CCWD\LVM_Ops2.wresl'
@@ -914,6 +919,7 @@ MODEL PRESETUP {      !CYCLE 10 (also functions as fourth groundwater cycle)
 !    INCLUDE[local] '..\..\common\Delta\IsolatedFacility\IFDiversionCriteria.wresl'
 
     INCLUDE[LOCAL] 'coa\coa_PRESETUP.wresl'
+    include '..\..\common\Allocation\system-color_final.wresl'
 
     INCLUDE[local] '..\..\common\CCWD\CCWD_OPS\CCWD_LVFILL_OMR_MW.wresl'
     INCLUDE[LOCAL] '..\..\common\CCWD\LVM_Ops2.wresl'
@@ -1023,6 +1029,7 @@ MODEL SETUP {      !CYCLE 11
 !    INCLUDE[local] '..\..\common\Delta\IsolatedFacility\IFDiversionCriteria.wresl'
 
     INCLUDE[LOCAL] 'coa\coa.wresl'
+    include '..\..\common\Allocation\system-color_final.wresl'
 
     INCLUDE[local] '..\..\common\CCWD\CCWD_OPS\CCWD_LVFILL_OMR_MW.wresl'
     INCLUDE[LOCAL] '..\..\common\CCWD\LVM_Ops2.wresl'
@@ -1135,6 +1142,7 @@ MODEL MONTHLYWEIGHTED {      !CYCLE 11
 !    INCLUDE[local] '..\..\common\Delta\IsolatedFacility\IFDiversionCriteria_DailyOps_SETUP.wresl'
 
     INCLUDE[LOCAL] 'coa\coa.wresl'
+    include '..\..\common\Allocation\system-color_final.wresl'
 
     INCLUDE[local] '..\..\common\CCWD\CCWD_OPS\CCWD_LVFILL_OMR_MW.wresl'
     INCLUDE[LOCAL] '..\..\common\CCWD\LVM_Ops2.wresl'
@@ -1248,6 +1256,7 @@ MODEL UPSTREAM {      !CYCLE 12
 !    INCLUDE[local] '..\..\common\Delta\IsolatedFacility\IFDiversionCriteria_DailyOps_MONTHLYWEIGHTED.wresl'
 
     INCLUDE[LOCAL] 'coa\coa.wresl'
+    include '..\..\common\Allocation\system-color_final.wresl'
 
     INCLUDE[local] '..\..\common\CCWD\CCWD_OPS\CCWD_LVFILL_OMR_MW.wresl'
     INCLUDE[LOCAL] '..\..\common\CCWD\LVM_Ops2.wresl'
@@ -1362,6 +1371,7 @@ MODEL DELTA {      !CYCLE 13
     INCLUDE[local] '..\..\common\export_ops\DELTA_RPA2.wresl'
 
     INCLUDE[LOCAL] 'coa\coa_bo.wresl'
+    include '..\..\common\Allocation\system-color_final.wresl'
 
     INCLUDE[local] '..\..\common\CCWD\CCWD_OPS\CCWD_LVFILL_OMR_DELTA.wresl'
     INCLUDE[LOCAL] '..\..\common\CCWD\LVM_Ops2.wresl'
@@ -1488,6 +1498,7 @@ MODEL TRANSFERS_STAGE1 {      !CYCLE 14
 !    INCLUDE[local] '..\..\common\Delta\IsolatedFacility\IFDiversionCriteria_DailyOps_DELTA.wresl'
 
     INCLUDE[LOCAL] 'coa\coa_bo.wresl'
+    include '..\..\common\Allocation\system-color_final.wresl'
 
     INCLUDE[local] '..\..\common\CCWD\CCWD_OPS\CCWD_LVFILL_OMR_DELTA.wresl'
     INCLUDE[LOCAL] '..\..\common\CCWD\LVM_Ops2.wresl'
@@ -1621,6 +1632,7 @@ MODEL WHEELCVC {      !CYCLE 15
 !    INCLUDE[local] '..\..\common\Delta\IsolatedFacility\IFDiversionCriteria_DailyOps_TRANSFERS_STAGE1.wresl'
 
     INCLUDE[LOCAL] 'coa\coa_bo.wresl'
+    include '..\..\common\Allocation\system-color_final.wresl'
 
     INCLUDE[local] '..\..\common\CCWD\CCWD_OPS\CCWD_LVFILL_OMR_DELTA.wresl'
     INCLUDE[LOCAL] '..\..\common\CCWD\LVM_Ops2.wresl'
@@ -1755,6 +1767,7 @@ MODEL WHEELJPOD {      !CYCLE 16
 !    INCLUDE[local] '..\..\common\Delta\IsolatedFacility\IFDiversionCriteria_DailyOps_WHEELCVC.wresl'
 
     INCLUDE[LOCAL] 'coa\coa_bo.wresl'
+    include '..\..\common\Allocation\system-color_final.wresl'
 
     INCLUDE[local] '..\..\common\CCWD\CCWD_OPS\CCWD_LVFILL_OMR_DELTA.wresl'
     INCLUDE[LOCAL] '..\..\common\CCWD\LVM_Ops2.wresl'

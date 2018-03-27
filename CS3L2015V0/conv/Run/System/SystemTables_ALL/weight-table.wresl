@@ -391,6 +391,7 @@ Objective obj_SYS = {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! WBA 11    !!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/* WR
 [D_THRMF_11_NU1,  5100],
 [D_THRMA_JBC000,  5000],
 [D_THRMA_WEC000,  5000],
@@ -407,18 +408,43 @@ Objective obj_SYS = {
 ![D_SNK014_11_NU2, 5100],
 [D_DWRPS2_11_NA,  5100],
 ![D_SNK014_11_NU2, 5100],
+*/
+[D_THRMF_11_NU1_NTF,  7000-1920],
+[D_JBC004_11_SA3_NTF, 7000-1902],
+[D_WEC005_11_SA1_NTF, 7000-1902],
+[D_RVC005_11_SA2_NTF, 7000-1902],
+[D_SEC009_11_SA4_NTF_JBC, 7000-1902],
+[D_SEC009_11_SA4_NTF_SSP, 7000-1942],
+[D_THRMF_11_NU1_SWP,  5000],
+[D_JBC004_11_SA3_SWP, 5000],
+[D_WEC005_11_SA1_SWP, 5000],
+[D_RVC005_11_SA2_SWP, 5000],
+[D_SEC009_11_SA4_SWP, 5000],
+[D_WEC005_11_PR,  5100],
+[D_WEC005_BTC032, 5000],
+[D_RVC005_11_PR,  4900],
+[D_RVC005_11_SA2, 5000],
+[D_LDC007_11_SA2, 5000],
+[D_DWRPS2_11_NA,  5100],
 
-[CL_11_SA2_Unused, -3]
-[CL_11_SA3_Unused, -2]
-[CL_11_SA4_Unused, -1]
+[CL_11_SA2_Unused, -3],
+[CL_11_SA3_Unused, -2],
+[CL_11_SA4_Unused, -1],
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! WBA 12    !!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/* WR
 [D_FTR059_12_SA,  5000], ! Riparian
+[D_THRMF_12_NU1,  5100],
+*/
+[D_FTR059_12_SA_NTF,  7000-1962],
+[D_FTR059_12_SA_SWP,  5000],
+[D_THRMF_12_NU1_SWP,  5100],
+
 [D_RFS13_12_NA,   5100],
 [D_MIO023_12_NU1, 15000],
-[D_THRMF_12_NU1,  5100],
+
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! WBA 13    !!!!!!!!!!!!!!!!!!!!!!!
@@ -443,26 +469,53 @@ Objective obj_SYS = {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
 [D_YUB011_15N_NA2,15001],
 [D_YUB003_15N_NU, 15003],
-[D_FTR045_15N_SA, 5000],
-[R_JBC008_FTR048 ,  6000],
+/* WR
+ [D_FTR045_15N_SA, 5000],
+ */
+[D_FTR045_15N_SA_NTF, 7000-1962],
+[D_FTR045_15N_SA_SWP, 5000],
+[R_JBC008_FTR048 ,  6000],!TODO WR
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! WBA 15 South  !!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 [D_YUB011_15S_NA2,15002],
+/* WR
 [D_FTR018_15S_SA, 5000], ! Plumas MWC
 [D_FTR028_15S_SA, 5000], ! Riparian
+*/
+[D_FTR018_15S_SA_NTF, 7000-1916], ! Plumas MWC
+[D_FTR018_15S_SA_SWP, 5000], ! Plumas MWC
+[D_FTR028_15S_SA_NTF, 7000-1962], ! Riparian
+[D_FTR028_15S_SA_SWP, 5000], ! Riparian
 ![D_FTR028_EWA,    5600], ! Water transfer to EWA
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! WBA 16    !!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/* WR
 [D_WTPCYC_16_PU,  5000], ! City of Yuba City
 [D_FTR021_16_PA, 5000], ! Feather Water District
 [D_FTR021_16_SA, 5000], ! Oswald WD
 [D_FTR018_16_SA, 5000], ! Tudor MWC
 [D_FTR014_16_SA, 5000], ! Garden Highway MWC
 [D_FTR008_16_SA, 5000], ! Riparian
+[D_DWRPS1_16_NA2,  5100],
+* 
+*/
+[D_FTR031_WTPCYC_A18025,  7000-1958], ! City of Yuba City
+[D_FTR031_WTPCYC_A25751,  7000-1978], ! City of Yuba City
+[D_FTR031_WTPCYC_YCWA,  5000], ! City of Yuba City
+[D_FTR031_WTPCYC_SWP,  5000], ! City of Yuba City
+[D_FTR021_16_PA_NTF, 7000-1952], ! Feather Water District
+[D_FTR021_16_SA_NTF, 7000-1931], ! Oswald WD
+[D_FTR021_16_SA_SWP, 5000], ! Oswald WD
+[D_FTR018_16_SA_NTF, 7000-1955], ! Tudor MWC
+[D_FTR018_16_SA_SWP, 5000], ! Tudor MWC
+[D_FTR014_16_SA_NTF, 7000-1920], ! Garden Highway MWC
+[D_FTR014_16_SA_SWP, 5000], ! Garden Highway MWC
+[D_FTR008_16_SA_NTF, 7000-1962], ! Riparian
+[D_FTR008_16_SA_SWP, 5000], ! Riparian
 [D_DWRPS1_16_NA2,  5100],
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -478,8 +531,11 @@ Objective obj_SYS = {
 [D_SBP028_17S_PR, 5000],
 [D_SEC009_17S_PR, 5500], !Increase weight relative to deliveries to Sutter Extension WD
 [D_SBP014_17S_NA, 5100],
+/* WR 
 [D_FTR003_17S_SA, 5000],
-
+*/
+[D_FTR003_17S_SA_NTF, 7000-1962],
+[D_FTR003_17S_SA_SWP, 5000],
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! WBA 18    !!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -522,7 +578,11 @@ Objective obj_SYS = {
 [D_CRC002_22_SA1,5000],
 [D_SAC082_22_SA1,5000],
 [D_SAC078_22_SA1,5000],
+/* WR 
 [D_FTR003_22_SA2,5000],
+*/
+[D_FTR003_22_SA2_NTF,7000-1962],
+[D_FTR003_22_SA2_SWP,5000],
 [D_SAC075_22_NA, 5000],
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
