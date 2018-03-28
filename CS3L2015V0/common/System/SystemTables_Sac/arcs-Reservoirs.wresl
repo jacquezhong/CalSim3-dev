@@ -45,7 +45,7 @@ define A_TRNTYback   {select area from res_info given storage=950*S_TRNTY(-1) us
 define coefev_TRNTY  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_TRNTY(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=1}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_TRNTYforward - A_TRNTYback)/(100*max(0.01,S_TRNTY(-1)))} 
         }
 define RelCap_TRNTY  {select discharge from res_info given storage=1000*S_TRNTY(-1) use linear where res_num=1}
@@ -83,7 +83,7 @@ define A_WKYTNback   {select area from res_info given storage=950*S_WKYTN(-1) us
 define coefev_WKYTN  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_WKYTN(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=3}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_WKYTNforward - A_WKYTNback)/(100*max(0.01,S_WKYTN(-1)))}
         }
 
@@ -115,7 +115,7 @@ define A_SHSTAback   {select area from res_info given storage=950*S_SHSTA(-1) us
 define coefev_SHSTA  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_SHSTA(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=4}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_SHSTAforward - A_SHSTAback)/(100*max(0.01,S_SHSTA(-1)))}
         }
 
@@ -146,7 +146,7 @@ define A_KSWCKback   {select area from res_info given storage=950*S_KSWCK(-1) us
 define coefev_KSWCK  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_KSWCK(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=5}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_KSWCKforward - A_KSWCKback)/(100*max(0.01,S_KSWCK(-1)))}
         }
 
@@ -177,7 +177,7 @@ define A_OROVLback   {select area from res_info given storage=950*S_OROVL(-1) us
 define coefev_OROVL  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_OROVL(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=6}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_OROVLforward - A_OROVLback)/(100*max(0.01,S_OROVL(-1)))}
         }
 
@@ -216,7 +216,7 @@ define Coefev_THRMAdv {alias (A_THRMAforward - A_THRMAback)/(100*max(0.01,S_THRM
 define coefev_THRMA  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_THRMA(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=7}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_THRMAforward - A_THRMAback)/(100*max(0.01,S_THRMA(-1)))}
         }
 define RelCap_THRMA  {select discharge from res_info given storage=1000*S_THRMA(-1) use linear where res_num=7}
@@ -248,7 +248,7 @@ define A_NBLDBback   {select area from res_info given storage=950*S_NBLDB(-1) us
 define coefev_NBLDB  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_NBLDB(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=93}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_NBLDBforward - A_NBLDBback)/(100*max(0.01,S_NBLDB(-1)))}
         }
 
@@ -272,7 +272,7 @@ define A_MERLCback   	{select area from res_info given storage=950*S_MERLC(-1) u
 define coefev_MERLC  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_MERLC(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=600}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_MERLCforward - A_MERLCback)/(100*max(0.01,S_MERLC(-1)))}
         }
 
@@ -307,7 +307,7 @@ define A_FOLSMback   {select area from res_info given storage=950*S_FOLSM(-1) us
 define coefev_FOLSM  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_FOLSM(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=8}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_FOLSMforward - A_FOLSMback)/(100*max(0.01,S_FOLSM(-1)))}
         }
 
@@ -336,7 +336,7 @@ define A_NTOMAback   {select area from res_info given storage=950*S_NTOMA(-1) us
 define coefev_NTOMA  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_NTOMA(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=9}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_NTOMAforward - A_NTOMAback)/(100*max(0.01,S_NTOMA(-1)))}
         }
 
@@ -365,7 +365,7 @@ define A_EPARKback   {select area from res_info given storage=950*S_EPARK(-1) us
 define coefev_EPARK  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_EPARK(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=40}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_EPARKforward - A_EPARKback)/(100*max(0.01,S_EPARK(-1)))}
         }
 
@@ -394,7 +394,7 @@ define A_SGRGEback   {select area from res_info given storage=950*S_SGRGE(-1) us
 define coefev_SGRGE  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_SGRGE(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=41}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_SGRGEforward - A_SGRGEback)/(100*max(0.01,S_SGRGE(-1)))}
         }
 
@@ -421,7 +421,7 @@ define A_BLKBTback   {select area from res_info given storage=950*S_BLKBT(-1) us
 define coefev_BLKBT  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_BLKBT(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=42}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_BLKBTforward - A_BLKBTback)/(100*max(0.01,S_BLKBT(-1)))}
         }
 
@@ -450,7 +450,7 @@ define A_BRYSAback   	{select area from res_info given storage=950*S_BRYSA(-1) u
 define coefev_BRYSA  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_BRYSA(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=45}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_BRYSAforward - A_BRYSAback)/(100*max(0.01,S_BRYSA(-1)))}
         }
 
@@ -512,7 +512,7 @@ define A_RLLNSback {select area from res_info given storage=950*S_RLLNS(-1) use 
 define coefev_RLLNS  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_RLLNS(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=293}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_RLLNSforward - A_RLLNSback)/(100*max(0.01,S_RLLNS(-1)))}
         }
 
@@ -550,7 +550,7 @@ define A_CMBIEback {select area from res_info given storage=950*S_CMBIE(-1) use 
 define coefev_CMBIE  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_CMBIE(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=291}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_CMBIEforward - A_CMBIEback)/(100*max(0.01,S_CMBIE(-1)))}
         }
 
@@ -581,7 +581,7 @@ define A_CMPFWback {select area from res_info given storage=950*S_CMPFW(-1) use 
 define coefev_CMPFW  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_CMPFW(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=286}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_CMPFWforward - A_CMPFWback)/(100*max(0.01,S_CMPFW(-1)))}
         }
 
@@ -610,7 +610,7 @@ define A_CLRLKback   	{select area from res_info given storage=950*S_CLRLK(-1) u
 define coefev_CLRLK  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_CLRLK(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=500}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_CLRLKforward - A_CLRLKback)/(100*max(0.01,S_CLRLK(-1)))}
         }
 
@@ -642,7 +642,7 @@ define A_INDVLback   	{select area from res_info given storage=950*S_INDVL(-1) u
 define coefev_INDVL  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_INDVL(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=501}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_INDVLforward - A_INDVLback)/(100*max(0.01,S_INDVL(-1)))}
         }
 
@@ -659,7 +659,7 @@ define A_LGRSVback {select area from res_info given storage=950*S_LGRSV(-1) use 
 define coefev_LGRSV  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_LGRSV(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=401}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_LGRSVforward - A_LGRSVback)/(100*max(0.01,S_LGRSV(-1)))}
         }
 
@@ -675,7 +675,7 @@ define A_SLYCKback {select area from res_info given storage=950*S_SLYCK(-1) use 
 define coefev_SLYCK  {                                          !Z.Q. Richard Chen 5/8/2017 
 	case NEARZERO { condition S_SLYCK(-1) <= 0.001
 		select coefev from res_info given storage=1 use minimum where res_num=400}	 
-	case Otherwise { condition Always 
+	case Otherwise { condition always 
                 value (A_SLYCKforward - A_SLYCKback)/(100*max(0.01,S_SLYCK(-1)))}
         }
 

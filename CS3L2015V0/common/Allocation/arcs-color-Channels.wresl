@@ -65,6 +65,7 @@ define C_JBC008_NTF	{std kind 'CHANNEL' units 'CFS'}
 define C_THRMF_NTF	{std kind 'CHANNEL' units 'CFS'}
 define C_WEC000_NTF	{std kind 'CHANNEL' units 'CFS'}
 define C_RVC000_NTF	{std kind 'CHANNEL' units 'CFS'}
+define C_BGD000_NTF	{std kind 'CHANNEL' units 'CFS'}
 
 define C_OROVL_SWP	{std kind 'CHANNEL' units 'CFS'}!define C_OROVL_NCF {lower 0 upper RelCap_OROVL kind 'CHANNEL' units 'CFS'} !in constraint-FloodSpill
 define C_FTR072_SWP	{std kind 'CHANNEL' units 'CFS'}! {lower 0 upper 210000 kind 'CHANNEL' units 'CFS'}

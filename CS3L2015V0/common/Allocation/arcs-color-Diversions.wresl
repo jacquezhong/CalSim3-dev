@@ -54,6 +54,7 @@ define D_FTR014_16_SA_NTF 	{std kind 'DIVERSION' units 'CFS'}! Garden Highway MW
 define D_FTR003_22_SA2_NTF 	{std kind 'DIVERSION' units 'CFS'}
 define D_FTR008_16_SA_NTF 	{std kind 'DIVERSION' units 'CFS'}
 define D_FTR003_17S_SA_NTF 	{std kind 'DIVERSION' units 'CFS'}
+define D_BGD000_17N_PR_NTF 	{std kind 'DIVERSION' units 'CFS'}
 
 define D_OROVL_13_NU1_SWP 	{lower 0 upper 25 kind 'DIVERSION' units 'CFS'} !Estimate of current canal capacity from SFWPA.
 define D_FTR068_THRMF_SWP 	{std kind 'DIVERSION' units 'CFS'}

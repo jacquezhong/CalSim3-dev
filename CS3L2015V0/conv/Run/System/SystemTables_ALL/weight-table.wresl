@@ -505,7 +505,7 @@ Objective obj_SYS = {
 */
 [D_FTR031_WTPCYC_A18025,  7000-1958], ! City of Yuba City
 [D_FTR031_WTPCYC_A25751,  7000-1978], ! City of Yuba City
-[D_FTR031_WTPCYC_YCWA,  5000], ! City of Yuba City
+[D_FTR031_WTPCYC_YCWD,  5000], ! City of Yuba City
 [D_FTR031_WTPCYC_SWP,  5000], ! City of Yuba City
 [D_FTR021_16_PA_NTF, 7000-1952], ! Feather Water District
 [D_FTR021_16_SA_NTF, 7000-1931], ! Oswald WD
