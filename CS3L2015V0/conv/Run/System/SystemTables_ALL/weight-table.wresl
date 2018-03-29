@@ -143,6 +143,8 @@ Objective obj_SYS = {
 [C_OROVL_valve, 0.01],
 [C_OROVL_PP135, 0.02],
 
+[C_OROVL_DD, -1],! WR
+
 [C_BRR073_MIF,5100],
 [C_BRR066_MIF,5100],
 [C_BRR050_MIF,5100],

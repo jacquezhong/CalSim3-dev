@@ -31,8 +31,10 @@ define int_OROVL_stor_chg {integer std kind 'INTEGER' UNITS 'NONE'}
 define OROVL_stor_chg_max {value 4000.*taf_cfs}
 goal OROVL_stor_chg {C_OROVL_RL - C_OROVL_SI = S_OROVL(-1) * taf_cfs - S_OROVL * taf_cfs - E_OROVL}
 
-goal forceC_OROVL_RL {C_OROVL_RL < int_OROVL_stor_chg * OROVL_stor_chg_max}                   ! if int=0, C_OROVL_RL=0, C_OROVL_SI=pos
-goal forceC_OROVL_SI {C_OROVL_SI < OROVL_stor_chg_max - int_OROVL_stor_chg * OROVL_stor_chg_max}! if int=1, C_OROVL_RL=pos, C_OROVL_SI=0
+! if int=0, C_OROVL_RL=0, C_OROVL_SI>0
+! if int=1, C_OROVL_RL>0, C_OROVL_SI=0
+goal forceC_OROVL_RL {C_OROVL_RL < int_OROVL_stor_chg * OROVL_stor_chg_max}                   
+goal forceC_OROVL_SI {C_OROVL_SI < OROVL_stor_chg_max - int_OROVL_stor_chg * OROVL_stor_chg_max}
 
 goal splitOROVL_SWP			{C_OROVL_SWP	= C_OROVL_RL + C_OROVL_DD }
 goal splitC_OROVL			{C_OROVL		= C_OROVL_NTF + C_OROVL_SWP }
