@@ -137,10 +137,10 @@ define rSetFlow_263_292  {value    SetStrmFlow(C_BTC003[gw_first] * cfs_cfm,292)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Colusa Basin Drain	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-define rSetFlow_213_459  {value    SetStrmFlow(                      C_CBD055[gw_first]    * cfs_cfm,459) } 
-define rSetFlow_218_460  {value    SetStrmFlow((C_CBD055[gw_first] + C_CBD052[gw_first])/2 * cfs_cfm,460) }
-define rSetFlow_219_461  {value    SetStrmFlow((C_CBD052[gw_first] + C_CBD050[gw_first])/2 * cfs_cfm,461) }
-define rSetFlow_220_462  {value    SetStrmFlow(C_CBD050[gw_first] * cfs_cfm,462) }
+define rSetFlow_213_469  {value    SetStrmFlow(                      C_CBD055[gw_first]    * cfs_cfm,469) } 
+define rSetFlow_218_470  {value    SetStrmFlow((C_CBD055[gw_first] + C_CBD052[gw_first])/2 * cfs_cfm,470) }
+define rSetFlow_219_471  {value    SetStrmFlow((C_CBD052[gw_first] + C_CBD050[gw_first])/2 * cfs_cfm,471) }
+define rSetFlow_220_472  {value    SetStrmFlow(C_CBD050[gw_first] * cfs_cfm,472) }
 
 define rSetFlow_220_318  {value    SetStrmFlow(C_CBD049[gw_first] * cfs_cfm,318) }
  

@@ -60,22 +60,22 @@ INCLUDE '..\..\CVGroundwater\CVGroundwater_Second.wresl'
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Colusa Basin Drain Extension    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!        
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   
-define svSG469_CBD055_83 {value - GetSeep(459)/cfs_cfm}
+define svSG469_CBD055_83 {value - GetSeep(469)/cfs_cfm}
 define SG469_CBD055_83_DLL {alias svSG469_CBD055_83 kind 'STREAM-GAIN' units 'CFS'}
 goal setNegSG469_CBD055_83 {lhs SG469_CBD055_83 case negative {condition svSG469_CBD055_83 < 0 rhs svSG469_CBD055_83 lhs>rhs penalty SGPHIGH}}
 goal setPosSG469_CBD055_83 {lhs SG469_CBD055_83 case negative {condition svSG469_CBD055_83 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG469_CBD055_83 }}
 
-define svSG470_CBD052_83 {value - GetSeep(460)/cfs_cfm}
+define svSG470_CBD052_83 {value - GetSeep(470)/cfs_cfm}
 define SG470_CBD052_83_DLL {alias svSG470_CBD052_83 kind 'STREAM-GAIN' units 'CFS'}
 goal setNegSG470_CBD052_83 {lhs SG470_CBD052_83 case negative {condition svSG470_CBD052_83 < 0 rhs svSG470_CBD052_83 lhs>rhs penalty SGPHIGH}}
 goal setPosSG470_CBD052_83 {lhs SG470_CBD052_83 case negative {condition svSG470_CBD052_83 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG470_CBD052_83 }}
 
-define svSG471_CBD050_83 {value - GetSeep(461)/cfs_cfm}
+define svSG471_CBD050_83 {value - GetSeep(471)/cfs_cfm}
 define SG471_CBD050_83_DLL {alias svSG471_CBD050_83 kind 'STREAM-GAIN' units 'CFS'}
 goal setNegSG471_CBD050_83 {lhs SG471_CBD050_83 case negative {condition svSG471_CBD050_83 < 0 rhs svSG471_CBD050_83 lhs>rhs penalty SGPHIGH}}
 goal setPosSG471_CBD050_83 {lhs SG471_CBD050_83 case negative {condition svSG471_CBD050_83 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG471_CBD050_83 }}
 
-define svSG472_CBD049_83 {value - GetSeep(462)/cfs_cfm}
+define svSG472_CBD049_83 {value - GetSeep(472)/cfs_cfm}
 define SG472_CBD049_83_DLL {alias svSG472_CBD049_83 kind 'STREAM-GAIN' units 'CFS'}
 goal setNegSG472_CBD049_83 {lhs SG472_CBD049_83 case negative {condition svSG472_CBD049_83 < 0 rhs svSG472_CBD049_83 lhs>rhs penalty SGPHIGH}}
 goal setPosSG472_CBD049_83 {lhs SG472_CBD049_83 case negative {condition svSG472_CBD049_83 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG472_CBD049_83 }}
