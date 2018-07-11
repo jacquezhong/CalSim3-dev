@@ -20,10 +20,53 @@
 !*********************************************************************
 !*********************************************************************
 !define  cfs_cfm  {value daysin * 86400.0}
+define H_MCW003_450 {alias GetStrm_H(450) kind 'STREAM-STAGE' units 'FEET'}
+define H_MCW003_451 {alias GetStrm_H(451) kind 'STREAM-STAGE' units 'FEET'}
+define H_CWD022_452 {alias GetStrm_H(452) kind 'STREAM-STAGE' units 'FEET'}
+define H_CWD018_453 {alias GetStrm_H(453) kind 'STREAM-STAGE' units 'FEET'}
+define H_CWD013_454 {alias GetStrm_H(454) kind 'STREAM-STAGE' units 'FEET'}
+define H_CWD009_455 {alias GetStrm_H(455) kind 'STREAM-STAGE' units 'FEET'}
+define H_CWD009_456 {alias GetStrm_H(456) kind 'STREAM-STAGE' units 'FEET'}
+define H_CWD004_457 {alias GetStrm_H(457) kind 'STREAM-STAGE' units 'FEET'}
+define H_NCW001_458 {alias GetStrm_H(458) kind 'STREAM-STAGE' units 'FEET'}
+define H_NCW001_459 {alias GetStrm_H(459) kind 'STREAM-STAGE' units 'FEET'}
+define H_SCW025_460 {alias GetStrm_H(460) kind 'STREAM-STAGE' units 'FEET'}
+define H_SCW020_461 {alias GetStrm_H(461) kind 'STREAM-STAGE' units 'FEET'}
+define H_SCW020_462 {alias GetStrm_H(462) kind 'STREAM-STAGE' units 'FEET'}
+define H_SCW008_463 {alias GetStrm_H(463) kind 'STREAM-STAGE' units 'FEET'}
+define H_SCW004_464 {alias GetStrm_H(464) kind 'STREAM-STAGE' units 'FEET'}
+define H_SCW004_465 {alias GetStrm_H(465) kind 'STREAM-STAGE' units 'FEET'}
+define H_STC010_466 {alias GetStrm_H(466) kind 'STREAM-STAGE' units 'FEET'}
+define H_STC008_467 {alias GetStrm_H(467) kind 'STREAM-STAGE' units 'FEET'}
+define H_STC008_468 {alias GetStrm_H(468) kind 'STREAM-STAGE' units 'FEET'}
+define H_CBD055_469 {alias GetStrm_H(469) kind 'STREAM-STAGE' units 'FEET'}
+define H_CBD052_470 {alias GetStrm_H(470) kind 'STREAM-STAGE' units 'FEET'}
+define H_CBD050_471 {alias GetStrm_H(471) kind 'STREAM-STAGE' units 'FEET'}
+define H_CBD049_472 {alias GetStrm_H(472) kind 'STREAM-STAGE' units 'FEET'}
 
-
-
-
+define H_GW_MCW003_450 {alias GetGW_H(31,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_MCW003_451 {alias GetGW_H(32,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_CWD022_452 {alias GetGW_H(32,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_CWD018_453 {alias GetGW_H(33,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_CWD013_454 {alias GetGW_H(34,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_CWD009_455 {alias GetGW_H(35,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_CWD009_456 {alias GetGW_H(35,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_CWD004_457 {alias GetGW_H(36,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_NCW001_458 {alias GetGW_H(25,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_NCW001_459 {alias GetGW_H(32,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_SCW025_460 {alias GetGW_H(57,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_SCW020_461 {alias GetGW_H(51,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_SCW020_462 {alias GetGW_H(41,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_SCW008_463 {alias GetGW_H(41,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_SCW004_464 {alias GetGW_H(42,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_SCW004_465 {alias GetGW_H(35,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_STC010_466 {alias GetGW_H(48,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_STC008_467 {alias GetGW_H(49,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_STC008_468 {alias GetGW_H(41,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_CBD055_469 {alias GetGW_H(213,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_CBD052_470 {alias GetGW_H(218,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_CBD050_471 {alias GetGW_H(219,1) kind 'GW-ELEV' units 'FEET'}
+define H_GW_CBD049_472 {alias GetGW_H(220,1) kind 'GW-ELEV' units 'FEET'}
 !************************************* 
 !**       Save Stream Stages        **
 !*************************************
@@ -68,7 +111,6 @@ define  H_CBD023_dv   {upper unbounded lower unbounded kind 'STREAM-STAGE' units
 define  H_CBD018_dv   {upper unbounded lower unbounded kind 'STREAM-STAGE' units 'FEET'}
 define  H_CBD012_dv   {upper unbounded lower unbounded kind 'STREAM-STAGE' units 'FEET'}
 define  H_CBD005_dv   {upper unbounded lower unbounded kind 'STREAM-STAGE' units 'FEET'}                                                               
-define  H_CWD004_dv   {upper unbounded lower unbounded kind 'STREAM-STAGE' units 'FEET'}
 define  H_COW017_dv   {upper unbounded lower unbounded kind 'STREAM-STAGE' units 'FEET'}
 define  H_COW007_dv   {upper unbounded lower unbounded kind 'STREAM-STAGE' units 'FEET'}
 define  H_COW003_dv   {upper unbounded lower unbounded kind 'STREAM-STAGE' units 'FEET'}
@@ -243,7 +285,6 @@ goal setH_CBD023_dv   {H_CBD023_dv = GetStrm_H(325)}
 goal setH_CBD018_dv   {H_CBD018_dv = GetStrm_H(326)}
 goal setH_CBD012_dv   {H_CBD012_dv = GetStrm_H(327)}
 goal setH_CBD005_dv   {H_CBD005_dv = GetStrm_H(328)}
-goal setH_CWD004_dv   {H_CWD004_dv = GetStrm_H(218)}
 goal setH_COW017_dv   {H_COW017_dv = GetStrm_H(211)}
 goal setH_COW007_dv   {H_COW007_dv = GetStrm_H(212)}
 goal setH_COW003_dv   {H_COW003_dv = GetStrm_H(213)}
@@ -419,7 +460,6 @@ define  H_GW_CBD023_dv   {upper unbounded lower unbounded kind 'GW-ELEV' units '
 define  H_GW_CBD018_dv   {upper unbounded lower unbounded kind 'GW-ELEV' units 'FEET'}
 define  H_GW_CBD012_dv   {upper unbounded lower unbounded kind 'GW-ELEV' units 'FEET'}
 define  H_GW_CBD005_dv   {upper unbounded lower unbounded kind 'GW-ELEV' units 'FEET'}                                                               
-define  H_GW_CWD004_dv   {upper unbounded lower unbounded kind 'GW-ELEV' units 'FEET'}
 define  H_GW_COW017_dv   {upper unbounded lower unbounded kind 'GW-ELEV' units 'FEET'}
 define  H_GW_COW007_dv   {upper unbounded lower unbounded kind 'GW-ELEV' units 'FEET'}
 define  H_GW_COW003_dv   {upper unbounded lower unbounded kind 'GW-ELEV' units 'FEET'}
@@ -595,7 +635,6 @@ goal setH_GW_CBD023_dv   {H_GW_CBD023_dv = GetGW_H(289,1)}
 goal setH_GW_CBD018_dv   {H_GW_CBD018_dv = GetGW_H(302,1)}      
 goal setH_GW_CBD012_dv   {H_GW_CBD012_dv = GetGW_H(314,1)}      
 goal setH_GW_CBD005_dv   {H_GW_CBD005_dv = GetGW_H(326,1)}      
-goal setH_GW_CWD004_dv   {H_GW_CWD004_dv = GetGW_H(036,1)}      
 goal setH_GW_COW017_dv   {H_GW_COW017_dv = GetGW_H(012,1)}      
 goal setH_GW_COW007_dv   {H_GW_COW007_dv = GetGW_H(011,1)}      
 goal setH_GW_COW003_dv   {H_GW_COW003_dv = GetGW_H(017,1)}      

@@ -38,6 +38,7 @@ define  D_PSC003_PSCLOS 	{lower unbounded upper unbounded kind 'DIVERSION' units
 goal setD_PSC003_PSCLOS    {D_PSC003_PSCLOS = D_PTH024_PSC003 * 0.095}
 
 !==========
+/*
 define SG450_CWD018_76 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
 define SG451_CWD018_76 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
 define SG452_CWD018_76 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
@@ -47,6 +48,31 @@ define SG455_SCW008_77 {lower unbounded upper unbounded kind 'STREAM-GAIN' units
 define SG456_SCW008_77 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
 define SG457_CWD009_78 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
 define SG458_CWD009_78 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+*/
+!Middle Fork Cottonwood Creek
+define SG450_MCW003_76  {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}                                 
+define SG451_MCW003_76 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+!Cottonwood Creek
+define SG452_CWD022_77 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}                                   
+define SG453_CWD018_77 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}                  
+define SG454_CWD013_77 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}     
+define SG455_CWD009_77 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define SG456_CWD009_78 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define SG457_CWD004_78 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+!North Fork Cottonwood Creek
+define SG458_NCW001_79 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}                                   
+define SG459_NCW001_79 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}                                  
+!South Fork Cottonwood Creek
+define SG460_SCW025_80 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define SG461_SCW020_80 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define SG462_SCW020_80 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define SG463_SCW008_81 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define SG464_SCW004_81 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define SG465_SCW004_81 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+!Salt Creek flowing into South Fork Cottonwood Creek
+define SG466_STC010_82 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define SG467_STC008_82 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define SG468_STC008_82 {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! American River	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -129,6 +155,11 @@ define SG_CCH_Total	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'C
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Colusa Basin Drain	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define	SG469_CBD055_83	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG470_CBD052_83	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG471_CBD050_83	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+define	SG472_CBD049_83	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
+
 define	SG318_CBD049_55	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
 define	SG319_CBD044_55	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
 define	SG320_CBD041_55	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}
@@ -220,8 +251,8 @@ define	SG_MLC_Total	{lower unbounded upper unbounded kind 'STREAM-GAIN' units 'C
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!Mokelumne River !!!! When disconnect Mokelune Module; the groundwater domain of Mok is disconnected, so set SG=0 for simplification
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-define SG197_MOK014_30    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!494  197 
-define SG198_MOK004_30    {lower unbounded upper unbounded kind 'RIVER-SEEPAGE' units 'CFS'}!495  198
+define SG197_MOK014_30    {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}!494  197 
+define SG198_MOK004_30    {lower unbounded upper unbounded kind 'STREAM-GAIN' units 'CFS'}!495  198
 
 goal setSG197_MOK014_30  {SG197_MOK014_30 = 0.}
 goal setSG197_MOK004_30  {SG198_MOK004_30 = 0.}

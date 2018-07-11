@@ -29,6 +29,104 @@ negative seepage = loosing stream
 
 INCLUDE '..\..\CVGroundwater\SaveHeads_Stages.wresl'
 
+!Cottonwood Creek and Extra Drain in Colusa Basin
+define svSG450_MCW003_76 {value SG450_MCW003_76[setup]}
+define svSG451_MCW003_76 {value SG451_MCW003_76[setup]}
+define svSG452_CWD022_77 {value SG452_CWD022_77[setup]}
+define svSG453_CWD018_77 {value SG453_CWD018_77[setup]}
+define svSG454_CWD013_77 {value SG454_CWD013_77[setup]}
+define svSG455_CWD009_77 {value SG455_CWD009_77[setup]}
+define svSG456_CWD009_78 {value SG456_CWD009_78[setup]}
+define svSG457_CWD004_78 {value SG457_CWD004_78[setup]}
+define svSG458_NCW001_79 {value SG458_NCW001_79[setup]}
+define svSG459_NCW001_79 {value SG459_NCW001_79[setup]}
+define svSG460_SCW025_80 {value SG460_SCW025_80[setup]}
+define svSG461_SCW020_80 {value SG461_SCW020_80[setup]}
+define svSG462_SCW020_80 {value SG462_SCW020_80[setup]}
+define svSG463_SCW008_81 {value SG463_SCW008_81[setup]}
+define svSG464_SCW004_81 {value SG464_SCW004_81[setup]}
+define svSG465_SCW004_81 {value SG465_SCW004_81[setup]}
+define svSG466_STC010_82 {value SG466_STC010_82[setup]}
+define svSG467_STC008_82 {value SG467_STC008_82[setup]}
+define svSG468_STC008_82 {value SG468_STC008_82[setup]}
+define svSG469_CBD055_83 {value SG469_CBD055_83[setup]}
+define svSG470_CBD052_83 {value SG470_CBD052_83[setup]}
+define svSG471_CBD050_83 {value SG471_CBD050_83[setup]}
+define svSG472_CBD049_83 {value SG472_CBD049_83[setup]}
+
+define SG450_MCW003_76_DLL {alias SG450_MCW003_76_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG451_MCW003_76_DLL {alias SG451_MCW003_76_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG452_CWD022_77_DLL {alias SG452_CWD022_77_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG453_CWD018_77_DLL {alias SG453_CWD018_77_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG454_CWD013_77_DLL {alias SG454_CWD013_77_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG455_CWD009_77_DLL {alias SG455_CWD009_77_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG456_CWD009_78_DLL {alias SG456_CWD009_78_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG457_CWD004_78_DLL {alias SG457_CWD004_78_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG458_NCW001_79_DLL {alias SG458_NCW001_79_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG459_NCW001_79_DLL {alias SG459_NCW001_79_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG460_SCW025_80_DLL {alias SG460_SCW025_80_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG461_SCW020_80_DLL {alias SG461_SCW020_80_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG462_SCW020_80_DLL {alias SG462_SCW020_80_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG463_SCW008_81_DLL {alias SG463_SCW008_81_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG464_SCW004_81_DLL {alias SG464_SCW004_81_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG465_SCW004_81_DLL {alias SG465_SCW004_81_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG466_STC010_82_DLL {alias SG466_STC010_82_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG467_STC008_82_DLL {alias SG467_STC008_82_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG468_STC008_82_DLL {alias SG468_STC008_82_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG469_CBD055_83_DLL {alias SG469_CBD055_83_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG470_CBD052_83_DLL {alias SG470_CBD052_83_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG471_CBD050_83_DLL {alias SG471_CBD050_83_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG472_CBD049_83_DLL {alias SG472_CBD049_83_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+
+goal setNegSG450_MCW003_76 {lhs SG450_MCW003_76 case negative {condition svSG450_MCW003_76 < 0 rhs svSG450_MCW003_76 lhs>rhs penalty SGPHIGH}}
+goal setNegSG451_MCW003_76 {lhs SG451_MCW003_76 case negative {condition svSG451_MCW003_76 < 0 rhs svSG451_MCW003_76 lhs>rhs penalty SGPHIGH}}
+goal setNegSG452_CWD022_77 {lhs SG452_CWD022_77 case negative {condition svSG452_CWD022_77 < 0 rhs svSG452_CWD022_77 lhs>rhs penalty SGPHIGH}}
+goal setNegSG453_CWD018_77 {lhs SG453_CWD018_77 case negative {condition svSG453_CWD018_77 < 0 rhs svSG453_CWD018_77 lhs>rhs penalty SGPHIGH}}
+goal setNegSG454_CWD013_77 {lhs SG454_CWD013_77 case negative {condition svSG454_CWD013_77 < 0 rhs svSG454_CWD013_77 lhs>rhs penalty SGPHIGH}}
+goal setNegSG455_CWD009_77 {lhs SG455_CWD009_77 case negative {condition svSG455_CWD009_77 < 0 rhs svSG455_CWD009_77 lhs>rhs penalty SGPHIGH}}
+goal setNegSG456_CWD009_78 {lhs SG456_CWD009_78 case negative {condition svSG456_CWD009_78 < 0 rhs svSG456_CWD009_78 lhs>rhs penalty SGPHIGH}}
+goal setNegSG457_CWD004_78 {lhs SG457_CWD004_78 case negative {condition svSG457_CWD004_78 < 0 rhs svSG457_CWD004_78 lhs>rhs penalty SGPHIGH}}
+goal setNegSG458_NCW001_79 {lhs SG458_NCW001_79 case negative {condition svSG458_NCW001_79 < 0 rhs svSG458_NCW001_79 lhs>rhs penalty SGPHIGH}}
+goal setNegSG459_NCW001_79 {lhs SG459_NCW001_79 case negative {condition svSG459_NCW001_79 < 0 rhs svSG459_NCW001_79 lhs>rhs penalty SGPHIGH}}
+goal setNegSG460_SCW025_80 {lhs SG460_SCW025_80 case negative {condition svSG460_SCW025_80 < 0 rhs svSG460_SCW025_80 lhs>rhs penalty SGPHIGH}}
+goal setNegSG461_SCW020_80 {lhs SG461_SCW020_80 case negative {condition svSG461_SCW020_80 < 0 rhs svSG461_SCW020_80 lhs>rhs penalty SGPHIGH}}
+goal setNegSG462_SCW020_80 {lhs SG462_SCW020_80 case negative {condition svSG462_SCW020_80 < 0 rhs svSG462_SCW020_80 lhs>rhs penalty SGPHIGH}}
+goal setNegSG463_SCW008_81 {lhs SG463_SCW008_81 case negative {condition svSG463_SCW008_81 < 0 rhs svSG463_SCW008_81 lhs>rhs penalty SGPHIGH}}
+goal setNegSG464_SCW004_81 {lhs SG464_SCW004_81 case negative {condition svSG464_SCW004_81 < 0 rhs svSG464_SCW004_81 lhs>rhs penalty SGPHIGH}}
+goal setNegSG465_SCW004_81 {lhs SG465_SCW004_81 case negative {condition svSG465_SCW004_81 < 0 rhs svSG465_SCW004_81 lhs>rhs penalty SGPHIGH}}
+goal setNegSG466_STC010_82 {lhs SG466_STC010_82 case negative {condition svSG466_STC010_82 < 0 rhs svSG466_STC010_82 lhs>rhs penalty SGPHIGH}}
+goal setNegSG467_STC008_82 {lhs SG467_STC008_82 case negative {condition svSG467_STC008_82 < 0 rhs svSG467_STC008_82 lhs>rhs penalty SGPHIGH}}
+goal setNegSG468_STC008_82 {lhs SG468_STC008_82 case negative {condition svSG468_STC008_82 < 0 rhs svSG468_STC008_82 lhs>rhs penalty SGPHIGH}}
+goal setNegSG469_CBD055_83 {lhs SG469_CBD055_83 case negative {condition svSG469_CBD055_83 < 0 rhs svSG469_CBD055_83 lhs>rhs penalty SGPHIGH}}
+goal setNegSG470_CBD052_83 {lhs SG470_CBD052_83 case negative {condition svSG470_CBD052_83 < 0 rhs svSG470_CBD052_83 lhs>rhs penalty SGPHIGH}}
+goal setNegSG471_CBD050_83 {lhs SG471_CBD050_83 case negative {condition svSG471_CBD050_83 < 0 rhs svSG471_CBD050_83 lhs>rhs penalty SGPHIGH}}
+goal setNegSG472_CBD049_83 {lhs SG472_CBD049_83 case negative {condition svSG472_CBD049_83 < 0 rhs svSG472_CBD049_83 lhs>rhs penalty SGPHIGH}}
+
+goal setPosSG450_MCW003_76 {lhs SG450_MCW003_76 case negative {condition svSG450_MCW003_76 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG450_MCW003_76 }}
+goal setPosSG451_MCW003_76 {lhs SG451_MCW003_76 case negative {condition svSG451_MCW003_76 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG451_MCW003_76 }}
+goal setPosSG452_CWD022_77 {lhs SG452_CWD022_77 case negative {condition svSG452_CWD022_77 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG452_CWD022_77 }}
+goal setPosSG453_CWD018_77 {lhs SG453_CWD018_77 case negative {condition svSG453_CWD018_77 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG453_CWD018_77 }}
+goal setPosSG454_CWD013_77 {lhs SG454_CWD013_77 case negative {condition svSG454_CWD013_77 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG454_CWD013_77 }}
+goal setPosSG455_CWD009_77 {lhs SG455_CWD009_77 case negative {condition svSG455_CWD009_77 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG455_CWD009_77 }}
+goal setPosSG456_CWD009_78 {lhs SG456_CWD009_78 case negative {condition svSG456_CWD009_78 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG456_CWD009_78 }}
+goal setPosSG457_CWD004_78 {lhs SG457_CWD004_78 case negative {condition svSG457_CWD004_78 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG457_CWD004_78 }}
+goal setPosSG458_NCW001_79 {lhs SG458_NCW001_79 case negative {condition svSG458_NCW001_79 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG458_NCW001_79 }}
+goal setPosSG459_NCW001_79 {lhs SG459_NCW001_79 case negative {condition svSG459_NCW001_79 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG459_NCW001_79 }}
+goal setPosSG460_SCW025_80 {lhs SG460_SCW025_80 case negative {condition svSG460_SCW025_80 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG460_SCW025_80 }}
+goal setPosSG461_SCW020_80 {lhs SG461_SCW020_80 case negative {condition svSG461_SCW020_80 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG461_SCW020_80 }}
+goal setPosSG462_SCW020_80 {lhs SG462_SCW020_80 case negative {condition svSG462_SCW020_80 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG462_SCW020_80 }}
+goal setPosSG463_SCW008_81 {lhs SG463_SCW008_81 case negative {condition svSG463_SCW008_81 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG463_SCW008_81 }}
+goal setPosSG464_SCW004_81 {lhs SG464_SCW004_81 case negative {condition svSG464_SCW004_81 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG464_SCW004_81 }}
+goal setPosSG465_SCW004_81 {lhs SG465_SCW004_81 case negative {condition svSG465_SCW004_81 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG465_SCW004_81 }}
+goal setPosSG466_STC010_82 {lhs SG466_STC010_82 case negative {condition svSG466_STC010_82 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG466_STC010_82 }}
+goal setPosSG467_STC008_82 {lhs SG467_STC008_82 case negative {condition svSG467_STC008_82 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG467_STC008_82 }}
+goal setPosSG468_STC008_82 {lhs SG468_STC008_82 case negative {condition svSG468_STC008_82 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG468_STC008_82 }}
+goal setPosSG469_CBD055_83 {lhs SG469_CBD055_83 case negative {condition svSG469_CBD055_83 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG469_CBD055_83 }}
+goal setPosSG470_CBD052_83 {lhs SG470_CBD052_83 case negative {condition svSG470_CBD052_83 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG470_CBD052_83 }}
+goal setPosSG471_CBD050_83 {lhs SG471_CBD050_83 case negative {condition svSG471_CBD050_83 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG471_CBD050_83 }}
+goal setPosSG472_CBD049_83 {lhs SG472_CBD049_83 case negative {condition svSG472_CBD049_83 < 0 rhs 0 lhs<rhs penalty 0} case postive {condition always rhs svSG472_CBD049_83 }}
+
+
 !!!! American River !!!!!!!!!!!
 define svSG374_FOLSM_66 {value SG374_FOLSM_66[setup]}
 define svSG375_NTOMA_66 {value SG375_NTOMA_66[setup]}
@@ -38,13 +136,13 @@ define svSG378_AMR009_66 {value SG378_AMR009_66[setup]}
 define svSG379_AMR004_66 {value SG379_AMR004_66[setup]}
 define svSG380_AMR004_66 {value SG380_AMR004_66[setup]}
 
-define SG374_FOLSM_66_DLL {alias SG374_FOLSM_66_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG375_NTOMA_66_DLL {alias SG375_NTOMA_66_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG376_AMR020_66_DLL {alias SG376_AMR020_66_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG377_AMR015_66_DLL {alias SG377_AMR015_66_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG378_AMR009_66_DLL {alias SG378_AMR009_66_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG379_AMR004_66_DLL {alias SG379_AMR004_66_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG380_AMR004_66_DLL {alias SG380_AMR004_66_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG374_FOLSM_66_DLL {alias SG374_FOLSM_66_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG375_NTOMA_66_DLL {alias SG375_NTOMA_66_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG376_AMR020_66_DLL {alias SG376_AMR020_66_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG377_AMR015_66_DLL {alias SG377_AMR015_66_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG378_AMR009_66_DLL {alias SG378_AMR009_66_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG379_AMR004_66_DLL {alias SG379_AMR004_66_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG380_AMR004_66_DLL {alias SG380_AMR004_66_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG374_FOLSM_66 {lhs SG374_FOLSM_66 case negative {condition svSG374_FOLSM_66 < 0 rhs svSG374_FOLSM_66 lhs>rhs penalty SGPHIGH}}
 goal setNegSG375_NTOMA_66 {lhs SG375_NTOMA_66 case negative {condition svSG375_NTOMA_66 < 0 rhs svSG375_NTOMA_66 lhs>rhs penalty SGPHIGH}}
@@ -67,8 +165,8 @@ goal setPosSG380_AMR004_66 {lhs SG380_AMR004_66 case negative {condition svSG380
 define svSG233_ANT010_40 {value SG233_ANT010_40[setup]}
 define svSG234_ANT010_40 {value SG234_ANT010_40[setup]}
 
-define SG233_ANT010_40_DLL {alias SG233_ANT010_40_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG234_ANT010_40_DLL {alias SG234_ANT010_40_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG233_ANT010_40_DLL {alias SG233_ANT010_40_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG234_ANT010_40_DLL {alias SG234_ANT010_40_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG233_ANT010_40 {lhs SG233_ANT010_40 case negative {condition svSG233_ANT010_40 < 0 rhs svSG233_ANT010_40 lhs>rhs penalty SGPHIGH}}
 goal setNegSG234_ANT010_40 {lhs SG234_ANT010_40 case negative {condition svSG234_ANT010_40 < 0 rhs svSG234_ANT010_40 lhs>rhs penalty SGPHIGH}}
@@ -81,8 +179,8 @@ goal setPosSG234_ANT010_40 {lhs SG234_ANT010_40 case negative {condition svSG234
 define svSG220_BTL006_36 {value SG220_BTL006_36[setup]}
 define svSG221_BTL006_36 {value SG221_BTL006_36[setup]}
 
-define SG220_BTL006_36_DLL {alias SG220_BTL006_36_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG221_BTL006_36_DLL {alias SG221_BTL006_36_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG220_BTL006_36_DLL {alias SG220_BTL006_36_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG221_BTL006_36_DLL {alias SG221_BTL006_36_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG220_BTL006_36 {lhs SG220_BTL006_36 case negative {condition svSG220_BTL006_36 < 0 rhs svSG220_BTL006_36 lhs>rhs penalty SGPHIGH}}
 goal setNegSG221_BTL006_36 {lhs SG221_BTL006_36 case negative {condition svSG221_BTL006_36 < 0 rhs svSG221_BTL006_36 lhs>rhs penalty SGPHIGH}}
@@ -98,11 +196,11 @@ define svSG359_BRR011_62 {value SG359_BRR011_62[setup]}
 define svSG360_BRR004_62 {value SG360_BRR004_62[setup]}
 define svSG361_BRR004_62 {value SG361_BRR004_62[setup]}
 
-define SG357_CMPFW_62_DLL {alias SG357_CMPFW_62_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG358_BRR017_62_DLL {alias SG358_BRR017_62_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG359_BRR011_62_DLL {alias SG359_BRR011_62_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG360_BRR004_62_DLL {alias SG360_BRR004_62_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG361_BRR004_62_DLL {alias SG361_BRR004_62_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG357_CMPFW_62_DLL {alias SG357_CMPFW_62_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG358_BRR017_62_DLL {alias SG358_BRR017_62_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG359_BRR011_62_DLL {alias SG359_BRR011_62_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG360_BRR004_62_DLL {alias SG360_BRR004_62_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG361_BRR004_62_DLL {alias SG361_BRR004_62_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG357_CMPFW_62 {lhs SG357_CMPFW_62 case negative {condition svSG357_CMPFW_62 < 0 rhs svSG357_CMPFW_62 lhs>rhs penalty SGPHIGH}}
 goal setNegSG358_BRR017_62 {lhs SG358_BRR017_62 case negative {condition svSG358_BRR017_62 < 0 rhs svSG358_BRR017_62 lhs>rhs penalty SGPHIGH}}
@@ -123,10 +221,10 @@ define svSG270_BCC006_50 {value SG270_BCC006_50[setup]}
 define svSG271_BCC004_50 {value SG271_BCC004_50[setup]}
 define svSG272_BCC004_50 {value SG272_BCC004_50[setup]}
 
-define SG269_BCC012_50_DLL {alias SG269_BCC012_50_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG270_BCC006_50_DLL {alias SG270_BCC006_50_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG271_BCC004_50_DLL {alias SG271_BCC004_50_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG272_BCC004_50_DLL {alias SG272_BCC004_50_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG269_BCC012_50_DLL {alias SG269_BCC012_50_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG270_BCC006_50_DLL {alias SG270_BCC006_50_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG271_BCC004_50_DLL {alias SG271_BCC004_50_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG272_BCC004_50_DLL {alias SG272_BCC004_50_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG269_BCC012_50 {lhs SG269_BCC012_50 case negative {condition svSG269_BCC012_50 < 0 rhs svSG269_BCC012_50 lhs>rhs penalty SGPHIGH}}
 goal setNegSG270_BCC006_50 {lhs SG270_BCC006_50 case negative {condition svSG270_BCC006_50 < 0 rhs svSG270_BCC006_50 lhs>rhs penalty SGPHIGH}}
@@ -151,16 +249,16 @@ define svSG290_BTC007_52 {value SG290_BTC007_52[setup]}
 define svSG291_BTC003_52 {value SG291_BTC003_52[setup]}
 define svSG292_BSL001_52 {value SG292_BSL001_52[setup]}
 
-define SG283_BTC043_52_DLL {alias SG283_BTC043_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG284_BTC036_52_DLL {alias SG284_BTC036_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG285_BTC032_52_DLL {alias SG285_BTC032_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG286_BTC029_52_DLL {alias SG286_BTC029_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG287_BTC024_52_DLL {alias SG287_BTC024_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG288_BTC018_52_DLL {alias SG288_BTC018_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG289_BTC015_52_DLL {alias SG289_BTC015_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG290_BTC007_52_DLL {alias SG290_BTC007_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG291_BTC003_52_DLL {alias SG291_BTC003_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG292_BSL001_52_DLL {alias SG292_BSL001_52_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG283_BTC043_52_DLL {alias SG283_BTC043_52_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG284_BTC036_52_DLL {alias SG284_BTC036_52_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG285_BTC032_52_DLL {alias SG285_BTC032_52_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG286_BTC029_52_DLL {alias SG286_BTC029_52_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG287_BTC024_52_DLL {alias SG287_BTC024_52_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG288_BTC018_52_DLL {alias SG288_BTC018_52_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG289_BTC015_52_DLL {alias SG289_BTC015_52_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG290_BTC007_52_DLL {alias SG290_BTC007_52_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG291_BTC003_52_DLL {alias SG291_BTC003_52_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG292_BSL001_52_DLL {alias SG292_BSL001_52_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG283_BTC043_52 {lhs SG283_BTC043_52 case negative {condition svSG283_BTC043_52 < 0 rhs svSG283_BTC043_52 lhs>rhs penalty SGPHIGH}}
 goal setNegSG284_BTC036_52 {lhs SG284_BTC036_52 case negative {condition svSG284_BTC036_52 < 0 rhs svSG284_BTC036_52 lhs>rhs penalty SGPHIGH}}
@@ -193,12 +291,12 @@ define svSG393_CCH012_68 {value SG393_CCH012_68[setup]}
 define svSG394_CCH006_68 {value SG394_CCH006_68[setup]}
 define svSG395_CCH003_68 {value SG395_CCH003_68[setup]}
 
-define SG390_CCH030_68_DLL {alias SG390_CCH030_68_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG391_CCH023_68_DLL {alias SG391_CCH023_68_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG392_CCH017_68_DLL {alias SG392_CCH017_68_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG393_CCH012_68_DLL {alias SG393_CCH012_68_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG394_CCH006_68_DLL {alias SG394_CCH006_68_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG395_CCH003_68_DLL {alias SG395_CCH003_68_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG390_CCH030_68_DLL {alias SG390_CCH030_68_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG391_CCH023_68_DLL {alias SG391_CCH023_68_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG392_CCH017_68_DLL {alias SG392_CCH017_68_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG393_CCH012_68_DLL {alias SG393_CCH012_68_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG394_CCH006_68_DLL {alias SG394_CCH006_68_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG395_CCH003_68_DLL {alias SG395_CCH003_68_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG390_CCH030_68 {lhs SG390_CCH030_68 case negative {condition svSG390_CCH030_68 < 0 rhs svSG390_CCH030_68 lhs>rhs penalty SGPHIGH}}
 goal setNegSG391_CCH023_68 {lhs SG391_CCH023_68 case negative {condition svSG391_CCH023_68 < 0 rhs svSG391_CCH023_68 lhs>rhs penalty SGPHIGH}}
@@ -229,18 +327,18 @@ define svSG327_CBD012_56 {value SG327_CBD012_56[setup]}
 define svSG328_CBD005_56 {value SG328_CBD005_56[setup]}
 define svSG329_CBD000_56 {value SG329_CBD000_56[setup]}
 
-define SG318_CBD049_55_DLL {alias SG318_CBD049_55_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG319_CBD044_55_DLL {alias SG319_CBD044_55_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG320_CBD041_55_DLL {alias SG320_CBD041_55_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG321_CBD037_55_DLL {alias SG321_CBD037_55_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG322_CBD031_55_DLL {alias SG322_CBD031_55_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG323_CBD031_56_DLL {alias SG323_CBD031_56_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG324_CBD028_56_DLL {alias SG324_CBD028_56_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG325_CBD023_56_DLL {alias SG325_CBD023_56_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG326_CBD018_56_DLL {alias SG326_CBD018_56_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG327_CBD012_56_DLL {alias SG327_CBD012_56_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG328_CBD005_56_DLL {alias SG328_CBD005_56_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG329_CBD000_56_DLL {alias SG329_CBD000_56_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG318_CBD049_55_DLL {alias SG318_CBD049_55_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG319_CBD044_55_DLL {alias SG319_CBD044_55_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG320_CBD041_55_DLL {alias SG320_CBD041_55_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG321_CBD037_55_DLL {alias SG321_CBD037_55_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG322_CBD031_55_DLL {alias SG322_CBD031_55_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG323_CBD031_56_DLL {alias SG323_CBD031_56_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG324_CBD028_56_DLL {alias SG324_CBD028_56_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG325_CBD023_56_DLL {alias SG325_CBD023_56_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG326_CBD018_56_DLL {alias SG326_CBD018_56_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG327_CBD012_56_DLL {alias SG327_CBD012_56_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG328_CBD005_56_DLL {alias SG328_CBD005_56_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG329_CBD000_56_DLL {alias SG329_CBD000_56_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG318_CBD049_55 {lhs SG318_CBD049_55 case negative {condition svSG318_CBD049_55 < 0 rhs svSG318_CBD049_55 lhs>rhs penalty SGPHIGH}}
 goal setNegSG319_CBD044_55 {lhs SG319_CBD044_55 case negative {condition svSG319_CBD044_55 < 0 rhs svSG319_CBD044_55 lhs>rhs penalty SGPHIGH}}
@@ -273,8 +371,8 @@ goal setPosSG329_CBD000_56 {lhs SG329_CBD000_56 case negative {condition svSG329
 define svSG218_CWD004_35 {value  SG218_CWD004_35[setup]}
 define svSG219_CWD003_35 {value  SG219_CWD003_35[setup]}
 
-define  SG218_CWD004_35_DLL {alias  SG218_CWD004_35_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define  SG219_CWD003_35_DLL {alias  SG219_CWD003_35_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define  SG218_CWD004_35_DLL {alias  SG218_CWD004_35_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define  SG219_CWD003_35_DLL {alias  SG219_CWD003_35_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG218_CWD004_35 {lhs  SG218_CWD004_35 case negative {condition svSG218_CWD004_35 < 0 rhs svSG218_CWD004_35 lhs>rhs penalty SGPHIGH}}
 goal setNegSG219_CWD003_35 {lhs  SG219_CWD003_35 case negative {condition svSG219_CWD003_35 < 0 rhs svSG219_CWD003_35 lhs>rhs penalty SGPHIGH}}
@@ -289,10 +387,10 @@ define svSG212_COW007_33 {value  SG212_COW007_33[setup]}
 define svSG213_COW003_33 {value  SG213_COW003_33[setup]}
 define svSG214_COW003_33 {value  SG214_COW003_33[setup]}
 
-define  SG211_COW014_33_DLL {alias  SG211_COW014_33_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define  SG212_COW007_33_DLL {alias  SG212_COW007_33_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define  SG213_COW003_33_DLL {alias  SG213_COW003_33_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define  SG214_COW003_33_DLL {alias  SG214_COW003_33_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define  SG211_COW014_33_DLL {alias  SG211_COW014_33_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define  SG212_COW007_33_DLL {alias  SG212_COW007_33_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define  SG213_COW003_33_DLL {alias  SG213_COW003_33_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define  SG214_COW003_33_DLL {alias  SG214_COW003_33_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG211_COW014_33 {lhs  SG211_COW014_33 case negative {condition svSG211_COW014_33 < 0 rhs svSG211_COW014_33 lhs>rhs penalty SGPHIGH}}
 goal setNegSG212_COW007_33 {lhs  SG212_COW007_33 case negative {condition svSG212_COW007_33 < 0 rhs svSG212_COW007_33 lhs>rhs penalty SGPHIGH}}
@@ -310,9 +408,9 @@ define svSG256_DRC010_47 {value SG256_DRC010_47[setup]}
 define svSG257_DRC005_47 {value SG257_DRC005_47[setup]}
 define svSG258_DRC005_47 {value SG258_DRC005_47[setup]}
 
-define SG256_DRC010_47_DLL {alias SG256_DRC010_47_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG257_DRC005_47_DLL {alias SG257_DRC005_47_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG258_DRC005_47_DLL {alias SG258_DRC005_47_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG256_DRC010_47_DLL {alias SG256_DRC010_47_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG257_DRC005_47_DLL {alias SG257_DRC005_47_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG258_DRC005_47_DLL {alias SG258_DRC005_47_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG256_DRC010_47 {lhs SG256_DRC010_47 case negative {condition svSG256_DRC010_47 < 0 rhs svSG256_DRC010_47 lhs>rhs penalty SGPHIGH}}
 goal setNegSG257_DRC005_47 {lhs SG257_DRC005_47 case negative {condition svSG257_DRC005_47 < 0 rhs svSG257_DRC005_47 lhs>rhs penalty SGPHIGH}}
@@ -331,12 +429,12 @@ define svSG240_ELD012_42 {value SG240_ELD012_42[setup]}
 define svSG241_ELD005_42 {value SG241_ELD005_42[setup]}
 define svSG242_ELD005_42 {value SG242_ELD005_42[setup]}
 
-define SG237_ELD027_42_DLL {alias SG237_ELD027_42_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG238_ELD022_42_DLL {alias SG238_ELD022_42_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG239_ELD017_42_DLL {alias SG239_ELD017_42_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG240_ELD012_42_DLL {alias SG240_ELD012_42_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG241_ELD005_42_DLL {alias SG241_ELD005_42_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG242_ELD005_42_DLL {alias SG242_ELD005_42_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG237_ELD027_42_DLL {alias SG237_ELD027_42_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG238_ELD022_42_DLL {alias SG238_ELD022_42_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG239_ELD017_42_DLL {alias SG239_ELD017_42_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG240_ELD012_42_DLL {alias SG240_ELD012_42_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG241_ELD005_42_DLL {alias SG241_ELD005_42_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG242_ELD005_42_DLL {alias SG242_ELD005_42_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG237_ELD027_42 {lhs SG237_ELD027_42 case negative {condition svSG237_ELD027_42 < 0 rhs svSG237_ELD027_42 lhs>rhs penalty SGPHIGH}}
 goal setNegSG238_ELD022_42 {lhs SG238_ELD022_42 case negative {condition svSG238_ELD022_42 < 0 rhs svSG238_ELD022_42 lhs>rhs penalty SGPHIGH}}
@@ -373,24 +471,24 @@ define svSG364_FTR008_64 {value SG364_FTR008_64[setup]}
 define svSG365_FTR003_64 {value SG365_FTR003_64[setup]}
 define svSG366_FTR003_64 {value SG366_FTR003_64[setup]}
 
-define SG341_FTR068_59_DLL {alias SG341_FTR068_59_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG342_FTR063_59_DLL {alias SG342_FTR063_59_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG343_FTR059_59_DLL {alias SG343_FTR059_59_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG344_FTR053_59_DLL {alias SG344_FTR053_59_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG345_FTR048_59_DLL {alias SG345_FTR048_59_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG346_FTR045_59_DLL {alias SG346_FTR045_59_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG347_FTR036_59_DLL {alias SG347_FTR036_59_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG348_FTR029_59_DLL {alias SG348_FTR029_59_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG352_FTR029_61_DLL {alias SG352_FTR029_61_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG353_FTR025_61_DLL {alias SG353_FTR025_61_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG354_FTR021_61_DLL {alias SG354_FTR021_61_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG355_FTR016_61_DLL {alias SG355_FTR016_61_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG356_FTR012_61_DLL {alias SG356_FTR012_61_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG362_FTR012_63_DLL {alias SG362_FTR012_63_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG363_FTR008_63_DLL {alias SG363_FTR008_63_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG364_FTR008_64_DLL {alias SG364_FTR008_64_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG365_FTR003_64_DLL {alias SG365_FTR003_64_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG366_FTR003_64_DLL {alias SG366_FTR003_64_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG341_FTR068_59_DLL {alias SG341_FTR068_59_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG342_FTR063_59_DLL {alias SG342_FTR063_59_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG343_FTR059_59_DLL {alias SG343_FTR059_59_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG344_FTR053_59_DLL {alias SG344_FTR053_59_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG345_FTR048_59_DLL {alias SG345_FTR048_59_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG346_FTR045_59_DLL {alias SG346_FTR045_59_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG347_FTR036_59_DLL {alias SG347_FTR036_59_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG348_FTR029_59_DLL {alias SG348_FTR029_59_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG352_FTR029_61_DLL {alias SG352_FTR029_61_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG353_FTR025_61_DLL {alias SG353_FTR025_61_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG354_FTR021_61_DLL {alias SG354_FTR021_61_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG355_FTR016_61_DLL {alias SG355_FTR016_61_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG356_FTR012_61_DLL {alias SG356_FTR012_61_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG362_FTR012_63_DLL {alias SG362_FTR012_63_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG363_FTR008_63_DLL {alias SG363_FTR008_63_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG364_FTR008_64_DLL {alias SG364_FTR008_64_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG365_FTR003_64_DLL {alias SG365_FTR003_64_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG366_FTR003_64_DLL {alias SG366_FTR003_64_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG341_FTR068_59 {lhs SG341_FTR068_59 case negative {condition svSG341_FTR068_59 < 0 rhs svSG341_FTR068_59 lhs>rhs penalty SGPHIGH}}
 goal setNegSG342_FTR063_59 {lhs SG342_FTR063_59 case negative {condition svSG342_FTR063_59 < 0 rhs svSG342_FTR063_59 lhs>rhs penalty SGPHIGH}}
@@ -436,9 +534,9 @@ define svSG243_MLC006_43 {value SG243_MLC006_43[setup]}
 define svSG244_MLC004_43 {value SG244_MLC004_43[setup]}
 define svSG245_MLC004_43 {value SG245_MLC004_43[setup]}
 
-define SG243_MLC006_43_DLL {alias SG243_MLC006_43_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG244_MLC004_43_DLL {alias SG244_MLC004_43_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG245_MLC004_43_DLL {alias SG245_MLC004_43_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG243_MLC006_43_DLL {alias SG243_MLC006_43_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG244_MLC004_43_DLL {alias SG244_MLC004_43_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG245_MLC004_43_DLL {alias SG245_MLC004_43_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG243_MLC006_43 {lhs SG243_MLC006_43 case negative {condition svSG243_MLC006_43 < 0 rhs svSG243_MLC006_43 lhs>rhs penalty SGPHIGH}}
 goal setNegSG244_MLC004_43 {lhs SG244_MLC004_43 case negative {condition svSG244_MLC004_43 < 0 rhs svSG244_MLC004_43 lhs>rhs penalty SGPHIGH}}
@@ -453,8 +551,8 @@ goal setPosSG245_MLC004_43 {lhs SG245_MLC004_43 case negative {condition svSG245
 define svSG225_PYN001_38 {value SG225_PYN001_38[setup]}
 define svSG226_PYN001_38 {value SG226_PYN001_38[setup]}
 
-define SG225_PYN001_38_DLL {alias SG225_PYN001_38_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG226_PYN001_38_DLL {alias SG226_PYN001_38_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG225_PYN001_38_DLL {alias SG225_PYN001_38_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG226_PYN001_38_DLL {alias SG226_PYN001_38_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG225_PYN001_38 {lhs SG225_PYN001_38 case negative {condition svSG225_PYN001_38 < 0 rhs svSG225_PYN001_38 lhs>rhs penalty SGPHIGH}}
 goal setNegSG226_PYN001_38 {lhs SG226_PYN001_38 case negative {condition svSG226_PYN001_38 < 0 rhs svSG226_PYN001_38 lhs>rhs penalty SGPHIGH}}
@@ -471,12 +569,12 @@ define svSG403_PTH011_69 {value SG403_PTH011_69[setup]}
 define svSG404_PTH007_69 {value SG404_PTH007_69[setup]}
 define svSG405_PTH007_69 {value SG405_PTH007_69[setup]}
 
-define SG400_PTH024_69_DLL {alias SG400_PTH024_69_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG401_PTH020_69_DLL {alias SG401_PTH020_69_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG402_PTH015_69_DLL {alias SG402_PTH015_69_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG403_PTH011_69_DLL {alias SG403_PTH011_69_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG404_PTH007_69_DLL {alias SG404_PTH007_69_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG405_PTH007_69_DLL {alias SG405_PTH007_69_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG400_PTH024_69_DLL {alias SG400_PTH024_69_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG401_PTH020_69_DLL {alias SG401_PTH020_69_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG402_PTH015_69_DLL {alias SG402_PTH015_69_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG403_PTH011_69_DLL {alias SG403_PTH011_69_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG404_PTH007_69_DLL {alias SG404_PTH007_69_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG405_PTH007_69_DLL {alias SG405_PTH007_69_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG400_PTH024_69 {lhs SG400_PTH024_69 case negative {condition svSG400_PTH024_69 < 0 rhs svSG400_PTH024_69 lhs>rhs penalty SGPHIGH}}
 goal setNegSG401_PTH020_69 {lhs SG401_PTH020_69 case negative {condition svSG401_PTH020_69 < 0 rhs svSG401_PTH020_69 lhs>rhs penalty SGPHIGH}}
@@ -567,78 +665,78 @@ define svSG416_SAC003_71 {value SG416_SAC003_71[setup]}
 define svSG417_SAC000_71 {value SG417_SAC000_71[setup]}
 define svSG418_SAC000_72 {value SG418_SAC000_72[setup]}
 
-define SG205_SAC296_32_DLL {alias SG205_SAC296_32_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG206_SAC294_32_DLL {alias SG206_SAC294_32_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG207_SAC289_32_DLL {alias SG207_SAC289_32_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG208_SAC287_32_DLL {alias SG208_SAC287_32_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG209_SAC281_32_DLL {alias SG209_SAC281_32_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG210_SAC277_32_DLL {alias SG210_SAC277_32_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG215_SAC277_34_DLL {alias SG215_SAC277_34_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG216_SAC275_34_DLL {alias SG216_SAC275_34_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG217_SAC269_34_DLL {alias SG217_SAC269_34_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG222_SAC269_37_DLL {alias SG222_SAC269_37_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG223_SAC265_37_DLL {alias SG223_SAC265_37_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG224_SAC259_37_DLL {alias SG224_SAC259_37_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG227_SAC259_39_DLL {alias SG227_SAC259_39_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG228_SAC254_39_DLL {alias SG228_SAC254_39_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG229_SAC250_39_DLL {alias SG229_SAC250_39_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG230_SAC247_39_DLL {alias SG230_SAC247_39_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG231_SAC240_39_DLL {alias SG231_SAC240_39_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG232_SAC232_39_DLL {alias SG232_SAC232_39_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG235_SAC232_41_DLL {alias SG235_SAC232_41_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG236_SAC228_41_DLL {alias SG236_SAC228_41_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG246_SAC228_44_DLL {alias SG246_SAC228_44_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG247_SAC224_44_DLL {alias SG247_SAC224_44_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG254_SAC224_46_DLL {alias SG254_SAC224_46_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG255_SAC218_46_DLL {alias SG255_SAC218_46_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG259_SAC218_48_DLL {alias SG259_SAC218_48_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG260_SAC214_48_DLL {alias SG260_SAC214_48_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG261_SAC207_48_DLL {alias SG261_SAC207_48_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG262_SAC196_48_DLL {alias SG262_SAC196_48_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG273_SAC196_51_DLL {alias SG273_SAC196_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG274_SAC193_51_DLL {alias SG274_SAC193_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG275_SAC188_51_DLL {alias SG275_SAC188_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG276_SAC182_51_DLL {alias SG276_SAC182_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG277_SAC178_51_DLL {alias SG277_SAC178_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG278_SAC174_51_DLL {alias SG278_SAC174_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG279_SAC168_51_DLL {alias SG279_SAC168_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG280_SAC162_51_DLL {alias SG280_SAC162_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG281_SAC154_51_DLL {alias SG281_SAC154_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG282_SAC148_51_DLL {alias SG282_SAC148_51_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG293_SAC148_53_DLL {alias SG293_SAC148_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG294_SAC141_53_DLL {alias SG294_SAC141_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG295_SAC134_53_DLL {alias SG295_SAC134_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG296_SAC129_53_DLL {alias SG296_SAC129_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG297_SAC122_53_DLL {alias SG297_SAC122_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG298_SAC115_53_DLL {alias SG298_SAC115_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG299_SAC106_53_DLL {alias SG299_SAC106_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG300_SAC097_53_DLL {alias SG300_SAC097_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG301_SAC092_53_DLL {alias SG301_SAC092_53_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG330_SAC092_57_DLL {alias SG330_SAC092_57_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG331_SAC085_57_DLL {alias SG331_SAC085_57_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG332_SAC083_57_DLL {alias SG332_SAC083_57_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG367_SAC083_65_DLL {alias SG367_SAC083_65_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG368_SAC082_65_DLL {alias SG368_SAC082_65_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG369_SAC081_65_DLL {alias SG369_SAC081_65_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG370_SAC078_65_DLL {alias SG370_SAC078_65_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG371_SAC075_65_DLL {alias SG371_SAC075_65_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG372_SAC066_65_DLL {alias SG372_SAC066_65_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG373_SAC063_65_DLL {alias SG373_SAC063_65_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG381_SAC063_67_DLL {alias SG381_SAC063_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG382_SAC057_67_DLL {alias SG382_SAC057_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG383_SAC053_67_DLL {alias SG383_SAC053_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG384_SAC048_67_DLL {alias SG384_SAC048_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG385_SAC041_67_DLL {alias SG385_SAC041_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG386_SAC036_67_DLL {alias SG386_SAC036_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG387_SAC030_67_DLL {alias SG387_SAC030_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG388_SAC022_67_DLL {alias SG388_SAC022_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG389_SAC017_67_DLL {alias SG389_SAC017_67_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG413_SAC017_71_DLL {alias SG413_SAC017_71_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG414_SAC011_71_DLL {alias SG414_SAC011_71_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG415_SAC007_71_DLL {alias SG415_SAC007_71_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG416_SAC003_71_DLL {alias SG416_SAC003_71_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG417_SAC000_71_DLL {alias SG417_SAC000_71_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG418_SAC000_72_DLL {alias SG418_SAC000_72_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG205_SAC296_32_DLL {alias SG205_SAC296_32_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG206_SAC294_32_DLL {alias SG206_SAC294_32_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG207_SAC289_32_DLL {alias SG207_SAC289_32_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG208_SAC287_32_DLL {alias SG208_SAC287_32_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG209_SAC281_32_DLL {alias SG209_SAC281_32_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG210_SAC277_32_DLL {alias SG210_SAC277_32_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG215_SAC277_34_DLL {alias SG215_SAC277_34_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG216_SAC275_34_DLL {alias SG216_SAC275_34_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG217_SAC269_34_DLL {alias SG217_SAC269_34_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG222_SAC269_37_DLL {alias SG222_SAC269_37_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG223_SAC265_37_DLL {alias SG223_SAC265_37_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG224_SAC259_37_DLL {alias SG224_SAC259_37_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG227_SAC259_39_DLL {alias SG227_SAC259_39_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG228_SAC254_39_DLL {alias SG228_SAC254_39_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG229_SAC250_39_DLL {alias SG229_SAC250_39_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG230_SAC247_39_DLL {alias SG230_SAC247_39_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG231_SAC240_39_DLL {alias SG231_SAC240_39_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG232_SAC232_39_DLL {alias SG232_SAC232_39_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG235_SAC232_41_DLL {alias SG235_SAC232_41_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG236_SAC228_41_DLL {alias SG236_SAC228_41_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG246_SAC228_44_DLL {alias SG246_SAC228_44_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG247_SAC224_44_DLL {alias SG247_SAC224_44_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG254_SAC224_46_DLL {alias SG254_SAC224_46_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG255_SAC218_46_DLL {alias SG255_SAC218_46_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG259_SAC218_48_DLL {alias SG259_SAC218_48_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG260_SAC214_48_DLL {alias SG260_SAC214_48_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG261_SAC207_48_DLL {alias SG261_SAC207_48_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG262_SAC196_48_DLL {alias SG262_SAC196_48_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG273_SAC196_51_DLL {alias SG273_SAC196_51_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG274_SAC193_51_DLL {alias SG274_SAC193_51_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG275_SAC188_51_DLL {alias SG275_SAC188_51_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG276_SAC182_51_DLL {alias SG276_SAC182_51_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG277_SAC178_51_DLL {alias SG277_SAC178_51_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG278_SAC174_51_DLL {alias SG278_SAC174_51_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG279_SAC168_51_DLL {alias SG279_SAC168_51_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG280_SAC162_51_DLL {alias SG280_SAC162_51_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG281_SAC154_51_DLL {alias SG281_SAC154_51_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG282_SAC148_51_DLL {alias SG282_SAC148_51_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG293_SAC148_53_DLL {alias SG293_SAC148_53_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG294_SAC141_53_DLL {alias SG294_SAC141_53_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG295_SAC134_53_DLL {alias SG295_SAC134_53_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG296_SAC129_53_DLL {alias SG296_SAC129_53_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG297_SAC122_53_DLL {alias SG297_SAC122_53_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG298_SAC115_53_DLL {alias SG298_SAC115_53_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG299_SAC106_53_DLL {alias SG299_SAC106_53_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG300_SAC097_53_DLL {alias SG300_SAC097_53_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG301_SAC092_53_DLL {alias SG301_SAC092_53_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG330_SAC092_57_DLL {alias SG330_SAC092_57_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG331_SAC085_57_DLL {alias SG331_SAC085_57_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG332_SAC083_57_DLL {alias SG332_SAC083_57_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG367_SAC083_65_DLL {alias SG367_SAC083_65_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG368_SAC082_65_DLL {alias SG368_SAC082_65_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG369_SAC081_65_DLL {alias SG369_SAC081_65_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG370_SAC078_65_DLL {alias SG370_SAC078_65_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG371_SAC075_65_DLL {alias SG371_SAC075_65_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG372_SAC066_65_DLL {alias SG372_SAC066_65_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG373_SAC063_65_DLL {alias SG373_SAC063_65_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG381_SAC063_67_DLL {alias SG381_SAC063_67_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG382_SAC057_67_DLL {alias SG382_SAC057_67_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG383_SAC053_67_DLL {alias SG383_SAC053_67_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG384_SAC048_67_DLL {alias SG384_SAC048_67_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG385_SAC041_67_DLL {alias SG385_SAC041_67_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG386_SAC036_67_DLL {alias SG386_SAC036_67_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG387_SAC030_67_DLL {alias SG387_SAC030_67_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG388_SAC022_67_DLL {alias SG388_SAC022_67_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG389_SAC017_67_DLL {alias SG389_SAC017_67_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG413_SAC017_71_DLL {alias SG413_SAC017_71_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG414_SAC011_71_DLL {alias SG414_SAC011_71_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG415_SAC007_71_DLL {alias SG415_SAC007_71_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG416_SAC003_71_DLL {alias SG416_SAC003_71_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG417_SAC000_71_DLL {alias SG417_SAC000_71_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG418_SAC000_72_DLL {alias SG418_SAC000_72_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG205_SAC296_32 {lhs SG205_SAC296_32 case negative {condition svSG205_SAC296_32 < 0 rhs svSG205_SAC296_32 lhs>rhs penalty SGPHIGH}}
 goal setNegSG206_SAC294_32 {lhs SG206_SAC294_32 case negative {condition svSG206_SAC294_32 < 0 rhs svSG206_SAC294_32 lhs>rhs penalty SGPHIGH}}
@@ -795,12 +893,12 @@ define svSG266_STN009_49 {value SG266_STN009_49[setup]}
 define svSG267_STN004_49 {value SG267_STN004_49[setup]}
 define svSG268_STN004_49 {value SG268_STN004_49[setup]}
 
-define SG263_STN026_49_DLL {alias SG263_STN026_49_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG264_STN021_49_DLL {alias SG264_STN021_49_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG265_STN014_49_DLL {alias SG265_STN014_49_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG266_STN009_49_DLL {alias SG266_STN009_49_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG267_STN004_49_DLL {alias SG267_STN004_49_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG268_STN004_49_DLL {alias SG268_STN004_49_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG263_STN026_49_DLL {alias SG263_STN026_49_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG264_STN021_49_DLL {alias SG264_STN021_49_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG265_STN014_49_DLL {alias SG265_STN014_49_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG266_STN009_49_DLL {alias SG266_STN009_49_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG267_STN004_49_DLL {alias SG267_STN004_49_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG268_STN004_49_DLL {alias SG268_STN004_49_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG263_STN026_49 {lhs SG263_STN026_49 case negative {condition svSG263_STN026_49 < 0 rhs svSG263_STN026_49 lhs>rhs penalty SGPHIGH}}
 goal setNegSG264_STN021_49 {lhs SG264_STN021_49 case negative {condition svSG264_STN021_49 < 0 rhs svSG264_STN021_49 lhs>rhs penalty SGPHIGH}}
@@ -827,14 +925,14 @@ define svSG338_SBP018_58 {value SG338_SBP018_58[setup]}
 define svSG339_SBP014_58 {value SG339_SBP014_58[setup]}
 define svSG340_SBP012_58 {value SG340_SBP012_58[setup]}
 
-define SG333_BSL001_58_DLL {alias SG333_BSL001_58_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG334_SBP031_58_DLL {alias SG334_SBP031_58_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG335_SBP028_58_DLL {alias SG335_SBP028_58_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG336_SBP024_58_DLL {alias SG336_SBP024_58_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG337_SBP021_58_DLL {alias SG337_SBP021_58_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG338_SBP018_58_DLL {alias SG338_SBP018_58_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG339_SBP014_58_DLL {alias SG339_SBP014_58_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG340_SBP012_58_DLL {alias SG340_SBP012_58_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG333_BSL001_58_DLL {alias SG333_BSL001_58_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG334_SBP031_58_DLL {alias SG334_SBP031_58_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG335_SBP028_58_DLL {alias SG335_SBP028_58_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG336_SBP024_58_DLL {alias SG336_SBP024_58_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG337_SBP021_58_DLL {alias SG337_SBP021_58_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG338_SBP018_58_DLL {alias SG338_SBP018_58_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG339_SBP014_58_DLL {alias SG339_SBP014_58_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG340_SBP012_58_DLL {alias SG340_SBP012_58_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG333_BSL001_58 {lhs SG333_BSL001_58 case negative {condition svSG333_BSL001_58 < 0 rhs svSG333_BSL001_58 lhs>rhs penalty SGPHIGH}}
 goal setNegSG334_SBP031_58 {lhs SG334_SBP031_58 case negative {condition svSG334_SBP031_58 < 0 rhs svSG334_SBP031_58 lhs>rhs penalty SGPHIGH}}
@@ -863,12 +961,12 @@ define svSG251_THM012_45 {value SG251_THM012_45[setup]}
 define svSG252_THM005_45 {value SG252_THM005_45[setup]}
 define svSG253_THM005_45 {value SG253_THM005_45[setup]}
 
-define SG248_THM026_45_DLL {alias SG248_THM026_45_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG249_THM021_45_DLL {alias SG249_THM021_45_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG250_THM017_45_DLL {alias SG250_THM017_45_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG251_THM012_45_DLL {alias SG251_THM012_45_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG252_THM005_45_DLL {alias SG252_THM005_45_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG253_THM005_45_DLL {alias SG253_THM005_45_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG248_THM026_45_DLL {alias SG248_THM026_45_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG249_THM021_45_DLL {alias SG249_THM021_45_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG250_THM017_45_DLL {alias SG250_THM017_45_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG251_THM012_45_DLL {alias SG251_THM012_45_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG252_THM005_45_DLL {alias SG252_THM005_45_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG253_THM005_45_DLL {alias SG253_THM005_45_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG248_THM026_45 {lhs SG248_THM026_45 case negative {condition svSG248_THM026_45 < 0 rhs svSG248_THM026_45 lhs>rhs penalty SGPHIGH}}
 goal setNegSG249_THM021_45 {lhs SG249_THM021_45 case negative {condition svSG249_THM021_45 < 0 rhs svSG249_THM021_45 lhs>rhs penalty SGPHIGH}}
@@ -889,8 +987,8 @@ goal setPosSG253_THM005_45 {lhs SG253_THM005_45 case negative {condition svSG253
 define svSG396_YBP032_68 {value SG396_YBP032_68[setup]}
 define svSG397_YBP026_68 {value SG397_YBP026_68[setup]}
 
-define SG396_YBP032_68_DLL {alias SG396_YBP032_68_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG397_YBP026_68_DLL {alias SG397_YBP026_68_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG396_YBP032_68_DLL {alias SG396_YBP032_68_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG397_YBP026_68_DLL {alias SG397_YBP026_68_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG396_YBP032_68 {lhs SG396_YBP032_68 case negative {condition svSG396_YBP032_68 < 0 rhs svSG396_YBP032_68 lhs>rhs penalty SGPHIGH}}
 goal setNegSG397_YBP026_68 {lhs SG397_YBP026_68 case negative {condition svSG397_YBP026_68 < 0 rhs svSG397_YBP026_68 lhs>rhs penalty SGPHIGH}}
@@ -904,9 +1002,9 @@ define svSG349_YUB011_60 {value SG349_YUB011_60[setup]}
 define svSG350_YUB006_60 {value SG350_YUB006_60[setup]}
 define svSG351_YUB002_60 {value SG351_YUB002_60[setup]}
 
-define SG349_YUB011_60_DLL {alias SG349_YUB011_60_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG350_YUB006_60_DLL {alias SG350_YUB006_60_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
-define SG351_YUB002_60_DLL {alias SG351_YUB002_60_DLL[setup] kind 'RIVER-SEEPAGE' units 'CFS'}
+define SG349_YUB011_60_DLL {alias SG349_YUB011_60_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG350_YUB006_60_DLL {alias SG350_YUB006_60_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
+define SG351_YUB002_60_DLL {alias SG351_YUB002_60_DLL[setup] kind 'STREAM-GAIN' units 'CFS'}
 
 goal setNegSG349_YUB011_60 {lhs SG349_YUB011_60 case negative {condition svSG349_YUB011_60 < 0 rhs svSG349_YUB011_60 lhs>rhs penalty SGPHIGH}}
 goal setNegSG350_YUB006_60 {lhs SG350_YUB006_60 case negative {condition svSG350_YUB006_60 < 0 rhs svSG350_YUB006_60 lhs>rhs penalty SGPHIGH}}

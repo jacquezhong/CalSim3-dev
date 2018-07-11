@@ -49,4 +49,6 @@
 <stringAttribute key="wpp.debugModel.ATTR_WPP_TIMESTEP_MS2" value="1MON"/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_VARIABLEDURATION" value=""/>
 <stringAttribute key="wpp.debugModel.ATTR_WPP_WRESLPLUS" value="yes"/>
+<stringAttribute key="wpp.debugModel.CALSIMHYDROEXE" value=""/>
+<stringAttribute key="wpp.debugModel.CALSIMHYDRORUN" value="0"/>
 </launchConfiguration>

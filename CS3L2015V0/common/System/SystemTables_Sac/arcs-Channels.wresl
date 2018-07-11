@@ -259,6 +259,10 @@ define C_CLR025	{std kind 'CHANNEL' units 'CFS'}
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Colusa Basin Drain	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define C_CBD055	{lower 0 upper 99999 kind 'CHANNEL' units 'CFS'}	
+define C_CBD052	{lower 0 upper 99999 kind 'CHANNEL' units 'CFS'}	
+define C_CBD050	{lower 0 upper 99999 kind 'CHANNEL' units 'CFS'}	
+
 define C_CBD049	{std kind 'CHANNEL' units 'CFS'}	
 define C_CBD044	{std kind 'CHANNEL' units 'CFS'}	
 define C_CBD041	{std kind 'CHANNEL' units 'CFS'}	
@@ -289,6 +293,15 @@ define C_CWD009	{std kind 'CHANNEL' units 'CFS'}
 define C_CWD004	{std kind 'CHANNEL' units 'CFS'}
 define C_CWD003	{std kind 'CHANNEL' units 'CFS'}
 
+define C_CWD013	{std kind 'CHANNEL' units 'CFS'}
+define C_CWD022	{std kind 'CHANNEL' units 'CFS'}
+define C_NCW001	{std kind 'CHANNEL' units 'CFS'}
+define C_MCW003	{std kind 'CHANNEL' units 'CFS'}
+define C_SCW004	{std kind 'CHANNEL' units 'CFS'}
+define C_SCW020	{std kind 'CHANNEL' units 'CFS'}
+define C_SCW025	{std kind 'CHANNEL' units 'CFS'}
+define C_STC008	{std kind 'CHANNEL' units 'CFS'}
+define C_STC010	{std kind 'CHANNEL' units 'CFS'}
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Cow Creek		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
