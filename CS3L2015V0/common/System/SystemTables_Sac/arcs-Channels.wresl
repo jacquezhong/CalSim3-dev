@@ -177,6 +177,27 @@ define C_BCC004	{std kind 'CHANNEL' units 'CFS'}
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 define  C_BGD000	{std kind 'CHANNEL' units 'CFS'}
 define  C_CRK005	{std kind 'CHANNEL' units 'CFS'}
+define  C_CRK003	{std kind 'CHANNEL' units 'CFS'}
+
+! Upstream drains around Butte Basin
+define C_BTD030	{std kind 'CHANNEL' units 'CFS'}
+define C_BTD026	{std kind 'CHANNEL' units 'CFS'}
+define C_BTD021	{std kind 'CHANNEL' units 'CFS'}
+define C_BTD017	{std kind 'CHANNEL' units 'CFS'}
+define C_BTD011	{std kind 'CHANNEL' units 'CFS'}
+define C_BTD006	{std kind 'CHANNEL' units 'CFS'}
+define C_BTD003	{std kind 'CHANNEL' units 'CFS'}
+
+define C_SED006	{std kind 'CHANNEL' units 'CFS'}
+
+define C_MED006	{std kind 'CHANNEL' units 'CFS'}
+
+define C_NED029	{std kind 'CHANNEL' units 'CFS'}
+define C_NED024	{std kind 'CHANNEL' units 'CFS'}
+define C_NED019	{std kind 'CHANNEL' units 'CFS'}
+define C_NED014	{std kind 'CHANNEL' units 'CFS'}
+define C_NED009	{std kind 'CHANNEL' units 'CFS'}
+define C_NED005	{std kind 'CHANNEL' units 'CFS'}
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Butte Creek / Butte Slough		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -248,7 +269,7 @@ define C_CAA000	{std kind 'CHANNEL' units 'CFS'}
 define C_CAA002	{std kind 'CHANNEL' units 'CFS'}
 define C_CAA003	{std kind 'CHANNEL' units 'CFS'}
 
-  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Clear Creek		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 define C_WKYTN	{std kind 'CHANNEL' units 'CFS'} !define C_WKYTN {lower 0 upper 3000 kind 'CHANNEL' units 'CFS'} !see C_WKYTN_NCF in constraints-FloodSpill.wresl
@@ -262,6 +283,13 @@ define C_CLR025	{std kind 'CHANNEL' units 'CFS'}
 define C_CBD055	{lower 0 upper 99999 kind 'CHANNEL' units 'CFS'}	
 define C_CBD052	{lower 0 upper 99999 kind 'CHANNEL' units 'CFS'}	
 define C_CBD050	{lower 0 upper 99999 kind 'CHANNEL' units 'CFS'}	
+
+!Willow Creek flowing into CBD049
+define C_WLW021	{std kind 'CHANNEL' units 'CFS'}
+define C_WLW016	{std kind 'CHANNEL' units 'CFS'}
+define C_WLW013	{std kind 'CHANNEL' units 'CFS'}
+define C_WLW009	{std kind 'CHANNEL' units 'CFS'}
+define C_WLW003	{std kind 'CHANNEL' units 'CFS'}
 
 define C_CBD049	{std kind 'CHANNEL' units 'CFS'}	
 define C_CBD044	{std kind 'CHANNEL' units 'CFS'}	
@@ -303,6 +331,10 @@ define C_SCW025	{std kind 'CHANNEL' units 'CFS'}
 define C_STC008	{std kind 'CHANNEL' units 'CFS'}
 define C_STC010	{std kind 'CHANNEL' units 'CFS'}
 
+!Dry Creek flowing into South Fork Cottonwood Creek
+define C_DYC013	{std kind 'CHANNEL' units 'CFS'}
+define C_DYC008	{std kind 'CHANNEL' units 'CFS'}
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Cow Creek		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -341,6 +373,24 @@ define C_DHC001 	{std kind 'CHANNEL' units 'CFS'}
 !!! East Bay Aqueduct	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 define C_EBA000	{std kind 'CHANNEL' units 'CFS'}	
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! East Delta Drain   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+define C_EDD061	{std kind 'CHANNEL' units 'CFS'}
+define C_EDD055	{std kind 'CHANNEL' units 'CFS'}
+define C_EDD047	{std kind 'CHANNEL' units 'CFS'}
+define C_EDD041	{std kind 'CHANNEL' units 'CFS'}
+define C_EDD036	{std kind 'CHANNEL' units 'CFS'}
+define C_EDD031	{std kind 'CHANNEL' units 'CFS'}
+define C_EDD026	{std kind 'CHANNEL' units 'CFS'}
+define C_EDD018	{std kind 'CHANNEL' units 'CFS'}
+define C_EDD012	{std kind 'CHANNEL' units 'CFS'}
+define C_EDD008	{std kind 'CHANNEL' units 'CFS'}
+
+define C_NDD010	{std kind 'CHANNEL' units 'CFS'}
+define C_NDD006	{std kind 'CHANNEL' units 'CFS'}
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -464,6 +514,10 @@ define C_GCC065	{lower 0 upper 0 kind 'CHANNEL' units 'CFS'}
 define C_HON004	{std kind 'CHANNEL' units 'CFS'}
 define C_HON021	{std kind 'CHANNEL' units 'CFS'}
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Island Drain   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define C_ISD008	{std kind 'CHANNEL' units 'CFS'}
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Isolated Facility	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -751,6 +805,15 @@ define C_CHCGO		{std kind 'CHANNEL' units 'CFS'}
 !define C_504		{std kind 'CHANNEL' units 'CFS'}
 !define C_644		{std kind 'CHANNEL' units 'CFS'}
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Suisun Drain   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define C_SSD020	{std kind 'CHANNEL' units 'CFS'}
+define C_SSD014	{std kind 'CHANNEL' units 'CFS'}
+define C_SSD007	{std kind 'CHANNEL' units 'CFS'}
+
+define C_ESD012	{std kind 'CHANNEL' units 'CFS'}
+define C_ESD007	{std kind 'CHANNEL' units 'CFS'}
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Sutter Bypass	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -28,33 +28,6 @@ Ines Ferreira - Coding changes at junctions and nodes April 2010
 !***  Set stream flows at each stream node
 !*********************************************************************
 !*********************************************************************
-!!!New Stream Node 7/9/2018
-!Middle Fork Cottonwood Creek
-define rSetFlow_031_450  {value    SetStrmFlow( C_MCW003[gw_second] * cfs_cfm,450) }                                   
-define rSetFlow_032_451  {value    SetStrmFlow( C_MCW003[gw_second] * cfs_cfm,451) } 
-define rSetFlow450_MCW003 {value SetStrmFlow(C_MCW003[gw_second] * cfs_cfm,450)}
-define rSetFlow451_MCW003 {value SetStrmFlow(C_MCW003[gw_second] * cfs_cfm,451)}
-!Cottonwood Creek
-define rSetFlow_032_452  {value    SetStrmFlow( C_CWD022[gw_second] * cfs_cfm,452) }                                   
-define rSetFlow_033_453  {value    SetStrmFlow((C_CWD018[gw_second]+C_CWD022[gw_second])/2 * cfs_cfm,453) }                    
-define rSetFlow_034_454  {value    SetStrmFlow((C_CWD013[gw_second]+C_CWD018[gw_second])/2 * cfs_cfm,454) } 
-define rSetFlow_035_455  {value    SetStrmFlow( C_CWD013[gw_second] * cfs_cfm,455)}
-define rSetFlow_035_456  {value    SetStrmFlow( C_CWD009[gw_second] * cfs_cfm,456)}
-define rSetFlow_036_457  {value    SetStrmFlow( C_CWD009[gw_second] * cfs_cfm,457)}
-!North Fork Cottonwood Creek
-define rSetFlow_025_458  {value    SetStrmFlow( C_NCW001[gw_second] * cfs_cfm,458) }                                   
-define rSetFlow_032_459  {value    SetStrmFlow( C_NCW001[gw_second] * cfs_cfm,459) }                                   
-!South Fork Cottonwood Creek
-define rSetFlow_057_460  {value    SetStrmFlow((C_SCW020[gw_second]+C_SCW025[gw_second])/2 * cfs_cfm,460) }
-define rSetFlow_051_461  {value    SetStrmFlow((C_SCW020[gw_second]+C_SCW025[gw_second])/2 * cfs_cfm,461) }
-define rSetFlow_041_462  {value    SetStrmFlow( C_SCW020[gw_second] * cfs_cfm,462) }
-define rSetFlow_041_463  {value    SetStrmFlow( C_SCW008[gw_second] * cfs_cfm,463) }
-define rSetFlow_042_464  {value    SetStrmFlow((C_SCW008[gw_second]+C_SCW004[gw_second])/2 * cfs_cfm,464) }
-define rSetFlow_035_465  {value    SetStrmFlow( C_SCW004[gw_second]  * cfs_cfm,465) }
-!Salt Creek flowing into South Fork Cottonwood Creek
-define rSetFlow_048_466  {value    SetStrmFlow( C_STC010[gw_second] * cfs_cfm,466) }
-define rSetFlow_049_467  {value    SetStrmFlow((C_STC008[gw_second]+C_STC010[gw_second])/2 * cfs_cfm,467) }
-define rSetFlow_041_468  {value    SetStrmFlow( C_STC008[gw_second] * cfs_cfm,468) }
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! American River	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -80,6 +53,27 @@ define rSetFlow_073_233  {value    SetStrmFlow((C_ANT011[gw_second] + C_ANT010[g
  
 define rSetFlow_079_234  {value    SetStrmFlow(C_ANT010[gw_second] * cfs_cfm,234) }
  
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Auburn Ravine   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define rSetFlow_352_509  {value    SetStrmFlow(                        C_CRC002[gw_second]    * cfs_cfm,509) }
+define rSetFlow_350_510  {value    SetStrmFlow(                        C_CRC002[gw_second]    * cfs_cfm,510) }
+
+define rSetFlow_353_511  {value    SetStrmFlow(                        C_ABN000[gw_second]    * cfs_cfm,511) }
+define rSetFlow_352_512  {value    SetStrmFlow(                        C_ABN000[gw_second]    * cfs_cfm,512) }
+
+define rSetFlow_346_513  {value    SetStrmFlow(                        C_CCK022[gw_second]    * cfs_cfm,513) }
+define rSetFlow_345_514  {value    SetStrmFlow(                        C_CCK022[gw_second]    * cfs_cfm,514) }
+define rSetFlow_344_515  {value    SetStrmFlow(                        C_CCK022[gw_second]    * cfs_cfm,515) }
+define rSetFlow_343_516  {value    SetStrmFlow((C_CCK022[gw_second] + C_CCK007[gw_second])/2 * cfs_cfm,516) }
+define rSetFlow_353_517  {value    SetStrmFlow(                        C_CCK007[gw_second]    * cfs_cfm,517) }
+
+define rSetFlow_357_518  {value    SetStrmFlow(                        C_ABN014[gw_second]    * cfs_cfm,518) }
+define rSetFlow_356_519  {value    SetStrmFlow(                        C_ABN014[gw_second]    * cfs_cfm,519) }
+define rSetFlow_355_520  {value    SetStrmFlow((C_ABN014[gw_second] + C_ABN010[gw_second])/2 * cfs_cfm,520) }
+define rSetFlow_354_521  {value    SetStrmFlow((C_ABN010[gw_second] + C_ABN006[gw_second])/2 * cfs_cfm,521) }
+define rSetFlow_353_522  {value    SetStrmFlow(                        C_ABN006[gw_second]    * cfs_cfm,522) }
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Big Chico Creek	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -132,6 +126,47 @@ define rSetFlow_242_290  {value    SetStrmFlow((C_BTC012[gw_second] + C_BTC007[g
 define rSetFlow_255_291  {value    SetStrmFlow((C_BTC007[gw_second] + C_BTC003[gw_second])/2 * cfs_cfm,291) }
  
 define rSetFlow_263_292  {value    SetStrmFlow(C_BTC003[gw_second] * cfs_cfm,292) }
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Cherokee Canal and Upstream Drain!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define rSetFlow_243_481  {value    SetStrmFlow(                        C_CRK005[gw_second]    * cfs_cfm,481) } 
+define rSetFlow_256_482  {value    SetStrmFlow((C_CRK005[gw_second] +  C_CRK003[gw_second])/2 * cfs_cfm,482) }
+define rSetFlow_263_483  {value    SetStrmFlow(                        C_CRK003[gw_second]    * cfs_cfm,483) }
+
+define rSetFlow_229_484  {value    SetStrmFlow(                        C_CRK005[gw_second]    * cfs_cfm,484) }
+define rSetFlow_243_485  {value    SetStrmFlow(                        C_CRK005[gw_second]    * cfs_cfm,485) }
+
+define rSetFlow_224_486  {value    SetStrmFlow(                        C_BTD003[gw_second]    * cfs_cfm,486) }
+define rSetFlow_229_487  {value    SetStrmFlow(                        C_BTD003[gw_second]    * cfs_cfm,487) }
+
+define rSetFlow_205_488  {value    SetStrmFlow(                        C_BTD006[gw_second]    * cfs_cfm,488) }
+define rSetFlow_224_489  {value    SetStrmFlow(                        C_BTD006[gw_second]    * cfs_cfm,489) }
+
+define rSetFlow_158_490  {value    SetStrmFlow(                        C_BTD021[gw_second]    * cfs_cfm,490) }
+define rSetFlow_174_491  {value    SetStrmFlow((C_BTD021[gw_second] + C_BTD017[gw_second])/2 * cfs_cfm,491) }
+define rSetFlow_189_492  {value    SetStrmFlow((C_BTD017[gw_second] + C_BTD011[gw_second])/2 * cfs_cfm,492) }
+define rSetFlow_205_493  {value    SetStrmFlow(                        C_BTD011[gw_second]    * cfs_cfm,493) }
+
+define rSetFlow_148_494  {value    SetStrmFlow(                        C_BTD030[gw_second]    * cfs_cfm,494) }
+define rSetFlow_149_495  {value    SetStrmFlow((C_BTD030[gw_second] + C_BTD026[gw_second])/2 * cfs_cfm,495) }
+define rSetFlow_158_496  {value    SetStrmFlow(                        C_BTD026[gw_second]    * cfs_cfm,496) }
+
+define rSetFlow_230_497  {value    SetStrmFlow(                        C_SED006[gw_second]    * cfs_cfm,497) }
+define rSetFlow_229_498  {value    SetStrmFlow(                        C_SED006[gw_second]    * cfs_cfm,498) }
+
+define rSetFlow_225_499  {value    SetStrmFlow(                        C_MED006[gw_second]    * cfs_cfm,499) }
+define rSetFlow_224_500  {value    SetStrmFlow(                        C_MED006[gw_second]    * cfs_cfm,500) }
+
+define rSetFlow_159_501  {value    SetStrmFlow(                        C_NED019[gw_second]    * cfs_cfm,501) }
+define rSetFlow_175_502  {value    SetStrmFlow((C_NED019[gw_second] + C_NED014[gw_second])/2 * cfs_cfm,502) }
+define rSetFlow_190_503  {value    SetStrmFlow((C_NED014[gw_second] + C_NED009[gw_second])/2 * cfs_cfm,503) }
+define rSetFlow_206_504  {value    SetStrmFlow((C_NED009[gw_second] + C_NED005[gw_second])/2 * cfs_cfm,504) }
+define rSetFlow_205_505  {value    SetStrmFlow(                        C_NED005[gw_second]    * cfs_cfm,505) }
+
+define rSetFlow_150_506  {value    SetStrmFlow(                        C_NED029[gw_second]    * cfs_cfm,506) }
+define rSetFlow_151_507  {value    SetStrmFlow((C_NED029[gw_second] + C_NED024[gw_second])/2 * cfs_cfm,507) }
+define rSetFlow_159_508  {value    SetStrmFlow(                        C_NED024[gw_second]    * cfs_cfm,508) }
  
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Colusa Basin Drain	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -140,6 +175,13 @@ define rSetFlow_213_469  {value    SetStrmFlow(                       C_CBD055[g
 define rSetFlow_218_470  {value    SetStrmFlow((C_CBD055[gw_second] + C_CBD052[gw_second])/2 * cfs_cfm,470) }
 define rSetFlow_219_471  {value    SetStrmFlow((C_CBD052[gw_second] + C_CBD050[gw_second])/2 * cfs_cfm,471) }
 define rSetFlow_220_472  {value    SetStrmFlow(C_CBD050[gw_second] * cfs_cfm,472) }
+
+!Willow Creek flowing into CBD049
+define rSetFlow_184_476  {value    SetStrmFlow(C_WLW021[gw_second] * cfs_cfm,476) } 
+define rSetFlow_185_477  {value    SetStrmFlow((C_WLW021[gw_second] + C_WLW016[gw_second])/2 * cfs_cfm,477) }
+define rSetFlow_201_478  {value    SetStrmFlow((C_WLW016[gw_second] + C_WLW013[gw_second])/2 * cfs_cfm,478) }
+define rSetFlow_214_479  {value    SetStrmFlow((C_WLW013[gw_second] + C_WLW009[gw_second])/2 * cfs_cfm,479) }
+define rSetFlow_220_480  {value    SetStrmFlow((C_WLW009[gw_second] + C_WLW003[gw_second])/2 * cfs_cfm,480) }
 
 define rSetFlow_220_318  {value    SetStrmFlow(C_CBD049[gw_second] * cfs_cfm,318) }
  
@@ -185,9 +227,39 @@ define rSetFlow_360_396  {value    SetStrmFlow(C_CCH003[gw_second] * cfs_cfm,396
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	  !
 !!! Cottonwood Creek	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	  !
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	  !
-define rSetFlow_036_218  {value    SetStrmFlow((C_CWD009[gw_second] + C_CWD004[gw_second])/2 * cfs_cfm,218) }
+define rSetFlow_036_218  {value    SetStrmFlow(C_CWD009[gw_second] * cfs_cfm,218) }
  
 define rSetFlow_037_219  {value    SetStrmFlow(C_CWD004[gw_second] * cfs_cfm,219) }
+
+!!!New Stream Node 7/9/2018
+!Middle Fork Cottonwood Creek
+define rSetFlow_031_450  {value    SetStrmFlow( C_MCW003[gw_second] * cfs_cfm,450) }                                   
+define rSetFlow_032_451  {value    SetStrmFlow( C_MCW003[gw_second] * cfs_cfm,451) } 
+!Cottonwood Creek
+define rSetFlow_032_452  {value    SetStrmFlow( C_CWD022[gw_second] * cfs_cfm,452) }                                   
+define rSetFlow_033_453  {value    SetStrmFlow((C_CWD018[gw_second]+C_CWD022[gw_second])/2 * cfs_cfm,453) }                    
+define rSetFlow_034_454  {value    SetStrmFlow((C_CWD013[gw_second]+C_CWD018[gw_second])/2 * cfs_cfm,454) } 
+define rSetFlow_035_455  {value    SetStrmFlow( C_CWD013[gw_second] * cfs_cfm,455)}
+define rSetFlow_035_456  {value    SetStrmFlow( C_CWD009[gw_second] * cfs_cfm,456)}
+define rSetFlow_036_457  {value    SetStrmFlow( C_CWD009[gw_second] * cfs_cfm,457)}
+!North Fork Cottonwood Creek
+define rSetFlow_025_458  {value    SetStrmFlow( C_NCW001[gw_second] * cfs_cfm,458) }                                   
+define rSetFlow_032_459  {value    SetStrmFlow( C_NCW001[gw_second] * cfs_cfm,459) }                                   
+!South Fork Cottonwood Creek
+define rSetFlow_057_460  {value    SetStrmFlow((C_SCW020[gw_second]+C_SCW025[gw_second])/2 * cfs_cfm,460) }
+define rSetFlow_051_461  {value    SetStrmFlow((C_SCW020[gw_second]+C_SCW025[gw_second])/2 * cfs_cfm,461) }
+define rSetFlow_041_462  {value    SetStrmFlow( C_SCW020[gw_second] * cfs_cfm,462) }
+define rSetFlow_041_463  {value    SetStrmFlow( C_SCW008[gw_second] * cfs_cfm,463) }
+define rSetFlow_042_464  {value    SetStrmFlow((C_SCW008[gw_second]+C_SCW004[gw_second])/2 * cfs_cfm,464) }
+define rSetFlow_035_465  {value    SetStrmFlow( C_SCW004[gw_second]  * cfs_cfm,465) }
+!Salt Creek flowing into South Fork Cottonwood Creek
+define rSetFlow_048_466  {value    SetStrmFlow( C_STC010[gw_second] * cfs_cfm,466) }
+define rSetFlow_049_467  {value    SetStrmFlow((C_STC008[gw_second]+C_STC010[gw_second])/2 * cfs_cfm,467) }
+define rSetFlow_041_468  {value    SetStrmFlow( C_STC008[gw_second] * cfs_cfm,468) }
+!Dry Creek flowing into South Fork Cottonwood Creek
+define rSetFlow_039_473  {value    SetStrmFlow(                        C_DYC013[gw_second]    * cfs_cfm,473) }
+define rSetFlow_040_474  {value    SetStrmFlow((C_DYC013[gw_second] + C_DYC008[gw_second])/2 * cfs_cfm,474) }
+define rSetFlow_041_475  {value    SetStrmFlow(                        C_DYC008[gw_second]    * cfs_cfm,475) }
  
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	  !
 !!! Cow Creek		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	  !
@@ -208,6 +280,27 @@ define rSetFlow_096_256  {value    SetStrmFlow((C_DRC012[gw_second] + C_DRC010[g
 define rSetFlow_100_257  {value    SetStrmFlow((C_DRC010[gw_second] + C_DRC005[gw_second])/2   * cfs_cfm,257) }
  
 define rSetFlow_099_258  {value    SetStrmFlow(C_DRC005[gw_second] * cfs_cfm,258) }
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! East Delta Drain   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define rSetFlow_519_523  {value    SetStrmFlow(                        C_EDD008[gw_second]    * cfs_cfm,523) }
+define rSetFlow_520_524  {value    SetStrmFlow(                        C_EDD008[gw_second]    * cfs_cfm,524) }
+
+define rSetFlow_511_525  {value    SetStrmFlow(                        C_NDD010[gw_second]    * cfs_cfm,525) }
+define rSetFlow_496_526  {value    SetStrmFlow((C_NDD010[gw_second] + C_NDD006[gw_second])/2 * cfs_cfm,526) }
+define rSetFlow_519_527  {value    SetStrmFlow(                        C_NDD006[gw_second]    * cfs_cfm,527) }
+
+define rSetFlow_566_528  {value    SetStrmFlow(                        C_EDD061[gw_second]    * cfs_cfm,528) }
+define rSetFlow_565_529  {value    SetStrmFlow((C_EDD061[gw_second] + C_EDD055[gw_second])/2 * cfs_cfm,529) }
+define rSetFlow_549_530  {value    SetStrmFlow((C_EDD055[gw_second] + C_EDD047[gw_second])/2 * cfs_cfm,530) }
+define rSetFlow_548_531  {value    SetStrmFlow((C_EDD047[gw_second] + C_EDD041[gw_second])/2 * cfs_cfm,531) }
+define rSetFlow_547_532  {value    SetStrmFlow((C_EDD041[gw_second] + C_EDD036[gw_second])/2 * cfs_cfm,532) }
+define rSetFlow_546_533  {value    SetStrmFlow((C_EDD036[gw_second] + C_EDD031[gw_second])/2 * cfs_cfm,533) }
+define rSetFlow_545_534  {value    SetStrmFlow((C_EDD031[gw_second] + C_EDD026[gw_second])/2 * cfs_cfm,534) }
+define rSetFlow_544_535  {value    SetStrmFlow((C_EDD026[gw_second] + C_EDD018[gw_second])/2 * cfs_cfm,535) }
+define rSetFlow_541_536  {value    SetStrmFlow((C_EDD018[gw_second] + C_EDD012[gw_second])/2 * cfs_cfm,536) }
+define rSetFlow_519_537  {value    SetStrmFlow(                        C_EDD012[gw_second]    * cfs_cfm,537) }
  
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Elder Creek		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -293,7 +386,13 @@ define rSetFlow_266_315  {value    SetStrmFlow(C_GCC056[gw_second] * cfs_cfm,315
 define rSetFlow_267_316  {value    SetStrmFlow((C_GCC060[gw_second] + C_GCC065[gw_second])/2 * cfs_cfm,316) }
 */ 
 define rSetFlow_268_317  {value    SetStrmFlow(C_GCC065[gw_second] * cfs_cfm,317) }
-                            
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Island Drain   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define rSetFlow_474_538  {value    SetStrmFlow(                        C_ISD008[gw_second]    * cfs_cfm,538) }
+define rSetFlow_492_539  {value    SetStrmFlow(                        C_ISD008[gw_second]    * cfs_cfm,539) }
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Mill Creek		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -514,6 +613,21 @@ define rSetFlow_531_418  {value    SetStrmFlow(C_SJR006[gw_second] + C_SAC003[gw
 !define rSetFlow_531_418  {value    SetStrmFlow((C_SJR009[gw_second] + C_SAC003[gw_second]) * cfs_cfm,418) }
 !                            
 !
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Suisun Drain   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+define rSetFlow_522_540  {value    SetStrmFlow(                        C_SSD007[gw_second]    * cfs_cfm,540) }
+define rSetFlow_528_541  {value    SetStrmFlow(                        C_SSD007[gw_second]    * cfs_cfm,541) }
+
+define rSetFlow_468_542  {value    SetStrmFlow(                        C_SSD020[gw_second]    * cfs_cfm,542) }
+define rSetFlow_486_543  {value    SetStrmFlow((C_SSD020[gw_second] + C_SSD014[gw_second])/2 * cfs_cfm,543) }
+define rSetFlow_522_544  {value    SetStrmFlow(                        C_SSD014[gw_second]    * cfs_cfm,544) }
+
+define rSetFlow_469_545  {value    SetStrmFlow(                        C_ESD012[gw_second]    * cfs_cfm,545) }
+define rSetFlow_487_546  {value    SetStrmFlow((C_ESD012[gw_second] + C_ESD007[gw_second])/2 * cfs_cfm,546) }
+define rSetFlow_522_547  {value    SetStrmFlow(                        C_ESD007[gw_second]    * cfs_cfm,547) }
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Sutter Bypass	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

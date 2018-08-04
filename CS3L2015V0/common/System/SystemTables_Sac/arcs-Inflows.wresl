@@ -467,9 +467,9 @@ goal setNonpositiveCT_BendBridge {
 				lhs<rhs  penalty 0
 	}
 }
-goal setPostiveCT_BendBridge {
+goal setpositiveCT_BendBridge {
 	lhs CT_BendBridge
-	case postive {
+	case positive {
 		condition CT_BendBridge_SV >= 0
 			rhs CT_BendBridge_SV
 	}
@@ -492,9 +492,9 @@ goal setNonpositiveCT_ButteCity {
 				lhs<rhs  penalty 0
 	}
 }
-goal setPostiveCT_ButteCity {
+goal setpositiveCT_ButteCity {
 	lhs CT_ButteCity
-	case postive {
+	case positive {
 		condition CT_ButteCity_SV >= 0
 			rhs CT_ButteCity_SV
 	}
@@ -517,9 +517,9 @@ goal setNonpositiveCT_WilkinsSl {
 				lhs<rhs  penalty 0
 	}
 }
-goal setPostiveCT_WilkinsSl {
+goal setpositiveCT_WilkinsSl {
 	lhs CT_WilkinsSl
-	case postive {
+	case positive {
 		condition CT_WilkinsSl_SV >= 0
 			rhs CT_WilkinsSl_SV
 	}
@@ -542,9 +542,9 @@ goal setNonpositiveCT_Verona {
 				lhs<rhs  penalty 0
 	}
 }
-goal setPostiveCT_Verona {
+goal setpositiveCT_Verona {
 	lhs CT_Verona
-	case postive {
+	case positive {
 		condition CT_Verona_SV >= 0
 			rhs CT_Verona_SV
 	}
@@ -567,9 +567,9 @@ goal setNonpositiveCT_Freeport {
 				lhs<rhs  penalty 0
 	}
 }
-goal setPostiveCT_Freeport {
+goal setpositiveCT_Freeport {
 	lhs CT_Freeport
-	case postive {
+	case positive {
 		condition CT_Freeport_SV >= 0
 			rhs CT_Freeport_SV
 	}
@@ -592,9 +592,9 @@ goal setNonpositiveCT_Colusa {
 				lhs<rhs  penalty 0
 	}
 }
-goal setPostiveCT_Colusa {
+goal setpositiveCT_Colusa {
 	lhs CT_Colusa
-	case postive {
+	case positive {
 		condition CT_Colusa_SV >= 0
 			rhs CT_Colusa_SV
 	}
@@ -617,9 +617,9 @@ goal setNonpositiveCT_Woodland {
 				lhs<rhs  penalty 0
 	}
 }
-goal setPostiveCT_Woodland {
+goal setpositiveCT_Woodland {
 	lhs CT_Woodland
-	case postive {
+	case positive {
 		condition CT_Woodland_SV >= 0
 			rhs CT_Woodland_SV
 	}
@@ -642,9 +642,9 @@ goal setNonpositiveCT_SacSlough {
 				lhs<rhs  penalty 0
 	}
 }
-goal setPostiveCT_SacSlough {
+goal setpositiveCT_SacSlough {
 	lhs CT_SacSlough
-	case postive {
+	case positive {
 		condition CT_SacSlough_SV >= 0
 			rhs CT_SacSlough_SV
 	}
@@ -667,9 +667,9 @@ goal setNonpositiveCT_Smartville {
 				lhs<rhs  penalty 0
 	}
 }
-goal setPostiveCT_Smartville {
+goal setpositiveCT_Smartville {
 	lhs CT_Smartville
-	case postive {
+	case positive {
 		condition CT_Smartville_SV >= 0
 			rhs CT_Smartville_SV
 	}
@@ -692,9 +692,9 @@ goal setNonpositiveCT_Wheatland {
 				lhs<rhs  penalty 0
 	}
 }
-goal setPostiveCT_Wheatland {
+goal setpositiveCT_Wheatland {
 	lhs CT_Wheatland
-	case postive {
+	case positive {
 		condition CT_Wheatland_SV >= 0
 			rhs CT_Wheatland_SV
 	}
@@ -717,9 +717,9 @@ goal setNonpositiveCT_Nicolaus {
 				lhs<rhs  penalty 0
 	}
 }
-goal setPostiveCT_Nicolaus {
+goal setpositiveCT_Nicolaus {
 	lhs CT_Nicolaus
-	case postive {
+	case positive {
 		condition CT_Nicolaus_SV >= 0
 			rhs CT_Nicolaus_SV
 	}
@@ -742,9 +742,9 @@ goal setNonpositiveCT_FairOaks {
 				lhs<rhs  penalty 0
 	}
 }
-goal setPostiveCT_FairOaks {
+goal setpositiveCT_FairOaks {
 	lhs CT_FairOaks
-	case postive {
+	case positive {
 		condition CT_FairOaks_SV >= 0
 			rhs CT_FairOaks_SV
 	}
@@ -767,9 +767,9 @@ goal setNonpositiveCT_Yolo {
 				lhs<rhs  penalty 0
 	}
 }
-goal setPostiveCT_Yolo {
+goal setpositiveCT_Yolo {
 	lhs CT_Yolo
-	case postive {
+	case positive {
 		condition CT_Yolo_SV >= 0
 			rhs CT_Yolo_SV
 	}
@@ -792,9 +792,9 @@ goal setNonpositiveCT_Davis {
 				lhs<rhs  penalty 0
 	}
 }
-goal setPostiveCT_Davis {
+goal setpositiveCT_Davis {
 	lhs CT_Davis
-	case postive {
+	case positive {
 		condition CT_Davis_SV >= 0
 			rhs CT_Davis_SV
 	}
@@ -817,9 +817,9 @@ goal setNonpositiveCT_Oroville {
 				lhs<rhs  penalty 0
 	}
 }
-goal setPostiveCT_Oroville {
+goal setpositiveCT_Oroville {
 	lhs CT_Oroville
-	case postive {
+	case positive {
 		condition CT_Oroville_SV >= 0
 			rhs CT_Oroville_SV
 	}

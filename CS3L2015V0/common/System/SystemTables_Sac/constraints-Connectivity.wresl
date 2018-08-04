@@ -72,15 +72,22 @@ goal continuityANT010   {C_ANT011 + SG233_ANT010_40 + SG234_ANT010_40 - D_ANT010
 goal continuityABN027   {D_STH000_ABN027 + R_24_NU1_ABN027 - C_ABN027                       = 0. }
 goal continuityABN026   {C_ABN027 + C_ABT002 - C_ABN026                             = 0. }
 goal continuityABN024   {C_ABN026 - D_ABN024_24_NA1 - C_ABN024                 = 0. }
-goal continuityABN014   {C_ABN024 - C_ABN014                   = 0.}
-goal continuityABN010   {C_ABN014 + SR_24_ABN010 - D_ABN010_24_NA2 - C_ABN010                   = 0. }
-goal continuityABN006   {C_ABN010 - D_ABN006_23_NA - C_ABN006                   = 0. }
-goal continuityABN000   {C_ABN006 + C_CCK007 + SR_23_ABN000 + SR_24_ABN000 + R_24_NA2_ABN000 - C_ABN000     = 0. }
+! SG518_ABN014_99, SG519_ABN014_99
+goal continuityABN014   {C_ABN024 + SG518_ABN014_99 + SG519_ABN014_99 - C_ABN014                   = 0.}
+! SG520_ABN010_99
+goal continuityABN010   {C_ABN014 + SR_24_ABN010 + SG520_ABN010_99 - D_ABN010_24_NA2 - C_ABN010                   = 0. }
+! SG521_ABN006_99, SG522_ABN006_99
+goal continuityABN006   {C_ABN010 + SG521_ABN006_99 + SG522_ABN006_99 - D_ABN006_23_NA - C_ABN006                   = 0. }
+! SG511_ABN000_97, SG512_ABN000_97
+goal continuityABN000   {C_ABN006 + C_CCK007 + SR_23_ABN000 + SR_24_ABN000 + SG511_ABN000_97 + SG512_ABN000_97 + R_24_NA2_ABN000 - C_ABN000     = 0. }
 goal continuityCCK038   {R_24_NU3_CCK038 - C_CCK038                             = 0. }
 goal continuityCCK036   {C_CCK038 + D_CBC001_CCK036 - C_CCK036                          = 0. }
-goal continuityCCK022   {C_CCK036 + SR_24_CCK022 + R_24_NA1_CCK022 - C_CCK022                   = 0. }
-goal continuityCCK007   {C_CCK022 + SR_23_CCK007 + SR_24_CCK007 + R_RFS23_CCK007 - C_CCK007                         = 0. }
-goal continuityCRC002   {SR_22_CRC002 + SR_23_CRC002 + SR_24_CRC002 + SR_26N_CRC002 + C_ABN000 + R_PGWWTP_CRC002 - D_CRC002_22_SA1 - C_CRC002   = 0. }
+! SG513_CCK022_98, SG514_CCK022_98, SG515_CCK022_98
+goal continuityCCK022   {C_CCK036 + SR_24_CCK022 + SG513_CCK022_98 + SG514_CCK022_98 + SG515_CCK022_98 + R_24_NA1_CCK022 - C_CCK022                   = 0. }
+! SG516_CCK007_98, SG517_CCK007_98
+goal continuityCCK007   {C_CCK022 + SR_23_CCK007 + SR_24_CCK007 + SG516_CCK007_98 + SG517_CCK007_98 + R_RFS23_CCK007 - C_CCK007                         = 0. }
+! SG509_CRC002_96, SG510_CRC002_96
+goal continuityCRC002   {SR_22_CRC002 + SR_23_CRC002 + SR_24_CRC002 + SR_26N_CRC002 + SG509_CRC002_96 + SG510_CRC002_96 + C_ABN000 + R_PGWWTP_CRC002 - D_CRC002_22_SA1 - C_CRC002   = 0. }
 goal continuityWTPBWM   {D_BEC022_WTPBWM - D_WTPBWM_24_NU1                          = 0. }
 goal continuityWTPAUB   {D_LBC038_WTPAUB - D_WTPAUB_24_NU1                          = 0. }
 goal continuityWTPFSS   {D_STH004_WTPFSS - D_WTPFSS_24_NU2                              = 0. }
@@ -196,7 +203,7 @@ goal continuityBTC016   {C_BTC017 + C_LDC007 - C_BTC016                         
 goal continuityBTC015   {C_BTC016 + SG289_BTC015_52 - C_BTC015                       = 0.}
 goal continuityBTC012   {C_BTC015 + C_LCC016 - D_BTC012_CRK005 - D_BTC012_09_SA2   - C_BTC012                       = 0. }! confluence with Angel Slough.  actual confluence at RM 12 through 13
 goal continuityBTC007   {C_BTC012 + SG290_BTC007_52 + R_09_SA2_BTC007 - C_BTC007                                      = 0. }     
-goal continuityBTC003   {C_BTC007 + C_CRK005 + SG291_BTC003_52 + R_17N_NA_BTC003 + R_17N_NR_BTC003 + SP_SAC193_BTC003 + SP_SAC188_BTC003 + SP_SAC178_BTC003 + SP_SAC159_BTC003 + SP_SAC148_BTC003 - C_BTC003 = 0. }    ! Colusa Bypass, Moulton Weir Overflow.  actual confluence RM 3-3.5
+goal continuityBTC003   {C_BTC007 + C_CRK003 + SG291_BTC003_52 + R_17N_NA_BTC003 + R_17N_NR_BTC003 + SP_SAC193_BTC003 + SP_SAC188_BTC003 + SP_SAC178_BTC003 + SP_SAC159_BTC003 + SP_SAC148_BTC003 - C_BTC003 = 0. }    ! Colusa Bypass, Moulton Weir Overflow.  actual confluence RM 3-3.5
 
 goal continuityBSL000   {C_BSL001a - D_BSL000_SAC141                                                = 0. }
 goal continuityBSL001   {C_BTC003 + SG292_BSL001_52 + SG333_BSL001_58 + SR_09_BSL001 + SR_10_BSL001 + SR_11_BSL001 + SR_17N_BSL001 - D_BSL001_18_NA   - C_BSL001a - C_BSL001b               = 0. }! Butte Slough
@@ -252,7 +259,38 @@ goal continuityCAA003   {C_CAA002 + I419 - C_CAA003	= 0.} ! Banks Pumping Plant
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Cherokee Canal !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-goal continuityCRK005   {D_BTC012_CRK005 + R_11_SA1_CRK005 + R_11_SA2_CRK005 + R_17N_PR_CRK005 + C_BGD000 - D_CRK005_17N_NR - C_CRK005  = 0. }
+! SG481_CRK005_86, SG482_CRK003_86, SG483_CRK003_86
+! SG484_CRK005_87, SG485_CRK005_87
+goal continuityCRK005   {D_BTC012_CRK005 + SG481_CRK005_86 + SG484_CRK005_87 + SG485_CRK005_87 + R_11_SA1_CRK005 + R_11_SA2_CRK005 + R_17N_PR_CRK005 + C_BGD000 + C_BTD003 + C_SED006 - D_CRK005_17N_NR - C_CRK005  = 0. }
+goal continuityCRK003   {C_CRK005 + SG482_CRK003_86 + SG483_CRK003_86 - C_CRK003    = 0. }
+
+! Drain around Butte Basin
+! SG486_BTD003_88, SG487_BTD003_88
+goal continuityBTD003   {C_BTD006 + SG486_BTD003_88 + SG487_BTD003_88 + C_MED006 - C_BTD003    = 0.}
+! SG488_BTD006_89, SG489_BTD006_89
+goal continuityBTD006   {C_BTD011 + SG488_BTD006_89 + SG489_BTD006_89 + C_NED005 - C_BTD006    = 0.}
+! SG490_BTD021_90, SG491_BTD017_90, SG492_BTD011_90, SG493_BTD011_90
+goal continuityBTD011   {C_BTD017 + SG492_BTD011_90 + SG493_BTD011_90            - C_BTD011    = 0.}
+goal continuityBTD017   {C_BTD021 + SG491_BTD017_90 - C_BTD017         = 0.}
+goal continuityBTD021   {C_BTD026 + SG490_BTD021_90 - C_BTD021         = 0.}
+! SG494_BTD030_91, SG495_BTD026_91, SG496_BTD026_91
+goal continuityBTD026   {C_BTD030 + SG495_BTD026_91 + SG496_BTD026_91            - C_BTD026    = 0.}
+goal continuityBTD030   {           SG494_BTD030_91 - C_BTD030         = 0.}
+! SouthEast side Drain
+! SG497_SED006_92, SG498_SED006_92
+goal continuitySED006   {           SG497_SED006_92 + SG498_SED006_92 - C_SED006    = 0.}
+! Middle East Drain
+! SG499_MED006_93, SG500_MED006_93
+goal continuityMED006   {           SG499_MED006_93 + SG500_MED006_93 - C_MED006    = 0.}
+! NorthEast side Drain
+! SG501_NED019_94, SG502_NED014_94, SG503_NED009_94, SG504_NED005_94, SG505_NED005_94
+goal continuityNED005   {C_NED009 + SG504_NED005_94 + SG505_NED005_94            - C_NED005    = 0.}
+goal continuityNED009   {C_NED014 + SG503_NED009_94 - C_NED009         = 0.}
+goal continuityNED014   {C_NED019 + SG502_NED014_94 - C_NED014         = 0.}
+goal continuityNED019   {C_NED024 + SG501_NED019_94 - C_NED019         = 0.}
+! SG506_NED029_95, SG507_NED024_95, SG508_NED024_95
+goal continuityNED024   {C_NED029 + SG507_NED024_95 + SG508_NED024_95            - C_NED024    = 0.}
+goal continuityNED029   {           SG506_NED029_95 - C_NED029         = 0.}
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Clear Creek     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -272,7 +310,15 @@ goal continuityCCWWTP   {R_02_PU_CCWWTP + R_02_SU_CCWWTP - R_CCWWTP_SAC287   = 0
 goal continuityCBD055   {           SG469_CBD055_83 - C_CBD055    = 0. }!    
 goal continuityCBD052   {C_CBD055 + SG470_CBD052_83 - C_CBD052    = 0. }! 
 goal continuityCBD050   {C_CBD052 + SG471_CBD050_83 - C_CBD050    = 0. }! 
-goal continuityCBD049   {C_CBD050 + SG472_CBD049_83 + R_07N_NU_CBD049 + R_08N_NA_CBD049 + R_08N_SA2_CBD049 + R_08N_PR1_CBD049 + SG318_CBD049_55 + SR_06_CBD049 + SR_07N_CBD049 + SR_08N_CBD049 - D_CBD049_08N_SA1  - D_CBD049_08N_PA - C_CBD049    = 0. }!test1 RsdPos_CBD049 - RsdNeg_CBD049}    
+
+!Willow Creek flowing into CBD049
+goal continuityWLW021   {           SG476_WLW021_85 - C_WLW021    = 0. }!    
+goal continuityWLW016   {C_WLW021 + SG477_WLW016_85 - C_WLW016    = 0. }! 
+goal continuityWLW013   {C_WLW016 + SG478_WLW013_85 - C_WLW013    = 0. }! 
+goal continuityWLW009   {C_WLW013 + SG479_WLW009_85 - C_WLW009    = 0. }! 
+goal continuityWLW003   {C_WLW009 + SG480_WLW003_85 - C_WLW003    = 0. }! 
+
+goal continuityCBD049   {C_CBD050 + C_WLW003 + SG472_CBD049_83 + R_07N_NU_CBD049 + R_08N_NA_CBD049 + R_08N_SA2_CBD049 + R_08N_PR1_CBD049 + SG318_CBD049_55 + SR_06_CBD049 + SR_07N_CBD049 + SR_08N_CBD049 - D_CBD049_08N_SA1  - D_CBD049_08N_PA - C_CBD049    = 0. }!test1 RsdPos_CBD049 - RsdNeg_CBD049}    
 goal continuityCBD044   {C_CBD049 + SG319_CBD044_55 + R_06_NA_CBD044 + R_08N_PR2_CBD044 + R_07N_NA_CBD044 + R_07N_PA_CBD044 + R_07S_NA_CBD044 + R_08N_SA1_CBD044 + R_08N_PA_CBD044 - C_CBD044  = 0. }  !Richard 5/22/2013 
 goal continuityCBD041   {C_CBD044 + SG320_CBD041_55 - D_CBD041_08S_SA1 - D_CBD041_08S_SA2 - C_CBD041       = 0. }
 goal continuityCBD038   {C_CBD041 + SR_07S_CBD038 + SR_08S_CBD038 - C_CBD038                               = 0. } 
@@ -316,13 +362,18 @@ goal continuityCWD013   {C_CWD018 + SG454_CWD013_77 + SG455_CWD009_77- C_CWD013 
 !Salt Creek flowing into South Fork Cottonwood Creek SG466_STC010_82 SG467_STC008_82 SG468_STC008_82
 goal continuitySTC010   {           SG466_STC010_82                   - C_STC010 = 0. }    
 goal continuitySTC008   {C_STC010+  SG467_STC008_82 + SG468_STC008_82 - C_STC008 = 0. }    
-!South Fork Cottonwood Creek upstream SG460_SCW025_80 SG461_SCW020_80 SG462_SCW020_80
-goal continuitySCW025   {           SG460_SCW025_80                   - C_SCW025 = 0. }    
-goal continuitySCW020   {C_SCW025 + SG461_SCW020_80 + SG462_SCW020_80 - C_SCW020 = 0. } 
+!South Fork Cottonwood Creek upstream SG460_SCW025_81 SG461_SCW020_81 SG462_SCW020_81
+goal continuitySCW025   {           SG460_SCW025_81                   - C_SCW025 = 0. }    
+goal continuitySCW020   {C_SCW025 + SG461_SCW020_81 + SG462_SCW020_81 - C_SCW020 = 0. } 
 
-!South Fork Cottonwood Creek  SG463_SCW008_81 SG464_SCW004_81 SG465_SCW004_81
-goal continuitySCW008   {C_SCW020 + C_STC008 + I_SCW008 + SG463_SCW008_81 - C_SCW008 = 0. } 
-goal continuitySCW004   {C_SCW008 + SG464_SCW004_81  + SG465_SCW004_81 - C_SCW004 = 0. } 
+!Dry Creek flowing into South Fork Cottonwood Creek SG473_DYC013_84 SG474_DYC008_84 SG475_DYC008_84
+goal continuityDYC013   {           SG473_DYC013_84                   - C_DYC013 = 0. }    
+goal continuityDYC008   {C_DYC013+  SG474_DYC008_84 + SG475_DYC008_84 - C_DYC008 = 0. }    
+
+
+!South Fork Cottonwood Creek  SG463_SCW008_80 SG464_SCW004_80 SG465_SCW004_80
+goal continuitySCW008   {C_SCW020 + C_STC008 + C_DYC008 + I_SCW008 + SG463_SCW008_80 - C_SCW008 = 0. } 
+goal continuitySCW004   {C_SCW008 + SG464_SCW004_80  + SG465_SCW004_80 - C_SCW004 = 0. } 
 
 
 !Cottonwood Creek downstream SG456_CWD009_78 SG457_CWD004_78 
@@ -353,7 +404,7 @@ goal continuityDER001   {I_DER001 - C_DER001 = 0. }
 !!! Delta !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 goal continuityCHIPPS     {C_SAC000_MIN + C_SAC000_ADD - D_CHIPPS_CCC019 - C_CHIPPS = 0.}
-goal continuityCHCGO 	  {C_CHIPPS - C_CHCGO = 0.}
+goal continuityCHCGO 	  {C_CHIPPS + C_SSD007 - C_CHCGO = 0.}
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Delta Mendota Canal !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -369,6 +420,27 @@ goal continuityDHC001   {I_DHC001 + R_15S_NA1_DHC001 + R_15S_NA2_DHC001 + R_15S_
 !!! East Bay Aqueduct   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! East Delta Drain   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!SG523_EDD008_100, SG524_EDD008_100
+goal continuityEDD008   {C_EDD012 + C_NDD006 + SG523_EDD008_100 + SG524_EDD008_100  - C_EDD008    = 0.}
+! SG525_NDD010_101
+goal continuityNDD010   {           SG525_NDD010_101 - C_NDD010         = 0.}
+! SG526_NDD006_101, SG527_NDD006_101
+goal continuityNDD006   {C_NDD010 + SG526_NDD006_101 + SG527_NDD006_101 - C_NDD006         = 0.}
+! SG528_EDD061_102
+goal continuityEDD061   {           SG528_EDD061_102 - C_EDD061         = 0.}
+! SG529_EDD055_102, SG530_EDD047_102, SG531_EDD041_102, SG532_EDD036_102, SG533_EDD031_102, SG534_EDD026_102, SG535_EDD018_102
+goal continuityEDD055   {C_EDD061 + SG529_EDD055_102 - C_EDD055         = 0.}
+goal continuityEDD047   {C_EDD055 + SG530_EDD047_102 - C_EDD047         = 0.}
+goal continuityEDD041   {C_EDD047 + SG531_EDD041_102 - C_EDD041         = 0.}
+goal continuityEDD036   {C_EDD041 + SG532_EDD036_102 - C_EDD036         = 0.}
+goal continuityEDD031   {C_EDD036 + SG533_EDD031_102 - C_EDD031         = 0.}
+goal continuityEDD026   {C_EDD031 + SG534_EDD026_102 - C_EDD026         = 0.}
+goal continuityEDD018   {C_EDD026 + SG535_EDD018_102 - C_EDD018         = 0.}
+! SG536_EDD012_102, SG537_EDD012_102
+goal continuityEDD012   {C_EDD018 + SG536_EDD012_102 + SG537_EDD012_102 - C_EDD012         = 0.}
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -447,6 +519,8 @@ goal continuityMFF019   {I_MFF019 - C_MFF019                                = 0.
 goal continuitySEC009   {C_JBC008 + D_FTR039_SEC009 - D_SEC009_11_SA4 - D_SEC009_17S_PR         = 0. } ! Sutter Extension Canal   
 goal continuityBGD000   {R_RFS11_BGD000 - D_BGD000_17N_PR - C_BGD000                            = 0. }
 
+
+
 !Sly Creek
 goal continuitySFT000   {D_SFF029_SFT000 - C_SFT000                                     = 0. }
 goal continuityLST007   {I_LST007  + C_SCT000 + C_SFT000 - C_LST007                             = 0. }
@@ -519,6 +593,12 @@ goal continuityGCC065	{C_GCC060 - D_GCC065_08S_PA - C_GCC065       			= 0. }
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 goal continuityHON021   {I_HON021 - C_HON021                                    = 0. }!test1 RsdPos_HON021 - RsdNeg_HON021}    
 goal continuityHON004   {C_HON021 + SR_12_HON004 + SR_14_HON004 + SR_15N_HON004 + R_RFS13_HON004 + R_12_NA_HON004 - C_HON004    = 0. }
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Island Drain   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! SG538_ISD008_103, SG539_ISD008_103
+goal continuityISD008   {SG538_ISD008_103 + SG539_ISD008_103 - C_ISD008         = 0.}
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Isolated Facility    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -749,7 +829,7 @@ goal continuitySAC036   {C_SAC041 + SG386_SAC036_67 - C_SAC036                  
 goal continuitySAC030   {C_SAC036 + SG387_SAC030_67 - D_SAC030_MOK014 - C_SAC030                              = 0. }! Delta Cross Channel
 goal continuitySAC029   {C_SAC030 - C_SAC029A - C_SAC029B                                           = 0. }! Georgianna Slough
 goal continuitySAC022   {C_SAC029A + SG388_SAC022_67 - C_SAC022                                       = 0. } 
-goal continuitySAC017   {C_SAC022 + SG389_SAC017_67 + SG413_SAC017_71 + C_CSL004A + DA_SACS_SAC017 - DD_SAC017_SACS - C_SAC017                  = 0. }! Confluence with Cache Slough
+goal continuitySAC017   {C_SAC022 + SG389_SAC017_67 + SG413_SAC017_71 + C_CSL004A + C_ISD008 + DA_SACS_SAC017 - DD_SAC017_SACS - C_SAC017                  = 0. }! Confluence with Cache Slough
 goal continuitySAC011   {C_SAC017 + SG414_SAC011_71 - C_SAC011                                        = 0. }
 goal continuitySAC007   {C_SAC011 + SG415_SAC007_71 - C_SAC007                                        = 0. }
 goal continuitySAC003   {C_SAC007 + SG416_SAC003_71 - C_SAC003                                        = 0. }
@@ -770,7 +850,7 @@ goal continuitySJR028       {C_SJR033 + SG_SJR028_543 + R_60N_NA3_SJR028 + R_WSW
 goal continuityWSWWTP	    {R_60N_NU1_WSWWTP - R_WSWWTP_SJR028  = 0.}      
 goal continuitySJR026       {C_SJR028 + DA_SJRE_SJR026 - DD_SJR026_SJRE + DD_60S_NU1_adj - C_SJR026                  = 0. }
 goal continuitySJR023       {C_SJR026 + SG_SJR023_540 - C_SJR023                                        = 0. }
-goal continuitySJR022       {C_SJR023 + SG_SJR022_520 + R_60N_NA4_SJR022 + C_MOK004 + SR_60N_SJR022 - C_SJR022              = 0. }!Confluence with Mokelumne. Return flow from Woodbridge ID.
+goal continuitySJR022       {C_SJR023 + SG_SJR022_520 + R_60N_NA4_SJR022 + C_MOK004 + C_EDD008 + SR_60N_SJR022 - C_SJR022              = 0. }!Confluence with Mokelumne. Return flow from Woodbridge ID.
 goal continuitySJR013       {C_SJR022 + SG_SJR013_534 + C_OMR002 + DA_SJRW_SJR013 - DD_SJR013_SJRW - C_SJR013    = 0. }
 goal continuitySJR009       {C_SJR013 + SG_SJR009_533 + C_MSH015 - C_SJR009                     = 0. }
 goal continuitySJR006       {C_SJR009 + SG_SJR006_532 - D_SJR006_ANTOC - C_SJR006               = 0. }
@@ -817,6 +897,18 @@ goal continuitySTN021   {C_STN026 + SG264_STN021_49 - D_STN021_06_PA - C_STN021 
 goal continuitySTN014   {C_STN021 + SG265_STN014_49 - D_STN014_TCC031 - C_STN014  = 0. }
 goal continuitySTN009   {C_STN014 + SG266_STN009_49 + R_06_PA_STN009 - C_STN009                = 0. } !Richard 5/22/2013
 goal continuitySTN004   {C_STN009 + SG267_STN004_49 + SG268_STN004_49 - D_STN004_GCC007 - C_STN004                = 0. }
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Suisun Drain   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! SG540_SSD007_104, SG541_SSD007_104
+goal continuitySSD007   {C_SSD014 +  SG540_SSD007_104 + SG541_SSD007_104 + C_ESD007 - C_SSD007 = 0. }    
+! SG542_SSD020_105, SG543_SSD014_105, SG544_SSD014_105
+goal continuitySSD020   {            SG542_SSD020_105                    - C_SSD020 = 0. }    
+goal continuitySSD014   {C_SSD020 +  SG543_SSD014_105 + SG544_SSD014_105 - C_SSD014 = 0. }    
+! SG545_ESD012_106, SG546_ESD007_106, SG547_ESD007_106
+goal continuityESD012   {            SG545_ESD012_106                    - C_ESD012 = 0. }    
+goal continuityESD007   {C_ESD012 +  SG546_ESD007_106 + SG547_ESD007_106 - C_ESD007 = 0. }    
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! Sutter Bypass   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -6859,6 +6859,81 @@ C------------------------------------------------------------------------------
     470        6.08          1.         150.0
     471        6.08          1.         150.0
     472        6.08          1.         150.0
+    473        3.03          1.         200.0      REACH 84 -   SOUTH COTTONWOOD CREEK extension segment#4  / FG node 1003
+    474        3.03          1.         200.0
+    475        3.03          1.         200.0
+    476        1.23          1.         200.0      REACH 85 -   Upstream Colusa Basin Drain East  / FG node 4666
+    477        1.23          1.         200.0
+    478        1.23          1.         200.0
+    479        1.23          1.         200.0
+    480        1.23          1.         200.0
+    481        1.14          1.         110.0      REACH 86 -   Drainage between Feather and Butte  / FG node 5350
+    482        1.14          1.         110.0
+    483        1.14          1.         110.0
+    484        1.12          1.         110.0      REACH 87 -   Drainage between Feather and Butte  / FG node 5184
+    485        1.12          1.         110.0
+    486        1.08          1.         110.0      REACH 88 -   Drainage between Feather and Butte  / FG node 5103
+    487        1.08          1.         110.0
+    488        1.14          1.         110.0      REACH 89 -   Drainage between Feather and Butte  / FG node 5021
+    489        1.14          1.         110.0
+    490        1.21          1.         110.0      REACH 90 -   Drainage between Feather and Butte  / FG node 4773
+    491        1.21          1.         110.0
+    492        1.21          1.         110.0
+    493        1.21          1.         110.0
+    494        1.27          1.         110.0      REACH 91 -   Drainage between Feather and Butte  / FG node 4384
+    495        1.27          1.         110.0
+    496        1.27          1.         110.0
+    497        1.11          1.         110.0      REACH 92 -   Drainage between Feather and Butte  / FG node 5187
+    498        1.11          1.         110.0
+    499        1.10          1.         110.0      REACH 93 -   Drainage between Feather and Butte  / FG node 5105
+    500        1.10          1.         110.0
+    501        1.21          1.         110.0      REACH 94 -   Drainage between Feather and Butte  / FG node 4773
+    502        1.21          1.         110.0
+    503        1.21          1.         110.0
+    504        1.21          1.         110.0
+    505        1.21          1.         110.0
+    506        1.27          1.         110.0      REACH 95 -   Drainage between Feather and Butte  / FG node 4384
+    507        1.27          1.         110.0
+    508        1.27          1.         110.0
+    509        1.63          1.         100.0      REACH 96 -   Lower Natomas Cross Canal  / FG node 9062
+    510        1.63          1.         100.0
+    511        1.63          1.         100.0      REACH 97 -   Upper Natomas Cross Canal  / FG node 9062
+    512        1.63          1.         100.0
+    513        1.94          1.         100.0      REACH 98 -   Coon Creek  / FG node 7481
+    514        1.94          1.         100.0
+    515        1.94          1.         100.0
+    516        1.94          1.         100.0
+    517        1.94          1.         100.0
+    518        1.94          1.         100.0      REACH 99 -   Auburn Ravine  / FG node 7481
+    519        1.94          1.         100.0
+    520        1.94          1.         100.0
+    521        1.94          1.         100.0
+    522        1.94          1.         100.0
+    523        1.17          1.         300.0      REACH 100 -   East Delta #1  / FG node 12933
+    524        1.17          1.         400.0
+    525        1.17          1.         100.0      REACH 101 -   East Delta #2  / FG node 12933
+    526        1.17          1.         200.0
+    527        1.17          1.         300.0
+    528        2.05          1.         100.0      REACH 102 -   East Delta #3  / FG node 12905 12933 
+    529        2.05          1.         100.0
+    530        2.05          1.         100.0
+    531        2.05          1.         100.0
+    532        2.05          1.         100.0
+    533        2.05          1.         100.0
+    534        2.05          1.         100.0
+    535        2.05          1.         100.0
+    536        1.17          1.         100.0
+    537        1.17          1.         100.0
+    538        1.59          1.         100.0      REACH 103 - Ryer Island  / FG node 11506 
+    539        1.59          1.         100.0
+    540        1.35          1.         300.0      REACH 104 - Suisun West #1  / FG node 11307 
+    541        1.35          1.         300.0
+    542        1.35          1.         100.0      REACH 105 - Suisun West #2  / FG node 11307 
+    543        1.35          1.         200.0
+    544        1.35          1.         300.0
+    545        1.35          1.         100.0      REACH 106 - Suisun West #3  / FG node 11307 
+    546        1.35          1.         200.0
+    547        1.35          1.         300.0
 C*******************************************************************************
 C                           LAKE PARAMETERS
 C
