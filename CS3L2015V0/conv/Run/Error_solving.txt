@@ -1,6 +1,0 @@
-1995/5/31 cycle 1 (sjrbase): Infeasible.
-1995/5/31 cycle 1 (sjrbase): Linear relaxation not feasible.
-1995/5/31 cycle 1 (sjrbase): One or more of the following constraints might cause infeasibility:
-s92zone5:  s92_5 < -0.100006103515625
-
-(d:\cs3a2010existing2017v8_dcr2015\common\system\systemtables_sjr\reservoir-table.wresl:352) s92zone5:  s92_5 < -0.100006103515625
