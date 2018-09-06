@@ -28,3 +28,4 @@ define GetSWShedDP            {EXTERNAL interfacetogw_x64.dll}  !Get the deep pe
 define PrintGWResults         {EXTERNAL interfacetogw_x64.dll}  !Print results after last iteration
 define AdvanceGWState         {EXTERNAL interfacetogw_x64.dll}  !Advance system state after last iteration
 define SetSpecifiedFlowBC     {EXTERNAL interfacetogw_x64.dll}                                 
+define GetTDrainIntoStream    {EXTERNAL interfacetogw_x64.dll}
