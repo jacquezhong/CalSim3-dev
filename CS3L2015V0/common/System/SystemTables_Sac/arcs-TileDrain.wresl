@@ -1,327 +1,107 @@
-! TDXXX_AAAYYY_ZZZ
-! XXX: source groundwater node of tile drain
+! TD_AAAYYY_ZZZ
 ! AAAYYY: destination, CalSim 3 node
 ! ZZZ: destination, groundwater stream node
 
 ! included in surface runoffs:
-define TD013_CWD018_454 {alias GetTDrainIntoStream(454) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
-define TD019_CWD018_458 {alias GetTDrainIntoStream(458) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
-define TD020_CWD018_454 {alias GetTDrainIntoStream(454) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
-define TD026_CWD018_454 {alias GetTDrainIntoStream(454) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
-define TD027_CWD009_456 {alias GetTDrainIntoStream(456) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
-define TD028_CWD003_218 {alias GetTDrainIntoStream(218) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
-define TD039_CWD018_454 {alias GetTDrainIntoStream(454) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
-define TD040_CWD018_454 {alias GetTDrainIntoStream(454) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
-define TD043_CWD009_456 {alias GetTDrainIntoStream(456) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
-define TD044_CWD003_218 {alias GetTDrainIntoStream(218) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
-define TD050_SCW008_461 {alias GetTDrainIntoStream(461) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
-define TD052_CWD009_456 {alias GetTDrainIntoStream(456) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
-define TD053_CWD009_456 {alias GetTDrainIntoStream(456) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
-define TD054_CWD009_456 {alias GetTDrainIntoStream(456) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
-define TD008_SAC287_208 {alias GetTDrainIntoStream(208) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_SAC271
-define TD014_SAC287_208 {alias GetTDrainIntoStream(208) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_SAC271
-define TD021_SAC281_209 {alias GetTDrainIntoStream(209) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_SAC271
-define TD004_COW007_212 {alias GetTDrainIntoStream(212) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_03_COW003
-define TD007_COW007_212 {alias GetTDrainIntoStream(212) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_03_COW003
-define TD018_SAC273_216 {alias GetTDrainIntoStream(216) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_03_SAC265
-define TD024_SAC273_216 {alias GetTDrainIntoStream(216) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_03_SAC265
-define TD030_SAC273_216 {alias GetTDrainIntoStream(216) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_03_SAC265
-define TD047_BTL006_220 {alias GetTDrainIntoStream(220) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_03_SAC265
-define TD002_SAC281_209 {alias GetTDrainIntoStream(209) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_03_SAC277
-define TD003_SAC277_215 {alias GetTDrainIntoStream(215) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_03_SAC277
-define TD006_SAC277_215 {alias GetTDrainIntoStream(215) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_03_SAC277
-define TD010_SAC277_215 {alias GetTDrainIntoStream(215) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_03_SAC277
-define TD016_SAC277_215 {alias GetTDrainIntoStream(215) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_03_SAC277
-define TD097_SAC214_260 {alias GetTDrainIntoStream(260) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC207
-define TD102_SAC214_260 {alias GetTDrainIntoStream(260) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC207
-define TD103_SAC207_302 {alias GetTDrainIntoStream(302) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC207
-define TD104_SAC207_302 {alias GetTDrainIntoStream(302) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC207
-define TD109_SAC214_260 {alias GetTDrainIntoStream(260) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC207
-define TD110_SAC214_260 {alias GetTDrainIntoStream(260) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC207
-define TD111_SAC207_302 {alias GetTDrainIntoStream(302) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC207
-define TD112_SAC207_302 {alias GetTDrainIntoStream(302) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC207
-define TD058_SAC240_231 {alias GetTDrainIntoStream(231) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD059_SAC240_231 {alias GetTDrainIntoStream(231) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD060_SAC240_231 {alias GetTDrainIntoStream(231) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD061_SAC240_231 {alias GetTDrainIntoStream(231) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD062_SAC240_231 {alias GetTDrainIntoStream(231) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD063_SAC240_231 {alias GetTDrainIntoStream(231) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD064_SAC240_231 {alias GetTDrainIntoStream(231) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD065_SAC240_231 {alias GetTDrainIntoStream(231) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD066_SAC240_231 {alias GetTDrainIntoStream(231) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD069_SAC240_231 {alias GetTDrainIntoStream(231) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD070_SAC240_231 {alias GetTDrainIntoStream(231) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD071_SAC240_231 {alias GetTDrainIntoStream(231) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD074_SAC240_231 {alias GetTDrainIntoStream(231) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD075_SAC240_231 {alias GetTDrainIntoStream(231) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD076_SAC232_235 {alias GetTDrainIntoStream(235) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD077_SAC232_235 {alias GetTDrainIntoStream(235) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD078_SAC232_235 {alias GetTDrainIntoStream(235) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD089_THM017_250 {alias GetTDrainIntoStream(250) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD090_THM017_250 {alias GetTDrainIntoStream(250) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD098_SAC218_259 {alias GetTDrainIntoStream(259) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
-define TD107_SAC196_273 {alias GetTDrainIntoStream(273) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_05_SAC196
-define TD114_SAC196_273 {alias GetTDrainIntoStream(273) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_05_SAC196
-define TD115_SAC196_273 {alias GetTDrainIntoStream(273) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_05_SAC196
-define TD116_SAC196_273 {alias GetTDrainIntoStream(273) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_05_SAC196
-define TD117_SAC196_273 {alias GetTDrainIntoStream(273) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_05_SAC196
-define TD118_SAC196_273 {alias GetTDrainIntoStream(273) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_05_SAC196
-define TD121_SAC196_273 {alias GetTDrainIntoStream(273) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_05_SAC196
-define TD106_SAC207_302 {alias GetTDrainIntoStream(302) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_05_SAC201
-define TD080_SAC232_235 {alias GetTDrainIntoStream(235) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_05_SAC217
-define TD095_SAC218_259 {alias GetTDrainIntoStream(259) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_05_SAC217
-define TD122_STN026_263 {alias GetTDrainIntoStream(263) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_06_SAC185
-define TD123_STN026_263 {alias GetTDrainIntoStream(263) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_06_SAC185
-define TD133_STN026_263 {alias GetTDrainIntoStream(263) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_06_SAC185
-define TD134_STN026_263 {alias GetTDrainIntoStream(263) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_06_SAC185
-define TD165_STN014_265 {alias GetTDrainIntoStream(265) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_06_SAC185
-define TD135_GCC022_306 {alias GetTDrainIntoStream(306) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD136_GCC022_306 {alias GetTDrainIntoStream(306) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD137_GCC015_305 {alias GetTDrainIntoStream(305) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD138_GCC015_305 {alias GetTDrainIntoStream(305) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD153_GCC015_305 {alias GetTDrainIntoStream(305) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD166_GCC022_306 {alias GetTDrainIntoStream(306) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD167_GCC022_306 {alias GetTDrainIntoStream(306) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD168_GCC022_306 {alias GetTDrainIntoStream(306) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD179_GCC022_306 {alias GetTDrainIntoStream(306) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD180_GCC022_306 {alias GetTDrainIntoStream(306) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD181_GCC022_306 {alias GetTDrainIntoStream(306) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD182_GCC022_306 {alias GetTDrainIntoStream(306) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD194_GCC022_306 {alias GetTDrainIntoStream(306) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD195_GCC032_308 {alias GetTDrainIntoStream(308) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD196_GCC036_309 {alias GetTDrainIntoStream(309) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD197_GCC036_309 {alias GetTDrainIntoStream(309) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD210_GCC036_309 {alias GetTDrainIntoStream(309) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD215_GCC039_310 {alias GetTDrainIntoStream(310) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
-define TD226_GCC046_312 {alias GetTDrainIntoStream(312) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD235_GCC046_312 {alias GetTDrainIntoStream(312) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD249_GCC050_313 {alias GetTDrainIntoStream(313) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD257_GCC056_314 {alias GetTDrainIntoStream(314) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD264_GCC056_314 {alias GetTDrainIntoStream(314) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD265_GCC060_315 {alias GetTDrainIntoStream(315) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD272_GCC060_315 {alias GetTDrainIntoStream(315) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD273_CBD031_323 {alias GetTDrainIntoStream(323) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD274_CBD028_324 {alias GetTDrainIntoStream(324) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD286_CBD031_323 {alias GetTDrainIntoStream(323) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD287_CBD028_324 {alias GetTDrainIntoStream(324) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD288_CBD028_324 {alias GetTDrainIntoStream(324) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD298_CBD031_323 {alias GetTDrainIntoStream(323) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD299_CBD028_324 {alias GetTDrainIntoStream(324) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD300_CBD028_324 {alias GetTDrainIntoStream(324) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD301_CBD012_327 {alias GetTDrainIntoStream(327) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD311_CBD012_327 {alias GetTDrainIntoStream(327) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD312_CBD012_327 {alias GetTDrainIntoStream(327) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD313_CBD012_327 {alias GetTDrainIntoStream(327) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD322_CBD005_328 {alias GetTDrainIntoStream(328) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD323_CBD005_328 {alias GetTDrainIntoStream(328) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD324_CBD005_328 {alias GetTDrainIntoStream(328) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD325_CBD005_328 {alias GetTDrainIntoStream(328) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
-define TD170_CBD049_318 {alias GetTDrainIntoStream(318) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08N_CBD049
-define TD184_CBD049_318 {alias GetTDrainIntoStream(318) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08N_CBD049
-define TD185_CBD049_318 {alias GetTDrainIntoStream(318) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08N_CBD049
-define TD199_CBD049_318 {alias GetTDrainIntoStream(318) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08N_CBD049
-define TD200_CBD049_318 {alias GetTDrainIntoStream(318) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08N_CBD049
-define TD201_CBD049_318 {alias GetTDrainIntoStream(318) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08N_CBD049
-define TD212_CBD049_318 {alias GetTDrainIntoStream(318) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08N_CBD049
-define TD214_CBD049_318 {alias GetTDrainIntoStream(318) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08N_CBD049
-define TD217_CBD049_318 {alias GetTDrainIntoStream(318) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08N_CBD049
-define TD228_CBD044_319 {alias GetTDrainIntoStream(319) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08N_CBD049
-define TD238_CBD044_319 {alias GetTDrainIntoStream(319) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08N_CBD049
-define TD251_CBD041_320 {alias GetTDrainIntoStream(320) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08S_CBD028
-define TD252_CBD041_320 {alias GetTDrainIntoStream(320) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08S_CBD028
-define TD237_CBD041_320 {alias GetTDrainIntoStream(320) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08S_CBD038
-define TD259_CBD037_321 {alias GetTDrainIntoStream(321) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08S_CBD038
-define TD276_CBD023_325 {alias GetTDrainIntoStream(325) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08S_RFS8S
-define TD290_CBD018_326 {alias GetTDrainIntoStream(326) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08S_RFS8S
-define TD261_SAC141_294 {alias GetTDrainIntoStream(294) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08S_SAC146
-define TD141_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_09_BSL001
-define TD156_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_09_BSL001
-define TD172_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_09_BSL001
-define TD203_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_09_BSL001
-define TD222_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_09_BSL001
-define TD241_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_09_BSL001
-define TD142_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_10_BSL001
-define TD145_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_10_BSL001
-define TD150_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_10_BSL001
-define TD151_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_10_BSL001
-define TD146_BTC029_286 {alias GetTDrainIntoStream(286) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_10_BTC017
-define TD148_BTC016_289 {alias GetTDrainIntoStream(289) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_10_BTC017
-define TD149_BTC016_289 {alias GetTDrainIntoStream(289) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_10_BTC017
-define TD119_SAC196_273 {alias GetTDrainIntoStream(273) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_10_SAC196
-define TD120_SAC196_273 {alias GetTDrainIntoStream(273) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_10_SAC196
-define TD159_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_BSL001
-define TD175_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_BSL001
-define TD187_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_BSL001
-define TD190_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_BSL001
-define TD191_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_BSL001
-define TD205_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_BSL001
-define TD206_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_BSL001
-define TD224_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_BSL001
-define TD225_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_BSL001
-define TD230_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_BSL001
-define TD158_BTC016_289 {alias GetTDrainIntoStream(289) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_BTC017
-define TD174_BTC016_289 {alias GetTDrainIntoStream(289) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_BTC017
-define TD189_BTC016_289 {alias GetTDrainIntoStream(289) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_BTC017
-define TD207_SBP028_335 {alias GetTDrainIntoStream(335) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_DWRPS1
-define TD231_SBP028_335 {alias GetTDrainIntoStream(335) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_DWRPS1
-define TD244_SBP028_335 {alias GetTDrainIntoStream(335) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_DWRPS1
-define TD245_SBP028_335 {alias GetTDrainIntoStream(335) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_DWRPS1
-define TD271_SBP028_335 {alias GetTDrainIntoStream(335) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_DWRPS1
-define TD152_FTR067_341 {alias GetTDrainIntoStream(341) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_FTR059
-define TD160_FTR059_343 {alias GetTDrainIntoStream(343) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_FTR059
-define TD176_FTR059_343 {alias GetTDrainIntoStream(343) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_FTR059
-define TD193_FTR045_346 {alias GetTDrainIntoStream(346) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_12_HON004
-define TD209_FTR045_346 {alias GetTDrainIntoStream(346) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_12_HON004
-define TD163_FTR045_346 {alias GetTDrainIntoStream(346) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_13_RFS13
-define TD164_FTR045_346 {alias GetTDrainIntoStream(346) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_13_RFS13
-define TD178_FTR045_346 {alias GetTDrainIntoStream(346) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_13_RFS13
-define TD248_FTR028_352 {alias GetTDrainIntoStream(352) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_14_JCK002
-define TD234_FTR045_346 {alias GetTDrainIntoStream(346) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_15N_HON004
-define TD233_FTR028_352 {alias GetTDrainIntoStream(352) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_15N_JCK002
-define TD247_FTR028_352 {alias GetTDrainIntoStream(352) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_15N_JCK002
-define TD296_FTR012_362 {alias GetTDrainIntoStream(362) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_15S_FTR012
-define TD297_FTR012_362 {alias GetTDrainIntoStream(362) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_15S_FTR012
-define TD308_FTR012_362 {alias GetTDrainIntoStream(362) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_15S_FTR012
-define TD309_FTR012_362 {alias GetTDrainIntoStream(362) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_15S_FTR012
-define TD310_FTR012_362 {alias GetTDrainIntoStream(362) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_15S_FTR012
-define TD319_FTR012_362 {alias GetTDrainIntoStream(362) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_15S_FTR012
-define TD320_FTR012_362 {alias GetTDrainIntoStream(362) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_15S_FTR012
-define TD321_FTR012_362 {alias GetTDrainIntoStream(362) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_15S_FTR012
-define TD279_SBP028_335 {alias GetTDrainIntoStream(335) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_16_DWRPS1
-define TD282_SBP028_335 {alias GetTDrainIntoStream(335) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_16_DWRPS1
-define TD294_SBP018_338 {alias GetTDrainIntoStream(338) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_16_DWRPS1
-define TD306_SBP018_338 {alias GetTDrainIntoStream(338) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_16_DWRPS1
-define TD229_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_17N_BSL001
-define TD243_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_17N_BSL001
-define TD256_BTC003_291 {alias GetTDrainIntoStream(291) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_17N_BSL001
-define TD280_SAC122_297 {alias GetTDrainIntoStream(297) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_18_RFS18
-define TD292_SAC122_297 {alias GetTDrainIntoStream(297) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_18_RFS18
-define TD304_SAC085_367 {alias GetTDrainIntoStream(367) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_19_RD1500
-define TD316_SAC085_367 {alias GetTDrainIntoStream(367) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_19_RD1500
-define TD328_SAC085_367 {alias GetTDrainIntoStream(367) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_19_RD1500
-define TD337_CCH017_392 {alias GetTDrainIntoStream(392) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_20_CCH017
-define TD338_CCH017_392 {alias GetTDrainIntoStream(392) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_20_CCH017
-define TD409_PTH020_401 {alias GetTDrainIntoStream(401) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_20_PTH021
-define TD396_YBP026_397 {alias GetTDrainIntoStream(397) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_20_YBP023
-define TD397_YBP026_397 {alias GetTDrainIntoStream(397) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_20_YBP023
-define TD398_YBP026_397 {alias GetTDrainIntoStream(397) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_20_YBP023
-define TD399_YBP026_397 {alias GetTDrainIntoStream(397) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_20_YBP023
-define TD400_YBP026_397 {alias GetTDrainIntoStream(397) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_20_YBP023
-define TD402_YBP026_397 {alias GetTDrainIntoStream(397) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_20_YBP023
-define TD403_YBP026_397 {alias GetTDrainIntoStream(397) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_20_YBP023
-define TD404_YBP026_397 {alias GetTDrainIntoStream(397) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_20_YBP023
-define TD405_YBP026_397 {alias GetTDrainIntoStream(397) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_20_YBP023
-define TD406_YBP026_397 {alias GetTDrainIntoStream(397) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_20_YBP023
-define TD408_YBP023_398 {alias GetTDrainIntoStream(398) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_21_YBP023
-define TD341_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_22_CRC002
-define TD352_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_22_CRC002
-define TD364_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_22_CRC002
-define TD370_SAC063_381 {alias GetTDrainIntoStream(381) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_22_SAC066
-define TD376_SAC063_381 {alias GetTDrainIntoStream(381) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_22_SAC066
-define TD381_SAC063_381 {alias GetTDrainIntoStream(381) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_22_SAC066
-define TD342_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_23_ABN000
-define TD343_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_23_ABN000
-define TD344_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_23_ABN000
-define TD353_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_23_ABN000
-define TD354_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_23_ABN000
-define TD365_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_23_CRC002
-define TD371_SAC063_381 {alias GetTDrainIntoStream(381) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_23_CRC002
-define TD346_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_24_ABN000
-define TD355_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_24_ABN000
-define TD356_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_24_ABN000
-define TD357_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_24_ABN010
-define TD345_FTR012_362 {alias GetTDrainIntoStream(362) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_24_BRR004
-define TD366_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_24_CRC002
-define TD367_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_24_CRC002
-define TD368_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_24_CRC002
-define TD369_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_24_CRC002
-define TD391_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_24_CRC002
-define TD393_SAC063_381 {alias GetTDrainIntoStream(381) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_24_EMD007
-define TD429_CSL005_411 {alias GetTDrainIntoStream(411) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_25_CSL005
-define TD430_CSL005_411 {alias GetTDrainIntoStream(411) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_25_CSL005
-define TD431_CSL005_411 {alias GetTDrainIntoStream(411) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_25_CSL005
-define TD444_CSL005_411 {alias GetTDrainIntoStream(411) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_25_CSL005
-define TD445_CSL005_411 {alias GetTDrainIntoStream(411) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_25_CSL005
-define TD446_CSL005_411 {alias GetTDrainIntoStream(411) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_25_CSL005
-define TD447_CSL005_411 {alias GetTDrainIntoStream(411) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_25_CSL005
-define TD456_CSL005_411 {alias GetTDrainIntoStream(411) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_25_CSL005
-define TD457_CSL005_411 {alias GetTDrainIntoStream(411) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_25_CSL005
-define TD458_CSL005_411 {alias GetTDrainIntoStream(411) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_25_CSL005
-define TD459_CSL005_411 {alias GetTDrainIntoStream(411) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_25_CSL005
-define TD471_CSL005_411 {alias GetTDrainIntoStream(411) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_25_CSL005
-define TD490_CSL005_411 {alias GetTDrainIntoStream(411) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_25_CSL005
-define TD491_CSL005_411 {alias GetTDrainIntoStream(411) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_25_CSL005
-define TD379_AMR004_379 {alias GetTDrainIntoStream(379) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26N_AMR004
-define TD378_SAC063_381 {alias GetTDrainIntoStream(381) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26N_EMD001
-define TD383_SAC063_381 {alias GetTDrainIntoStream(381) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26N_EMD001
-define TD388_SAC063_381 {alias GetTDrainIntoStream(381) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26N_EMD001
-define TD377_SAC063_381 {alias GetTDrainIntoStream(381) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26N_EMD007
-define TD382_SAC063_381 {alias GetTDrainIntoStream(381) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26N_EMD007
-define TD386_SAC063_381 {alias GetTDrainIntoStream(381) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26N_EMD007
-define TD387_SAC063_381 {alias GetTDrainIntoStream(381) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26N_EMD007
-define TD390_SAC063_381 {alias GetTDrainIntoStream(381) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26N_EMD007
-define TD392_SAC063_381 {alias GetTDrainIntoStream(381) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26N_EMD007
-define TD453_MOK014_197 {alias GetTDrainIntoStream(197) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_MOK014
-define TD464_MOK014_197 {alias GetTDrainIntoStream(197) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_MOK014
-define TD465_MOK014_197 {alias GetTDrainIntoStream(197) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_MOK014
-define TD394_AMR020_376 {alias GetTDrainIntoStream(376) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_NTOMA
-define TD395_AMR020_376 {alias GetTDrainIntoStream(376) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_NTOMA
-define TD417_SAC048_384 {alias GetTDrainIntoStream(384) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_SAC048
-define TD418_SAC048_384 {alias GetTDrainIntoStream(384) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_SAC048
-define TD419_SAC048_384 {alias GetTDrainIntoStream(384) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_SAC048
-define TD420_SAC048_384 {alias GetTDrainIntoStream(384) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_SAC048
-define TD421_SAC048_384 {alias GetTDrainIntoStream(384) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_SAC048
-define TD422_SAC048_384 {alias GetTDrainIntoStream(384) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_SAC048
-define TD424_SAC048_384 {alias GetTDrainIntoStream(384) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_SAC048
-define TD436_SAC048_384 {alias GetTDrainIntoStream(384) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_SAC048
-define TD437_SAC048_384 {alias GetTDrainIntoStream(384) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_SAC048
-define TD438_SAC048_384 {alias GetTDrainIntoStream(384) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_SAC048
-define TD452_SAC048_384 {alias GetTDrainIntoStream(384) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_SAC048
-define TD496_SJR022_200 {alias GetTDrainIntoStream(200) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_60N_SJR022
+define TD_CWD018_454 {alias GetTDrainIntoStream(454) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
+define TD_CWD018_458 {alias GetTDrainIntoStream(458) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
+define TD_CWD009_456 {alias GetTDrainIntoStream(456) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
+define TD_CWD003_218 {alias GetTDrainIntoStream(218) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
+define TD_SCW008_461 {alias GetTDrainIntoStream(461) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_CWD003
+define TD_SAC287_208 {alias GetTDrainIntoStream(208) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_SAC271
+define TD_SAC281_209 {alias GetTDrainIntoStream(209) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_02_SAC271
+define TD_COW007_212 {alias GetTDrainIntoStream(212) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_03_COW003
+define TD_SAC273_216 {alias GetTDrainIntoStream(216) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_03_SAC265
+define TD_BTL006_220 {alias GetTDrainIntoStream(220) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_03_SAC265
+define TD_SAC281_207 {alias GetTDrainIntoStream(207) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_03_SAC277
+define TD_SAC277_215 {alias GetTDrainIntoStream(215) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_03_SAC277
+define TD_SAC214_260 {alias GetTDrainIntoStream(260) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC207
+define TD_SAC207_302 {alias GetTDrainIntoStream(302) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC207
+define TD_SAC240_231 {alias GetTDrainIntoStream(231) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
+define TD_SAC232_232 {alias GetTDrainIntoStream(232) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
+define TD_THM017_250 {alias GetTDrainIntoStream(250) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
+define TD_SAC218_259 {alias GetTDrainIntoStream(259) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_04_SAC217
+define TD_SAC196_273 {alias GetTDrainIntoStream(273) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_05_SAC196
+define TD_SAC207_261 {alias GetTDrainIntoStream(261) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_05_SAC201
+define TD_SAC232_234 {alias GetTDrainIntoStream(234) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_05_SAC217
+define TD_SAC218_258 {alias GetTDrainIntoStream(258) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_05_SAC217
+define TD_STN026_263 {alias GetTDrainIntoStream(263) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_06_SAC185
+define TD_STN014_265 {alias GetTDrainIntoStream(265) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_06_SAC185
+define TD_GCC022_306 {alias GetTDrainIntoStream(306) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
+define TD_GCC015_305 {alias GetTDrainIntoStream(305) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
+define TD_GCC032_308 {alias GetTDrainIntoStream(308) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
+define TD_GCC036_309 {alias GetTDrainIntoStream(309) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
+define TD_GCC039_310 {alias GetTDrainIntoStream(310) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07N_CBD049
+define TD_GCC046_312 {alias GetTDrainIntoStream(312) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
+define TD_GCC050_313 {alias GetTDrainIntoStream(313) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
+define TD_GCC056_314 {alias GetTDrainIntoStream(314) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
+define TD_GCC060_315 {alias GetTDrainIntoStream(315) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
+define TD_CBD031_323 {alias GetTDrainIntoStream(323) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
+define TD_CBD028_324 {alias GetTDrainIntoStream(324) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
+define TD_CBD012_327 {alias GetTDrainIntoStream(327) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
+define TD_CBD005_328 {alias GetTDrainIntoStream(328) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_07S_CBD028
+define TD_CBD049_318 {alias GetTDrainIntoStream(318) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08N_CBD049
+define TD_CBD044_319 {alias GetTDrainIntoStream(319) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08N_CBD049
+define TD_CBD041_320 {alias GetTDrainIntoStream(320) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08S_CBD028
+define TD_CBD037_321 {alias GetTDrainIntoStream(321) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08S_CBD038
+define TD_CBD023_325 {alias GetTDrainIntoStream(325) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08S_RFS8S
+define TD_CBD018_326 {alias GetTDrainIntoStream(326) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08S_RFS8S
+define TD_SAC141_294 {alias GetTDrainIntoStream(294) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_08S_SAC146
+define TD_BTC007_292 {alias GetTDrainIntoStream(292) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_09_BSL001
+define TD_BTC007_287 {alias GetTDrainIntoStream(287) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_10_BSL001
+define TD_BTC029_286 {alias GetTDrainIntoStream(286) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_10_BTC017
+define TD_BTC016_288 {alias GetTDrainIntoStream(288) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_10_BTC017
+define TD_SAC196_262 {alias GetTDrainIntoStream(262) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_10_SAC196
+define TD_BTC007_290 {alias GetTDrainIntoStream(290) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_BSL001
+define TD_BTC016_289 {alias GetTDrainIntoStream(289) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_BTC017
+define TD_SBP028_335 {alias GetTDrainIntoStream(335) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_DWRPS1
+define TD_FTR067_341 {alias GetTDrainIntoStream(341) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_FTR059
+define TD_FTR059_343 {alias GetTDrainIntoStream(343) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_11_FTR059
+define TD_FTR045_346 {alias GetTDrainIntoStream(346) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_12_HON004
+define TD_FTR045_345 {alias GetTDrainIntoStream(345) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_13_RFS13
+define TD_FTR028_351 {alias GetTDrainIntoStream(351) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_14_JCK002
+define TD_FTR045_347 {alias GetTDrainIntoStream(347) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_15N_HON004
+define TD_FTR028_352 {alias GetTDrainIntoStream(352) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_15N_JCK002
+define TD_FTR012_362 {alias GetTDrainIntoStream(362) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_15S_FTR012
+define TD_SBP028_336 {alias GetTDrainIntoStream(336) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_16_DWRPS1
+define TD_SBP018_338 {alias GetTDrainIntoStream(338) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_16_DWRPS1
+define TD_BTC007_291 {alias GetTDrainIntoStream(291) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_17N_BSL001
+define TD_SAC122_297 {alias GetTDrainIntoStream(297) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_18_RFS18
+define TD_SAC085_367 {alias GetTDrainIntoStream(367) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_19_RD1500
+define TD_CCH017_392 {alias GetTDrainIntoStream(392) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_20_CCH017
+define TD_PTH020_401 {alias GetTDrainIntoStream(401) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_20_PTH021
+define TD_YBP026_397 {alias GetTDrainIntoStream(397) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_20_YBP023
+define TD_YBP023_398 {alias GetTDrainIntoStream(398) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_21_YBP023
+define TD_SAC081_365 {alias GetTDrainIntoStream(365) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_22_CRC002
+define TD_SAC063_382 {alias GetTDrainIntoStream(382) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_22_SAC066
+define TD_SAC081_366 {alias GetTDrainIntoStream(366) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_23_ABN000
+define TD_SAC081_368 {alias GetTDrainIntoStream(368) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_23_CRC002
+define TD_SAC063_373 {alias GetTDrainIntoStream(373) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_23_CRC002
+define TD_SAC081_370 {alias GetTDrainIntoStream(370) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_24_ABN000
+define TD_SAC081_371 {alias GetTDrainIntoStream(371) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_24_ABN010
+define TD_FTR012_361 {alias GetTDrainIntoStream(361) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_24_BRR004
+define TD_SAC081_369 {alias GetTDrainIntoStream(369) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_24_CRC002
+define TD_SAC063_372 {alias GetTDrainIntoStream(372) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_24_EMD007
+define TD_CSL005_411 {alias GetTDrainIntoStream(411) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_25_CSL005
+define TD_AMR004_379 {alias GetTDrainIntoStream(379) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26N_AMR004
+define TD_SAC063_380 {alias GetTDrainIntoStream(380) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26N_EMD001
+define TD_SAC063_381 {alias GetTDrainIntoStream(381) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26N_EMD007
+define TD_MOK014_197 {alias GetTDrainIntoStream(197) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_MOK014
+define TD_AMR020_376 {alias GetTDrainIntoStream(376) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_NTOMA
+define TD_SAC048_384 {alias GetTDrainIntoStream(384) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_26S_SAC048
+define TD_SJR022_200 {alias GetTDrainIntoStream(200) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_60N_SJR022
 
 ! not added to surface runoffs yet:
-define TD415_SAC017_413 {alias GetTDrainIntoStream(413) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD434_SAC017_413 {alias GetTDrainIntoStream(413) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD449_SAC017_413 {alias GetTDrainIntoStream(413) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD450_SAC017_413 {alias GetTDrainIntoStream(413) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD461_SAC017_413 {alias GetTDrainIntoStream(413) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD462_SAC017_413 {alias GetTDrainIntoStream(413) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD468_CHCGO_433 {alias GetTDrainIntoStream(433) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD469_CHCGO_433 {alias GetTDrainIntoStream(433) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD470_CHCGO_433 {alias GetTDrainIntoStream(433) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD472_CSL005_411 {alias GetTDrainIntoStream(411) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD474_SAC017_413 {alias GetTDrainIntoStream(413) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD477_MOK014_197 {alias GetTDrainIntoStream(197) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD486_CHCGO_433 {alias GetTDrainIntoStream(433) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD487_CHCGO_433 {alias GetTDrainIntoStream(433) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD488_CHCGO_433 {alias GetTDrainIntoStream(433) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD489_CHCGO_433 {alias GetTDrainIntoStream(433) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD511_SJR022_200 {alias GetTDrainIntoStream(200) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD519_SJR022_200 {alias GetTDrainIntoStream(200) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD521_CHCGO_433 {alias GetTDrainIntoStream(433) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD522_CHCGO_433 {alias GetTDrainIntoStream(433) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD524_CHCGO_433 {alias GetTDrainIntoStream(433) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
+define TD_SAC017_413 {alias GetTDrainIntoStream(413) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !Delta
+define TD_CHCGO_433 {alias GetTDrainIntoStream(433) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !Delta
+define TD_CSL005_412 {alias GetTDrainIntoStream(412) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !Delta
+define TD_MOK014_196 {alias GetTDrainIntoStream(196) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !Delta
+define TD_SJR022_199 {alias GetTDrainIntoStream(199) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !Delta
 
-define TD423_MOK019_192 {alias GetTDrainIntoStream(192) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD427_MOK019_192 {alias GetTDrainIntoStream(192) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD440_MOK019_193 {alias GetTDrainIntoStream(193) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD441_MOK019_191 {alias GetTDrainIntoStream(191) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD442_MOK019_189 {alias GetTDrainIntoStream(189) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD455_MOK019_193 {alias GetTDrainIntoStream(193) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD467_MOK019_193 {alias GetTDrainIntoStream(193) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD481_MOK019_193 {alias GetTDrainIntoStream(193) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD482_MOK019_193 {alias GetTDrainIntoStream(193) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD483_MOK019_193 {alias GetTDrainIntoStream(193) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD484_MOK019_193 {alias GetTDrainIntoStream(193) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD485_MOK019_189 {alias GetTDrainIntoStream(189) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD500_MOK019_193 {alias GetTDrainIntoStream(193) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD501_MOK019_193 {alias GetTDrainIntoStream(193) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD502_MOK019_195 {alias GetTDrainIntoStream(195) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD503_MOK019_186 {alias GetTDrainIntoStream(186) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD504_MOK019_186 {alias GetTDrainIntoStream(186) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD507_MOK019_183 {alias GetTDrainIntoStream(183) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD508_MOK019_186 {alias GetTDrainIntoStream(186) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD509_MOK019_183 {alias GetTDrainIntoStream(183) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD510_MOK019_183 {alias GetTDrainIntoStream(183) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD517_MOK019_183 {alias GetTDrainIntoStream(183) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
-define TD518_MOK019_183 {alias GetTDrainIntoStream(183) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}
+define TD_MOK019_192 {alias GetTDrainIntoStream(192) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_60N_MOK019 (not modeled)
+define TD_MOK019_193 {alias GetTDrainIntoStream(193) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_60N_MOK019 (not modeled)
+define TD_MOK019_191 {alias GetTDrainIntoStream(191) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_60N_MOK019 (not modeled)
+define TD_MOK019_189 {alias GetTDrainIntoStream(189) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_60N_MOK019 (not modeled)
+define TD_MOK019_195 {alias GetTDrainIntoStream(195) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_60N_MOK019 (not modeled)
+define TD_MOK019_186 {alias GetTDrainIntoStream(186) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_60N_MOK019 (not modeled)
+define TD_MOK019_183 {alias GetTDrainIntoStream(183) /cfs_cfm kind 'DRAIN-GW' units 'CFS'}  !SR_60N_MOK019 (not modeled)
